@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
+<title>MultiRecordExampleAgent.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../";
+</script>
+<script src="../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../index.html">
+            <img src="../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>MultiRecordExampleAgent.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2010 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.backuprestore;
+
+import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
+import android.app.backup.BackupAgent;
+import android.app.backup.BackupDataInput;
+import android.app.backup.BackupDataOutput;
+import android.os.ParcelFileDescriptor;
+
+/**
+ * This agent implementation is similar to the {@link ExampleAgent} one, but
+ * stores each distinct piece of application data in a separate record within
+ * the backup data set.  These records are updated independently: if the user
+ * changes the state of one of the UI's checkboxes, for example, only that
+ * datum's backup record is updated, not the entire data file.
+ */
+public class MultiRecordExampleAgent extends BackupAgent {
+    // Key strings for each record in the backup set
+    static final String FILLING_KEY = "filling";
+    static final String MAYO_KEY = "mayo";
+    static final String TOMATO_KEY = "tomato";
+
+    // Current live data, read from the application's data file
+    int mFilling;
+    boolean mAddMayo;
+    boolean mAddTomato;
+
+    /** The location of the application's persistent data file */
+    File mDataFile;
+
+    @Override
+    public void onCreate() {
+        // Cache a File for the app's data
+        mDataFile = new File(getFilesDir(), BackupRestoreActivity.DATA_FILE_NAME);
+    }
+
+    @Override
+    public void onBackup(ParcelFileDescriptor oldState, BackupDataOutput data,
+            ParcelFileDescriptor newState) throws IOException {
+        // First, get the current data from the application's file.  This
+        // may throw an IOException, but in that case something has gone
+        // badly wrong with the app's data on disk, and we do not want
+        // to back up garbage data.  If we just let the exception go, the
+        // Backup Manager will handle it and simply skip the current
+        // backup operation.
+        synchronized (BackupRestoreActivity.sDataLock) {
+            RandomAccessFile file = new RandomAccessFile(mDataFile, "r");
+            mFilling = file.readInt();
+            mAddMayo = file.readBoolean();
+            mAddTomato = file.readBoolean();
+        }
+
+        // If this is the first backup ever, we have to back up everything
+        boolean forceBackup = (oldState == null);
+
+        // Now read the state as of the previous backup pass, if any
+        int lastFilling = 0;
+        boolean lastMayo = false;
+        boolean lastTomato = false;
+
+        if (!forceBackup) {
+
+            FileInputStream instream = new FileInputStream(oldState.getFileDescriptor());
+            DataInputStream in = new DataInputStream(instream);
+
+            try {
+                // Read the state as of the last backup
+                lastFilling = in.readInt();
+                lastMayo = in.readBoolean();
+                lastTomato = in.readBoolean();
+            } catch (IOException e) {
+                // If something went wrong reading the state file, be safe and
+                // force a backup of all the data again.
+                forceBackup = true;
+            }
+        }
+
+        // Okay, now check each datum to see whether we need to back up a new value.  We'll
+        // reuse the bytearray buffering stream for each datum.  We also use a little
+        // helper routine to avoid some code duplication when writing the two boolean
+        // records.
+        ByteArrayOutputStream bufStream = new ByteArrayOutputStream();
+        DataOutputStream out = new DataOutputStream(bufStream);
+
+        if (forceBackup || (mFilling != lastFilling)) {
+            // bufStream.reset();   // not necessary the first time, but good to remember
+            out.writeInt(mFilling);
+            writeBackupEntity(data, bufStream, FILLING_KEY);
+        }
+
+        if (forceBackup || (mAddMayo != lastMayo)) {
+            bufStream.reset();
+            out.writeBoolean(mAddMayo);
+            writeBackupEntity(data, bufStream, MAYO_KEY);
+        }
+
+        if (forceBackup || (mAddTomato != lastTomato)) {
+            bufStream.reset();
+            out.writeBoolean(mAddTomato);
+            writeBackupEntity(data, bufStream, TOMATO_KEY);
+        }
+
+        // Finally, write the state file that describes our data as of this backup pass
+        writeStateFile(newState);
+    }
+
+    /**
+     * Write out the new state file:  the version number, followed by the
+     * three bits of data as we sent them off to the backup transport.
+     */
+    void writeStateFile(ParcelFileDescriptor stateFile) throws IOException {
+        FileOutputStream outstream = new FileOutputStream(stateFile.getFileDescriptor());
+        DataOutputStream out = new DataOutputStream(outstream);
+
+        out.writeInt(mFilling);
+        out.writeBoolean(mAddMayo);
+        out.writeBoolean(mAddTomato);
+    }
+
+    // Helper: write the boolean 'value' as a backup record under the given 'key',
+    // reusing the given buffering stream &amp; data writer objects to do so.
+    void writeBackupEntity(BackupDataOutput data, ByteArrayOutputStream bufStream, String key)
+            throws IOException {
+        byte[] buf = bufStream.toByteArray();
+        data.writeEntityHeader(key, buf.length);
+        data.writeEntityData(buf, buf.length);
+    }
+
+    /**
+     * On restore, we pull the various bits of data out of the restore stream,
+     * then reconstruct the application's data file inside the shared lock.  A
+     * restore data set will always be the full set of records supplied by the
+     * application's backup operations.
+     */
+    @Override
+    public void onRestore(BackupDataInput data, int appVersionCode,
+            ParcelFileDescriptor newState) throws IOException {
+
+        // Consume the restore data set, remembering each bit of application state
+        // that we see along the way
+        while (data.readNextHeader()) {
+            String key = data.getKey();
+            int dataSize = data.getDataSize();
+
+            // In this implementation, we trust that we won't see any record keys
+            // that we don't understand.  Since we expect to handle them all, we
+            // go ahead and extract the data for each record before deciding how
+            // it will be handled.
+            byte[] dataBuf = new byte[dataSize];
+            data.readEntityData(dataBuf, 0, dataSize);
+            ByteArrayInputStream instream = new ByteArrayInputStream(dataBuf);
+            DataInputStream in = new DataInputStream(instream);
+
+            if (FILLING_KEY.equals(key)) {
+                mFilling = in.readInt();
+            } else if (MAYO_KEY.equals(key)) {
+                mAddMayo = in.readBoolean();
+            } else if (TOMATO_KEY.equals(key)) {
+                mAddTomato = in.readBoolean();
+            }
+        }
+
+        // Now we're ready to write out a full new dataset for the application.  Note that
+        // the restore process is intended to *replace* any existing or default data, so
+        // we can just go ahead and overwrite it all.
+        synchronized (BackupRestoreActivity.sDataLock) {
+            RandomAccessFile file = new RandomAccessFile(mDataFile, "rw");
+            file.setLength(0L);
+            file.writeInt(mFilling);
+            file.writeBoolean(mAddMayo);
+            file.writeBoolean(mAddTomato);
+        }
+
+        // Finally, write the state file that describes our data as of this restore pass.
+        writeStateFile(newState);
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

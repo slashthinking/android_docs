@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
+<title>RobotSpeakTtsService.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../";
+</script>
+<script src="../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../index.html">
+            <img src="../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>RobotSpeakTtsService.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package com.example.android.ttsengine;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.media.AudioFormat;
+import android.speech.tts.SynthesisCallback;
+import android.speech.tts.SynthesisRequest;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeechService;
+import android.util.Log;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * A text to speech engine that generates "speech" that a robot might understand.
+ * The engine supports two different "languages", each with their own frequency
+ * mappings.
+ *
+ * It exercises all aspects of the Text to speech engine API
+ * {@link android.speech.tts.TextToSpeechService}.
+ */
+public class RobotSpeakTtsService extends TextToSpeechService {
+    private static final String TAG = "ExampleTtsService";
+
+    /*
+     * This is the sampling rate of our output audio. This engine outputs
+     * audio at 16khz 16bits per sample PCM audio.
+     */
+    private static final int SAMPLING_RATE_HZ = 16000;
+
+    /*
+     * We multiply by a factor of two since each sample contains 16 bits (2 bytes).
+     */
+    private final byte[] mAudioBuffer = new byte[SAMPLING_RATE_HZ * 2];
+
+    private Map&lt;Character, Integer&gt; mFrequenciesMap;
+    private volatile String[] mCurrentLanguage = null;
+    private volatile boolean mStopRequested = false;
+    private SharedPreferences mSharedPrefs = null;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mSharedPrefs = getSharedPreferences(GeneralSettingsFragment.SHARED_PREFS_NAME,
+                Context.MODE_PRIVATE);
+        // We load the default language when we start up. This isn't strictly
+        // required though, it can always be loaded lazily on the first call to
+        // onLoadLanguage or onSynthesizeText. This a tradeoff between memory usage
+        // and the latency of the first call.
+        onLoadLanguage("eng", "usa", "");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected String[] onGetLanguage() {
+        // Note that mCurrentLanguage is volatile because this can be called from
+        // multiple threads.
+        return mCurrentLanguage;
+    }
+
+    @Override
+    protected int onIsLanguageAvailable(String lang, String country, String variant) {
+        // The robot speak synthesizer supports only english.
+        if ("eng".equals(lang)) {
+            // We support two specific robot languages, the british robot language
+            // and the american robot language.
+            if ("USA".equals(country) || "GBR".equals(country)) {
+                // If the engine supported a specific variant, we would have
+                // something like.
+                //
+                // if ("android".equals(variant)) {
+                //     return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
+                // }
+                return TextToSpeech.LANG_COUNTRY_AVAILABLE;
+            }
+
+            // We support the language, but not the country.
+            return TextToSpeech.LANG_AVAILABLE;
+        }
+
+        return TextToSpeech.LANG_NOT_SUPPORTED;
+    }
+
+    /*
+     * Note that this method is synchronized, as is onSynthesizeText because
+     * onLoadLanguage can be called from multiple threads (while onSynthesizeText
+     * is always called from a single thread only).
+     */
+    @Override
+    protected synchronized int onLoadLanguage(String lang, String country, String variant) {
+        final int isLanguageAvailable = onIsLanguageAvailable(lang, country, variant);
+
+        if (isLanguageAvailable == TextToSpeech.LANG_NOT_SUPPORTED) {
+            return isLanguageAvailable;
+        }
+
+        String loadCountry = country;
+        if (isLanguageAvailable == TextToSpeech.LANG_AVAILABLE) {
+            loadCountry = "USA";
+        }
+
+        // If we've already loaded the requested language, we can return early.
+        if (mCurrentLanguage != null) {
+            if (mCurrentLanguage[0].equals(lang) &amp;&amp; mCurrentLanguage[1].equals(country)) {
+                return isLanguageAvailable;
+            }
+        }
+
+        Map&lt;Character, Integer&gt; newFrequenciesMap = null;
+        try {
+            InputStream file = getAssets().open(lang + "-" + loadCountry + ".freq");
+            newFrequenciesMap = buildFrequencyMap(file);
+            file.close();
+        } catch (IOException e) {
+            Log.e(TAG, "Error loading data for : " + lang + "-" + country);
+        }
+
+        mFrequenciesMap = newFrequenciesMap;
+        mCurrentLanguage = new String[] { lang, loadCountry, ""};
+
+        return isLanguageAvailable;
+    }
+
+    @Override
+    protected void onStop() {
+        mStopRequested = true;
+    }
+
+    @Override
+    protected synchronized void onSynthesizeText(SynthesisRequest request,
+            SynthesisCallback callback) {
+        // Note that we call onLoadLanguage here since there is no guarantee
+        // that there would have been a prior call to this function.
+        int load = onLoadLanguage(request.getLanguage(), request.getCountry(),
+                request.getVariant());
+
+        // We might get requests for a language we don't support - in which case
+        // we error out early before wasting too much time.
+        if (load == TextToSpeech.LANG_NOT_SUPPORTED) {
+            callback.error();
+            return;
+        }
+
+        // At this point, we have loaded the language we need for synthesis and
+        // it is guaranteed that we support it so we proceed with synthesis.
+
+        // We denote that we are ready to start sending audio across to the
+        // framework. We use a fixed sampling rate (16khz), and send data across
+        // in 16bit PCM mono.
+        callback.start(SAMPLING_RATE_HZ,
+                AudioFormat.ENCODING_PCM_16BIT, 1 /* Number of channels. */);
+
+        // We then scan through each character of the request string and
+        // generate audio for it.
+        final String text = request.getText().toLowerCase();
+        for (int i = 0; i &lt; text.length(); ++i) {
+            char value = normalize(text.charAt(i));
+            // It is crucial to call either of callback.error() or callback.done() to ensure
+            // that audio / other resources are released as soon as possible.
+            if (!generateOneSecondOfAudio(value, callback)) {
+                callback.error();
+                return;
+            }
+        }
+
+        // Alright, we're done with our synthesis - yay!
+        callback.done();
+    }
+
+    /*
+     * Normalizes a given character to the range 'a' - 'z' (inclusive). Our
+     * frequency mappings contain frequencies for each of these characters.
+     */
+    private static char normalize(char input) {
+        if (input == ' ') {
+            return input;
+        }
+
+        if (input &lt; 'a') {
+            return 'a';
+        }
+        if (input &gt; 'z') {
+            return 'z';
+        }
+
+        return input;
+    }
+
+    private Map&lt;Character, Integer&gt; buildFrequencyMap(InputStream is) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        String line = null;
+        Map&lt;Character, Integer&gt; map = new HashMap&lt;Character, Integer&gt;();
+        try {
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(":");
+                if (parts.length != 2) {
+                    throw new IOException("Invalid line encountered: " + line);
+                }
+                map.put(parts[0].charAt(0), Integer.parseInt(parts[1]));
+            }
+            map.put(' ', 0);
+            return map;
+        } finally {
+            is.close();
+        }
+    }
+
+    private boolean generateOneSecondOfAudio(char alphabet, SynthesisCallback cb) {
+        ByteBuffer buffer = ByteBuffer.wrap(mAudioBuffer).order(ByteOrder.LITTLE_ENDIAN);
+
+        // Someone called onStop, end the current synthesis and return.
+        // The mStopRequested variable will be reset at the beginning of the
+        // next synthesis.
+        //
+        // In general, a call to onStop( ) should make a best effort attempt
+        // to stop all processing for the *current* onSynthesizeText request (if
+        // one is active).
+        if (mStopRequested) {
+            return false;
+        }
+
+
+        if (mFrequenciesMap == null || !mFrequenciesMap.containsKey(alphabet)) {
+            return false;
+        }
+
+        final int frequency = mFrequenciesMap.get(alphabet);
+
+        if (frequency &gt; 0) {
+            // This is the wavelength in samples. The frequency is chosen so that the
+            // waveLength is always a multiple of two and frequency divides the
+            // SAMPLING_RATE exactly.
+            final int waveLength = SAMPLING_RATE_HZ / frequency;
+            final int times = SAMPLING_RATE_HZ / waveLength;
+
+            for (int j = 0; j &lt; times; ++j) {
+                // For a square curve, half of the values will be at Short.MIN_VALUE
+                // and the other half will be Short.MAX_VALUE.
+                for (int i = 0; i &lt; waveLength / 2; ++i) {
+                    buffer.putShort((short)(getAmplitude() * -1));
+                }
+                for (int i = 0; i &lt; waveLength / 2; ++i) {
+                    buffer.putShort(getAmplitude());
+                }
+            }
+        } else {
+            // Play a second of silence.
+            for (int i = 0; i &lt; mAudioBuffer.length / 2; ++i) {
+                buffer.putShort((short) 0);
+            }
+        }
+
+        // Get the maximum allowed size of data we can send across in audioAvailable.
+        final int maxBufferSize = cb.getMaxBufferSize();
+        int offset = 0;
+        while (offset &lt; mAudioBuffer.length) {
+            int bytesToWrite = Math.min(maxBufferSize, mAudioBuffer.length - offset);
+            cb.audioAvailable(mAudioBuffer, offset, bytesToWrite);
+            offset += bytesToWrite;
+        }
+        return true;
+    }
+
+    private short getAmplitude() {
+        boolean whisper = mSharedPrefs.getBoolean(GeneralSettingsFragment.WHISPER_KEY, false);
+        return (short) (whisper ? 2048 : 8192);
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
+<title>NewsReaderActivity.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../";
+</script>
+<script src="../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../index.html">
+            <img src="../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>NewsReaderActivity.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.newsreader;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.SpinnerAdapter;
+
+/**
+ * Main activity: shows headlines list and articles, if layout permits.
+ *
+ * This is the main activity of the application. It can have several different layouts depending
+ * on the SDK version, screen size and orientation. The configurations are divided in two large
+ * groups: single-pane layouts and dual-pane layouts.
+ *
+ * In single-pane mode, this activity shows a list of headlines using a {@link HeadlinesFragment}.
+ * When the user clicks on a headline, a separate activity (a {@link ArticleActivity}) is launched
+ * to show the news article.
+ *
+ * In dual-pane mode, this activity shows a {@HeadlinesFragment} on the left side and an
+ * {@ArticleFragment} on the right side. When the user selects a headline on the left, the
+ * corresponding article is shown on the right.
+ *
+ * If an Action Bar is available (large enough screen and SDK version 11 or up), navigation
+ * controls are shown in the Action Bar (whether to show tabs or a list depends on the layout).
+ * If an Action Bar is not available, a regular image and button are shown in the top area of
+ * the screen, emulating an Action Bar.
+ */
+public class NewsReaderActivity extends FragmentActivity
+        implements HeadlinesFragment.OnHeadlineSelectedListener,
+                   CompatActionBarNavListener,
+                   OnClickListener  {
+
+    // Whether or not we are in dual-pane mode
+    boolean mIsDualPane = false;
+
+    // The fragment where the headlines are displayed
+    HeadlinesFragment mHeadlinesFragment;
+
+    // The fragment where the article is displayed (null if absent)
+    ArticleFragment mArticleFragment;
+
+    // The news category and article index currently being displayed
+    int mCatIndex = 0;
+    int mArtIndex = 0;
+    NewsCategory mCurrentCat;
+
+    // List of category titles
+    final String CATEGORIES[] = { "Top Stories", "Politics", "Economy", "Technology" };
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_layout);
+
+        // find our fragments
+        mHeadlinesFragment = (HeadlinesFragment) getSupportFragmentManager().findFragmentById(
+                R.id.headlines);
+        mArticleFragment = (ArticleFragment) getSupportFragmentManager().findFragmentById(
+                R.id.article);
+
+        // Determine whether we are in single-pane or dual-pane mode by testing the visibility
+        // of the article view.
+        View articleView = findViewById(R.id.article);
+        mIsDualPane = articleView != null &amp;&amp; articleView.getVisibility() == View.VISIBLE;
+
+        // Register ourselves as the listener for the headlines fragment events.
+        mHeadlinesFragment.setOnHeadlineSelectedListener(this);
+
+        // Set up the Action Bar (or not, if one is not available)
+        int catIndex = savedInstanceState == null ? 0 : savedInstanceState.getInt("catIndex", 0);
+        setUpActionBar(mIsDualPane, catIndex);
+
+        // Set up headlines fragment
+        mHeadlinesFragment.setSelectable(mIsDualPane);
+        restoreSelection(savedInstanceState);
+
+        // Set up the category button (shown if an Action Bar is not available)
+        Button catButton = (Button) findViewById(R.id.categorybutton);
+        if (catButton != null) {
+            catButton.setOnClickListener(this);
+        }
+    }
+
+    /** Restore category/article selection from saved state. */
+    void restoreSelection(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            setNewsCategory(savedInstanceState.getInt("catIndex", 0));
+            if (mIsDualPane) {
+                int artIndex = savedInstanceState.getInt("artIndex", 0);
+                mHeadlinesFragment.setSelection(artIndex);
+                onHeadlineSelected(artIndex);
+            }
+        }
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        restoreSelection(savedInstanceState);
+    }
+
+    /** Sets up Action Bar (if present).
+     *
+     * @param showTabs whether to show tabs (if false, will show list).
+     * @param selTab the selected tab or list item.
+     */
+    public void setUpActionBar(boolean showTabs, int selTab) {
+        if (Build.VERSION.SDK_INT &lt; 11) {
+            // No action bar for you!
+            // But do not despair. In this case the layout includes a bar across the
+            // top that looks and feels like an action bar, but is made up of regular views.
+            return;
+        }
+
+        android.app.ActionBar actionBar = getActionBar();
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        // Set up a CompatActionBarNavHandler to deliver us the Action Bar nagivation events
+        CompatActionBarNavHandler handler = new CompatActionBarNavHandler(this);
+        if (showTabs) {
+            actionBar.setNavigationMode(android.app.ActionBar.NAVIGATION_MODE_TABS);
+            int i;
+            for (i = 0; i &lt; CATEGORIES.length; i++) {
+                actionBar.addTab(actionBar.newTab().setText(CATEGORIES[i]).setTabListener(handler));
+            }
+            actionBar.setSelectedNavigationItem(selTab);
+        }
+        else {
+            actionBar.setNavigationMode(android.app.ActionBar.NAVIGATION_MODE_LIST);
+            SpinnerAdapter adap = new ArrayAdapter&lt;String&gt;(this, R.layout.actionbar_list_item,
+                    CATEGORIES);
+            actionBar.setListNavigationCallbacks(adap, handler);
+        }
+
+        // Show logo instead of icon+title.
+        actionBar.setDisplayUseLogoEnabled(true);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        setNewsCategory(0);
+    }
+
+    /** Sets the displayed news category.
+     *
+     * This causes the headlines fragment to be repopulated with the appropriate headlines.
+     */
+    void setNewsCategory(int categoryIndex) {
+        mCatIndex = categoryIndex;
+        mCurrentCat = NewsSource.getInstance().getCategory(categoryIndex);
+        mHeadlinesFragment.loadCategory(categoryIndex);
+
+        // If we are displaying the article on the right, we have to update that too
+        if (mIsDualPane) {
+            mArticleFragment.displayArticle(mCurrentCat.getArticle(0));
+        }
+
+        // If we are displaying a "category" button (on the ActionBar-less UI), we have to update
+        // its text to reflect the current category.
+        Button catButton = (Button) findViewById(R.id.categorybutton);
+        if (catButton != null) {
+            catButton.setText(CATEGORIES[mCatIndex]);
+        }
+    }
+
+    /** Called when a headline is selected.
+     *
+     * This is called by the HeadlinesFragment (via its listener interface) to notify us that a
+     * headline was selected in the Action Bar. The way we react depends on whether we are in
+     * single or dual-pane mode. In single-pane mode, we launch a new activity to display the
+     * selected article; in dual-pane mode we simply display it on the article fragment.
+     *
+     * @param index the index of the selected headline.
+     */
+    @Override
+    public void onHeadlineSelected(int index) {
+        mArtIndex = index;
+        if (mIsDualPane) {
+            // display it on the article fragment
+            mArticleFragment.displayArticle(mCurrentCat.getArticle(index));
+        }
+        else {
+            // use separate activity
+            Intent i = new Intent(this, ArticleActivity.class);
+            i.putExtra("catIndex", mCatIndex);
+            i.putExtra("artIndex", index);
+            startActivity(i);
+        }
+    }
+
+    /** Called when a news category is selected.
+     *
+     * This is called by our CompatActionBarNavHandler in response to the user selecting a
+     * news category in the Action Bar. We react by loading and displaying the headlines for
+     * that category.
+     *
+     * @param catIndex the index of the selected news category.
+     */
+    @Override
+    public void onCategorySelected(int catIndex) {
+        setNewsCategory(catIndex);
+    }
+
+    /** Save instance state. Saves current category/article index. */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("catIndex", mCatIndex);
+        outState.putInt("artIndex", mArtIndex);
+        super.onSaveInstanceState(outState);
+    }
+
+    /** Called when news category button is clicked.
+     *
+     * This is the button that we display on UIs that don't have an action bar. This button
+     * calls up a list of news categories and switches to the given category.
+     */
+    @Override
+    public void onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select a Category");
+        builder.setItems(CATEGORIES, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                setNewsCategory(which);
+            }
+        });
+        AlertDialog d = builder.create();
+        d.show();
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

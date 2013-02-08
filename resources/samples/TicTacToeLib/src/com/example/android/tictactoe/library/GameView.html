@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../../favicon.ico" />
+<title>GameView.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../../";
+</script>
+<script src="../../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../../index.html">
+            <img src="../../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>GameView.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2010 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.tictactoe.library;
+
+import java.util.Random;
+
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Bitmap.Config;
+import android.graphics.BitmapFactory.Options;
+import android.graphics.Paint.Style;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Parcelable;
+import android.os.Handler.Callback;
+import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
+
+//-----------------------------------------------
+
+public class GameView extends View {
+
+    public static final long FPS_MS = 1000/2;
+
+    public enum State {
+        UNKNOWN(-3),
+        WIN(-2),
+        EMPTY(0),
+        PLAYER1(1),
+        PLAYER2(2);
+
+        private int mValue;
+
+        private State(int value) {
+            mValue = value;
+        }
+
+        public int getValue() {
+            return mValue;
+        }
+
+        public static State fromInt(int i) {
+            for (State s : values()) {
+                if (s.getValue() == i) {
+                    return s;
+                }
+            }
+            return EMPTY;
+        }
+    }
+
+    private static final int MARGIN = 4;
+    private static final int MSG_BLINK = 1;
+
+    private final Handler mHandler = new Handler(new MyHandler());
+
+    private final Rect mSrcRect = new Rect();
+    private final Rect mDstRect = new Rect();
+
+    private int mSxy;
+    private int mOffetX;
+    private int mOffetY;
+    private Paint mWinPaint;
+    private Paint mLinePaint;
+    private Paint mBmpPaint;
+    private Bitmap mBmpPlayer1;
+    private Bitmap mBmpPlayer2;
+    private Drawable mDrawableBg;
+
+    private ICellListener mCellListener;
+
+    /** Contains one of {@link State#EMPTY}, {@link State#PLAYER1} or {@link State#PLAYER2}. */
+    private final State[] mData = new State[9];
+
+    private int mSelectedCell = -1;
+    private State mSelectedValue = State.EMPTY;
+    private State mCurrentPlayer = State.UNKNOWN;
+    private State mWinner = State.EMPTY;
+
+    private int mWinCol = -1;
+    private int mWinRow = -1;
+    private int mWinDiag = -1;
+
+    private boolean mBlinkDisplayOff;
+    private final Rect mBlinkRect = new Rect();
+
+
+
+    public interface ICellListener {
+        abstract void onCellSelected();
+    }
+
+    public GameView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        requestFocus();
+
+        mDrawableBg = getResources().getDrawable(R.drawable.lib_bg);
+        setBackgroundDrawable(mDrawableBg);
+
+        mBmpPlayer1 = getResBitmap(R.drawable.lib_cross);
+        mBmpPlayer2 = getResBitmap(R.drawable.lib_circle);
+
+        if (mBmpPlayer1 != null) {
+            mSrcRect.set(0, 0, mBmpPlayer1.getWidth() -1, mBmpPlayer1.getHeight() - 1);
+        }
+
+        mBmpPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+
+        mLinePaint = new Paint();
+        mLinePaint.setColor(0xFFFFFFFF);
+        mLinePaint.setStrokeWidth(5);
+        mLinePaint.setStyle(Style.STROKE);
+
+        mWinPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mWinPaint.setColor(0xFFFF0000);
+        mWinPaint.setStrokeWidth(10);
+        mWinPaint.setStyle(Style.STROKE);
+
+        for (int i = 0; i &lt; mData.length; i++) {
+            mData[i] = State.EMPTY;
+        }
+
+        if (isInEditMode()) {
+            // In edit mode (e.g. in the Eclipse ADT graphical layout editor)
+            // we'll use some random data to display the state.
+            Random rnd = new Random();
+            for (int i = 0; i &lt; mData.length; i++) {
+                mData[i] = State.fromInt(rnd.nextInt(3));
+            }
+        }
+    }
+
+    public State[] getData() {
+        return mData;
+    }
+
+    public void setCell(int cellIndex, State value) {
+        mData[cellIndex] = value;
+        invalidate();
+    }
+
+    public void setCellListener(ICellListener cellListener) {
+        mCellListener = cellListener;
+    }
+
+    public int getSelection() {
+        if (mSelectedValue == mCurrentPlayer) {
+            return mSelectedCell;
+        }
+
+        return -1;
+    }
+
+    public State getCurrentPlayer() {
+        return mCurrentPlayer;
+    }
+
+    public void setCurrentPlayer(State player) {
+        mCurrentPlayer = player;
+        mSelectedCell = -1;
+    }
+
+    public State getWinner() {
+        return mWinner;
+    }
+
+    public void setWinner(State winner) {
+        mWinner = winner;
+    }
+
+    /** Sets winning mark on specified column or row (0..2) or diagonal (0..1). */
+    public void setFinished(int col, int row, int diagonal) {
+        mWinCol = col;
+        mWinRow = row;
+        mWinDiag = diagonal;
+    }
+
+    //-----------------------------------------
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        int sxy = mSxy;
+        int s3  = sxy * 3;
+        int x7 = mOffetX;
+        int y7 = mOffetY;
+
+        for (int i = 0, k = sxy; i &lt; 2; i++, k += sxy) {
+            canvas.drawLine(x7    , y7 + k, x7 + s3 - 1, y7 + k     , mLinePaint);
+            canvas.drawLine(x7 + k, y7    , x7 + k     , y7 + s3 - 1, mLinePaint);
+        }
+
+        for (int j = 0, k = 0, y = y7; j &lt; 3; j++, y += sxy) {
+            for (int i = 0, x = x7; i &lt; 3; i++, k++, x += sxy) {
+                mDstRect.offsetTo(MARGIN+x, MARGIN+y);
+
+                State v;
+                if (mSelectedCell == k) {
+                    if (mBlinkDisplayOff) {
+                        continue;
+                    }
+                    v = mSelectedValue;
+                } else {
+                    v = mData[k];
+                }
+
+                switch(v) {
+                case PLAYER1:
+                    if (mBmpPlayer1 != null) {
+                        canvas.drawBitmap(mBmpPlayer1, mSrcRect, mDstRect, mBmpPaint);
+                    }
+                    break;
+                case PLAYER2:
+                    if (mBmpPlayer2 != null) {
+                        canvas.drawBitmap(mBmpPlayer2, mSrcRect, mDstRect, mBmpPaint);
+                    }
+                    break;
+                }
+            }
+        }
+
+        if (mWinRow &gt;= 0) {
+            int y = y7 + mWinRow * sxy + sxy / 2;
+            canvas.drawLine(x7 + MARGIN, y, x7 + s3 - 1 - MARGIN, y, mWinPaint);
+
+        } else if (mWinCol &gt;= 0) {
+            int x = x7 + mWinCol * sxy + sxy / 2;
+            canvas.drawLine(x, y7 + MARGIN, x, y7 + s3 - 1 - MARGIN, mWinPaint);
+
+        } else if (mWinDiag == 0) {
+            // diagonal 0 is from (0,0) to (2,2)
+
+            canvas.drawLine(x7 + MARGIN, y7 + MARGIN,
+                    x7 + s3 - 1 - MARGIN, y7 + s3 - 1 - MARGIN, mWinPaint);
+
+        } else if (mWinDiag == 1) {
+            // diagonal 1 is from (0,2) to (2,0)
+
+            canvas.drawLine(x7 + MARGIN, y7 + s3 - 1 - MARGIN,
+                    x7 + s3 - 1 - MARGIN, y7 + MARGIN, mWinPaint);
+        }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // Keep the view squared
+        int w = MeasureSpec.getSize(widthMeasureSpec);
+        int h = MeasureSpec.getSize(heightMeasureSpec);
+        int d = w == 0 ? h : h == 0 ? w : w &lt; h ? w : h;
+        setMeasuredDimension(d, d);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+
+        int sx = (w - 2 * MARGIN) / 3;
+        int sy = (h - 2 * MARGIN) / 3;
+
+        int size = sx &lt; sy ? sx : sy;
+
+        mSxy = size;
+        mOffetX = (w - 3 * size) / 2;
+        mOffetY = (h - 3 * size) / 2;
+
+        mDstRect.set(MARGIN, MARGIN, size - MARGIN, size - MARGIN);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getAction();
+
+        if (action == MotionEvent.ACTION_DOWN) {
+            return true;
+
+        } else if (action == MotionEvent.ACTION_UP) {
+            int x = (int) event.getX();
+            int y = (int) event.getY();
+
+            int sxy = mSxy;
+            x = (x - MARGIN) / sxy;
+            y = (y - MARGIN) / sxy;
+
+            if (isEnabled() &amp;&amp; x &gt;= 0 &amp;&amp; x &lt; 3 &amp;&amp; y &gt;= 0 &amp; y &lt; 3) {
+                int cell = x + 3 * y;
+
+                State state = cell == mSelectedCell ? mSelectedValue : mData[cell];
+                state = state == State.EMPTY ? mCurrentPlayer : State.EMPTY;
+
+                stopBlink();
+
+                mSelectedCell = cell;
+                mSelectedValue = state;
+                mBlinkDisplayOff = false;
+                mBlinkRect.set(MARGIN + x * sxy, MARGIN + y * sxy,
+                               MARGIN + (x + 1) * sxy, MARGIN + (y + 1) * sxy);
+
+                if (state != State.EMPTY) {
+                    // Start the blinker
+                    mHandler.sendEmptyMessageDelayed(MSG_BLINK, FPS_MS);
+                }
+
+                if (mCellListener != null) {
+                    mCellListener.onCellSelected();
+                }
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public void stopBlink() {
+        boolean hadSelection = mSelectedCell != -1 &amp;&amp; mSelectedValue != State.EMPTY;
+        mSelectedCell = -1;
+        mSelectedValue = State.EMPTY;
+        if (!mBlinkRect.isEmpty()) {
+            invalidate(mBlinkRect);
+        }
+        mBlinkDisplayOff = false;
+        mBlinkRect.setEmpty();
+        mHandler.removeMessages(MSG_BLINK);
+        if (hadSelection &amp;&amp; mCellListener != null) {
+            mCellListener.onCellSelected();
+        }
+    }
+
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        Bundle b = new Bundle();
+
+        Parcelable s = super.onSaveInstanceState();
+        b.putParcelable("gv_super_state", s);
+
+        b.putBoolean("gv_en", isEnabled());
+
+        int[] data = new int[mData.length];
+        for (int i = 0; i &lt; data.length; i++) {
+            data[i] = mData[i].getValue();
+        }
+        b.putIntArray("gv_data", data);
+
+        b.putInt("gv_sel_cell", mSelectedCell);
+        b.putInt("gv_sel_val",  mSelectedValue.getValue());
+        b.putInt("gv_curr_play", mCurrentPlayer.getValue());
+        b.putInt("gv_winner", mWinner.getValue());
+
+        b.putInt("gv_win_col", mWinCol);
+        b.putInt("gv_win_row", mWinRow);
+        b.putInt("gv_win_diag", mWinDiag);
+
+        b.putBoolean("gv_blink_off", mBlinkDisplayOff);
+        b.putParcelable("gv_blink_rect", mBlinkRect);
+
+        return b;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+
+        if (!(state instanceof Bundle)) {
+            // Not supposed to happen.
+            super.onRestoreInstanceState(state);
+            return;
+        }
+
+        Bundle b = (Bundle) state;
+        Parcelable superState = b.getParcelable("gv_super_state");
+
+        setEnabled(b.getBoolean("gv_en", true));
+
+        int[] data = b.getIntArray("gv_data");
+        if (data != null &amp;&amp; data.length == mData.length) {
+            for (int i = 0; i &lt; data.length; i++) {
+                mData[i] = State.fromInt(data[i]);
+            }
+        }
+
+        mSelectedCell = b.getInt("gv_sel_cell", -1);
+        mSelectedValue = State.fromInt(b.getInt("gv_sel_val", State.EMPTY.getValue()));
+        mCurrentPlayer = State.fromInt(b.getInt("gv_curr_play", State.EMPTY.getValue()));
+        mWinner = State.fromInt(b.getInt("gv_winner", State.EMPTY.getValue()));
+
+        mWinCol = b.getInt("gv_win_col", -1);
+        mWinRow = b.getInt("gv_win_row", -1);
+        mWinDiag = b.getInt("gv_win_diag", -1);
+
+        mBlinkDisplayOff = b.getBoolean("gv_blink_off", false);
+        Rect r = b.getParcelable("gv_blink_rect");
+        if (r != null) {
+            mBlinkRect.set(r);
+        }
+
+        // let the blink handler decide if it should blink or not
+        mHandler.sendEmptyMessage(MSG_BLINK);
+
+        super.onRestoreInstanceState(superState);
+    }
+
+    //-----
+
+    private class MyHandler implements Callback {
+        public boolean handleMessage(Message msg) {
+            if (msg.what == MSG_BLINK) {
+                if (mSelectedCell &gt;= 0 &amp;&amp; mSelectedValue != State.EMPTY &amp;&amp; mBlinkRect.top != 0) {
+                    mBlinkDisplayOff = !mBlinkDisplayOff;
+                    invalidate(mBlinkRect);
+
+                    if (!mHandler.hasMessages(MSG_BLINK)) {
+                        mHandler.sendEmptyMessageDelayed(MSG_BLINK, FPS_MS);
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+    }
+
+    private Bitmap getResBitmap(int bmpResId) {
+        Options opts = new Options();
+        opts.inDither = false;
+
+        Resources res = getResources();
+        Bitmap bmp = BitmapFactory.decodeResource(res, bmpResId, opts);
+
+        if (bmp == null &amp;&amp; isInEditMode()) {
+            // BitmapFactory.decodeResource doesn't work from the rendering
+            // library in Eclipse's Graphical Layout Editor. Use this workaround instead.
+
+            Drawable d = res.getDrawable(bmpResId);
+            int w = d.getIntrinsicWidth();
+            int h = d.getIntrinsicHeight();
+            bmp = Bitmap.createBitmap(w, h, Config.ARGB_8888);
+            Canvas c = new Canvas(bmp);
+            d.setBounds(0, 0, w - 1, h - 1);
+            d.draw(c);
+        }
+
+        return bmp;
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

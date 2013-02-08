@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../../favicon.ico" />
+<title>GameControllerInput.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../../";
+</script>
+<script src="../../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../../index.html">
+            <img src="../../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>GameControllerInput.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.apis.view;
+
+import com.example.android.apis.R;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.hardware.input.InputManager;
+import android.os.Bundle;
+import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import android.view.InputDevice;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.InputDevice.MotionRange;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * Demonstrates how to process input events received from game controllers.
+ * It also shows how to detect when input devices are added, removed or reconfigured.
+ *
+ * This activity displays button states and joystick positions.
+ * Also writes detailed information about relevant input events to the log.
+ *
+ * The game controller is also uses to control a very simple game.  See {@link GameView}
+ * for the game itself.
+ */
+public class GameControllerInput extends Activity
+        implements InputManager.InputDeviceListener {
+    private static final String TAG = "GameControllerInput";
+
+    private InputManager mInputManager;
+    private SparseArray&lt;InputDeviceState&gt; mInputDeviceStates;
+    private GameView mGame;
+    private ListView mSummaryList;
+    private SummaryAdapter mSummaryAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        mInputManager = (InputManager)getSystemService(Context.INPUT_SERVICE);
+
+        mInputDeviceStates = new SparseArray&lt;InputDeviceState&gt;();
+        mSummaryAdapter = new SummaryAdapter(this, getResources());
+
+        setContentView(R.layout.game_controller_input);
+
+        mGame = (GameView) findViewById(R.id.game);
+
+        mSummaryList = (ListView) findViewById(R.id.summary);
+        mSummaryList.setAdapter(mSummaryAdapter);
+        mSummaryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+                mSummaryAdapter.onItemClick(position);
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Register an input device listener to watch when input devices are
+        // added, removed or reconfigured.
+        mInputManager.registerInputDeviceListener(this, null);
+
+        // Query all input devices.
+        // We do this so that we can see them in the log as they are enumerated.
+        int[] ids = mInputManager.getInputDeviceIds();
+        for (int i = 0; i &lt; ids.length; i++) {
+            getInputDeviceState(ids[i]);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Remove the input device listener when the activity is paused.
+        mInputManager.unregisterInputDeviceListener(this);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+        mGame.requestFocus();
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        // Update device state for visualization and logging.
+        InputDeviceState state = getInputDeviceState(event.getDeviceId());
+        if (state != null) {
+            switch (event.getAction()) {
+                case KeyEvent.ACTION_DOWN:
+                    if (state.onKeyDown(event)) {
+                        mSummaryAdapter.show(state);
+                    }
+                    break;
+                case KeyEvent.ACTION_UP:
+                    if (state.onKeyUp(event)) {
+                        mSummaryAdapter.show(state);
+                    }
+                    break;
+            }
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public boolean dispatchGenericMotionEvent(MotionEvent event) {
+        // Check that the event came from a joystick since a generic motion event
+        // could be almost anything.
+        if (isJoystick(event.getSource())
+                &amp;&amp; event.getAction() == MotionEvent.ACTION_MOVE) {
+            // Update device state for visualization and logging.
+            InputDeviceState state = getInputDeviceState(event.getDeviceId());
+            if (state != null &amp;&amp; state.onJoystickMotion(event)) {
+                mSummaryAdapter.show(state);
+            }
+        }
+        return super.dispatchGenericMotionEvent(event);
+    }
+
+    private InputDeviceState getInputDeviceState(int deviceId) {
+        InputDeviceState state = mInputDeviceStates.get(deviceId);
+        if (state == null) {
+            final InputDevice device = mInputManager.getInputDevice(deviceId);
+            if (device == null) {
+                return null;
+            }
+            state = new InputDeviceState(device);
+            mInputDeviceStates.put(deviceId, state);
+            Log.i(TAG, "Device enumerated: " + state.mDevice);
+        }
+        return state;
+    }
+
+    // Implementation of InputManager.InputDeviceListener.onInputDeviceAdded()
+    @Override
+    public void onInputDeviceAdded(int deviceId) {
+        InputDeviceState state = getInputDeviceState(deviceId);
+        Log.i(TAG, "Device added: " + state.mDevice);
+    }
+
+    // Implementation of InputManager.InputDeviceListener.onInputDeviceChanged()
+    @Override
+    public void onInputDeviceChanged(int deviceId) {
+        InputDeviceState state = mInputDeviceStates.get(deviceId);
+        if (state != null) {
+            mInputDeviceStates.remove(deviceId);
+            state = getInputDeviceState(deviceId);
+            Log.i(TAG, "Device changed: " + state.mDevice);
+        }
+    }
+
+    // Implementation of InputManager.InputDeviceListener.onInputDeviceRemoved()
+    @Override
+    public void onInputDeviceRemoved(int deviceId) {
+        InputDeviceState state = mInputDeviceStates.get(deviceId);
+        if (state != null) {
+            Log.i(TAG, "Device removed: " + state.mDevice);
+            mInputDeviceStates.remove(deviceId);
+        }
+    }
+
+    private static boolean isJoystick(int source) {
+        return (source &amp; InputDevice.SOURCE_CLASS_JOYSTICK) != 0;
+    }
+
+    /**
+     * Tracks the state of joystick axes and game controller buttons for a particular
+     * input device for diagnostic purposes.
+     */
+    private static class InputDeviceState {
+        private final InputDevice mDevice;
+        private final int[] mAxes;
+        private final float[] mAxisValues;
+        private final SparseIntArray mKeys;
+
+        public InputDeviceState(InputDevice device) {
+            mDevice = device;
+
+            int numAxes = 0;
+            final List&lt;MotionRange&gt; ranges = device.getMotionRanges();
+            for (MotionRange range : ranges) {
+                if ((range.getSource() &amp; InputDevice.SOURCE_CLASS_JOYSTICK) != 0) {
+                    numAxes += 1;
+                }
+            }
+
+            mAxes = new int[numAxes];
+            mAxisValues = new float[numAxes];
+            int i = 0;
+            for (MotionRange range : ranges) {
+                if ((range.getSource() &amp; InputDevice.SOURCE_CLASS_JOYSTICK) != 0) {
+                    mAxes[i++] = range.getAxis();
+                }
+            }
+
+            mKeys = new SparseIntArray();
+        }
+
+        public InputDevice getDevice() {
+            return mDevice;
+        }
+
+        public int getAxisCount() {
+            return mAxes.length;
+        }
+
+        public int getAxis(int axisIndex) {
+            return mAxes[axisIndex];
+        }
+
+        public float getAxisValue(int axisIndex) {
+            return mAxisValues[axisIndex];
+        }
+
+        public int getKeyCount() {
+            return mKeys.size();
+        }
+
+        public int getKeyCode(int keyIndex) {
+            return mKeys.keyAt(keyIndex);
+        }
+
+        public boolean isKeyPressed(int keyIndex) {
+            return mKeys.valueAt(keyIndex) != 0;
+        }
+
+        public boolean onKeyDown(KeyEvent event) {
+            final int keyCode = event.getKeyCode();
+            if (isGameKey(keyCode)) {
+                if (event.getRepeatCount() == 0) {
+                    final String symbolicName = KeyEvent.keyCodeToString(keyCode);
+                    mKeys.put(keyCode, 1);
+                    Log.i(TAG, mDevice.getName() + " - Key Down: " + symbolicName);
+                }
+                return true;
+            }
+            return false;
+        }
+
+        public boolean onKeyUp(KeyEvent event) {
+            final int keyCode = event.getKeyCode();
+            if (isGameKey(keyCode)) {
+                int index = mKeys.indexOfKey(keyCode);
+                if (index &gt;= 0) {
+                    final String symbolicName = KeyEvent.keyCodeToString(keyCode);
+                    mKeys.put(keyCode, 0);
+                    Log.i(TAG, mDevice.getName() + " - Key Up: " + symbolicName);
+                }
+                return true;
+            }
+            return false;
+        }
+
+        public boolean onJoystickMotion(MotionEvent event) {
+            StringBuilder message = new StringBuilder();
+            message.append(mDevice.getName()).append(" - Joystick Motion:\n");
+
+            final int historySize = event.getHistorySize();
+            for (int i = 0; i &lt; mAxes.length; i++) {
+                final int axis = mAxes[i];
+                final float value = event.getAxisValue(axis);
+                mAxisValues[i] = value;
+                message.append("  ").append(MotionEvent.axisToString(axis)).append(": ");
+
+                // Append all historical values in the batch.
+                for (int historyPos = 0; historyPos &lt; historySize; historyPos++) {
+                    message.append(event.getHistoricalAxisValue(axis, historyPos));
+                    message.append(", ");
+                }
+
+                // Append the current value.
+                message.append(value);
+                message.append("\n");
+            }
+            Log.i(TAG, message.toString());
+            return true;
+        }
+
+        // Check whether this is a key we care about.
+        // In a real game, we would probably let the user configure which keys to use
+        // instead of hardcoding the keys like this.
+        private static boolean isGameKey(int keyCode) {
+            switch (keyCode) {
+                case KeyEvent.KEYCODE_DPAD_UP:
+                case KeyEvent.KEYCODE_DPAD_DOWN:
+                case KeyEvent.KEYCODE_DPAD_LEFT:
+                case KeyEvent.KEYCODE_DPAD_RIGHT:
+                case KeyEvent.KEYCODE_DPAD_CENTER:
+                case KeyEvent.KEYCODE_SPACE:
+                    return true;
+                default:
+                    return KeyEvent.isGamepadButton(keyCode);
+            }
+        }
+    }
+
+    /**
+     * A list adapter that displays a summary of the device state.
+     */
+    private static class SummaryAdapter extends BaseAdapter {
+        private static final int BASE_ID_HEADING = 1 &lt;&lt; 10;
+        private static final int BASE_ID_DEVICE_ITEM = 2 &lt;&lt; 10;
+        private static final int BASE_ID_AXIS_ITEM = 3 &lt;&lt; 10;
+        private static final int BASE_ID_KEY_ITEM = 4 &lt;&lt; 10;
+
+        private final Context mContext;
+        private final Resources mResources;
+
+        private final SparseArray&lt;Item&gt; mDataItems = new SparseArray&lt;Item&gt;();
+        private final ArrayList&lt;Item&gt; mVisibleItems = new ArrayList&lt;Item&gt;();
+
+        private final Heading mDeviceHeading;
+        private final TextColumn mDeviceNameTextColumn;
+
+        private final Heading mAxesHeading;
+        private final Heading mKeysHeading;
+
+        private InputDeviceState mState;
+
+        public SummaryAdapter(Context context, Resources resources) {
+            mContext = context;
+            mResources = resources;
+
+            mDeviceHeading = new Heading(BASE_ID_HEADING | 0,
+                    mResources.getString(R.string.game_controller_input_heading_device));
+            mDeviceNameTextColumn = new TextColumn(BASE_ID_DEVICE_ITEM | 0,
+                    mResources.getString(R.string.game_controller_input_label_device_name));
+
+            mAxesHeading = new Heading(BASE_ID_HEADING | 1,
+                    mResources.getString(R.string.game_controller_input_heading_axes));
+            mKeysHeading = new Heading(BASE_ID_HEADING | 2,
+                    mResources.getString(R.string.game_controller_input_heading_keys));
+        }
+
+        public void onItemClick(int position) {
+            if (mState != null) {
+                Toast toast = Toast.makeText(
+                        mContext, mState.getDevice().toString(), Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
+
+        public void show(InputDeviceState state) {
+            mState = state;
+            mVisibleItems.clear();
+
+            // Populate device information.
+            mVisibleItems.add(mDeviceHeading);
+            mDeviceNameTextColumn.setContent(state.getDevice().getName());
+            mVisibleItems.add(mDeviceNameTextColumn);
+
+            // Populate axes.
+            mVisibleItems.add(mAxesHeading);
+            final int axisCount = state.getAxisCount();
+            for (int i = 0; i &lt; axisCount; i++) {
+                final int axis = state.getAxis(i);
+                final int id = BASE_ID_AXIS_ITEM | axis;
+                TextColumn column = (TextColumn) mDataItems.get(id);
+                if (column == null) {
+                    column = new TextColumn(id, MotionEvent.axisToString(axis));
+                    mDataItems.put(id, column);
+                }
+                column.setContent(Float.toString(state.getAxisValue(i)));
+                mVisibleItems.add(column);
+            }
+
+            // Populate keys.
+            mVisibleItems.add(mKeysHeading);
+            final int keyCount = state.getKeyCount();
+            for (int i = 0; i &lt; keyCount; i++) {
+                final int keyCode = state.getKeyCode(i);
+                final int id = BASE_ID_KEY_ITEM | keyCode;
+                TextColumn column = (TextColumn) mDataItems.get(id);
+                if (column == null) {
+                    column = new TextColumn(id, KeyEvent.keyCodeToString(keyCode));
+                    mDataItems.put(id, column);
+                }
+                column.setContent(mResources.getString(state.isKeyPressed(i)
+                        ? R.string.game_controller_input_key_pressed
+                        : R.string.game_controller_input_key_released));
+                mVisibleItems.add(column);
+            }
+
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public boolean hasStableIds() {
+            return true;
+        }
+
+        @Override
+        public int getCount() {
+            return mVisibleItems.size();
+        }
+
+        @Override
+        public Item getItem(int position) {
+            return mVisibleItems.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return getItem(position).getItemId();
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            return getItem(position).getView(convertView, parent);
+        }
+
+        private static abstract class Item {
+            private final int mItemId;
+            private final int mLayoutResourceId;
+            private View mView;
+
+            public Item(int itemId, int layoutResourceId) {
+                mItemId = itemId;
+                mLayoutResourceId = layoutResourceId;
+            }
+
+            public long getItemId() {
+                return mItemId;
+            }
+
+            public View getView(View convertView, ViewGroup parent) {
+                if (mView == null) {
+                    LayoutInflater inflater = (LayoutInflater)
+                            parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    mView = inflater.inflate(mLayoutResourceId, parent, false);
+                    initView(mView);
+                }
+                updateView(mView);
+                return mView;
+            }
+
+            protected void initView(View view) {
+            }
+
+            protected void updateView(View view) {
+            }
+        }
+
+        private static class Heading extends Item {
+            private final String mLabel;
+
+            public Heading(int itemId, String label) {
+                super(itemId, R.layout.game_controller_input_heading);
+                mLabel = label;
+            }
+
+            @Override
+            public void initView(View view) {
+                TextView textView = (TextView) view;
+                textView.setText(mLabel);
+            }
+        }
+
+        private static class TextColumn extends Item {
+            private final String mLabel;
+
+            private String mContent;
+            private TextView mContentView;
+
+            public TextColumn(int itemId, String label) {
+                super(itemId, R.layout.game_controller_input_text_column);
+                mLabel = label;
+            }
+
+            public void setContent(String content) {
+                mContent = content;
+            }
+
+            @Override
+            public void initView(View view) {
+                TextView textView = (TextView) view.findViewById(R.id.label);
+                textView.setText(mLabel);
+
+                mContentView = (TextView) view.findViewById(R.id.content);
+            }
+
+            @Override
+            public void updateView(View view) {
+                mContentView.setText(mContent);
+            }
+        }
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

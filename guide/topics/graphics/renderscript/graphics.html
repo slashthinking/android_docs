@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.ico" />
+<title>Graphics | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../";
+</script>
+<script src="../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+<body class="gc-documentation
+  develop guide" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../index.html">
+            <img src="../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../develop/index.html" class="selected"
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:75%">
+                <li><a href="../../../../training/index.html" 
+                  zh-TW-lang="訓練課程"
+                  zh-CN-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"               
+                  >Training</a></li>
+                <li><a href="../../../../guide/components/index.html" class="selected"
+                  zh-TW-lang="API 指南"
+                  zh-CN-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"               
+                  >API Guides</a></li>
+                <li><a href="../../../../reference/packages.html" 
+                  zh-TW-lang="參考資源"
+                  zh-CN-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"               
+                  >Reference</a></li>
+                <li><a href="../../../../tools/index.html" 
+                  zh-TW-lang="相關工具"
+                  zh-CN-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"               
+                  >Tools</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+
+
+
+<ul id="nav">
+  <!--  Walkthrough for Developers -- quick overview of what it's like to develop on Android -->
+  <!--<li style="color:red">Overview</li> -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../../guide/components/index.html">
+        <span class="en">App Components</span>
+      </a></div>
+    <ul>
+      <li><a href="../../../../guide/components/fundamentals.html">
+            <span class="en">App Fundamentals</span></a>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/components/activities.html">
+            <span class="en">Activities</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/components/fragments.html">
+              <span class="en">Fragments</span>
+            </a></li>
+          <li><a href="../../../../guide/components/loaders.html">
+              <span class="en">Loaders</span>
+            </a></li>
+          <li><a href="../../../../guide/components/tasks-and-back-stack.html">
+              <span class="en">Tasks and Back Stack</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/components/services.html">
+            <span class="en">Services</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/components/bound-services.html">
+              <span class="en">Bound Services</span>
+            </a></li>
+          <li><a href="../../../../guide/components/aidl.html">
+              <span class="en">AIDL</span>
+            </a></li>
+        </ul>
+      </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/providers/content-providers.html">
+            <span class="en">Content Providers</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/providers/content-provider-basics.html">
+              <span class="en">Content Provider Basics</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/providers/content-provider-creating.html">
+              <span class="en">Creating a Content Provider</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/providers/calendar-provider.html">
+              <span class="en">Calendar Provider</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/providers/contacts-provider.html">
+              <span class="en">Contacts Provider</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/components/intents-filters.html">
+          <span class="en">Intents and Intent Filters</span>
+        </a></li>
+      <li><a href="../../../../guide/components/processes-and-threads.html">
+          <span class="en">Processes and Threads</span>
+        </a>
+      </li>
+      <li><a href="../../../../guide/topics/security/permissions.html">
+          <span class="en">Permissions</span>
+        </a>
+      </li>
+      <li><a href="../../../../guide/topics/appwidgets/index.html">
+            <span class="en">App Widgets</span>
+          </a></li>
+      <li class="nav-section">
+      <div class="nav-section-header"><a href="../../../../guide/topics/manifest/manifest-intro.html">
+          <span class="en">Android Manifest</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/manifest/action-element.html">&lt;action&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/activity-alias-element.html">&lt;activity-alias&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/category-element.html">&lt;category&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/compatible-screens-element.html">&lt;compatible-screens&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/data-element.html">&lt;data&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/grant-uri-permission-element.html">&lt;grant-uri-permission&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/instrumentation-element.html">&lt;instrumentation&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/intent-filter-element.html">&lt;intent-filter&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/manifest-element.html">&lt;manifest&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/meta-data-element.html">&lt;meta-data&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/path-permission-element.html">&lt;path-permission&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/permission-element.html">&lt;permission&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/permission-group-element.html">&lt;permission-group&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/permission-tree-element.html">&lt;permission-tree&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/supports-gl-texture-element.html">&lt;supports-gl-texture&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/supports-screens-element.html">&lt;supports-screens&gt;</a></li><!-- ##api level 4## -->
+          <li><a href="../../../../guide/topics/manifest/uses-configuration-element.html">&lt;uses-configuration&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/uses-feature-element.html">&lt;uses-feature&gt;</a></li> <!-- ##api level 4## -->
+          <li><a href="../../../../guide/topics/manifest/uses-library-element.html">&lt;uses-library&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/uses-permission-element.html">&lt;uses-permission&gt;</a></li>
+          <li><a href="../../../../guide/topics/manifest/uses-sdk-element.html">&lt;uses-sdk&gt;</a></li>
+        </ul>
+   </li><!-- end of the manifest file -->
+
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../../guide/topics/ui/index.html">
+        <span class="en">User Interface</span>
+      </a></div>
+    <ul>
+      <li><a href="../../../../guide/topics/ui/overview.html">
+          <span class="en">Overview</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/ui/declaring-layout.html">
+            <span class="en">Layouts</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/ui/layout/linear.html">
+              <span class="en">Linear Layout</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/layout/relative.html">
+              <span class="en">Relative Layout</span>
+            </a></li>
+       <!--
+          <li><a href="../../../../guide/topics/ui/layout/grid.html">
+              <span class="en">Grid Layout</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/layout/tabs.html">
+              <span class="en">Tab Layout</span>
+            </a></li>
+       -->
+          <li><a href="../../../../guide/topics/ui/layout/listview.html">
+              <span class="en">List View</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/layout/gridview.html">
+              <span class="en">Grid View</span>
+            </a></li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/ui/controls.html">
+            <span class="en">Input Controls</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/ui/controls/button.html">
+              <span class="en">Buttons</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/controls/text.html">
+              <span class="en">Text Fields</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/controls/checkbox.html">
+              <span class="en">Checkboxes</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/controls/radiobutton.html">
+              <span class="en">Radio Buttons</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/controls/togglebutton.html">
+              <span class="en">Toggle Buttons</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/controls/spinner.html">
+              <span class="en">Spinners</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/controls/pickers.html">
+              <span class="en">Pickers</span>
+            </a></li>
+<!--
+          <li><a href="../../../../guide/topics/ui/controls/progress.html">
+              <span class="en">Seek and Progress Bars</span>
+            </a></li>
+-->
+        </ul>
+      </li>
+      <li><a href="../../../../guide/topics/ui/ui-events.html">
+          <span class="en">Input Events</span>
+        </a></li>
+      <li><a href="../../../../guide/topics/ui/menus.html">
+          <span class="en">Menus</span></span>
+          </a></li>
+      <li><a href="../../../../guide/topics/ui/actionbar.html">
+           <span class="en">Action Bar</span>
+          </a></li>
+      <li><a href="../../../../guide/topics/ui/settings.html">
+            <span class="en">Settings</span>
+          </a></li>
+      <li><a href="../../../../guide/topics/ui/dialogs.html">
+           <span class="en">Dialogs</span>
+          </a></li>
+      <li><a href="../../../../guide/topics/ui/notifiers/notifications.html">
+          <span class="en">Notifications</span>
+        </a></li>
+      <li><a href="../../../../guide/topics/ui/notifiers/toasts.html">
+          <span class="en">Toasts</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/search/index.html">
+            <span class="en">Search</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../../guide/topics/search/search-dialog.html">Creating a Search Interface</a></li>
+            <li><a href="../../../../guide/topics/search/adding-recent-query-suggestions.html">Adding Recent Query Suggestions</a></li>
+            <li><a href="../../../../guide/topics/search/adding-custom-suggestions.html">Adding Custom Suggestions</a></li>
+            <li><a href="../../../../guide/topics/search/searchable-config.html">Searchable Configuration</a></li>
+          </ul>
+      </li>
+      <li><a href="../../../../guide/topics/ui/drag-drop.html">
+          <span class="en">Drag and Drop</span>
+        </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/ui/accessibility/index.html">
+            <span class="en">Accessibility</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/ui/accessibility/apps.html">
+              <span class="en">Making Applications Accessible</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/accessibility/checklist.html">
+              <span class="en">Accessibility Developer Checklist</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/ui/accessibility/services.html">
+              <span class="en">Building Accessibility Services</span>
+            </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/topics/ui/themes.html">
+          <span class="en">Styles and Themes</span>
+        </a></li>
+      <li><a href="../../../../guide/topics/ui/custom-components.html">
+          <span class="en">Custom Components</span>
+        </a></li>
+    </ul>
+  </li><!-- end of User Interface -->
+
+    <li class="nav-section">
+      <div class="nav-section-header"><a href="../../../../guide/topics/resources/index.html">
+           <span class="en">App Resources</span>
+         </a></div>
+      <ul>
+        <li><a href="../../../../guide/topics/resources/overview.html">
+            <span class="en">Overview</span>
+          </a></li>
+          <li><a href="../../../../guide/topics/resources/providing-resources.html">
+            <span class="en">Providing Resources</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/resources/accessing-resources.html">
+            <span class="en">Accessing Resources</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/resources/runtime-changes.html">
+              <span class="en">Handling Runtime Changes</span>
+            </a></li>
+        <li><a href="../../../../guide/topics/resources/localization.html">
+            <span class="en">Localization</span>
+          </a></li>
+        <li class="nav-section">
+          <div class="nav-section-header"><a href="../../../../guide/topics/resources/available-resources.html">
+              <span class="en">Resource Types</span>
+            </a></div>
+          <ul>
+            <li><a href="../../../../guide/topics/resources/animation-resource.html">Animation</a></li>
+            <li><a href="../../../../guide/topics/resources/color-list-resource.html">Color State List</a></li>
+            <li><a href="../../../../guide/topics/resources/drawable-resource.html">Drawable</a></li>
+            <li><a href="../../../../guide/topics/resources/layout-resource.html">Layout</a></li>
+            <li><a href="../../../../guide/topics/resources/menu-resource.html">Menu</a></li>
+            <li><a href="../../../../guide/topics/resources/string-resource.html">String</a></li>
+            <li><a href="../../../../guide/topics/resources/style-resource.html">Style</a></li>
+            <li><a href="../../../../guide/topics/resources/more-resources.html">More Types</a></li>
+          </ul>
+        </li><!-- end of resource types -->
+      </ul>
+    </li><!-- end of app resources -->
+
+   <li class="nav-section">
+      <div class="nav-section-header"><a href="../../../../guide/topics/graphics/index.html">
+          <span class="en">Animation and Graphics</span>
+        </a></div>
+      <ul>
+      <li class="nav-section">
+        <li><a href="../../../../guide/topics/graphics/overview.html">
+            <span class="en">Overview</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/graphics/prop-animation.html">
+            <span class="en">Property Animation</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/graphics/view-animation.html">
+            <span class="en">View Animation</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/graphics/drawable-animation.html">
+            <span class="en">Drawable Animation</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/graphics/2d-graphics.html">
+            <span class="en">Canvas and Drawables</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/graphics/opengl.html">
+            <span class="en">OpenGL</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/graphics/hardware-accel.html">
+            <span class="en">Hardware Acceleration</span>
+          </a></li>
+       </ul>
+    </li><!-- end of graphics and animation-->
+
+   <li class="nav-section">
+            <div class="nav-section-header"><a href="../../../../guide/topics/renderscript/index.html">
+              <span class="en">Computation</span>
+            </a></div>
+            <ul>
+              <li><a href="../../../../guide/topics/renderscript/compute.html">
+                    <span class="en">Renderscript</span></a>
+                  </li>
+
+              <li><a href="../../../../guide/topics/renderscript/advanced.html">
+                    <span class="en">Advanced Renderscript</span></a>
+                  </li>
+              <li><a href="../../../../guide/topics/renderscript/reference.html">
+                    <span class="en">Runtime API Reference</span></a>
+              </li>
+             </ul>
+   </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../../../guide/topics/media/index.html">
+            <span class="en">Media and Camera</span>
+          </a></div>
+          <ul>
+            <li><a href="../../../../guide/topics/media/mediaplayer.html">
+                  <span class="en">Media Playback</span></a>
+                </li>
+            <li><a href="../../../../guide/appendix/media-formats.html">
+                   <span class="en">Supported Media Formats</span></a>
+                </li>
+            <li><a href="../../../../guide/topics/media/audio-capture.html">
+                  <span class="en">Audio Capture</span></a>
+                </li>
+            <li><a href="../../../../guide/topics/media/jetplayer.html">
+                  <span class="en">JetPlayer</span></a>
+                </li>
+            <li><a href="../../../../guide/topics/media/camera.html">
+                  <span class="en">Camera</span></a>
+                </li>
+          </ul>
+      </li><!-- end of media and camera -->
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/sensors/index.html">
+              <span class="en">Location and Sensors</span>
+              </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/location/index.html">
+               <span class="en">Location and Maps</span>
+             </a>
+          <li><a href="../../../../guide/topics/location/strategies.html">
+               <span class="en">Location Strategies</span>
+             </a></li>
+          <li><a href="../../../../guide/topics/sensors/sensors_overview.html">
+              <span class="en">Sensors Overview</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/sensors/sensors_motion.html">
+              <span class="en">Motion Sensors</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/sensors/sensors_position.html">
+              <span class="en">Position Sensors</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/sensors/sensors_environment.html">
+              <span class="en">Environment Sensors</span>
+            </a></li>
+        </ul>
+      </li><!-- end of location and sensors -->
+
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/connectivity/index.html">
+               <span class="en">Connectivity</span>
+             </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/connectivity/bluetooth.html">
+              <span class="en">Bluetooth</span>
+            </a>
+          </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/connectivity/nfc/index.html">
+          <span class="en">NFC</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/topics/connectivity/nfc/nfc.html">NFC Basics</a></li>
+          <li><a href="../../../../guide/topics/connectivity/nfc/advanced-nfc.html">Advanced NFC</a></li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/topics/connectivity/wifip2p.html">
+            <span class="en">Wi-Fi Direct</span></a>
+          </li>
+      <li class="nav-section">
+          <div class="nav-section-header"><a href="../../../../guide/topics/connectivity/usb/index.html">
+            <span class="en">USB</span></a>
+          </div>
+            <ul>
+              <li><a href="../../../../guide/topics/connectivity/usb/accessory.html">Accessory</a></li>
+              <li><a href="../../../../guide/topics/connectivity/usb/host.html">Host</a></li>
+            </ul>
+     </li>
+     <li><a href="../../../../guide/topics/connectivity/sip.html">
+            <span class="en">SIP</span>
+          </a>
+     </li>
+
+    </ul>
+  </li><!-- end of connectivity -->
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/topics/text/index.html">
+            <span class="en">Text and Input</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../../guide/topics/text/copy-paste.html">
+              <span class="en">Copy and Paste</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/text/creating-input-method.html">
+              <span class="en">Creating an IME</span>
+            </a></li>
+          <li><a href="../../../../guide/topics/text/spell-checker-framework.html">
+              <span class="en">Spelling Checker</span>
+            </a></li>
+        </ul>
+      </li><!-- end of text and input -->
+
+     <li class="nav-section">
+      <div class="nav-section-header"><a href="../../../../guide/topics/data/index.html">
+          <span class="en">Data Storage</span>
+        </a></div>
+      <ul>
+         <li><a href="../../../../guide/topics/data/data-storage.html">
+            <span class="en">Storage Options</span>
+           </a></li>
+        <li><a href="../../../../guide/topics/data/backup.html">
+            <span class="en">Data Backup</span>
+          </a></li>
+        <li><a href="../../../../guide/topics/data/install-location.html">
+            <span class="en">App Install Location</span>
+          </a></li>
+      </ul>
+    </li><!-- end of data storage -->
+
+
+  <li class="nav-section">
+           <div class="nav-section-header"><a href="../../../../guide/topics/admin/index.html">
+               <span class="en">Administration</span>
+             </a></div>
+           <ul>
+              <li>
+                <a href="../../../../guide/topics/admin/device-admin.html">
+                <span class="en">Device Policies</span></a>
+              </li>
+            <!--
+              <li>
+                <a href="../../../../guide/topics/admin/keychain.html">
+                <span class="en">Certificate Store</span></a>
+              </li>
+            -->
+           </ul>
+  </li><!-- end of administration -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../../guide/webapps/index.html">
+    <span class="en">Web Apps</span>
+    </a></div>
+    <ul>
+      <li><a href="../../../../guide/webapps/overview.html">
+            <span class="en">Overview</span>
+          </a></li>
+      <li><a href="../../../../guide/webapps/targeting.html">
+            <span class="en">Targeting Screens from Web Apps</span>
+          </a></li>
+      <li><a href="../../../../guide/webapps/webview.html">
+            <span class="en">Building Web Apps in WebView</span>
+          </a></li>
+      <li><a href="../../../../guide/webapps/debugging.html">
+            <span class="en">Debugging Web Apps</span>
+          </a></li>
+      <li><a href="../../../../guide/webapps/best-practices.html">
+            <span class="en">Best Practices for Web Apps</span>
+          </a></li>
+    </ul>
+  </li><!-- end of web apps -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../../guide/practices/index.html">
+      <span class="en">Best Practices</span>
+      <span class="de" style="display:none">Bewährte Verfahren</span>
+      <span class="es" style="display:none">Prácticas recomendadas</span>
+      <span class="fr" style="display:none">Meilleures pratiques</span>
+      <span class="it" style="display:none">Best practice</span>
+      <span class="ja" style="display:none">ベスト プラクティス</span>
+      <span class="zh-CN" style="display:none">最佳实践</span>
+      <span class="zh-TW" style="display:none">最佳實務</span>
+    </div></a>
+    <ul>
+      <li><a href="../../../../guide/practices/compatibility.html">
+            <span class="en">Compatibility</span>
+          </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/practices/screens_support.html">
+          <span class="en">Supporting Multiple Screens</span>
+        </a></div>
+        <ul>
+          <li><a href="../../../../guide/practices/screens-distribution.html">
+            <span class="en">Distributing to Specific Screens</span>
+          </a></li>
+          <li><a href="../../../../guide/practices/screen-compat-mode.html">
+            <span class="en">Screen Compatibility Mode</span>
+          </a></li>
+          <!--<li><a href="../../../../guide/practices/screens-support-1.5.html">
+            <span class="en">Strategies for Android 1.5</span>
+          </a></li> -->
+        </ul>
+      </li>
+      <li><a href="../../../../guide/practices/tablets-and-handsets.html">
+            <span class="en">Supporting Tablets and Handsets</span>
+          </a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/practices/performance.html">
+            <span class="en">Designing for Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../../guide/practices/jni.html">
+                <span class="en">JNI Tips</span>
+              </a></li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/practices/responsiveness.html">
+            <span class="en">Designing for Responsiveness</span>
+          </a></li>
+      <li><a href="../../../../guide/practices/seamlessness.html">
+            <span class="en">Designing for Seamlessness</span>
+          </a></li>
+        <li><a href="../../../../guide/practices/security.html">
+            <span class="en">Designing for Security</span>
+          </a></li>
+
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../../guide/google/index.html">
+        <span class="en">Google Services</span>
+      </a></div>
+    <ul>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/google/play/billing/index.html">
+            <span class="en">In-app Billing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/google/play/billing/billing_overview.html">
+              <span class="en">In-app Billing Overview</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/billing/billing_integrate.html">
+              <span class="en">Implementing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/billing/billing_subscriptions.html">
+              <span class="en">Subscriptions</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/billing/billing_best_practices.html">
+              <span class="en">Security and Design</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/billing/billing_testing.html">
+              <span class="en">Testing In-app Billing</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/billing/billing_admin.html">
+              <span class="en">Administering In-app Billing</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/billing/billing_reference.html">
+              <span class="en">In-app Billing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/google/play/licensing/index.html">
+          <span class="en">Application Licensing</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/google/play/licensing/overview.html">
+              <span class="en">Licensing Overview</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/licensing/setting-up.html">
+              <span class="en">Setting Up for Licensing</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/licensing/adding-licensing.html">
+              <span class="en">Adding Licensing to Your App</span></a>
+          </li>
+          <li><a href="../../../../guide/google/play/licensing/licensing-reference.html">
+              <span class="en">Licensing Reference</span></a>
+          </li>
+        </ul>
+      </li>
+      <li><a href="../../../../guide/google/play/services.html">
+          <span class="en">Google Play Services</span></a>
+      </li>
+       <li><a href="../../../../guide/google/play/filters.html">
+          <span class="en">Filters on Google Play</span></a>
+      </li>
+      <li><a href="../../../../guide/google/play/publishing/multiple-apks.html">
+          <span class="en">Multiple APK Support</span></a>
+      </li>
+      <li><a href="../../../../guide/google/play/expansion-files.html">
+          <span class="en">APK Expansion Files</span></a>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/google/gcm/index.html">
+          <span class="en">Google Cloud Messaging</span></a>
+        </div>
+        <ul>
+          <li><a href="../../../../guide/google/gcm/gs.html">
+              <span class="en">Getting Started</span></a>
+          </li>
+          <li><a href="../../../../guide/google/gcm/gcm.html">
+              <span class="en">Architectural Overview</span></a>
+          </li>
+          <li><a href="../../../../guide/google/gcm/demo.html">
+              <span class="en">Demo App Tutorial</span></a>
+          </li>
+          <li><a href="../../../../guide/google/gcm/adv.html">
+              <span class="en">Advanced Topics</span></a>
+          </li>
+          <li><a href="../../../../guide/google/gcm/c2dm.html">
+              <span class="en">Migration</span></a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </li><!-- end Google Play -->
+
+
+
+      <!-- this needs to move
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../../guide/practices/ui_guidelines/index.html">
+               <span class="en">UI Guidelines</span>
+             </a></div>
+        <ul>
+          <li class="nav-section">
+            <div class="nav-section-header"><a href="../../../../guide/practices/ui_guidelines/icon_design.html">
+                   <span class="en">Icon Design</span>
+                 </a></div>
+            <ul>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_launcher.html">
+                    <span class="en">Launcher Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_menu.html">
+                    <span class="en">Menu Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_action_bar.html">
+                    <span class="en">Action Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_status_bar.html">
+                    <span class="en">Status Bar Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_tab.html">
+                    <span class="en">Tab Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_dialog.html">
+                    <span class="en">Dialog Icons</span>
+                  </a></li>
+              <li><a href="../../../../guide/practices/ui_guidelines/icon_design_list.html">
+                    <span class="en">List View Icons</span>
+                  </a></li>
+            </ul>
+          </li>
+          <li><div><a href="../../../../guide/practices/ui_guidelines/widget_design.html">
+                <span class="en">App Widget Design</span>
+              </a></div>
+          </li>
+        </ul>
+      </li>
+        </ul> -->
+
+<!-- Remove
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../../guide/appendix/index.html">
+        <span class="en">Appendix</span>
+        <span class="de" style="display:none">Anhang</span>
+        <span class="es" style="display:none">Apéndice</span>
+        <span class="fr" style="display:none">Annexes</span>
+        <span class="it" style="display:none">Appendice</span>
+        <span class="ja" style="display:none">付録</span>
+        <span class="zh-CN" style="display:none">附录</span>
+        <span class="zh-TW" style="display:none">附錄</span>
+      </a></div>
+    <ul>
+      <li><a href="../../../../guide/appendix/g-app-intents.html">
+            <span class="en">Intents List: Google Apps</span>
+          </a></li>
+
+
+      <li><a href="../../../../guide/appendix/glossary.html">
+            <span class="en">Glossary</span>
+          </a></li>
+    </ul>
+  </li>
+
+</li>
+-->
+</ul>
+
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+
+        
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+    
+      <h1 itemprop="name">Graphics</h1>
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+    <div id="qv">
+      <h2>In this document</h2>
+
+      <ol>
+        <li>
+          <a href="#creating-graphics-rs">Creating a Graphics Renderscript</a>
+          <ol>
+            <li><a href="#creating-native">Creating the Renderscript file</a></li>
+            <li><a href="#creating-entry">Creating the Renderscript entry point class</a></li>
+            <li><a href="#creating-view">Creating the view class</a></li>
+            <li><a href="#creating-activity">Creating the activity class</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#drawing">Drawing</a>
+          <ol>
+            <li><a href="#drawing-rsg">Simple drawing</a></li>
+            <li><a href="#drawing-mesh">Drawing with a mesh</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#shaders">Shaders</a>
+          <ol>
+            <li><a href="#shader-bindings">Shader bindings</a></li>
+            <li><a href="#shader-sampler">Defining a sampler</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#fbo">Rendering to a Framebuffer Object</a>
+        </li>
+      </ol>
+
+      <h2>Related Samples</h2>
+
+      <ol>
+        <li><a href="../../../../resources/samples/RenderScript/Balls/index.html">Balls</a></li>
+
+        <li><a href="../../../../resources/samples/RenderScript/Fountain/index.html">Fountain</a></li>
+
+        <li><a href="../../../../resources/samples/RenderScript/FountainFbo/index.html">FountainFbo</a></li>        
+
+        <li><a href="../../../../resources/samples/RenderScript/HelloWorld/index.html">Hello
+World</a></li>
+
+        <li><a
+href="../../../../resources/samples/RenderScript/MiscSamples/index.html">Misc Samples</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <p>Renderscript provides a number of graphics APIs for rendering, both at the Android
+  framework level as well as at the Renderscript runtime level. For instance, the Android framework APIs let you
+  create meshes and define shaders to customize the graphical rendering pipeline. The native
+  Renderscript graphics APIs let you draw the actual meshes to render your scene. You need to
+  be familiar with both APIs to appropriately render graphics on an Android-powered device.</p>
+
+  <h2 id="creating-graphics-rs">Creating a Graphics Renderscript</h2>
+
+  <p>Renderscript applications require various layers of code, so it is useful to create the following
+  files to help keep your application organized:</p>
+
+  <dl>
+    <dt>The Renderscript <code>.rs</code> file</dt>
+
+    <dd>This file contains the logic to do the graphics rendering.</dd>
+
+    <dt>The Renderscript entry point <code>.java</code> class</dt>
+
+    <dd>This class allows the view class to interact with the code defined in the <code>.rs</code>
+    file. This class contains a Renderscript object (instance of
+    <code>ScriptC_<em>renderscript_file</em></code>), which allows your Android framework code to
+    call the Renderscript code. In general, this class does much of the setup for Renderscript
+    such as shader and mesh building and memory allocation and binding. The SDK samples follow the
+    convention of naming this file ActivityRS.java,
+    where Activity is the name of your main activity class.</dd>
+
+    <dt>The view <code>.java</code> class</dt>
+
+    <dd>This class extends <code><a href="../../../../reference/android/renderscript/RSSurfaceView.html">RSSurfaceView</a></code> or <code><a href="../../../../reference/android/renderscript/RSTextureView.html">RSTextureView</a></code> to provide a surface to render on. A <code><a href="../../../../reference/android/renderscript/RSSurfaceView.html">RSSurfaceView</a></code> consumes a whole window, but a <code><a href="../../../../reference/android/renderscript/RSTextureView.html">RSTextureView</a></code> allows you to draw Renderscript graphics inside of a
+    view and add it to a <code><a href="../../../../reference/android/view/ViewGroup.html">ViewGroup</a></code> alongside
+    other views. In this class, you create a <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html">RenderScriptGL</a></code> context object
+    with a call to <code><a href="../../../../reference/android/renderscript/RSSurfaceView.html#createRenderScriptGL(android.renderscript.RenderScriptGL.SurfaceConfig)">RSSurfaceView.createRenderscriptGL()</a></code> or <code><a href="../../../../reference/android/renderscript/RSTextureView.html#createRenderScriptGL(android.renderscript.RenderScriptGL.SurfaceConfig)">RSTextureView.createRenderscriptGL()</a></code>. The <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html">RenderScriptGL</a></code> context object
+    contains information about the current rendering state of Renderscript such as the vertex and
+    fragment shaders. You pass this context object to the Renderscript entry point class, so that
+    class can modify the rendering context if needed and bind the Renderscript code to the context. Once bound,
+    the view class can use the Renderscript code to display graphics.
+    The view class should also implement callbacks for events inherited from <code><a href="../../../../reference/android/view/View.html">View</a></code>, such as <code><a href="../../../../reference/android/view/View.html#onTouchEvent(android.view.MotionEvent)">onTouchEvent()</a></code> and <code><a href="../../../../reference/android/view/View.html#onKeyDown(int, android.view.KeyEvent)">onKeyDown()</a></code> if you want to detect these types of user interactions.
+    The SDK samples follow the convention of naming this file ActivityView.java,
+    where Activity is the name of your main activity class</dd>
+
+    <dt>The activity <code>.java</code> class</dt>
+
+    <dd>This class is the main activity class and sets your <code><a href="../../../../reference/android/renderscript/RSSurfaceView.html">RSSurfaceView</a></code> as the main content
+    view for this activity or uses the <code><a href="../../../../reference/android/renderscript/RSTextureView.html">RSTextureView</a></code> alongside other views.</dd>
+  </dl>
+  <p>Figure 1 describes how these classes interact with one another in a graphics Renderscript:</p>
+  
+  <img src="../../../../images/rs_graphics.png">
+  <p class="img-caption"><strong>Figure 1.</strong> Graphics Renderscript overview</p>
+
+
+  <p>The following sections describe how to create an application that uses a graphics Renderscript by using
+  the <a href="../../../../resources/samples/RenderScript/Fountain/index.html">Renderscript Fountain
+  sample</a> that is provided in the SDK as a guide (some code has been modified from its original
+  form for simplicity).</p>
+
+  <h3 id="creating-native">Creating the Renderscript file</h3>
+
+  <p>Your Renderscript code resides in <code>.rs</code> and <code>.rsh</code> (headers) files in the
+  <code>&lt;project_root&gt;/src/</code> directory. This code contains the logic to render your
+  graphics and declares all other necessary items such as variables, structs,
+  and pointers. Every graphics <code>.rs</code> file generally contains the following items:</p>
+
+  <ul>
+    <li>A pragma declaration (<code>#pragma rs java_package_name(<em>package.name</em>)</code>) that declares
+    the package name of the <code>.java</code> reflection of this Renderscript.</li>
+
+    <li>A pragma declaration (<code>#pragma version(1)</code>) that declares the version of Renderscript that
+    you are using (1 is the only value for now).</li>
+
+    <li>A <code>#include "rs_graphics.rsh"</code> declaration.</li>
+
+    <li>A <code>root()</code> function. This is the main worker function for your Renderscript and
+    calls Renderscript graphics functions to render scenes. This function is called every time a
+    frame refresh occurs, which is specified as its return value. A <code>0</code> (zero) specified for
+    the return value says to only render the frame when a property of the scene that you are
+    rendering changes. A non-zero positive integer specifies the refresh rate of the frame in
+    milliseconds.
+
+      <p class="note"><strong>Note:</strong> The Renderscript runtime makes its best effort to
+      refresh the frame at the specified rate. For example, if you are creating a live wallpaper
+      and set the return value to 20, the Renderscript runtime renders the wallpaper at 50fps if it has just
+      enough or more resources to do so. It renders as fast as it can if not enough resources
+      are available.</p>
+
+      <p>For more information on using the Renderscript graphics functions, see the <a href=
+      "#drawing">Drawing</a> section.</p>
+    </li>
+
+    <li>An <code>init()</code> function. This allows you to do initialization of your
+    Renderscript before the <code>root()</code> function runs, such as assigning values to variables. This
+    function runs once and is called automatically when the Renderscript starts, before anything
+    else in your Renderscript. Creating this function is optional.</li>
+
+    <li>Any variables, pointers, and structures that you wish to use in your Renderscript code (can
+    be declared in <code>.rsh</code> files if desired)</li>
+  </ul>
+
+  <p>The following code shows how the <code>fountain.rs</code> file is implemented:</p>
+  <pre>
+#pragma version(1)
+
+// Tell which java package name the reflected files should belong to
+#pragma rs java_package_name(com.example.android.rs.fountain)
+
+//declare shader binding
+#pragma stateFragment(parent)
+
+// header with graphics APIs, must include explicitly
+#include "rs_graphics.rsh"
+
+static int newPart = 0;
+
+// the mesh to render
+rs_mesh partMesh;
+
+// the point representing where a particle is rendered
+typedef struct __attribute__((packed, aligned(4))) Point {
+    float2 delta;
+    float2 position;
+    uchar4 color;
+} Point_t;
+Point_t *point;
+
+// main worker function that renders particles onto the screen
+int root() {
+    float dt = min(rsGetDt(), 0.1f);
+    rsgClearColor(0.f, 0.f, 0.f, 1.f);
+    const float height = rsgGetHeight();
+    const int size = rsAllocationGetDimX(rsGetAllocation(point));
+    float dy2 = dt * (10.f);
+    Point_t * p = point;
+    for (int ct=0; ct &lt; size; ct++) {
+        p-&gt;delta.y += dy2;
+        p-&gt;position += p-&gt;delta;
+        if ((p-&gt;position.y &gt; height) &amp;&amp; (p-&gt;delta.y &gt; 0)) {
+            p-&gt;delta.y *= -0.3f;
+        }
+        p++;
+    }
+
+    rsgDrawMesh(partMesh);
+    return 1;
+}
+
+// adds particles to the screen to render
+static float4 partColor[10];
+void addParticles(int rate, float x, float y, int index, bool newColor)
+{
+    if (newColor) {
+        partColor[index].x = rsRand(0.5f, 1.0f);
+        partColor[index].y = rsRand(1.0f);
+        partColor[index].z = rsRand(1.0f);
+    }
+    float rMax = ((float)rate) * 0.02f;
+    int size = rsAllocationGetDimX(rsGetAllocation(point));
+    uchar4 c = rsPackColorTo8888(partColor[index]);
+
+    Point_t * np = &amp;point[newPart];
+    float2 p = {x, y};
+    while (rate--) {
+        float angle = rsRand(3.14f * 2.f);
+        float len = rsRand(rMax);
+        np-&gt;delta.x = len * sin(angle);
+        np-&gt;delta.y = len * cos(angle);
+        np-&gt;position = p;
+        np-&gt;color = c;
+        newPart++;
+        np++;
+        if (newPart &gt;= size) {
+            newPart = 0;
+            np = &amp;point[newPart];
+        }
+    }
+}
+</pre>
+
+  <h3 id="creating-entry">Creating the Renderscript entry point class</h3>
+
+  <p>When you create a Renderscript (<code>.rs</code>) file, it is helpful to create a
+  corresponding Android framework class that is an entry point into the <code>.rs</code> file.
+  The most important thing this class does is receive a <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html">RenderScriptGL</a></code> rendering context
+  object from the <a href="#creating-view">view class</a> and binds the actual Renderscript
+  code to the rendering context. This notifies your view class of the code that it needs
+  to render graphics.
+  </p>
+
+  <p>In addition, this class should contain all of the things needed to set up Renderscript.
+  Some important things that you need to do in this class are:</p>
+
+  <ul>
+    <li>Create a Renderscript object 
+  <code>ScriptC_<em>rs_filename</em></code>. The Renderscript object is attached to the Renderscript bytecode, which is platform-independent and
+  gets compiled on the device when the Renderscript application runs. The bytecode is referenced
+  as a raw resource and is passed into the constructor for the Renderscript object.
+  For example, this is how the <a href="../../../../resources/samples/RenderScript/Fountain/index.html">Fountain</a>
+  sample creates the Renderscript object:
+  <pre>
+  RenderScriptGL rs;  //obtained from the view class
+  Resources res;      //obtained from the view class
+  ...
+  ScriptC_fountain mScript = new ScriptC_fountain(mRS, mRes, R.raw.fountain);
+  </pre>
+  </li>
+  <li>Allocate any necessary memory and bind it to your Renderscript code via the Renderscript object.</li>
+  <li>Build any necessary meshes and bind them to the Renderscript code via the Renderscript object.</li>
+  <li>Create any necessary programs and bind them to the Renderscript code via the Renderscript object.</li>
+  </ul>
+
+  <p>The following code shows how the <a href=
+  "../../../../resources/samples/RenderScript/Fountain/src/com/example/android/rs/fountain/FountainRS.html">
+  FountainRS</a> class is implemented:</p>
+  <pre>
+package com.example.android.rs.fountain;
+
+import android.content.res.Resources;
+import android.renderscript.*;
+import android.util.Log;
+
+public class FountainRS {
+    public static final int PART_COUNT = 50000;
+
+    public FountainRS() {
+    }
+
+    /**
+     * This provides us with the Renderscript context and resources
+     * that allow us to create the Renderscript object
+     */
+    private Resources mRes;
+    private RenderScriptGL mRS;
+
+    // Renderscript object
+    private ScriptC_fountain mScript;
+
+    // Called by the view class to initialize the Renderscript context and renderer
+    public void init(RenderScriptGL rs, Resources res) {
+        mRS = rs;
+        mRes = res;
+
+        /**
+         * Create a shader and bind to the Renderscript context
+         */
+        ProgramFragmentFixedFunction.Builder pfb = new ProgramFragmentFixedFunction.Builder(rs);
+        pfb.setVaryingColor(true);
+        rs.bindProgramFragment(pfb.create());
+
+        /**
+         * Allocate memory for the particles to render and create the mesh to draw
+         */
+        ScriptField_Point points = new ScriptField_Point(mRS, PART_COUNT);
+        Mesh.AllocationBuilder smb = new Mesh.AllocationBuilder(mRS);
+        smb.addVertexAllocation(points.getAllocation());
+        smb.addIndexSetType(Mesh.Primitive.POINT);
+        Mesh sm = smb.create();
+
+       /**
+        * Create and bind the Renderscript object to the Renderscript context
+        */
+        mScript = new ScriptC_fountain(mRS, mRes, R.raw.fountain);
+        mScript.set_partMesh(sm);
+        mScript.bind_point(points);
+        mRS.bindRootScript(mScript);
+    }
+
+    boolean holdingColor[] = new boolean[10];
+
+    /**
+     * Calls Renderscript functions (invoke_addParticles)
+     * via the Renderscript object to add particles to render
+     * based on where a user touches the screen.
+     */
+    public void newTouchPosition(float x, float y, float pressure, int id) {
+        if (id &gt;= holdingColor.length) {
+            return;
+        }
+        int rate = (int)(pressure * pressure * 500.f);
+        if (rate &gt; 500) {
+            rate = 500;
+        }
+        if (rate &gt; 0) {
+            mScript.invoke_addParticles(rate, x, y, id, !holdingColor[id]);
+            holdingColor[id] = true;
+        } else {
+            holdingColor[id] = false;
+        }
+
+    }
+}
+</pre>
+
+
+  <h3 id="creating-view">Creating the view class</h3>
+
+
+  <p>To display graphics, you need a view to render on. Create a class that extends <code><a href="../../../../reference/android/renderscript/RSSurfaceView.html">RSSurfaceView</a></code> or <code><a href="../../../../reference/android/renderscript/RSTextureView.html">RSTextureView</a></code>. This class
+  allows you to create a <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html">RenderScriptGL</a></code> context object by calling and
+  pass it to the Rendscript entry point class to bind the two. Once bound, the content is aware
+  of the code that it needs to use to render graphics with. If your Renderscript code
+  depends on any type of information that the view is aware of, such as touches from the user,
+  you can also use this class to relay that information to the Renderscript entry point class.
+  The following code shows how the <code>FountainView</code> class is implemented:</p>
+  <pre>
+package com.example.android.rs.fountain;
+
+import android.renderscript.RSTextureView;
+import android.renderscript.RenderScriptGL;
+import android.content.Context;
+import android.view.MotionEvent;
+
+public class FountainView extends RSTextureView {
+
+    public FountainView(Context context) {
+        super(context);
+    }
+    // Renderscript context
+    private RenderScriptGL mRS;
+    // Renderscript entry point object that calls Renderscript code
+    private FountainRS mRender;
+
+    /**
+     * Create Renderscript context and initialize Renderscript entry point
+     */
+    &#064;Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        android.util.Log.e("rs", "onAttachedToWindow");
+        if (mRS == null) {
+            RenderScriptGL.SurfaceConfig sc = new RenderScriptGL.SurfaceConfig();
+            mRS = createRenderScriptGL(sc);
+            mRender = new FountainRS();
+            mRender.init(mRS, getResources());
+        }
+    }
+
+    &#064;Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        android.util.Log.e("rs", "onDetachedFromWindow");
+        if (mRS != null) {
+            mRS = null;
+            destroyRenderScriptGL();
+        }
+    }
+
+
+    /**
+     * Use callbacks to relay data to Renderscript entry point class
+     */
+    &#064;Override
+    public boolean onTouchEvent(MotionEvent ev)
+    {
+        int act = ev.getActionMasked();
+        if (act == ev.ACTION_UP) {
+            mRender.newTouchPosition(0, 0, 0, ev.getPointerId(0));
+            return false;
+        } else if (act == MotionEvent.ACTION_POINTER_UP) {
+            // only one pointer going up, we can get the index like this
+            int pointerIndex = ev.getActionIndex();
+            int pointerId = ev.getPointerId(pointerIndex);
+            mRender.newTouchPosition(0, 0, 0, pointerId);
+        }
+        int count = ev.getHistorySize();
+        int pcount = ev.getPointerCount();
+
+        for (int p=0; p &lt; pcount; p++) {
+            int id = ev.getPointerId(p);
+            mRender.newTouchPosition(ev.getX(p),
+                                     ev.getY(p),
+                                     ev.getPressure(p),
+                                     id);
+
+            for (int i=0; i &lt; count; i++) {
+                mRender.newTouchPosition(ev.getHistoricalX(p, i),
+                                         ev.getHistoricalY(p, i),
+                                         ev.getHistoricalPressure(p, i),
+                                         id);
+            }
+        }
+        return true;
+    }
+}
+</pre>
+
+  <h3 id="creating-activity">Creating the activity class</h3>
+
+  <p>Applications that use Renderscript still behave like normal Android applications, so you
+   need an activity class that handles activity lifecycle callback events appropriately. The activity class
+   also sets your <code><a href="../../../../reference/android/renderscript/RSSurfaceView.html">RSSurfaceView</a></code> view class to be the main content view of the
+   activity or uses your <code><a href="../../../../reference/android/renderscript/RSTextureView.html">RSTextureView</a></code>
+  in a <code><a href="../../../../reference/android/view/ViewGroup.html">ViewGroup</a></code> alongside other views.</p>
+
+  <p>The following code shows how the <a href="../../../../resources/samples/RenderScript/Fountain/index.html">Fountain</a>
+  sample declares its activity class:</p>
+  <pre>
+package com.example.android.rs.fountain;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+
+public class Fountain extends Activity {
+
+    private static final String LOG_TAG = "libRS_jni";
+    private static final boolean DEBUG  = false;
+    private static final boolean LOG_ENABLED = false;
+
+    private FountainView mView;
+
+    &#064;Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+
+        // Create our Preview view and set it as 
+        // the content of our activity
+        mView = new FountainView(this);
+        setContentView(mView);
+    }
+
+    &#064;Override
+    protected void onResume() {
+        Log.e("rs", "onResume");
+
+        // Ideally a game should implement onResume() and onPause()
+        // to take appropriate action when the activity looses focus
+        super.onResume();
+        mView.resume();
+    }
+
+    &#064;Override
+    protected void onPause() {
+        Log.e("rs", "onPause");
+
+        // Ideally a game should implement onResume() and onPause()
+        // to take appropriate action when the activity looses focus
+        super.onPause();
+        mView.pause();
+
+    }
+
+    static void log(String message) {
+        if (LOG_ENABLED) {
+            Log.v(LOG_TAG, message);
+        }
+    }
+}
+</pre>
+
+<p>Now that you have an idea of what is involved in a Renderscript graphics application, you can
+start building your own. It might be easiest to begin with one of the
+<a href="../../../../resources/samples/RenderScript/index.html">Renderscript samples</a> as a starting
+point if this is your first time using Renderscript.</p>
+
+  <h2 id="drawing">Drawing</h2>
+  <p>The following sections describe how to use the graphics functions to draw with Renderscript.</p>
+
+  <h3 id="drawing-rsg">Simple drawing</h3>
+
+  <p>The native Renderscript APIs provide a few convenient functions to easily draw a polygon or text to
+  the screen. You call these in your <code>root()</code> function to have them render to the <code><a href="../../../../reference/android/renderscript/RSSurfaceView.html">RSSurfaceView</a></code> or <code><a href="../../../../reference/android/renderscript/RSTextureView.html">RSTextureView</a></code>. These functions are
+  available for simple drawing and should not be used for complex graphics rendering:</p>
+
+  <ul>
+    <li><code>rsgDrawRect()</code>: Sets up a mesh and draws a rectangle to the screen. It uses the
+    top left vertex and bottom right vertex of the rectangle to draw.</li>
+
+    <li><code>rsgDrawQuad()</code>: Sets up a mesh and draws a quadrilateral to the screen.</li>
+
+    <li><code>rsgDrawQuadTexCoords()</code>: Sets up a mesh and draws a quadrilateral to the screen
+    using the provided coordinates of a texture.</li>
+
+    <li><code>rsgDrawText()</code>: Draws specified text to the screen. Use <code>rsgFontColor()</code>
+    to set the color of the text.</li>
+  </ul>
+
+  <h3 id="drawing-mesh">Drawing with a mesh</h3>
+
+  <p>When you want to render complex scenes to the screen, instantiate a <code><a href="../../../../reference/android/renderscript/Mesh.html">Mesh</a></code> and draw it with <code>rsgDrawMesh()</code>. A <code><a href="../../../../reference/android/renderscript/Mesh.html">Mesh</a></code> is a collection of allocations that represent vertex data (positions,
+  normals, texture coordinates) and index data that provides information on how to draw triangles
+  and lines with the provided vertex data. You can build a Mesh in three different ways:</p>
+
+  <ul>
+    <li>Build the mesh with the <code><a href="../../../../reference/android/renderscript/Mesh.TriangleMeshBuilder.html">Mesh.TriangleMeshBuilder</a></code> class, which
+    allows you to specify a set of vertices and indices for each triangle that you want to draw.</li>
+
+    <li>Build the mesh using an <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code> or a set of <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code>s with the <code><a href="../../../../reference/android/renderscript/Mesh.AllocationBuilder.html">Mesh.AllocationBuilder</a></code>
+    class. This approach allows you to build a mesh with vertices already stored in memory, which allows you
+    to specify the vertices in Renderscript or Android framework code.</li>
+
+    <li>Build the mesh with the <code><a href="../../../../reference/android/renderscript/Mesh.Builder.html">Mesh.Builder</a></code> class. You should use
+    this convenience method when you know the data types you want to use to build your mesh, but
+    don't want to make separate memory allocations like with <code><a href="../../../../reference/android/renderscript/Mesh.AllocationBuilder.html">Mesh.AllocationBuilder</a></code>. You can specify the types that you want and this
+    mesh builder automatically creates the memory allocations for you.</li>
+  </ul>
+
+  <p>To create a mesh using the <code><a href="../../../../reference/android/renderscript/Mesh.TriangleMeshBuilder.html">Mesh.TriangleMeshBuilder</a></code>, you need to
+  supply it with a set of vertices and the indices for the vertices that comprise the triangle. For
+  example, the following code specifies three vertices, which are added to an internal array,
+  indexed in the order they were added. The call to <code><a href="../../../../reference/android/renderscript/Mesh.TriangleMeshBuilder.html#addTriangle(int, int, int)">addTriangle()</a></code> draws the triangle with
+  vertex 0, 1, and 2 (the vertices are drawn counter-clockwise).</p>
+  <pre>
+int float2VtxSize = 2;
+Mesh.TriangleMeshBuilder triangles = new Mesh.TriangleMeshBuilder(renderscriptGL,
+float2VtxSize, Mesh.TriangleMeshBuilder.COLOR);
+triangles.addVertex(300.f, 300.f);
+triangles.addVertex(150.f, 450.f);
+triangles.addVertex(450.f, 450.f);
+triangles.addTriangle(0 , 1, 2);
+Mesh smP = triangle.create(true);
+script.set_mesh(smP);
+</pre>
+
+  <p>To draw a mesh using the <code><a href="../../../../reference/android/renderscript/Mesh.AllocationBuilder.html">Mesh.AllocationBuilder</a></code>, you need to
+  supply it with one or more allocations that contain the vertex data:</p>
+  <pre>
+Allocation vertices;
+
+...
+Mesh.AllocationBuilder triangle = new Mesh.AllocationBuilder(mRS);
+smb.addVertexAllocation(vertices.getAllocation());
+smb.addIndexSetType(Mesh.Primitive.TRIANGLE);
+Mesh smP = smb.create();
+script.set_mesh(smP);
+</pre>
+
+  <p>In your Renderscript code, draw the built mesh to the screen:</p>
+  <pre>
+rs_mesh mesh;
+...
+
+int root(){
+...
+rsgDrawMesh(mesh);
+...
+return 0; //specify a non zero, positive integer to specify the frame refresh.
+          //0 refreshes the frame only when the mesh changes.
+}
+</pre>
+
+  <h2 id="shader">Programs</h2>
+
+  <p>You can attach four program objects to the <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html">RenderScriptGL</a></code> context
+  to customize the rendering pipeline. For example, you can create vertex and fragment shaders in
+  GLSL or build a raster program object that controls culling. The four programs mirror a
+  traditional graphical rendering pipeline:</p>
+
+  <table>
+    <tr>
+      <th>Android Object Type</th>
+
+      <th>Renderscript Native Type</th>
+
+      <th>Description</th>
+    </tr>
+
+    <tr>
+      <td><code><a href="../../../../reference/android/renderscript/ProgramVertex.html">ProgramVertex</a></code></td>
+
+      <td>rs_program_vertex</td>
+
+      <td>
+        <p>The Renderscript vertex program, also known as a vertex shader, describes the stage in
+        the graphics pipeline responsible for manipulating geometric data in a user-defined way.
+        The object is constructed by providing Renderscript with the following data:</p>
+
+        <ul>
+          <li>An <code><a href="../../../../reference/android/renderscript/Element.html">Element</a></code> describing its varying inputs or attributes</li>
+
+          <li>GLSL shader string that defines the body of the program</li>
+
+          <li>a <code><a href="../../../../reference/android/renderscript/Type.html">Type</a></code> that describes the layout of an
+          Allocation containing constant or uniform inputs</li>
+        </ul>
+
+        <p>Once the program is created, bind it to the <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html">RenderScriptGL</a></code>
+        graphics context by calling <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html#bindProgramVertex(android.renderscript.ProgramVertex)">bindProgramVertex()</a></code>. It is then used for all subsequent draw calls until you bind a new
+        program. If the program has constant inputs, the user needs to bind an allocation
+        containing those inputs. The allocation's type must match the one provided during creation.
+        </p>
+
+        <p>The Renderscript runtime then does all the necessary plumbing to send those constants to
+        the graphics hardware. Varying inputs to the shader, such as position, normal, and texture
+        coordinates are matched by name between the input <code><a href="../../../../reference/android/renderscript/Element.html">Element</a></code>
+        and the mesh object that is being drawn. The signatures don't have to be exact or in any
+        strict order. As long as the input name in the shader matches a channel name and size
+        available on the mesh, the Renderscript runtime handles connecting the two. Unlike OpenGL
+        there is no need to link the vertex and fragment programs.</p>
+
+        <p>To bind shader constants to the program, declare a <code>struct</code> that contains the necessary
+        shader constants in your Renderscript code. This <code>struct</code> is generated into a
+        reflected class that you can use as a constant input element during the program's creation.
+        It is an easy way to create an instance of this <code>struct</code> as an allocation. You would then
+        bind this <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code> to the program and the
+        Renderscript runtime sends the data that is contained in the <code>struct</code> to the hardware
+        when necessary. To update shader constants, you change the values in the
+        <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code> and notify the Renderscript
+        code of the change.</p>
+
+        <p>The <code><a href="../../../../reference/android/renderscript/ProgramVertexFixedFunction.Builder.html">ProgramVertexFixedFunction.Builder</a></code> class also
+        lets you build a simple vertex shader without writing GLSL code.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code><a href="../../../../reference/android/renderscript/ProgramFragment.html">ProgramFragment</a></code></td>
+
+      <td>rs_program_fragment</td>
+
+      <td>
+        <p>The Renderscript fragment program, also known as a fragment shader, is responsible for
+        manipulating pixel data in a user-defined way. It's constructed from a GLSL shader string
+        containing the program body, texture inputs, and a <code><a href="../../../../reference/android/renderscript/Type.html">Type</a></code>
+        object that describes the constants
+        used by the program. Like the vertex programs, when an <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code>
+        with constant input
+        values is bound to the shader, its values are sent to the graphics program automatically.
+        Note that the values inside the <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code> are not explicitly tracked.
+        If they change between two draw calls using the same program object, notify the runtime of that change by
+        calling <code>rsgAllocationSyncAll()</code>, so it can send the new values to hardware. Communication
+        between the vertex and fragment programs is handled internally in the GLSL code. For
+        example, if the fragment program is expecting a varying input called <code>varTex0</code>, the GLSL code
+        inside the program vertex must provide it.</p>
+
+        <p>To bind shader constructs to the program, declare a <code>struct</code> that contains the necessary
+        shader constants in your Renderscript code. This <code>struct</code> is generated into a
+        reflected class that you can use as a constant input element during the program's creation.
+        It is an easy way to create an instance of this <code>struct</code> as an allocation. You would then
+        bind this <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code> to the program and the
+        Renderscript runtime sends the data that is contained in the <code>struct</code> to the hardware
+        when necessary. To update shader constants, you change the values in the
+        <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code> and notify the Renderscript
+        code of the change.</p>
+
+        <p>The <code><a href="../../../../reference/android/renderscript/ProgramFragmentFixedFunction.Builder.html">ProgramFragmentFixedFunction.Builder</a></code> class also
+        lets you build a simple fragment shader without writing GLSL code.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td><code><a href="../../../../reference/android/renderscript/ProgramStore.html">ProgramStore</a></code></td>
+
+      <td>rs_program_store</td>
+
+      <td>The Renderscript store program contains a set of parameters that control how the graphics
+      hardware writes to the framebuffer. It could be used to enable and disable depth writes and
+      testing, setup various blending modes for effects like transparency and define write masks
+      for color components.</td>
+    </tr>
+
+    <tr>
+      <td><code><a href="../../../../reference/android/renderscript/ProgramRaster.html">ProgramRaster</a></code></td>
+
+      <td>rs_program_raster</td>
+
+      <td>The Renderscript raster program is primarily used to specify whether point sprites are enabled and to
+      control the culling mode. By default back faces are culled.</td>
+    </tr>
+  </table>
+
+  <p>The following example defines a vertex shader in GLSL and binds it to a Renderscript context object:</p>
+  <pre>
+    private RenderScriptGL glRenderer;      //rendering context
+    private ScriptField_Point mPoints;      //vertices
+    private ScriptField_VpConsts mVpConsts; //shader constants
+
+    ...
+
+     ProgramVertex.Builder sb = new ProgramVertex.Builder(glRenderer);
+        String t =  "varying vec4 varColor;\n" +
+                    "void main() {\n" +
+                    "  vec4 pos = vec4(0.0, 0.0, 0.0, 1.0);\n" +
+                    "  pos.xy = ATTRIB_position;\n" +
+                    "  gl_Position = UNI_MVP * pos;\n" +
+                    "  varColor = vec4(1.0, 1.0, 1.0, 1.0);\n" +
+                    "  gl_PointSize = ATTRIB_size;\n" +
+                    "}\n";
+        sb.setShader(t);
+        sb.addConstant(mVpConsts.getType());
+        sb.addInput(mPoints.getElement());
+        ProgramVertex pvs = sb.create();
+        pvs.bindConstants(mVpConsts.getAllocation(), 0);
+        glRenderer.bindProgramVertex(pvs);
+</pre>
+
+
+  <p>The <a href=
+  "../../../../resources/samples/RenderScript/MiscSamples/src/com/example/android/rs/miscsamples/RsRenderStatesRS.html">
+  RsRenderStatesRS</a> sample has many examples on how to create a shader without writing GLSL.</p>
+
+  <h3 id="shader-bindings">Program bindings</h3>
+
+  <p>You can also declare four pragmas that control default program bindings to the <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html">RenderScriptGL</a></code> context when the script is executing:</p>
+
+  <ul>
+    <li><code>stateVertex</code></li>
+
+    <li><code>stateFragment</code></li>
+
+    <li><code>stateRaster</code></li>
+
+    <li><code>stateStore</code></li>
+  </ul>
+
+  <p>The possible values for each pragma are <code>parent</code> or <code>default</code>. Using
+  <code>default</code> binds the shaders to the graphical context with the system defaults.</p>
+
+  <p>Using <code>parent</code> binds the shaders in the same manner as it is bound in the calling
+  script. If this is the root script, the parent state is taken from the bind points that are set
+  by the <code><a href="../../../../reference/android/renderscript/RenderScriptGL.html">RenderScriptGL</a></code> bind methods.</p>
+
+  <p>For example, you can define this at the top of your graphics Renderscript code to have
+  the vertex and store programs inherent the bind properties from their parent scripts:</p>
+  <pre>
+#pragma stateVertex(parent)
+#pragma stateStore(parent)
+</pre>
+
+  <h3 id="shader-sampler">Defining a sampler</h3>
+
+  <p>A <code><a href="../../../../reference/android/renderscript/Sampler.html">Sampler</a></code> object defines how data is extracted from textures.
+  Samplers are bound to a <code><a href="../../../../reference/android/renderscript/ProgramFragment.html">ProgramFragment</a></code> alongside the texture
+  whose sampling they control. These
+  objects are used to specify such things as edge clamping behavior, whether mip-maps are used, and
+  the amount of anisotropy required. There might be situations where hardware does not support the
+  desired behavior of the sampler. In these cases, the Renderscript runtime attempts to provide the
+  closest possible approximation. For example, the user requested 16x anisotropy, but only 8x was
+  set because it's the best available on the hardware.</p>
+
+  <p>The <a href=
+  "../../../../resources/samples/RenderScript/MiscSamples/src/com/example/android/rs/miscsamples/RsRenderStatesRS.html">
+  RsRenderStatesRS</a> sample has many examples on how to create a sampler and bind it to a
+  Fragment program.</p>
+
+
+
+<h2 id="fbo">Rendering to a Framebuffer Object</h2>
+
+<p>Framebuffer objects allow you to render offscreen instead of in the default onscreen
+framebuffer. This approach might be useful for situations where you need to post-process a texture before
+rendering it to the screen, or when you want to composite two scenes in one such as rendering a rear-view
+mirror of a car. There are two buffers associated with a framebuffer object: a color buffer
+and a depth buffer. The color buffer (required) contains the actual pixel data of the scene
+that you are rendering, and the depth buffer (optional) contains the values necessary to figure
+out what vertices are drawn depending on their z-values.</p>
+
+<p>In general, you need to do the following to render to a framebuffer object:</p>
+
+<ul>
+  <li>Create <code><a href="../../../../reference/android/renderscript/Allocation.html">Allocation</a></code> objects for the color buffer and
+  depth buffer (if needed). Specify the <code><a href="../../../../reference/android/renderscript/Allocation.html#USAGE_GRAPHICS_RENDER_TARGET">USAGE_GRAPHICS_RENDER_TARGET</a></code> usage attribute for these
+  allocations to notify the Renderscript runtime to use these allocations for the framebuffer
+  object. For the color buffer allocation, you most likely need to declare the <code><a href="../../../../reference/android/renderscript/Allocation.html#USAGE_GRAPHICS_TEXTURE">USAGE_GRAPHICS_TEXTURE</a></code> usage attribute
+  to use the color buffer as a texture, which is the most common use of the framebuffer object.</li>
+
+  <li>Tell the Renderscript runtime to render to the framebuffer object instead of the default
+  framebuffer by calling <code>rsgBindColorTarget()</code> and passing it the color buffer
+  allocation. If applicable, call <code>rsgBindDepthTarget()</code> passing in the depth buffer
+  allocation as well.</li>
+
+  <li>Render your scene normally with the <code>rsgDraw</code> functions. The scene will be
+  rendered into the color buffer instead of the default onscreen framebuffer.</li>
+
+  <li>When done, tell the Renderscript runtime stop rendering to the color buffer and back
+  to the default framebuffer by calling <code>rsgClearAllRenderTargets()</code>.</li>
+
+  <li>Create a fragment shader and bind a the color buffer to it as a texture.</li>
+
+  <li>Render your scene to the default framebuffer. The texture will be used according
+  to the way you setup your fragment shader.</li>
+</ul>
+
+<p>The following example shows you how to render to a framebuffer object by modifying the
+<a href="../../../../guide/resources/renderscript/Fountain/">Fountain</a> Renderscript sample. The end
+result is the <a href="../../../../guide/resources/renderscript/FountainFBO/">FountainFBO</a> sample.
+The modifications render the exact same scene into a framebuffer object as it does the default
+framebuffer. The framebuffer object is then rendered into the default framebuffer in a small
+area at the top left corner of the screen.</p>
+
+<ol>
+  <li>Modify <code>fountain.rs</code> and add the following global variables. This creates setter
+  methods when this file is reflected into a <code>.java</code> file, allowing you to allocate
+  memory in your Android framework code and binding it to the Renderscript runtime.
+<pre>
+//allocation for color buffer
+rs_allocation gColorBuffer;
+//fragment shader for rendering without a texture (used for rendering to framebuffer object)
+rs_program_fragment gProgramFragment;
+//fragment shader for rendering with a texture (used for rendering to default framebuffer)
+rs_program_fragment gTextureProgramFragment;
+</pre>
+  </li>
+
+  <li>Modify the root function of <code>fountain.rs</code> to look like the following code. The
+  modifications are commented:
+<pre>
+int root() {
+    float dt = min(rsGetDt(), 0.1f);
+    rsgClearColor(0.f, 0.f, 0.f, 1.f);
+    const float height = rsgGetHeight();
+    const int size = rsAllocationGetDimX(rsGetAllocation(point));
+    float dy2 = dt * (10.f);
+    Point_t * p = point;
+    for (int ct=0; ct < size; ct++) {
+        p->delta.y += dy2;
+        p->position += p->delta;
+        if ((p->position.y > height) && (p->delta.y > 0)) {
+            p->delta.y *= -0.3f;
+        }
+        p++;
+    }
+    //Tell Renderscript runtime to render to the frame buffer object
+    rsgBindColorTarget(gColorBuffer, 0);
+    //Begin rendering on a white background
+    rsgClearColor(1.f, 1.f, 1.f, 1.f);
+    rsgDrawMesh(partMesh);
+
+    //When done, tell Renderscript runtime to stop rendering to framebuffer object
+    rsgClearAllRenderTargets();
+
+    //Bind a new fragment shader that declares the framebuffer object to be used as a texture
+    rsgBindProgramFragment(gTextureProgramFragment);
+
+    //Bind the framebuffer object to the fragment shader at slot 0 as a texture
+    rsgBindTexture(gTextureProgramFragment, 0, gColorBuffer);
+    //Draw a quad using the framebuffer object as the texture
+    float startX = 10, startY = 10;
+    float s = 256;
+    rsgDrawQuadTexCoords(startX, startY, 0, 0, 1,
+                         startX, startY + s, 0, 0, 0,
+                         startX + s, startY + s, 0, 1, 0,
+                         startX + s, startY, 0, 1, 1);
+
+    //Rebind the original fragment shader to render as normal
+    rsgBindProgramFragment(gProgramFragment);
+
+    //Render the main scene
+    rsgDrawMesh(partMesh);
+
+    return 1;
+}
+</pre>
+  </li>
+
+  <li>In the <code>FountainRS.java</code> file, modify the <code>init()</code> method to look
+  like the following code. The modifications are commented:
+
+<pre>
+/* Add necessary members */
+private ScriptC_fountainfbo mScript;
+private Allocation mColorBuffer;
+private ProgramFragment mProgramFragment;
+private ProgramFragment mTextureProgramFragment;
+
+public void init(RenderScriptGL rs, Resources res) {
+    mRS = rs;
+    mRes = res;
+
+    ScriptField_Point points = new ScriptField_Point(mRS, PART_COUNT);
+
+    Mesh.AllocationBuilder smb = new Mesh.AllocationBuilder(mRS);
+    smb.addVertexAllocation(points.getAllocation());
+    smb.addIndexSetType(Mesh.Primitive.POINT);
+    Mesh sm = smb.create();
+
+    mScript = new ScriptC_fountainfbo(mRS, mRes, R.raw.fountainfbo);
+    mScript.set_partMesh(sm);
+    mScript.bind_point(points);
+
+    ProgramFragmentFixedFunction.Builder pfb = new ProgramFragmentFixedFunction.Builder(rs);
+    pfb.setVaryingColor(true);
+    mProgramFragment = pfb.create();
+    mScript.set_gProgramFragment(mProgramFragment);
+
+    /* Second fragment shader to use a texture (framebuffer object) to draw with */
+    pfb.setTexture(ProgramFragmentFixedFunction.Builder.EnvMode.REPLACE,
+        ProgramFragmentFixedFunction.Builder.Format.RGBA, 0);
+
+    /* Set the fragment shader in the Renderscript runtime */
+    mTextureProgramFragment = pfb.create();
+    mScript.set_gTextureProgramFragment(mTextureProgramFragment);
+
+    /* Create the allocation for the color buffer */
+    Type.Builder colorBuilder = new Type.Builder(mRS, Element.RGBA_8888(mRS));
+    colorBuilder.setX(256).setY(256);
+    mColorBuffer = Allocation.createTyped(mRS, colorBuilder.create(),
+    Allocation.USAGE_GRAPHICS_TEXTURE |
+    Allocation.USAGE_GRAPHICS_RENDER_TARGET);
+
+    /* Set the allocation in the Renderscript runtime */
+    mScript.set_gColorBuffer(mColorBuffer);
+
+    mRS.bindRootScript(mScript);
+}
+</pre>
+
+<p class="note"><strong>Note:</strong> This sample doesn't use a depth buffer, but the following code
+shows you how to declare an example depth buffer if you need to use
+one for your application. The depth buffer must have the same dimensions as the color buffer:
+
+<pre>
+Allocation mDepthBuffer;
+
+...
+
+Type.Builder b = new Type.Builder(mRS, Element.createPixel(mRS, DataType.UNSIGNED_16,
+    DataKind.PIXEL_DEPTH));
+b.setX(256).setY(256);
+mDepthBuffer = Allocation.createTyped(mRS, b.create(),
+Allocation.USAGE_GRAPHICS_RENDER_TARGET);
+
+</pre>
+</p>
+</li>
+
+  <li>Run and use the sample. The smaller, white quad on the top-left corner is using the
+  framebuffer object as a texture, which renders the same scene as the main rendering.</li>
+</ol>
+
+    </div>
+      
+      <div class="content-footer layout-content-row" 
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-8" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+            <a href="#" class="prev-page-link hide"
+                zh-TW-lang="上一堂課"
+                zh-CN-lang="上一课"
+                ru-lang="Предыдущий"
+                ko-lang="이전"
+                ja-lang="前へ"
+                es-lang="Anterior"               
+                >Previous</a>
+            <a href="#" class="next-page-link hide"
+                zh-TW-lang="下一堂課"
+                zh-CN-lang="下一课"
+                ru-lang="Следующий"
+                ko-lang="다음"
+                ja-lang="次へ"
+                es-lang="Siguiente"               
+                >Next</a>
+          
+        </div>
+        
+      </div>
+      
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is licensed under <a
+  href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. 
+  For details and restrictions, see the <a href="../../../../license.html">
+  Content License</a>.
+  </div>
+  <div id="build_info">
+    
+  Android 4.2&nbsp;r1 - 13 Nov 2012  0:25
+
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>
+
+
+

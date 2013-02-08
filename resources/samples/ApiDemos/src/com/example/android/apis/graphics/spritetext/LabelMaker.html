@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../../../favicon.ico" />
+<title>LabelMaker.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../../../";
+</script>
+<script src="../../../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../../../index.html">
+            <img src="../../../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>LabelMaker.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2007 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.apis.graphics.spritetext;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Paint.Style;
+import android.graphics.drawable.Drawable;
+import android.opengl.GLUtils;
+
+import java.util.ArrayList;
+
+import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL11;
+import javax.microedition.khronos.opengles.GL11Ext;
+
+/**
+ * An OpenGL text label maker.
+ *
+ *
+ * OpenGL labels are implemented by creating a Bitmap, drawing all the labels
+ * into the Bitmap, converting the Bitmap into an Alpha texture, and drawing
+ * portions of the texture using glDrawTexiOES.
+ *
+ * The benefits of this approach are that the labels are drawn using the high
+ * quality anti-aliased font rasterizer, full character set support, and all the
+ * text labels are stored on a single texture, which makes it faster to use.
+ *
+ * The drawbacks are that you can only have as many labels as will fit onto one
+ * texture, and you have to recreate the whole texture if any label text
+ * changes.
+ *
+ */
+public class LabelMaker {
+    /**
+     * Create a label maker
+     * or maximum compatibility with various OpenGL ES implementations,
+     * the strike width and height must be powers of two,
+     * We want the strike width to be at least as wide as the widest window.
+     *
+     * @param fullColor true if we want a full color backing store (4444),
+     * otherwise we generate a grey L8 backing store.
+     * @param strikeWidth width of strike
+     * @param strikeHeight height of strike
+     */
+    public LabelMaker(boolean fullColor, int strikeWidth, int strikeHeight) {
+        mFullColor = fullColor;
+        mStrikeWidth = strikeWidth;
+        mStrikeHeight = strikeHeight;
+        mTexelWidth = (float) (1.0 / mStrikeWidth);
+        mTexelHeight = (float) (1.0 / mStrikeHeight);
+        mClearPaint = new Paint();
+        mClearPaint.setARGB(0, 0, 0, 0);
+        mClearPaint.setStyle(Style.FILL);
+        mState = STATE_NEW;
+    }
+
+    /**
+     * Call to initialize the class.
+     * Call whenever the surface has been created.
+     *
+     * @param gl
+     */
+    public void initialize(GL10 gl) {
+        mState = STATE_INITIALIZED;
+        int[] textures = new int[1];
+        gl.glGenTextures(1, textures, 0);
+        mTextureID = textures[0];
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, mTextureID);
+
+        // Use Nearest for performance.
+        gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER,
+                GL10.GL_NEAREST);
+        gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER,
+                GL10.GL_NEAREST);
+
+        gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_S,
+                GL10.GL_CLAMP_TO_EDGE);
+        gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_WRAP_T,
+                GL10.GL_CLAMP_TO_EDGE);
+
+        gl.glTexEnvf(GL10.GL_TEXTURE_ENV, GL10.GL_TEXTURE_ENV_MODE,
+                GL10.GL_REPLACE);
+    }
+
+    /**
+     * Call when the surface has been destroyed
+     */
+    public void shutdown(GL10 gl) {
+        if ( gl != null) {
+            if (mState &gt; STATE_NEW) {
+                int[] textures = new int[1];
+                textures[0] = mTextureID;
+                gl.glDeleteTextures(1, textures, 0);
+                mState = STATE_NEW;
+            }
+        }
+    }
+
+    /**
+     * Call before adding labels. Clears out any existing labels.
+     *
+     * @param gl
+     */
+    public void beginAdding(GL10 gl) {
+        checkState(STATE_INITIALIZED, STATE_ADDING);
+        mLabels.clear();
+        mU = 0;
+        mV = 0;
+        mLineHeight = 0;
+        Bitmap.Config config = mFullColor ?
+                Bitmap.Config.ARGB_4444 : Bitmap.Config.ALPHA_8;
+        mBitmap = Bitmap.createBitmap(mStrikeWidth, mStrikeHeight, config);
+        mCanvas = new Canvas(mBitmap);
+        mBitmap.eraseColor(0);
+    }
+
+    /**
+     * Call to add a label
+     *
+     * @param gl
+     * @param text the text of the label
+     * @param textPaint the paint of the label
+     * @return the id of the label, used to measure and draw the label
+     */
+    public int add(GL10 gl, String text, Paint textPaint) {
+        return add(gl, null, text, textPaint);
+    }
+
+    /**
+     * Call to add a label
+     *
+     * @param gl
+     * @param text the text of the label
+     * @param textPaint the paint of the label
+     * @return the id of the label, used to measure and draw the label
+     */
+    public int add(GL10 gl, Drawable background, String text, Paint textPaint) {
+        return add(gl, background, text, textPaint, 0, 0);
+    }
+
+    /**
+     * Call to add a label
+     * @return the id of the label, used to measure and draw the label
+     */
+    public int add(GL10 gl, Drawable drawable, int minWidth, int minHeight) {
+        return add(gl, drawable, null, null, minWidth, minHeight);
+    }
+
+    /**
+     * Call to add a label
+     *
+     * @param gl
+     * @param text the text of the label
+     * @param textPaint the paint of the label
+     * @return the id of the label, used to measure and draw the label
+     */
+    public int add(GL10 gl, Drawable background, String text, Paint textPaint,
+            int minWidth, int minHeight) {
+        checkState(STATE_ADDING, STATE_ADDING);
+        boolean drawBackground = background != null;
+        boolean drawText = (text != null) &amp;&amp; (textPaint != null);
+
+        Rect padding = new Rect();
+        if (drawBackground) {
+            background.getPadding(padding);
+            minWidth = Math.max(minWidth, background.getMinimumWidth());
+            minHeight = Math.max(minHeight, background.getMinimumHeight());
+        }
+
+        int ascent = 0;
+        int descent = 0;
+        int measuredTextWidth = 0;
+        if (drawText) {
+            // Paint.ascent is negative, so negate it.
+            ascent = (int) Math.ceil(-textPaint.ascent());
+            descent = (int) Math.ceil(textPaint.descent());
+            measuredTextWidth = (int) Math.ceil(textPaint.measureText(text));
+        }
+        int textHeight = ascent + descent;
+        int textWidth = Math.min(mStrikeWidth,measuredTextWidth);
+
+        int padHeight = padding.top + padding.bottom;
+        int padWidth = padding.left + padding.right;
+        int height = Math.max(minHeight, textHeight + padHeight);
+        int width = Math.max(minWidth, textWidth + padWidth);
+        int effectiveTextHeight = height - padHeight;
+        int effectiveTextWidth = width - padWidth;
+
+        int centerOffsetHeight = (effectiveTextHeight - textHeight) / 2;
+        int centerOffsetWidth = (effectiveTextWidth - textWidth) / 2;
+
+        // Make changes to the local variables, only commit them
+        // to the member variables after we've decided not to throw
+        // any exceptions.
+
+        int u = mU;
+        int v = mV;
+        int lineHeight = mLineHeight;
+
+        if (width &gt; mStrikeWidth) {
+            width = mStrikeWidth;
+        }
+
+        // Is there room for this string on the current line?
+        if (u + width &gt; mStrikeWidth) {
+            // No room, go to the next line:
+            u = 0;
+            v += lineHeight;
+            lineHeight = 0;
+        }
+        lineHeight = Math.max(lineHeight, height);
+        if (v + lineHeight &gt; mStrikeHeight) {
+            throw new IllegalArgumentException("Out of texture space.");
+        }
+
+        int u2 = u + width;
+        int vBase = v + ascent;
+        int v2 = v + height;
+
+        if (drawBackground) {
+            background.setBounds(u, v, u + width, v + height);
+            background.draw(mCanvas);
+        }
+
+        if (drawText) {
+            mCanvas.drawText(text,
+                    u + padding.left + centerOffsetWidth,
+                    vBase + padding.top + centerOffsetHeight,
+                    textPaint);
+        }
+
+        // We know there's enough space, so update the member variables
+        mU = u + width;
+        mV = v;
+        mLineHeight = lineHeight;
+        mLabels.add(new Label(width, height, ascent,
+                u, v + height, width, -height));
+        return mLabels.size() - 1;
+    }
+
+    /**
+     * Call to end adding labels. Must be called before drawing starts.
+     *
+     * @param gl
+     */
+    public void endAdding(GL10 gl) {
+        checkState(STATE_ADDING, STATE_INITIALIZED);
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, mTextureID);
+        GLUtils.texImage2D(GL10.GL_TEXTURE_2D, 0, mBitmap, 0);
+        // Reclaim storage used by bitmap and canvas.
+        mBitmap.recycle();
+        mBitmap = null;
+        mCanvas = null;
+    }
+
+    /**
+     * Get the width in pixels of a given label.
+     *
+     * @param labelID
+     * @return the width in pixels
+     */
+    public float getWidth(int labelID) {
+        return mLabels.get(labelID).width;
+    }
+
+    /**
+     * Get the height in pixels of a given label.
+     *
+     * @param labelID
+     * @return the height in pixels
+     */
+    public float getHeight(int labelID) {
+        return mLabels.get(labelID).height;
+    }
+
+    /**
+     * Get the baseline of a given label. That's how many pixels from the top of
+     * the label to the text baseline. (This is equivalent to the negative of
+     * the label's paint's ascent.)
+     *
+     * @param labelID
+     * @return the baseline in pixels.
+     */
+    public float getBaseline(int labelID) {
+        return mLabels.get(labelID).baseline;
+    }
+
+    /**
+     * Begin drawing labels. Sets the OpenGL state for rapid drawing.
+     *
+     * @param gl
+     * @param viewWidth
+     * @param viewHeight
+     */
+    public void beginDrawing(GL10 gl, float viewWidth, float viewHeight) {
+        checkState(STATE_INITIALIZED, STATE_DRAWING);
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, mTextureID);
+        gl.glShadeModel(GL10.GL_FLAT);
+        gl.glEnable(GL10.GL_BLEND);
+        gl.glBlendFunc(GL10.GL_SRC_ALPHA, GL10.GL_ONE_MINUS_SRC_ALPHA);
+        gl.glColor4x(0x10000, 0x10000, 0x10000, 0x10000);
+        gl.glMatrixMode(GL10.GL_PROJECTION);
+        gl.glPushMatrix();
+        gl.glLoadIdentity();
+        gl.glOrthof(0.0f, viewWidth, 0.0f, viewHeight, 0.0f, 1.0f);
+        gl.glMatrixMode(GL10.GL_MODELVIEW);
+        gl.glPushMatrix();
+        gl.glLoadIdentity();
+        // Magic offsets to promote consistent rasterization.
+        gl.glTranslatef(0.375f, 0.375f, 0.0f);
+    }
+
+    /**
+     * Draw a given label at a given x,y position, expressed in pixels, with the
+     * lower-left-hand-corner of the view being (0,0).
+     *
+     * @param gl
+     * @param x
+     * @param y
+     * @param labelID
+     */
+    public void draw(GL10 gl, float x, float y, int labelID) {
+        checkState(STATE_DRAWING, STATE_DRAWING);
+        Label label = mLabels.get(labelID);
+        gl.glEnable(GL10.GL_TEXTURE_2D);
+        ((GL11)gl).glTexParameteriv(GL10.GL_TEXTURE_2D,
+                GL11Ext.GL_TEXTURE_CROP_RECT_OES, label.mCrop, 0);
+        ((GL11Ext)gl).glDrawTexiOES((int) x, (int) y, 0,
+                (int) label.width, (int) label.height);
+    }
+
+    /**
+     * Ends the drawing and restores the OpenGL state.
+     *
+     * @param gl
+     */
+    public void endDrawing(GL10 gl) {
+        checkState(STATE_DRAWING, STATE_INITIALIZED);
+        gl.glDisable(GL10.GL_BLEND);
+        gl.glMatrixMode(GL10.GL_PROJECTION);
+        gl.glPopMatrix();
+        gl.glMatrixMode(GL10.GL_MODELVIEW);
+        gl.glPopMatrix();
+    }
+
+    private void checkState(int oldState, int newState) {
+        if (mState != oldState) {
+            throw new IllegalArgumentException("Can't call this method now.");
+        }
+        mState = newState;
+    }
+
+    private static class Label {
+        public Label(float width, float height, float baseLine,
+                int cropU, int cropV, int cropW, int cropH) {
+            this.width = width;
+            this.height = height;
+            this.baseline = baseLine;
+            int[] crop = new int[4];
+            crop[0] = cropU;
+            crop[1] = cropV;
+            crop[2] = cropW;
+            crop[3] = cropH;
+            mCrop = crop;
+        }
+
+        public float width;
+        public float height;
+        public float baseline;
+        public int[] mCrop;
+    }
+
+    private int mStrikeWidth;
+    private int mStrikeHeight;
+    private boolean mFullColor;
+    private Bitmap mBitmap;
+    private Canvas mCanvas;
+    private Paint mClearPaint;
+
+    private int mTextureID;
+
+    private float mTexelWidth;  // Convert texel to U
+    private float mTexelHeight; // Convert texel to V
+    private int mU;
+    private int mV;
+    private int mLineHeight;
+    private ArrayList&lt;Label&gt; mLabels = new ArrayList&lt;Label&gt;();
+
+    private static final int STATE_NEW = 0;
+    private static final int STATE_INITIALIZED = 1;
+    private static final int STATE_ADDING = 2;
+    private static final int STATE_DRAWING = 3;
+    private int mState;
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../../favicon.ico" />
+<title>TouchPaint.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../../";
+</script>
+<script src="../../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../../index.html">
+            <img src="../../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>TouchPaint.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2007 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.apis.graphics;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+
+import java.util.Random;
+
+/**
+ * Demonstrates the handling of touch screen, stylus, mouse and trackball events to
+ * implement a simple painting app.
+ * &lt;p&gt;
+ * Drawing with a touch screen is accomplished by drawing a point at the
+ * location of the touch.  When pressure information is available, it is used
+ * to change the intensity of the color.  When size and orientation information
+ * is available, it is used to directly adjust the size and orientation of the
+ * brush.
+ * &lt;/p&gt;&lt;p&gt;
+ * Drawing with a stylus is similar to drawing with a touch screen, with a
+ * few added refinements.  First, there may be multiple tools available including
+ * an eraser tool.  Second, the tilt angle and orientation of the stylus can be
+ * used to control the direction of paint.  Third, the stylus buttons can be used
+ * to perform various actions.  Here we use one button to cycle colors and the
+ * other to airbrush from a distance.
+ * &lt;/p&gt;&lt;p&gt;
+ * Drawing with a mouse is similar to drawing with a touch screen, but as with
+ * a stylus we have extra buttons.  Here we use the primary button to draw,
+ * the secondary button to cycle colors and the tertiary button to airbrush.
+ * &lt;/p&gt;&lt;p&gt;
+ * Drawing with a trackball is a simple matter of using the relative motions
+ * of the trackball to move the paint brush around.  The trackball may also
+ * have a button, which we use to cycle through colors.
+ * &lt;/p&gt;
+ */
+public class TouchPaint extends GraphicsActivity {
+    /** Used as a pulse to gradually fade the contents of the window. */
+    private static final int MSG_FADE = 1;
+
+    /** Menu ID for the command to clear the window. */
+    private static final int CLEAR_ID = Menu.FIRST;
+
+    /** Menu ID for the command to toggle fading. */
+    private static final int FADE_ID = Menu.FIRST+1;
+
+    /** How often to fade the contents of the window (in ms). */
+    private static final int FADE_DELAY = 100;
+
+    /** Colors to cycle through. */
+    static final int[] COLORS = new int[] {
+        Color.WHITE, Color.RED, Color.YELLOW, Color.GREEN,
+        Color.CYAN, Color.BLUE, Color.MAGENTA,
+    };
+
+    /** Background color. */
+    static final int BACKGROUND_COLOR = Color.BLACK;
+
+    /** The view responsible for drawing the window. */
+    PaintView mView;
+
+    /** Is fading mode enabled? */
+    boolean mFading;
+
+    /** The index of the current color to use. */
+    int mColorIndex;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Create and attach the view that is responsible for painting.
+        mView = new PaintView(this);
+        setContentView(mView);
+        mView.requestFocus();
+
+        // Restore the fading option if we are being thawed from a
+        // previously saved state.  Note that we are not currently remembering
+        // the contents of the bitmap.
+        if (savedInstanceState != null) {
+            mFading = savedInstanceState.getBoolean("fading", true);
+            mColorIndex = savedInstanceState.getInt("color", 0);
+        } else {
+            mFading = true;
+            mColorIndex = 0;
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, CLEAR_ID, 0, "Clear");
+        menu.add(0, FADE_ID, 0, "Fade").setCheckable(true);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(FADE_ID).setChecked(mFading);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case CLEAR_ID:
+                mView.clear();
+                return true;
+            case FADE_ID:
+                mFading = !mFading;
+                if (mFading) {
+                    startFading();
+                } else {
+                    stopFading();
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // If fading mode is enabled, then as long as we are resumed we want
+        // to run pulse to fade the contents.
+        if (mFading) {
+            startFading();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Save away the fading state to restore if needed later.  Note that
+        // we do not currently save the contents of the display.
+        outState.putBoolean("fading", mFading);
+        outState.putInt("color", mColorIndex);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Make sure to never run the fading pulse while we are paused or
+        // stopped.
+        stopFading();
+    }
+
+    /**
+     * Start up the pulse to fade the screen, clearing any existing pulse to
+     * ensure that we don't have multiple pulses running at a time.
+     */
+    void startFading() {
+        mHandler.removeMessages(MSG_FADE);
+        scheduleFade();
+    }
+
+    /**
+     * Stop the pulse to fade the screen.
+     */
+    void stopFading() {
+        mHandler.removeMessages(MSG_FADE);
+    }
+
+    /**
+     * Schedule a fade message for later.
+     */
+    void scheduleFade() {
+        mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_FADE), FADE_DELAY);
+    }
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                // Upon receiving the fade pulse, we have the view perform a
+                // fade and then enqueue a new message to pulse at the desired
+                // next time.
+                case MSG_FADE: {
+                    mView.fade();
+                    scheduleFade();
+                    break;
+                }
+                default:
+                    super.handleMessage(msg);
+            }
+        }
+    };
+
+    enum PaintMode {
+        Draw,
+        Splat,
+        Erase,
+    }
+
+    /**
+     * This view implements the drawing canvas.
+     *
+     * It handles all of the input events and drawing functions.
+     */
+    class PaintView extends View {
+        private static final int FADE_ALPHA = 0x06;
+        private static final int MAX_FADE_STEPS = 256 / FADE_ALPHA + 4;
+        private static final int TRACKBALL_SCALE = 10;
+
+        private static final int SPLAT_VECTORS = 40;
+
+        private final Random mRandom = new Random();
+        private Bitmap mBitmap;
+        private Canvas mCanvas;
+        private final Paint mPaint;
+        private final Paint mFadePaint;
+        private float mCurX;
+        private float mCurY;
+        private int mOldButtonState;
+        private int mFadeSteps = MAX_FADE_STEPS;
+
+        public PaintView(Context c) {
+            super(c);
+            setFocusable(true);
+
+            mPaint = new Paint();
+            mPaint.setAntiAlias(true);
+
+            mFadePaint = new Paint();
+            mFadePaint.setColor(BACKGROUND_COLOR);
+            mFadePaint.setAlpha(FADE_ALPHA);
+        }
+
+        public void clear() {
+            if (mCanvas != null) {
+                mPaint.setColor(BACKGROUND_COLOR);
+                mCanvas.drawPaint(mPaint);
+                invalidate();
+
+                mFadeSteps = MAX_FADE_STEPS;
+            }
+        }
+
+        public void fade() {
+            if (mCanvas != null &amp;&amp; mFadeSteps &lt; MAX_FADE_STEPS) {
+                mCanvas.drawPaint(mFadePaint);
+                invalidate();
+
+                mFadeSteps++;
+            }
+        }
+
+        @Override
+        protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+            int curW = mBitmap != null ? mBitmap.getWidth() : 0;
+            int curH = mBitmap != null ? mBitmap.getHeight() : 0;
+            if (curW &gt;= w &amp;&amp; curH &gt;= h) {
+                return;
+            }
+
+            if (curW &lt; w) curW = w;
+            if (curH &lt; h) curH = h;
+
+            Bitmap newBitmap = Bitmap.createBitmap(curW, curH, Bitmap.Config.ARGB_8888);
+            Canvas newCanvas = new Canvas();
+            newCanvas.setBitmap(newBitmap);
+            if (mBitmap != null) {
+                newCanvas.drawBitmap(mBitmap, 0, 0, null);
+            }
+            mBitmap = newBitmap;
+            mCanvas = newCanvas;
+            mFadeSteps = MAX_FADE_STEPS;
+        }
+
+        @Override
+        protected void onDraw(Canvas canvas) {
+            if (mBitmap != null) {
+                canvas.drawBitmap(mBitmap, 0, 0, null);
+            }
+        }
+
+        @Override
+        public boolean onTrackballEvent(MotionEvent event) {
+            final int action = event.getActionMasked();
+            if (action == MotionEvent.ACTION_DOWN) {
+                // Advance color when the trackball button is pressed.
+                advanceColor();
+            }
+
+            if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_MOVE) {
+                final int N = event.getHistorySize();
+                final float scaleX = event.getXPrecision() * TRACKBALL_SCALE;
+                final float scaleY = event.getYPrecision() * TRACKBALL_SCALE;
+                for (int i = 0; i &lt; N; i++) {
+                    moveTrackball(event.getHistoricalX(i) * scaleX,
+                            event.getHistoricalY(i) * scaleY);
+                }
+                moveTrackball(event.getX() * scaleX, event.getY() * scaleY);
+            }
+            return true;
+        }
+
+        private void moveTrackball(float deltaX, float deltaY) {
+            final int curW = mBitmap != null ? mBitmap.getWidth() : 0;
+            final int curH = mBitmap != null ? mBitmap.getHeight() : 0;
+
+            mCurX = Math.max(Math.min(mCurX + deltaX, curW - 1), 0);
+            mCurY = Math.max(Math.min(mCurY + deltaY, curH - 1), 0);
+            paint(PaintMode.Draw, mCurX, mCurY);
+        }
+
+        @Override
+        public boolean onTouchEvent(MotionEvent event) {
+            return onTouchOrHoverEvent(event, true /*isTouch*/);
+        }
+
+        @Override
+        public boolean onHoverEvent(MotionEvent event) {
+            return onTouchOrHoverEvent(event, false /*isTouch*/);
+        }
+
+        private boolean onTouchOrHoverEvent(MotionEvent event, boolean isTouch) {
+            final int buttonState = event.getButtonState();
+            int pressedButtons = buttonState &amp; ~mOldButtonState;
+            mOldButtonState = buttonState;
+
+            if ((pressedButtons &amp; MotionEvent.BUTTON_SECONDARY) != 0) {
+                // Advance color when the right mouse button or first stylus button
+                // is pressed.
+                advanceColor();
+            }
+
+            PaintMode mode;
+            if ((buttonState &amp; MotionEvent.BUTTON_TERTIARY) != 0) {
+                // Splat paint when the middle mouse button or second stylus button is pressed.
+                mode = PaintMode.Splat;
+            } else if (isTouch || (buttonState &amp; MotionEvent.BUTTON_PRIMARY) != 0) {
+                // Draw paint when touching or if the primary button is pressed.
+                mode = PaintMode.Draw;
+            } else {
+                // Otherwise, do not paint anything.
+                return false;
+            }
+
+            final int action = event.getActionMasked();
+            if (action == MotionEvent.ACTION_DOWN || action == MotionEvent.ACTION_MOVE
+                    || action == MotionEvent.ACTION_HOVER_MOVE) {
+                final int N = event.getHistorySize();
+                final int P = event.getPointerCount();
+                for (int i = 0; i &lt; N; i++) {
+                    for (int j = 0; j &lt; P; j++) {
+                        paint(getPaintModeForTool(event.getToolType(j), mode),
+                                event.getHistoricalX(j, i),
+                                event.getHistoricalY(j, i),
+                                event.getHistoricalPressure(j, i),
+                                event.getHistoricalTouchMajor(j, i),
+                                event.getHistoricalTouchMinor(j, i),
+                                event.getHistoricalOrientation(j, i),
+                                event.getHistoricalAxisValue(MotionEvent.AXIS_DISTANCE, j, i),
+                                event.getHistoricalAxisValue(MotionEvent.AXIS_TILT, j, i));
+                    }
+                }
+                for (int j = 0; j &lt; P; j++) {
+                    paint(getPaintModeForTool(event.getToolType(j), mode),
+                            event.getX(j),
+                            event.getY(j),
+                            event.getPressure(j),
+                            event.getTouchMajor(j),
+                            event.getTouchMinor(j),
+                            event.getOrientation(j),
+                            event.getAxisValue(MotionEvent.AXIS_DISTANCE, j),
+                            event.getAxisValue(MotionEvent.AXIS_TILT, j));
+                }
+                mCurX = event.getX();
+                mCurY = event.getY();
+            }
+            return true;
+        }
+
+        private PaintMode getPaintModeForTool(int toolType, PaintMode defaultMode) {
+            if (toolType == MotionEvent.TOOL_TYPE_ERASER) {
+                return PaintMode.Erase;
+            }
+            return defaultMode;
+        }
+
+        private void advanceColor() {
+            mColorIndex = (mColorIndex + 1) % COLORS.length;
+        }
+
+        private void paint(PaintMode mode, float x, float y) {
+            paint(mode, x, y, 1.0f, 0, 0, 0, 0, 0);
+        }
+
+        private void paint(PaintMode mode, float x, float y, float pressure,
+                float major, float minor, float orientation,
+                float distance, float tilt) {
+            if (mBitmap != null) {
+                if (major &lt;= 0 || minor &lt;= 0) {
+                    // If size is not available, use a default value.
+                    major = minor = 16;
+                }
+
+                switch (mode) {
+                    case Draw:
+                        mPaint.setColor(COLORS[mColorIndex]);
+                        mPaint.setAlpha(Math.min((int)(pressure * 128), 255));
+                        drawOval(mCanvas, x, y, major, minor, orientation, mPaint);
+                        break;
+
+                    case Erase:
+                        mPaint.setColor(BACKGROUND_COLOR);
+                        mPaint.setAlpha(Math.min((int)(pressure * 128), 255));
+                        drawOval(mCanvas, x, y, major, minor, orientation, mPaint);
+                        break;
+
+                    case Splat:
+                        mPaint.setColor(COLORS[mColorIndex]);
+                        mPaint.setAlpha(64);
+                        drawSplat(mCanvas, x, y, orientation, distance, tilt, mPaint);
+                        break;
+                }
+            }
+            mFadeSteps = 0;
+            invalidate();
+        }
+
+        /**
+         * Draw an oval.
+         *
+         * When the orienation is 0 radians, orients the major axis vertically,
+         * angles less than or greater than 0 radians rotate the major axis left or right.
+         */
+        private final RectF mReusableOvalRect = new RectF();
+        private void drawOval(Canvas canvas, float x, float y, float major, float minor,
+                float orientation, Paint paint) {
+            canvas.save(Canvas.MATRIX_SAVE_FLAG);
+            canvas.rotate((float) (orientation * 180 / Math.PI), x, y);
+            mReusableOvalRect.left = x - minor / 2;
+            mReusableOvalRect.right = x + minor / 2;
+            mReusableOvalRect.top = y - major / 2;
+            mReusableOvalRect.bottom = y + major / 2;
+            canvas.drawOval(mReusableOvalRect, paint);
+            canvas.restore();
+        }
+
+        /**
+         * Splatter paint in an area.
+         *
+         * Chooses random vectors describing the flow of paint from a round nozzle
+         * across a range of a few degrees.  Then adds this vector to the direction
+         * indicated by the orientation and tilt of the tool and throws paint at
+         * the canvas along that vector.
+         *
+         * Repeats the process until a masterpiece is born.
+         */
+        private void drawSplat(Canvas canvas, float x, float y, float orientation,
+                float distance, float tilt, Paint paint) {
+            float z = distance * 2 + 10;
+
+            // Calculate the center of the spray.
+            float nx = (float) (Math.sin(orientation) * Math.sin(tilt));
+            float ny = (float) (- Math.cos(orientation) * Math.sin(tilt));
+            float nz = (float) Math.cos(tilt);
+            if (nz &lt; 0.05) {
+                return;
+            }
+            float cd = z / nz;
+            float cx = nx * cd;
+            float cy = ny * cd;
+
+            for (int i = 0; i &lt; SPLAT_VECTORS; i++) {
+                // Make a random 2D vector that describes the direction of a speck of paint
+                // ejected by the nozzle in the nozzle's plane, assuming the tool is
+                // perpendicular to the surface.
+                double direction = mRandom.nextDouble() * Math.PI * 2;
+                double dispersion = mRandom.nextGaussian() * 0.2;
+                double vx = Math.cos(direction) * dispersion;
+                double vy = Math.sin(direction) * dispersion;
+                double vz = 1;
+
+                // Apply the nozzle tilt angle.
+                double temp = vy;
+                vy = temp * Math.cos(tilt) - vz * Math.sin(tilt);
+                vz = temp * Math.sin(tilt) + vz * Math.cos(tilt);
+
+                // Apply the nozzle orientation angle.
+                temp = vx;
+                vx = temp * Math.cos(orientation) - vy * Math.sin(orientation);
+                vy = temp * Math.sin(orientation) + vy * Math.cos(orientation);
+
+                // Determine where the paint will hit the surface.
+                if (vz &lt; 0.05) {
+                    continue;
+                }
+                float pd = (float) (z / vz);
+                float px = (float) (vx * pd);
+                float py = (float) (vy * pd);
+
+                // Throw some paint at this location, relative to the center of the spray.
+                mCanvas.drawCircle(x + px - cx, y + py - cy, 1.0f, paint);
+            }
+        }
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

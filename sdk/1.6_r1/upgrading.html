@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Upgrading the SDK | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+<body class="gc-documentation
+  develop" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../develop/index.html" class="selected"
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../')" 
+onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../design/index.html">Get Started</a></li>
+                        <li><a href="../../design/style/index.html">Style</a></li>
+                        <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:75%">
+                <li><a href="../../training/index.html" 
+                  zh-TW-lang="訓練課程"
+                  zh-CN-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"               
+                  >Training</a></li>
+                <li><a href="../../guide/components/index.html" 
+                  zh-TW-lang="API 指南"
+                  zh-CN-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"               
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html" 
+                  zh-TW-lang="參考資源"
+                  zh-CN-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"               
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html" class="selected"
+                  zh-TW-lang="相關工具"
+                  zh-CN-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"               
+                  >Tools</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+        <a href="../../tools/index.html"><span class="en">Developer Tools</span></a>
+    </div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../sdk/index.html"><span class="en">Download</span></a></div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../sdk/installing/index.html"><span class="en">Installing
+    the SDK</span></a></div>
+        <ul>
+          <li><a href="../../sdk/installing/adding-packages.html">
+              <span class="en">Adding Platforms and Packages</span></a></li>
+          <li><a href="../../sdk/installing/installing-adt.html">
+              <span class="en">Installing the Eclipse Plugin</span></a></li>
+          <li><a href="../../sdk/installing/next.html">
+              <span class="en">Next Steps</span></a></li>
+        </ul>
+      </li>
+          <li><a href="../../sdk/exploring.html">
+              <span class="en">Exploring the SDK</span></a></li>
+      <li><a href="../../tools/sdk/ndk/index.html">NDK</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+        <a href="/tools/workflow/index.html"><span class="en">Workflow</span></a>
+    </div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/devices/index.html"><span class="en">Setting Up Virtual Devices</span></a></div>
+        <ul>
+          <li><a href="/tools/devices/managing-avds.html"><span class="en">With AVD Manager</span></a></li>
+          <li><a href="/tools/devices/managing-avds-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="/tools/devices/emulator.html"><span class="en">Using the Android Emulator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="/tools/device.html"><span class="en">Using Hardware Devices</span></a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/projects/index.html"><span class="en">Setting Up Projects</span></a></div>
+        <ul>
+          <li><a href="/tools/projects/projects-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="/tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/building/index.html"><span class="en">Building and Running</span></a></div>
+        <ul>
+          <li><a href="/tools/building/building-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="/tools/building/building-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+  <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/testing/index.html">
+            <span class="en">Testing</span>
+          </a></div>
+        <ul>
+          <li>
+            <a href="../../tools/testing/testing_android.html">
+            <span class="en">Fundamentals</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_eclipse.html">
+            <span class="en">From Eclipse</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_otheride.html">
+            <span class="en">From Other IDEs</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_testing.html">
+            <span class="en">Activity Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/service_testing.html">
+            <span class="en">Service Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/contentprovider_testing.html">
+            <span class="en">Content Provider Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/testing_accessibility.html">
+            <span class="en">Accessibility Testing</span></a>
+          </li>
+           <li>
+            <a href="../../tools/testing/testing_ui.html">
+            <span class="en">UI Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/what_to_test.html">
+            <span class="en">What To Test</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_test.html">
+            <span class="en">Activity Testing Tutorial</span></a>
+          </li>
+        </ul>
+  </li><!-- end of testing -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
+    <ul>
+      <li><a href="../../tools/debugging/debugging-projects.html"><span class="en">From Eclipse with ADT</span></a></li>
+      <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
+      <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
+      <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
+      <li><a href="../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
+      <li><a href="../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
+      <li><a href="../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
+      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analysing Display and Performance with Systrace</span></a></li>
+      <li><a href="../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
+    </ul>
+  </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html"><span class="en">Publishing</span></a></div>
+        <ul>
+          <li><a href="../../tools/publishing/preparing.html"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
+          <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
+        </ul>
+      </li>
+</ul>
+</li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/help/index.html"><span
+class="en">Tools Help</span></a></div>
+    <ul>
+      <li><a href="../../tools/help/adb.html">adb</a></li>
+      <li><a href="../../tools/help/adt.html">ADT</a></li>
+      <li><a href="../../tools/help/android.html">android</a></li>
+      <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
+      <li><a href="../../tools/help/bmgr.html">bmgr</a>
+      <li><a href="../../tools/help/monitor.html">Device Monitor</a></li>
+      <li><a href="../../tools/help/dmtracedump.html">dmtracedump</a></li>
+      <li><a href="../../tools/help/draw9patch.html">Draw 9-Patch</a></li>
+      <li><a href="../../tools/help/emulator.html">Emulator</a></li>
+      <li><a href="../../tools/help/etc1tool.html">etc1tool</a></li>
+      <li><a href="../../tools/help/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      <li><a href="../../tools/help/hprof-conv.html">hprof-conv</a></li>
+      <li><a href="../../tools/help/jobb.html">jobb</a></li>
+      <li><a href="../../tools/help/lint.html">lint</span></a></li>
+      <li><a href="../../tools/help/logcat.html">logcat</a></li>
+      <li><a href="../../tools/help/mksdcard.html">mksdcard</a></li>
+      <li><a href="../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+       <li><a href="../../tools/help/proguard.html">ProGuard</a></li>
+       <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
+       <li><a href="../../tools/help/systrace.html">Systrace</a></li>
+       <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
+       <li><a href="../../tools/help/traceview.html">Traceview</a></li>
+       <li class="nav-section">
+          <div class="nav-section-header"><a href="../../tools/help/uiautomator/index.html"><span class="en">uiautomator</span></a></div>
+          <ul>
+             <li><a href="../../tools/help/uiautomator/IAutomationSupport.html"><span class="en">IAutomationSupport</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiAutomatorTestCase.html"><span class="en">UiAutomatorTestCase</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiCollection.html"><span class="en">UiCollection</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiDevice.html"><span class="en">UiDevice</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObject.html"><span class="en">UiObject</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObjectNotFoundException.html"><span class="en">UiObjectNotFoundException</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiScrollable.html"><span class="en">UiScrollable</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiSelector.html"><span class="en">UiSelector</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiWatcher.html"><span class="en">UiWatcher</span></a></li>
+          </ul>
+       </li>
+       <li><a href="../../tools/help/zipalign.html">zipalign</a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
+    <ul>
+      <li><a href="../../tools/sdk/tools-notes.html">
+        <span class="en">Tools</span>
+      </a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span>
+      </a></li>
+      <!--
+      <li><a href="../../tools/sdk/addons.html"><span class="en">Add-ons</span></a></li>
+      -->
+      <li><a href="../../tools/revisions/platforms.html"><span
+class="en">Platforms</span></a></li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/extras/index.html"><span class="en">Extras</span></a></div>
+    <ul>
+      <li><a href="../../tools/extras/support-library.html"><span class="en">Support
+Library</span></a></li>
+      <li><a href="../../tools/extras/oem-usb.html"><span
+class="en">USB Drivers</span></a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../tools/samples/index.html"><span class="en">Samples</span></a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/adk/index.html">
+      <span class="en">ADK</span></a>
+    </div>
+    <ul>
+      <li><a href="../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
+      <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
+    </ul>
+  </li>
+
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        
+        
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+  
+    
+      <h1 itemprop="name">Upgrading the SDK</h1>
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+
+  <h2>Upgrading the SDK</h2>
+  <ul>
+    <li>If you are developing on the Android 1.5 SDK, migrating your
+applications is straightforward and typically requires no modifications.</li>
+    <li>For Eclipse users, a new version of ADT is available. To use the Android
+1.6 SDK, please upgrade to ADT 0.9.3 (or later).</li>
+    <li>For Windows users, the SDK includes a new USB driver that you can
+install, if you are developing on a device. </li>
+    <li>A new Android SDK and AVD Manager tool is available. To access 
+it, run the <code>android</code> tool without options. </li>
+  </ul>
+
+  <h2>In this document</h2>
+  <ol>
+    <li><a href="#Install">Install the SDK</a></li>
+    <li><a href="#UpdateAdt">Update Your Eclipse ADT Plugin</a></li>
+    <li><a href="#RunYourApps">Run Your Applications</a></li>
+    <li><a href="#MigrateYourApps">Migrate Your Applications</a></li>
+  </ol>
+  
+  <h2>Migrating information</h2>
+  <ol>
+    <li><a href="../../sdk/api_diff/4/changes.html">Android 1.6 API 
+Differences</a></li>
+  </ol>
+
+</div>
+</div>
+
+<p>This document describes how to move your development environment and existing
+Android applications from an Android 1.5 SDK to the Android 1.6 SDK. If you are
+migrating applications from an SDK older than 1.5, please also read the
+upgrading document available in the Android 1.5 SDK package.</p>
+
+<p>There are several compelling reasons to upgrade, such as new SDK tools that
+make developing more efficient and new APIs that allow you to expand the
+feature-set of your applications. However, even if you or your applications
+don't require these enhancements, it's important that you upgrade to ensure that
+your applications run properly on the upcoming Android platform.</p>
+
+<p>The Android 1.6 platform will soon be deployable to devices around the world.
+If you have already released Android applications to the public, you should test
+the forward-compatibility of your applications on the latest version of the
+platform as soon as possible. It's unlikely that you'll encounter problems in
+your applications, but in the interest of maintaining the best user experience,
+you should take no risks. So, please install the new Android SDK and test your
+applications on the new platform.</p>
+
+<!-- NOT AVAILABLE FOR PREVIEW RELEASES -->
+<p>For more information on new SDK features and system changes, 
+see the <a href="../../sdk/android-1.6.html">Android 1.6 Version Notes</a>.</p>
+<!-- -->
+
+<h2 id="Install">Install the SDK</h2>
+
+<p>If you haven't yet downloaded the SDK, <a href="index.html">download it from 
+here</a> and unpack it into a safe location.</p>
+
+<p>If you had previously setup your <code>PATH</code> variable to point to the SDK 
+tools directory, then you need to update it to point to the new SDK. For example, for
+a <code>.bashrc</code> or <code>.bash_profile</code> file:</p>
+<pre>export PATH=$PATH:<em>&lt;your_sdk_dir></em>/tools</pre>
+
+
+<h2 id="UpdateAdt">Update Your Eclipse ADT Plugin</h2>
+
+<p>If you don't use the Eclipse IDE for development,
+skip to <a href="#RunYourApps">Run Your Applications</a>.</p>
+
+<p>A new version of the ADT Plugin, ADT 0.9.3, is available in conjunction with
+this SDK release. To use the SDK, you must upgrade your ADT Plugin to version
+0.9.3. With ADT 0.9.3, you can still compile your existing applications against 
+multiple platform versions, such as Android 1.5, Android 1.1, and so on. However, 
+ADT 0.9.3 is not compatible with previous versions of the SDK and its tools, so 
+make sure that you upgrade both your SDK <em>and</em> the ADT Plugin.</p>
+
+The upgrade steps for ADT are described below. For information about new features in ADT, see the <a
+href="../../sdk/RELEASENOTES.html">Release Notes</a> document. </p>
+
+<p>If you're currently using a version of ADT <em>older</em> than version 0.9,
+then you must uninstall ADT before you proceed (read how to <a
+href="../../sdk/1.5_r3/upgrading.html#uninstallAdt">Uninstall your previous
+ADT plugin</a>). If you currently have version 0.9 or 0.9.1, then you don't need
+to uninstall and can continue with the procedure below.</p>
+
+<table style="font-size:100%">
+<tr><th>Eclipse 3.4 (Ganymede)</th><th>Eclipse 3.5 (Galileo)</th></tr>
+<tr>
+<td width="50%">
+<!-- 3.4 steps -->
+<ol>
+    <li>Select <strong>Help</strong> &gt; <strong>Software Updates</strong>.</li>
+    <li>Select the <strong>Available Software</strong> tab.</li>
+    <li>Select the checkboxes next to Android DDMS and Android Developer Tools, 
+      then click  <strong>Update</strong>.</li>
+    <li>In the resulting Available Updates dialog, ensure that both Android DDMS 
+      and Android Development Tools are selected, then click 
+      <strong>Next</strong>.</li>
+    <li>Read and accept the license agreement and then click <strong>Finish</strong>.
+      This will download and install the latest version of Android DDMS and 
+      Android Development Tools.</li>
+    <li>Restart Eclipse.</li>
+</ol>
+</td>
+<td>
+<!-- 3.5 steps -->
+<ol>
+    <li>Select <strong>Help</strong> &gt; <strong>Check for Updates</strong>. </li>
+    <li>In the resulting Available Updates dialog, locate the Android DDMS and 
+        Android Development Tools features in the list and ensure that the checkboxes
+        next to them are selected. Click <strong>Next</strong>. 
+        <p>If the Available Updates dialog does not list Android DDMS and Android 
+           Development tools, make sure that you have set up a remote update site 
+           for them, as described in 
+           <a href="installing.html#InstallingADT">Installing the ADT Plugin</a>. 
+        </p></li>
+    <li>In the Update Details dialog, click <strong>Next</strong>.</li>
+    <li>Read and accept the license agreement and then click <strong>Finish</strong>.
+      This will download and install the latest version of Android DDMS and 
+      Android Development Tools.</li>
+    <li>Restart Eclipse.</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>If you encounter problems with this update procedure, try performing a fresh
+installation. Fully remove your existing ADT Plugin as described in <a
+href="../../sdk/1.5_r3/upgrading.html#uninstallAdt">Uninstall your previous
+ADT plugin</a> and then follow the guide to <a
+href="installing.html#InstallingADT">Installing the ADT Plugin for
+Eclipse</a>.</p>
+
+<h3 id="updateEclipsePrefs">Update your Eclipse SDK Preferences</h3>
+
+<p>The last step is to update your Eclipse preferences to point to the new 
+SDK directory:</p>
+<ol>
+  <li>Select <strong>Window</strong> > <strong>Preferences</strong> to open 
+      the Preferences panel (Mac: <strong>Eclipse</strong> > <strong>Preferences
+      </strong>).</li>
+  <li>Select <strong>Android</strong> from the left panel.</li>
+  <li>For the SDK Location, click <strong>Browse</strong> 
+  and locate your SDK directory.</li>
+  <li>Click <strong>Apply</strong>, then <strong>OK</strong>.</li>
+</ol>
+
+
+<h2 id="RunYourApps">Run Your Applications to Test Forward Compatibility</h2>
+
+<p>Now that you have installed the Android 1.6 SDK, we encourage you run each of
+your existing applications on the Android 1.6 system image that is included in
+the SDK, to ensure that it functions properly on the new platform.
+Testing forward-compatibility in this way is especially important for
+applications that you may have already published and that may be installed on
+devices that will upgrade to the new platform. </p>
+
+<p>In most cases, your applications will function properly when run on the new
+version of the platform. However, it is possible that you will encounter
+unexpected behavior, because of changes in the API or underlying platform. If
+you do find problems, you can use the SDK tools to compile and publish an update
+to the applications, which users can then download. 
+
+<p>To test forward-compatibility, simply run your application, as-is, on an
+instance of the Android Emulator that uses an AVD targeted to the "Android 1.6"
+system image. Here are the steps: </p>
+
+<ol>
+  <li>Make no changes to your application code.</li>
+  <li>Create a new AVD that runs the new "Android 1.6" platform. </li>
+  <li>Launch your application in an emulator running the new AVD.</li>
+  <li>Perform normal testing on your application to ensure everything works as 
+      expected.</li>
+</ol>
+
+<p>Note that, for the purposes of forward-compatibility testing, you should not
+change how your application is compiled. That is, you should continue to compile
+the application against the same version of the Android library as before. The
+only change needed is to the AVD, which controls the version of the Android
+system image (run-time environment) on which the application is run. 
+
+<p>For more information on creating an AVD and launching your application, see
+<a href="../../guide/developing/eclipse-adt.html#Running">Running Your
+Applications (Eclipse)</a> or <a
+href="../../guide/developing/other-ide.html#Running">Running
+Your Applications (other IDEs)</a>, depending on your development
+environment.</p>
+
+<h3 id="FutureProofYourApps">Android 1.6 Forward-Compatibility Tips</h3>
+
+<p>The new version of the Android platform includes several new APIs, but
+very few actual changes to existing APIs. This means that, in most
+cases, your applications written with earlier versions of the Android library
+should run properly on the Android 1.6 platform. </p>
+
+<p>However, here are some areas to pay attention to as you test forward-compatibility:</p>
+
+<ul>
+  <li><strong>Make sure your application doesn't use internal APIs</strong>. Your
+application should not use any APIs that are not officially supported and are
+not published in the Android reference documentation. Unofficial APIs can change
+at any time without notice and &mdash; if your application happens to be using
+them &mdash; such a change could cause the application to break.</li>
+
+ <li><strong>Watch for assumptions about available hardware</strong>. Remember
+that not all compatible devices offer the same hardware capabilities &mdash;
+screens, keyboards, and physical keys, and so on. As you test your application,
+watch for areas where your application depends on the presence of specific
+hardware capabilities. If you find dependencies, you can design around them by
+building in alternate support or graceful degradation, or you can specify them 
+as hardware requirements in a 
+<a href="../../guide/topics/manifest/uses-configuration-element.html"><code>&lt;uses-configuration&gt;</code>.</a>
+element in the application's manifest file. Also see the <a href="../../guide/topics/manifest/uses-feature-element.html"><code>&lt;uses-feature&gt;</code></a>
+manifest element, which lets your application declare a requirement for 
+specific features, such as an OpenGL ES version or a camera that has 
+autofocus capability.
+</li>
+
+ <li><strong>Watch for assumptions about available features</strong>. Not all 
+compatible devices offer equal support for embedded features. same hardware capabilities &mdash;
+screens, keyboards, and physical keys, and so on. As you test your application,
+watch for areas where your application depends on the presence of specific
+hardware capabilities. If you find dependencies, you can design around them by
+building in alternate support or graceful degradation, or you can specify them 
+as hardware requirements in a 
+<a href="../../guide/topics/manifest/uses-configuration-element.html"><code>&lt;uses-configuration&gt;</code>.</a>
+element in the application's manifest file. </li>
+
+  <p>When testing forward-compatibility, try running your application in various
+AVDs that emulate different hardware configurations. For example, you can create
+an AVD that does not offer a physical keyboard or one that uses a dpad instead
+of a trackball. Running your application in different emulated hardware
+configurations will give you an idea of where its dependencies are and help you
+identify problems. </p>
+ </li>
+
+  <li><strong>Watch for assumptions about screen resolution and
+density</strong>. A device's screen resolution and density is likely to affect
+the way that your application's UI is rendered, especially if your app specifies
+dimensions or positions using pixels or absolute layouts. To ensure consistent
+UI across screens, your app should specify the dimensions and positions of
+layouts and drawables in relative units that can be scaled by the system as
+appropriate, according to the density of the device's screen. Alternatively, you
+can create custom sets of layout/drawable resources for specific screens, which
+the system can then load as appropriate, based on the current device screen.</p>
+
+  <p>When testing forward-compatibility, try running your application in various
+AVDs that emulate different screen resolutions and densities. Also note that,
+starting with Android 1.6, the platform provides a Compatibility Mode that
+automatically scales the UI of applications if they do not explicitly indicate
+support for the current screen in the 
+<a href="../../guide/topics/manifest/supports-screen-element.html"><code>&lt;supports-screen&gt;</code></a>
+element in their manifest files. As part of testing, you should evaluate how
+your application is displayed in Compatibility Mode on different screens. </p>
+  </li>
+
+  <li><strong>Avoid performing layout orientation changes based on the
+acceletometer (or via other sensors)</strong>. Some Android-powered devices will
+automatically rotate the orientation (and all devices have the option to turn on
+auto-rotation), so if your application also attempts to rotate the orientation,
+it can result in strange behavior. In addition, if your application uses the
+accelerometer to detect shaking and you do not want to rotate the orientation,
+then you should lock the current orientation with <a
+href="../../guide/topics/manifest/activity-element.html#screen">android:screenOrientation</a>.
+ </li>
+
+</ul>
+
+<h2 id="MigrateYourApps">Migrate Your Applications</h2>
+
+<p>If you want to use any of the new Android 1.6 APIs in your existing
+applications, you must first migrate the applications to the new Android
+platform version. Generally, migrating an application includes: </p>
+
+<ul>
+<li>Referencing the proper API Level in the application's manifest file, 
+and</li>
+<li>Resetting its project properties so that it is compiled against the Android 
+1.6 build target.</li>
+</ul>
+
+<p>Additionally, to run your application in the emulator, you need to
+create an AVD that uses the Android 1.6 system image. </p>
+
+<p class="note"><strong>Note:</strong> You only need migrate your application as
+described in this section if the application will actually use APIs
+<em>introduced</em> in the Android 1.6 platform (which are not available on
+devices running older versions of the Android platform). If your application
+does not use any new APIs, you can compile and run it without modification and
+not migration is necessary.</p>
+
+<h3>Reference the Proper API Level</h3>
+
+<p>If your application is using APIs introduced in Android 1.6, you must
+reference that dependency in the application's manifest file so that it can be
+deployed to devices running the Android 1.6 platform. </p>
+
+<p>Open the manifest file and locate the <code>minSdkVersion</code> attribute 
+in the <code>&lt;uses-sdk&gt;</code> manifest element. Set the value of 
+<code>minSdkVersion</code> to <code>"4"</code> (the API Level
+identifier corresponding to Android 1.6). Here's an example:</p>
+
+<pre>
+&lt;manifest>
+  ...
+  &lt;uses-sdk android:minSdkVersion="4" />
+  ...
+&lt;/manifest>
+</pre>
+
+<h3>Compile Against the Proper Build Target</h3>
+
+<p>Once you've changed the <code>minSdkVersion</code> value in your
+application's manifest, you need to set the application's project properties so
+that the application will be compiled against the Android 1.6 library. To do so,
+follow the steps below for your respective development environment.  </p>
+
+<h4 id="EclipseUsers">Eclipse Users</h4>
+
+<ol>
+  <li>Right-click on the individual project (in the Package Explorer)
+  and select <strong>Properties</strong>.</li>
+  <li>In the properties, open the Android panel and select a new Project Build Target.
+  Select "Android 1.6" to target the new platform (or "Google APIs" with the "4" 
+  API Level, if your application uses the Google Maps APIs).</li>
+  <li>Click <strong>Apply</strong>, then <strong>OK</strong>.</li>
+</ol>
+	
+<h4 id="AntUsers">Ant Users</h4>
+	
+<p>Use the <code>android</code> tool (located in
+<code><em>your_sdk</em>/tools/</code>) to create a new <code>build.xml</code>
+that references the new platform target. To see a list of available targets,
+execute:</p>
+
+<pre>android list targets</pre>
+
+<p>Select the target <code>id</code> that corresponds to the "Android 1.6" platform
+and pass it with the <code>--target</code> parameter when updating your project.
+For example:</p>
+
+<pre>android update project --path /path/to/my-project --target 2</pre>
+
+<p>If your application uses the Google Maps APIs (i.e., MapView), be certain to 
+select a Google APIs target.</p>
+
+<h3>Create an AVD that Uses the Android 1.6 Platform</h3>
+
+<p>Finally, you need to set up a new AVD that uses the Android 1.6 platform, so that 
+you can run your application in the emulator. 
+
+<p>To set up the new AVD, use the <code>android</code> tool, available in the
+<code>tools/</code> directory of the SDK. You can run the AVD manager by simply
+changing to the <code>tools/</code> directory and entering <code>android</code>
+at the command line. Click "New" to create the AVD and set its properties.</p>
+
+<p>When creating the AVD, make sure to select a target of "Android 1.6 - API
+Level 4". If your application uses the Google Maps APIs (MapView), select the
+target "Google APIs (Google Inc.) - API Level 4". </p>
+
+<p>For more information about running your application in an AVD, see <a
+href="../../guide/developing/eclipse-adt.html#Running">Running Your
+Application (Eclipse)</a> or <a
+href="../../guide/developing/other-ide.html#Running">Running Your
+Application (other IDEs)</a>. </p>
+
+<p>For general information about AVDs, see the <a href="../../guide/developing/tools/avd.html">Android Virtual
+Devices</a> document. </p>
+
+
+
+<div class="special">
+<p>If you have trouble migrating to the new version of the SDK, visit the 
+<a href="http://groups.google.com/group/android-developers">Android Developers Group</a>
+to seek help from other Android developers.</p>
+</div>
+
+
+    </div>
+      
+      <div class="content-footer layout-content-row" 
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+      
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>
+
+
+

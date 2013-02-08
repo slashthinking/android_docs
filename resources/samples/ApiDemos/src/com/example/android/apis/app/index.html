@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../../favicon.ico" />
+<title>app - API Demos | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../../";
+</script>
+<script src="../../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../../index.html">
+            <img src="../../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+    <span class="crumb">
+      <a href="../../../../../../../../../resources/browser.html?tag=sample">Sample Code</a> >
+    </span>
+  <h1>app - API Demos</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="../index.html">&larr; Back</a></p>
+
+<p>This section includes samples for:</p>
+<ul>
+  <li><a href="#Activity">Activity</a></li>
+  <li><a href="#Fragment">Fragment</a></li>
+  <li><a href="#ActionBar">Action Bar</a></li>
+  <li><a href="#LoaderManager">LoaderManager</a></li>
+  <li><a href="#Alarm">Alarm</a></li>
+  <li><a href="#Notification">Notification</a></li>
+  <li><a href="#Search">Search</a></li>
+  <li><a href="#Misc">Misc</a></li>
+</ul>
+
+
+<h3 id="Activity">Activity</h3>
+<dl>
+  <dt><a href="HelloWorld.html">Hello World</a></dt>
+  <dd>Demonstrates a basic screen activity.
+  <dl>
+  <dt>Code:
+  <dd> <a href="HelloWorld.html">HelloWorld.java</a>
+  <dt>Layout:
+  <dd> <a href="../../../../../../res/layout/hello_world.html">
+  hello_world.xml</a>
+  </dl>
+  </dd>
+  <dt><a href="SaveRestoreState.html">Save &amp; Restore State</a></dt>
+  <dd>Demonstrates how an activity should save state when it is paused.</dd>
+
+  <dt><a href="PersistentState.html">Persistent State</a></dt>
+  <dd>Demonstrates how you can save and restore preferences, which are stored
+  even after the user closes the application. </dd>
+
+  <dt><a href="ReceiveResult.html">Receive Result</a></dt>
+  <dd>Demonstrates how an activity screen can return a result to the
+  activity that opened it. </dd>
+
+  <dt><a href="Forwarding.html">Forwarding</a></dt>
+  <dd>Demonstrates opening a new activity and removing the current activity
+  from the history stack, so that when the user later presses BACK they will
+  not see the intermediate activity.</dd>
+
+  <dt><a href="RedirectEnter.html">Redirection</a></dt>
+  <dd>Demonstrates how to save data to preferences and use it to determine
+  which activity to open next.</dd>
+
+  <dt><a href="TranslucentActivity.html">Translucent</a></dt>
+  <dd>Demonstrates how to make an activity with a transparent background. </dd>
+
+  <dt><a href="TranslucentBlurActivity.html">TranslucentBlur</a></dt>
+  <dd>Demonstrates how to make an activity with a transparent background with
+  a special effect (blur). </dd>
+
+  <dt><a href="DialogActivity.html">Dialog Activity</a></dt>
+  <dd>An Activity that sets its theme to android:style/Theme.Dialog so that
+  it looks like a Dialog.</dd>
+
+  <dt><a href="CustomTitle.html">Custom Title</a></dt>
+  <dd>An Activity that places a custom UI in its title.</dd>
+
+  <dt><a href="Animation.html">Animation</a></dt>
+  <dd>Demonstrates how to use custom animations when moving between activities. </dd>
+
+  <dt><a href="ActivityRecreate.html">Activity Recreate</a></dt>
+  <dd>Demonstrates how an Activity can cause itself to be recreated.</dd>
+
+  <dt><a href="ScreenOrientation.html">Screen Orientation</a></dt>
+  <dd>Demonstrates the different screen orientations an Activity can request.</dd>
+
+  <dt><a href="SoftInputModes.html">Soft Input Modes</a></dt>
+  <dd>Demonstrates how different soft input modes set in an Activity's
+  window impacts how it adjusts to accommodate an IME.</dd>
+
+  <dt><a href="IntentActivityFlags.html">Intent Activity Flags</a></dt>
+  <dd>Demonstrates various uses of Intent flags to modify an application
+  task's activity stack in common ways.</dd>
+
+  <dt><a href="ReorderOnLaunch.html">Reorder on Launch</a></dt>
+  <dd>Demonstrates how the activities in a task can be reordered.  UI flow
+  goes through the activities <a href="ReorderOnLaunch.html">ReorderOnLaunch</a>,
+  <a href="ReorderTwo.html">ReorderTwo</a>, <a href="ReorderThree.html">ReorderThree</a>,
+  and <a href="ReorderFour.html">ReorderFour</a>.</dd>
+
+  <dt><a href="WallpaperActivity.html">Wallpaper Activity</a></dt>
+  <dd>An Activity that uses android:style/Theme.Wallpaper to be displayed
+  on top of the system wallpaper.</dd>
+</dl>
+
+<h3 id="Fragment">Fragment</h3>
+<dl>
+  <dt><a href="FragmentAlertDialog.html">Fragment Alert Dialog</a></dt>
+  <dd>Demonstrates how to use a DialogFragment to show and manage an
+  AlertDialog.</dd>
+
+  <dt><a href="FragmentArguments.html">Fragment Arguments</a></dt>
+  <dd>Demonstrates how a fragment can be initialized with arguments,
+  supplying them either as an argument Bundle at runtime or XML attributes
+  in a &lt;fragment> tag.</dd>
+
+  <dt><a href="FragmentContextMenu.html">Fragment Context Menu</a></dt>
+  <dd>Demonstrates how to display and respond to a context menu that is
+  display from a fragment's view hierarchy.</dd>
+
+  <dt><a href="FragmentCustomAnimation.html">Fragment Custom Animation</a></dt>
+  <dd>Demonstrates the use of a custom animation for pushing and popping fragments
+  on the back stack.</dd>
+
+  <dt><a href="FragmentDialog.html">Fragment Dialog</a></dt>
+  <dd>Demonstrates use of DialogFragment to show various types of dialogs.</dd>
+
+  <dt><a href="FragmentDialogOrActivity.html">Fragment Dialog or Activity</a></dt>
+  <dd>Demonstrates how the same Fragment implementation can be used to provide the UI
+  for either an Activity or Dialog.</dd>
+
+  <dt><a href="FragmentHideShow.html">Fragment Hide Show</a></dt>
+  <dd>Demonstrates hiding and showing fragments.</dd>
+
+  <dt><a href="FragmentLayout.html">Fragment Layout</a></dt>
+  <dd>Demonstrates use of the &lt;fragment&gt; tag to embed a Fragment in
+  an Activity's content view layout, and making the layout change based on
+  configuration to achieve different UI flows.</dd>
+
+  <dt><a href="FragmentListArray.html">Fragment List Array</a></dt>
+  <dd>Demonstrates use of ListFragment to show the contents of a simple ArrayAdapter.</dd>
+
+  <dt><a href="FragmentMenu.html">Fragment Menu</a></dt>
+  <dd>Demonstrates populating custom menu items from a Fragment.</dd>
+
+  <dt><a href="FragmentReceiveResult.html">Fragment Receive Result</a></dt>
+  <dd>Demonstrates starting a new Activity from a Fragment, and receiving
+  a result back from it.</dd>
+
+  <dt><a href="FragmentRetainInstance.html">Fragment Retain Instance</a></dt>
+  <dd>Demonstrates a Fragment can be used to easily retain active state across
+  an Activity's configuration change.</dd>
+
+  <dt><a href="FragmentStack.html">Fragment Stack</a></dt>
+  <dd>Demonstrates creating a stack of Fragment instances similar to the
+  traditional stack of activities.</dd>
+
+  <dt><a href="FragmentTabs.html">Fragment Tabs</a></dt>
+  <dd>Demonstrates implementing ActionBar tabs by switching between
+  Fragments.</dd>
+
+</dl>
+
+
+<h3 id="ActionBar">Action Bar</h3>
+<dl>
+  <dt><a href="ActionBarMechanics.html">Action Bar Mechanics</a></dt>
+  <dd>Demonstrates the basics of the Action Bar and how it interoperates with the standard options
+menu. This demo is for informative purposes only; see Usage for an example of using the
+Action Bar in a more idiomatic manner.</dd>
+  <dt><a href="ActionBarTabs.html">Action Bar Tabs</a></dt>
+  <dd>Demonstrates the use of Action Bar tabs and how they interact with other action bar
+features.  Also see the <a href="FragmentTabs.html">Fragment Tabs</a> for a more
+complete example of how to switch between fragments.</dd>
+  <dt><a href="ActionBarUsage.html">Action Bar Usage</a></dt>
+  <dd>Demonstrates simple usage of the Action Bar, including a SearchView as an action item. The
+default Honeycomb theme includes the Action Bar by default and a menu resource is used to populate
+the menu data itself. If you'd like to see how these things work under the hood, see
+Mechanics.</dd>
+  <dt><a href="ActionBarActionProviderSettingsActivity.html">Settings Action Provider</a></dt>
+  <dd>Shows how to implement an ActionProvider for launching the system settings that supplies a
+  menu item with a specialized action view and handles standard menu item clicks in one place.</dd>
+  <dt><a href="ActionBarShareActionProviderActivity.html">Share Action Provider</a></dt>
+  <dd>Shows how to use a ShareActionProvider to embed sharing functionality in your application
+  via the streamlined sharing UI added in ICS. </dd>
+  <dt><a href="ActionBarDisplayOptions.html">Display Options</a></dt>
+  <dd>Shows how various Action Bar display option flags can be combined and their effects.</dd>
+</dl>
+
+
+<h3 id="LoaderManager">LoaderManager</h3>
+<dl>
+  <dt><a href="LoaderCursor.html">Loader Cursor</a></dt>
+  <dd>Demonstrates use of LoaderManager to perform a query for a Cursor that
+  populates a ListFragment.</dd>
+
+  <dt><a href="LoaderCustom.html">Loader Custom</a></dt>
+  <dd>Demonstrates implementation and use of a custom Loader class.  The
+  custom class here "loads" the currently installed applications.</dd>
+
+  <dt><a href="LoaderThrottle.html">Loader Throttle</a></dt>
+  <dd>Complete end-to-end demonstration of a simple content provider that
+  populates data in a list through a cursor loader.  The UI allows the list
+  to be populated with a series of items, showing how AsyncTaskLoader's
+  throttling facility can be used to control how much a Loader is refreshed
+  in this case.</dd>
+</dl>
+
+<h3 id="Service">Service</h3>
+<dl>
+  <dt><a href="LocalService.html">Local Service</a></dt>
+  <dd>Demonstrate the implementation of a service that runs in the same
+  process as its client(s).  Shows how those clients can either start/stop it
+  with Context.startService and Context.stopService, or bind and call it with
+  Context.bindService and Context.unindService.
+  This also shows how you can simplify working
+  with a service when you know it will only run in your own process.  The client
+  code for interacting with the service is in
+  <a href="LocalServiceActivities.html">Local Service Activities</a>.</dd>
+
+  <dt><a href="MessengerService.html">Messenger Service</a></dt>
+  <dd>Demonstrates binding to a Service whose interface is implemented with
+  the Messenger class.  This is often an easier way to do remote communication
+  with a Service than using a raw AIDL interface.  The client
+  code for interacting with the service is in
+  <a href="MessengerServiceActivities.html">Messenger Service Activities</a>.</dd>
+
+  <dt><a href="RemoteService.html">Remote Service Controller and
+        Remove Service Binding</a></dt>
+  <dd>Demonstrates starting a service in a separate process, by assigning
+  <code>android:process=&quot;:remote&quot;</code> to the service in the
+  AndroidManifest.xml file.  Shows how those clients can either start/stop it
+  with Context.startService and Context.stopService, or bind and call it with
+  Context.bindService and Context.unindService.
+  Binding is similar to the local service sample,
+  but illustrates the additional work (defining aidl
+  interfaces) needed to interact with a service in another process.  Also
+  shows how a service can publish multiple interfaces and implement
+  callbacks to its clients.</dd>
+
+  <dt><a href="ServiceStartArguments.html">Service Start Arguments</a></dt>
+  <dd>Demonstrates how you can use a Service as a job queue, where you 
+  submit jobs to it with Context.startService instead of binding to the service.  Such a service
+  automatically stops itself once all jobs have been processed.  This can be
+  a very convenient way to interact with a service when you do not need
+  a result back from it.</dd>
+
+  <dt><a href="ForegroundService.html">Foreground Service</a></dt>
+  <dd>Shows how you
+  can write a Service that runs in the foreground and works on both pre-2.0
+  and post-2.0 versions of the platform.  This example will selectively use
+  the new foreground APIs that were introduced in Android 2.0 if they are
+  available.</dd>
+
+</dl>
+
+<h3 id="Alarm">Alarm</h3>
+<dl>
+  <dt><a href="AlarmController.html">Alarm Controller</a></dt>
+  <dd>Demonstrates two ways you can schedule alarms: a one-shot alarm that
+  will happen once at a given time, and a repeating alarm that will happen
+  first at a given time and then continually trigger at regular intervals
+  after that.
+  <dl>
+  <dt>Code:
+  <dd> <a href="AlarmController.html">AlarmController.java</a>
+  <dd> <a href="OneShotAlarm.html">OneShotAlarm.java</a>
+  <dd> <a href="RepeatingAlarm.html">RepeatingAlarm.java</a>
+  <dt>Layout:
+  <dd> <a href="../../../../../../res/layout/alarm_controller.html">
+  alarm_controller.xml</a>
+  </dl>
+  </dd>
+
+  <dt><a href="AlarmService.html">Alarm Service</a></dt>
+  <dd>Demonstrates how you can schedule an alarm that causes a service to
+    be started.  This is useful when you want to schedule alarms that initiate
+    long-running operations, such as retrieving recent e-mails.
+  <dl>
+  <dt>Code:
+  <dd> <a href="AlarmService.html">AlarmService.java</a>
+  <dd> <a href="AlarmService_Service.html">AlarmService_Service.java</a>
+  <dt>Layout:
+  <dd> <a href="../../../../../../res/layout/alarm_service.html">
+  alarm_service.xml</a>
+  </dl>
+  </dd>
+</dl>
+
+<h3 id="Notification">Notification</h3>
+<dl>
+  <dt><a href="NotifyWithText.html">NotifyWithText</a></dt>
+  <dd>Demonstrates popup notifications of varying length.</dd>
+
+  <dt><a href="IncomingMessage.html">IncomingMessage</a></dt>
+  <dd> Demonstrates sending persistent and transient notifications, with a View object in the notification. It also demonstrated inflating a View object from an XML layout resource. </dd>
+
+  <dt><a href="StatusBarNotifications.html">Status Bar Notifications</a></dt>
+  <dd> Demonstrates a variety of different notifications that can be posted in
+  the status bar, and a standard way for handling them.</dd>
+</dl>
+
+<h3 id="Search">Search</h3>
+<dl>
+  <dt><a href="SearchInvoke.html">SearchInvoke</a></dt>
+  <dd>Demonstrates various ways in which activities can launch the Search UI.</dd>
+
+  <dt><a href="SearchQueryResults.html">SearchQueryResults</a></dt>
+  <dd>Demonstrates an activity that receives Search intents and handles them.</dd>
+
+  <dt><a href="SearchSuggestionSampleProvider.html">SearchSuggestionSampleProvider</a></dt>
+  <dd>Demonstrates how to configure and use the built-in "recent queries" suggestion provider.</dd>  
+</dl>
+
+
+<h3 id="Misc">Misc</h3>
+<dl>
+  <dt><a href="AlertDialogSamples.html">Alert Dialog Samples</a></dt>
+  <dd>Demonstrates various styles of alert dialogs.</dd>
+
+  <dt><a href="DeviceAdminSample.html">Device Admin Sample</a></dt>
+  <dd>Demonstration of the implementation of a simple device administrator
+  and its use of the DevicePolicyManager.</dd>
+</dl>
+
+  
+
+  
+      <h2>Files</h2>
+      <ul class="nolist">
+      
+        <li><a href="ActionBarDisplayOptions.html">ActionBarDisplayOptions.java</a></li>
+      
+        <li><a href="ActionBarMechanics.html">ActionBarMechanics.java</a></li>
+      
+        <li><a href="ActionBarSettingsActionProviderActivity.html">ActionBarSettingsActionProviderActivity.java</a></li>
+      
+        <li><a href="ActionBarShareActionProviderActivity.html">ActionBarShareActionProviderActivity.java</a></li>
+      
+        <li><a href="ActionBarTabs.html">ActionBarTabs.java</a></li>
+      
+        <li><a href="ActionBarUsage.html">ActionBarUsage.java</a></li>
+      
+        <li><a href="ActivityRecreate.html">ActivityRecreate.java</a></li>
+      
+        <li><a href="AlarmController.html">AlarmController.java</a></li>
+      
+        <li><a href="AlarmService.html">AlarmService.java</a></li>
+      
+        <li><a href="AlarmService_Service.html">AlarmService_Service.java</a></li>
+      
+        <li><a href="AlertDialogSamples.html">AlertDialogSamples.java</a></li>
+      
+        <li><a href="Animation.html">Animation.java</a></li>
+      
+        <li><a href="AppUpdateReceiver.html">AppUpdateReceiver.java</a></li>
+      
+        <li><a href="ContactsFilter.html">ContactsFilter.java</a></li>
+      
+        <li><a href="ContactsFilterInstrumentation.html">ContactsFilterInstrumentation.java</a></li>
+      
+        <li><a href="ContactsSelectInstrumentation.html">ContactsSelectInstrumentation.java</a></li>
+      
+        <li><a href="CustomDialogActivity.html">CustomDialogActivity.java</a></li>
+      
+        <li><a href="CustomTitle.html">CustomTitle.java</a></li>
+      
+        <li><a href="DeviceAdminSample.html">DeviceAdminSample.java</a></li>
+      
+        <li><a href="DialogActivity.html">DialogActivity.java</a></li>
+      
+        <li><a href="FinishAffinity.html">FinishAffinity.java</a></li>
+      
+        <li><a href="ForegroundService.html">ForegroundService.java</a></li>
+      
+        <li><a href="ForwardTarget.html">ForwardTarget.java</a></li>
+      
+        <li><a href="Forwarding.html">Forwarding.java</a></li>
+      
+        <li><a href="FragmentAlertDialog.html">FragmentAlertDialog.java</a></li>
+      
+        <li><a href="FragmentArguments.html">FragmentArguments.java</a></li>
+      
+        <li><a href="FragmentArgumentsFragment.html">FragmentArgumentsFragment.java</a></li>
+      
+        <li><a href="FragmentContextMenu.html">FragmentContextMenu.java</a></li>
+      
+        <li><a href="FragmentCustomAnimations.html">FragmentCustomAnimations.java</a></li>
+      
+        <li><a href="FragmentDialog.html">FragmentDialog.java</a></li>
+      
+        <li><a href="FragmentDialogOrActivity.html">FragmentDialogOrActivity.java</a></li>
+      
+        <li><a href="FragmentHideShow.html">FragmentHideShow.java</a></li>
+      
+        <li><a href="FragmentLayout.html">FragmentLayout.java</a></li>
+      
+        <li><a href="FragmentListArray.html">FragmentListArray.java</a></li>
+      
+        <li><a href="FragmentMenu.html">FragmentMenu.java</a></li>
+      
+        <li><a href="FragmentMenuFragment.html">FragmentMenuFragment.java</a></li>
+      
+        <li><a href="FragmentNestingTabs.html">FragmentNestingTabs.java</a></li>
+      
+        <li><a href="FragmentReceiveResult.html">FragmentReceiveResult.java</a></li>
+      
+        <li><a href="FragmentRetainInstance.html">FragmentRetainInstance.java</a></li>
+      
+        <li><a href="FragmentStack.html">FragmentStack.java</a></li>
+      
+        <li><a href="FragmentStackFragment.html">FragmentStackFragment.java</a></li>
+      
+        <li><a href="FragmentTabs.html">FragmentTabs.java</a></li>
+      
+        <li><a href="FragmentTabsFragment.html">FragmentTabsFragment.java</a></li>
+      
+        <li><a href="HelloWorld.html">HelloWorld.java</a></li>
+      
+        <li><a href="IRemoteService.html">IRemoteService.aidl</a></li>
+      
+        <li><a href="IRemoteServiceCallback.html">IRemoteServiceCallback.aidl</a></li>
+      
+        <li><a href="ISecondary.html">ISecondary.aidl</a></li>
+      
+        <li><a href="IncomingMessage.html">IncomingMessage.java</a></li>
+      
+        <li><a href="IncomingMessageInterstitial.html">IncomingMessageInterstitial.java</a></li>
+      
+        <li><a href="IncomingMessageView.html">IncomingMessageView.java</a></li>
+      
+        <li><a href="IntentActivityFlags.html">IntentActivityFlags.java</a></li>
+      
+        <li><a href="Intents.html">Intents.java</a></li>
+      
+        <li><a href="IsolatedService.html">IsolatedService.java</a></li>
+      
+        <li><a href="IsolatedService2.html">IsolatedService2.java</a></li>
+      
+        <li><a href="LauncherShortcuts.html">LauncherShortcuts.java</a></li>
+      
+        <li><a href="LoaderCursor.html">LoaderCursor.java</a></li>
+      
+        <li><a href="LoaderCustom.html">LoaderCustom.java</a></li>
+      
+        <li><a href="LoaderRetained.html">LoaderRetained.java</a></li>
+      
+        <li><a href="LoaderThrottle.html">LoaderThrottle.java</a></li>
+      
+        <li><a href="LocalSample.html">LocalSample.java</a></li>
+      
+        <li><a href="LocalSampleInstrumentation.html">LocalSampleInstrumentation.java</a></li>
+      
+        <li><a href="LocalService.html">LocalService.java</a></li>
+      
+        <li><a href="LocalServiceActivities.html">LocalServiceActivities.java</a></li>
+      
+        <li><a href="MenuInflateFromXml.html">MenuInflateFromXml.java</a></li>
+      
+        <li><a href="MessengerService.html">MessengerService.java</a></li>
+      
+        <li><a href="MessengerServiceActivities.html">MessengerServiceActivities.java</a></li>
+      
+        <li><a href="NotificationDisplay.html">NotificationDisplay.java</a></li>
+      
+        <li><a href="NotifyWithText.html">NotifyWithText.java</a></li>
+      
+        <li><a href="NotifyingController.html">NotifyingController.java</a></li>
+      
+        <li><a href="NotifyingService.html">NotifyingService.java</a></li>
+      
+        <li><a href="OneShotAlarm.html">OneShotAlarm.java</a></li>
+      
+        <li><a href="PersistentState.html">PersistentState.java</a></li>
+      
+        <li><a href="PresentationActivity.html">PresentationActivity.java</a></li>
+      
+        <li><a href="PresentationWithMediaRouterActivity.html">PresentationWithMediaRouterActivity.java</a></li>
+      
+        <li><a href="QuickContactsDemo.html">QuickContactsDemo.java</a></li>
+      
+        <li><a href="ReceiveResult.html">ReceiveResult.java</a></li>
+      
+        <li><a href="RedirectEnter.html">RedirectEnter.java</a></li>
+      
+        <li><a href="RedirectGetter.html">RedirectGetter.java</a></li>
+      
+        <li><a href="RedirectMain.html">RedirectMain.java</a></li>
+      
+        <li><a href="RemoteService.html">RemoteService.java</a></li>
+      
+        <li><a href="ReorderFour.html">ReorderFour.java</a></li>
+      
+        <li><a href="ReorderOnLaunch.html">ReorderOnLaunch.java</a></li>
+      
+        <li><a href="ReorderThree.html">ReorderThree.java</a></li>
+      
+        <li><a href="ReorderTwo.html">ReorderTwo.java</a></li>
+      
+        <li><a href="RepeatingAlarm.html">RepeatingAlarm.java</a></li>
+      
+        <li><a href="SaveRestoreState.html">SaveRestoreState.java</a></li>
+      
+        <li><a href="ScreenOrientation.html">ScreenOrientation.java</a></li>
+      
+        <li><a href="SearchInvoke.html">SearchInvoke.java</a></li>
+      
+        <li><a href="SearchQueryResults.html">SearchQueryResults.java</a></li>
+      
+        <li><a href="SearchSuggestionSampleProvider.html">SearchSuggestionSampleProvider.java</a></li>
+      
+        <li><a href="SecureDialogActivity.html">SecureDialogActivity.java</a></li>
+      
+        <li><a href="SecureSurfaceViewActivity.html">SecureSurfaceViewActivity.java</a></li>
+      
+        <li><a href="SecureWindowActivity.html">SecureWindowActivity.java</a></li>
+      
+        <li><a href="SendResult.html">SendResult.java</a></li>
+      
+        <li><a href="ServiceStartArguments.html">ServiceStartArguments.java</a></li>
+      
+        <li><a href="SetWallpaperActivity.html">SetWallpaperActivity.java</a></li>
+      
+        <li><a href="SoftInputModes.html">SoftInputModes.java</a></li>
+      
+        <li><a href="StatusBarNotifications.html">StatusBarNotifications.java</a></li>
+      
+        <li><a href="TextToSpeechActivity.html">TextToSpeechActivity.java</a></li>
+      
+        <li><a href="TranslucentActivity.html">TranslucentActivity.java</a></li>
+      
+        <li><a href="TranslucentBlurActivity.html">TranslucentBlurActivity.java</a></li>
+      
+        <li><a href="VoiceRecognition.html">VoiceRecognition.java</a></li>
+      
+        <li><a href="WallpaperActivity.html">WallpaperActivity.java</a></li>
+      
+      </ul>
+  
+
+</div><!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

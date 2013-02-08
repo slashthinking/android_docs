@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Installing the SDK | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+<body class="gc-documentation
+  develop" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../develop/index.html" class="selected"
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../')" 
+onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../design/index.html">Get Started</a></li>
+                        <li><a href="../../design/style/index.html">Style</a></li>
+                        <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:75%">
+                <li><a href="../../training/index.html" 
+                  zh-TW-lang="訓練課程"
+                  zh-CN-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"               
+                  >Training</a></li>
+                <li><a href="../../guide/components/index.html" 
+                  zh-TW-lang="API 指南"
+                  zh-CN-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"               
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html" 
+                  zh-TW-lang="參考資源"
+                  zh-CN-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"               
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html" class="selected"
+                  zh-TW-lang="相關工具"
+                  zh-CN-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"               
+                  >Tools</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+        <a href="../../tools/index.html"><span class="en">Developer Tools</span></a>
+    </div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../sdk/index.html"><span class="en">Download</span></a></div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../sdk/installing/index.html"><span class="en">Installing
+    the SDK</span></a></div>
+        <ul>
+          <li><a href="../../sdk/installing/adding-packages.html">
+              <span class="en">Adding Platforms and Packages</span></a></li>
+          <li><a href="../../sdk/installing/installing-adt.html">
+              <span class="en">Installing the Eclipse Plugin</span></a></li>
+          <li><a href="../../sdk/installing/next.html">
+              <span class="en">Next Steps</span></a></li>
+        </ul>
+      </li>
+          <li><a href="../../sdk/exploring.html">
+              <span class="en">Exploring the SDK</span></a></li>
+      <li><a href="../../tools/sdk/ndk/index.html">NDK</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+        <a href="/tools/workflow/index.html"><span class="en">Workflow</span></a>
+    </div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/devices/index.html"><span class="en">Setting Up Virtual Devices</span></a></div>
+        <ul>
+          <li><a href="/tools/devices/managing-avds.html"><span class="en">With AVD Manager</span></a></li>
+          <li><a href="/tools/devices/managing-avds-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="/tools/devices/emulator.html"><span class="en">Using the Android Emulator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="/tools/device.html"><span class="en">Using Hardware Devices</span></a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/projects/index.html"><span class="en">Setting Up Projects</span></a></div>
+        <ul>
+          <li><a href="/tools/projects/projects-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="/tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/building/index.html"><span class="en">Building and Running</span></a></div>
+        <ul>
+          <li><a href="/tools/building/building-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="/tools/building/building-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+  <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/testing/index.html">
+            <span class="en">Testing</span>
+          </a></div>
+        <ul>
+          <li>
+            <a href="../../tools/testing/testing_android.html">
+            <span class="en">Fundamentals</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_eclipse.html">
+            <span class="en">From Eclipse</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_otheride.html">
+            <span class="en">From Other IDEs</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_testing.html">
+            <span class="en">Activity Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/service_testing.html">
+            <span class="en">Service Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/contentprovider_testing.html">
+            <span class="en">Content Provider Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/testing_accessibility.html">
+            <span class="en">Accessibility Testing</span></a>
+          </li>
+           <li>
+            <a href="../../tools/testing/testing_ui.html">
+            <span class="en">UI Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/what_to_test.html">
+            <span class="en">What To Test</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_test.html">
+            <span class="en">Activity Testing Tutorial</span></a>
+          </li>
+        </ul>
+  </li><!-- end of testing -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
+    <ul>
+      <li><a href="../../tools/debugging/debugging-projects.html"><span class="en">From Eclipse with ADT</span></a></li>
+      <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
+      <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
+      <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
+      <li><a href="../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
+      <li><a href="../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
+      <li><a href="../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
+      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analysing Display and Performance with Systrace</span></a></li>
+      <li><a href="../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
+    </ul>
+  </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html"><span class="en">Publishing</span></a></div>
+        <ul>
+          <li><a href="../../tools/publishing/preparing.html"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
+          <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
+        </ul>
+      </li>
+</ul>
+</li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/help/index.html"><span
+class="en">Tools Help</span></a></div>
+    <ul>
+      <li><a href="../../tools/help/adb.html">adb</a></li>
+      <li><a href="../../tools/help/adt.html">ADT</a></li>
+      <li><a href="../../tools/help/android.html">android</a></li>
+      <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
+      <li><a href="../../tools/help/bmgr.html">bmgr</a>
+      <li><a href="../../tools/help/monitor.html">Device Monitor</a></li>
+      <li><a href="../../tools/help/dmtracedump.html">dmtracedump</a></li>
+      <li><a href="../../tools/help/draw9patch.html">Draw 9-Patch</a></li>
+      <li><a href="../../tools/help/emulator.html">Emulator</a></li>
+      <li><a href="../../tools/help/etc1tool.html">etc1tool</a></li>
+      <li><a href="../../tools/help/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      <li><a href="../../tools/help/hprof-conv.html">hprof-conv</a></li>
+      <li><a href="../../tools/help/jobb.html">jobb</a></li>
+      <li><a href="../../tools/help/lint.html">lint</span></a></li>
+      <li><a href="../../tools/help/logcat.html">logcat</a></li>
+      <li><a href="../../tools/help/mksdcard.html">mksdcard</a></li>
+      <li><a href="../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+       <li><a href="../../tools/help/proguard.html">ProGuard</a></li>
+       <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
+       <li><a href="../../tools/help/systrace.html">Systrace</a></li>
+       <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
+       <li><a href="../../tools/help/traceview.html">Traceview</a></li>
+       <li class="nav-section">
+          <div class="nav-section-header"><a href="../../tools/help/uiautomator/index.html"><span class="en">uiautomator</span></a></div>
+          <ul>
+             <li><a href="../../tools/help/uiautomator/IAutomationSupport.html"><span class="en">IAutomationSupport</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiAutomatorTestCase.html"><span class="en">UiAutomatorTestCase</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiCollection.html"><span class="en">UiCollection</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiDevice.html"><span class="en">UiDevice</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObject.html"><span class="en">UiObject</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObjectNotFoundException.html"><span class="en">UiObjectNotFoundException</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiScrollable.html"><span class="en">UiScrollable</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiSelector.html"><span class="en">UiSelector</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiWatcher.html"><span class="en">UiWatcher</span></a></li>
+          </ul>
+       </li>
+       <li><a href="../../tools/help/zipalign.html">zipalign</a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
+    <ul>
+      <li><a href="../../tools/sdk/tools-notes.html">
+        <span class="en">Tools</span>
+      </a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span>
+      </a></li>
+      <!--
+      <li><a href="../../tools/sdk/addons.html"><span class="en">Add-ons</span></a></li>
+      -->
+      <li><a href="../../tools/revisions/platforms.html"><span
+class="en">Platforms</span></a></li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/extras/index.html"><span class="en">Extras</span></a></div>
+    <ul>
+      <li><a href="../../tools/extras/support-library.html"><span class="en">Support
+Library</span></a></li>
+      <li><a href="../../tools/extras/oem-usb.html"><span
+class="en">USB Drivers</span></a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../tools/samples/index.html"><span class="en">Samples</span></a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/adk/index.html">
+      <span class="en">ADK</span></a>
+    </div>
+    <ul>
+      <li><a href="../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
+      <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
+    </ul>
+  </li>
+
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        
+        
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+  
+    
+      <h1 itemprop="name">Installing the SDK</h1>
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <script type="text/javascript">
+function toggleDiv(link) {
+  var toggleable = $(link).parent();
+  if (toggleable.hasClass("closed")) {
+    //$(".toggleme", toggleable).slideDown("fast");
+    toggleable.removeClass("closed");
+    toggleable.addClass("open");
+    $(".toggle-img", toggleable).attr("title", "hide").attr("src", (toRoot +
+"assets/images/triangle-opened.png"));
+  } else {
+    //$(".toggleme", toggleable).slideUp("fast");
+    toggleable.removeClass("open");
+    toggleable.addClass("closed");
+    $(".toggle-img", toggleable).attr("title", "show").attr("src", (toRoot +
+"assets/images/triangle-closed.png"));
+  }
+  return false;
+}
+</script>
+<style>
+.toggleable {
+  padding: .25em 1em 0em 1em;
+  margin-bottom: 0;
+}
+.toggleme {
+  padding: 1em 1em 0 2em;
+  line-height:1em;
+}
+.toggleable a {
+  text-decoration:none;
+}
+.toggleme a {
+  text-decoration:underline;
+}
+.toggleable.closed .toggleme {
+  display:none;
+}
+#jd-content .toggle-img {
+  margin:0;
+}
+</style>
+
+<div id="qv-wrapper">
+<div id="qv">
+
+  <h2>In this document</h2>
+  <ol>
+    <li><a href="#Preparing">1. Preparing Your Development Computer</a></li>
+    <li><a href="#Installing">2. Downloading the SDK Starter Package</a></li>
+    <li><a href="#InstallingADT">3. Installing the ADT Plugin for Eclipse</a></li>
+    <li><a href="#AddingComponents">4. Adding Platforms and Other Packages</a>
+      <ol>
+        <li><a href="#components">Available Packages</a></li>
+        <li><a href="#which">Recommended Packages</a></li>
+      </ol></li>
+    <li><a href="#sdkContents">5. Exploring the SDK (Optional)</a></li>
+    <li><a href="#NextSteps">Next Steps</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+  </ol>
+
+<h2>See also</h2>
+  <ol>
+    <li><a href="../../tools/sdk/eclipse-adt.html">ADT Plugin for Eclipse</a></li>
+    <li><a href="../../sdk/exploring.html">Exploring the SDK</a></li>
+  </ol>
+
+</div>
+</div>
+
+<p>This page describes how to install the Android SDK
+and set up your development environment for the first time.</p>
+
+<p>If you encounter any problems during installation, see the
+<a href="#troubleshooting">Troubleshooting</a> section at the bottom of
+this page.</p>
+
+<h4>Updating?</h4>
+
+<p>If you already have an Android SDK, use the Android SDK Manager tool to install
+updated tools and new Android platforms into your existing environment. For information about how to
+do that, see <a href="../../sdk/exploring.html">Exploring the SDK</a>.</p>
+
+
+<h2 id="Preparing">Step 1. Preparing Your Development Computer</h2>
+
+<p>Before getting started with the Android SDK, take a moment to confirm that
+your development computer meets the <a href="requirements.html">System
+Requirements</a>. In particular, you might need to install the <a
+href="http://java.sun.com/javase/downloads/index.jsp">JDK</a>, if you don't have it already. </p>
+
+<p>If you will be developing in Eclipse with the Android Development
+Tools (ADT) Plugin&mdash;the recommended path if you are new to
+Android&mdash;make sure that you have a suitable version of Eclipse
+installed on your computer as described in the
+<a href="requirements.html">System Requirements</a> document.
+If you need to install Eclipse, you can download it from this location: </p>
+
+<p style="margin-left:2em;"><a href=
+"http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a></p>
+
+<p>The "Eclipse Classic" version is recommended. Otherwise, a Java or
+RCP version of Eclipse is recommended.</p>
+
+
+<h2 id="Installing">Step 2. Downloading the SDK Starter Package</h2>
+
+<p>The SDK starter package is not a full
+development environment&mdash;it includes only the core SDK Tools, which you can
+use to download the rest of the SDK packages (such as the latest Android platform).</p>
+
+<p>If you haven't already, get the latest version of the SDK starter package from the <a
+href="../../sdk/index.html">SDK download page</a>.</p>
+
+<p>If you downloaded a <code>.zip</code> or <code>.tgz</code> package (instead of the SDK installer), unpack
+it to a safe location on your machine. By default, the SDK files are unpacked
+into a directory named <code>android-sdk-&lt;machine-platform&gt;</code>.</p>
+
+<p>If you downloaded the Windows installer (<code>.exe</code> file), run it now and it will check
+whether the proper Java SE Development Kit (JDK) is installed (installing it, if necessary), then
+install the SDK Tools into a default location (which you can modify).</p>
+
+<p>Make a note of the name and location of the SDK directory on your system&mdash;you will need to
+refer to the SDK directory later, when setting up the ADT plugin and when using
+the SDK tools from the command line.</p>
+
+
+<h2 id="InstallingADT">Step 3. Installing the ADT Plugin for Eclipse</h2>
+
+<p>Android offers a custom plugin for the Eclipse IDE, called Android
+Development Tools (ADT), that is designed to give you a powerful, integrated
+environment in which to build Android applications. It extends the capabilites
+of Eclipse to let you quickly set up new Android projects, create an application
+UI, debug your applications
+using the Android SDK tools, and even export signed (or unsigned) APKs in order
+to distribute your application. In general, developing in Eclipse with ADT is a
+highly recommended approach and is the fastest way to get started with Android.
+</p>
+
+<p>If you'd like to use ADT for developing Android applications, install it now.
+Read <a href="../../tools/sdk/eclipse-adt.html#installing">Installing the ADT Plugin</a> for
+step-by-step installation instructions, then return here to continue the
+last step in setting up your Android SDK.</p>
+
+<p>If you prefer to work in a different IDE, you do not need to
+install Eclipse or ADT. Instead, you can directly use the SDK tools to build and
+debug your application. The <a href="../../tools/workflow/index.html">Introduction</a>
+to Android application development outlines the major steps that you need to complete when
+developing in Eclipse or other IDEs.</p>
+
+
+
+<h2 id="AddingComponents">Step 4. Adding Platforms and Other Packages</h2>
+
+<p>The last step in setting up your SDK is using the Android SDK Manager (a
+tool included in the SDK starter package) to download essential SDK packages into your development
+environment.</p>
+
+<p>The SDK uses a modular structure that separates the major parts of the SDK&mdash;Android platform
+versions, add-ons, tools, samples, and documentation&mdash;into a set of separately installable
+packages. The SDK starter package, which you've already downloaded, includes only a single
+package: the latest version of the SDK Tools. To develop an Android application, you also need to
+download at least one Android platform and the associated platform tools. You can add other
+packages and platforms as well, which is highly recommended.</p>
+
+<p>If you used the Windows installer, when you complete the installation wizard, it will launch the
+Android SDK Manager with a default set of platforms and other packages selected
+for you to install. Simply click <strong>Install</strong> to accept the recommended set of
+packages and install them. You can then skip to <a href="#sdkContents">Step 5</a>, but we
+recommend you first read the section about the <a href="#components">Available Packages</a> to
+better understand the packages available from the Android SDK Manager.</p>
+
+<p>You can launch the Android SDK Manager in one of the following ways:</p>
+<ul>
+  <li>From within Eclipse, select <strong>Window &gt; Android SDK Manager</strong>.</li>
+  <li>On Windows, double-click the <code>SDK Manager.exe</code> file at the root of the Android
+SDK directory.</li>
+  <li>On Mac or Linux, open a terminal and navigate to the <code>tools/</code> directory in the
+Android SDK, then execute: <pre>android</pre> </li>
+</ul>
+
+<p>To download packages, use the graphical UI of the Android SDK
+Manager to browse the SDK repository and select new or updated
+packages (see figure 1). The Android SDK Manager installs the selected packages in
+your SDK environment. For information about which packages you should download, see <a
+href="#which">Recommended Packages</a>.</p>
+
+<img src="/images/sdk_manager_packages.png" />
+<p class="img-caption"><strong>Figure 1.</strong> The Android SDK Manager's
+<strong>Available Packages</strong> panel, which shows the SDK packages that are
+available for you to download into your environment.</p>
+
+
+<h3 id="components">Available Packages</h3>
+
+<p>By default, there are two repositories of packages for your SDK: <em>Android
+Repository</em> and <em>Third party Add-ons</em>.</p>
+
+<p>The <em>Android Repository</em> offers these types of packages:</p>
+
+<ul>
+<li><strong>SDK Tools</strong> &mdash; Contains tools for debugging and testing your application
+and other utility tools. These tools are installed with the Android SDK starter package and receive
+periodic updates. You can access these tools in the <code>&lt;sdk&gt;/tools/</code> directory of
+your SDK. To learn more about
+them, see <a href="../../tools/index.html#tools-sdk">SDK Tools</a> in the
+developer guide.</li>
+
+<li><strong>SDK Platform-tools</strong> &mdash; Contains platform-dependent tools for developing
+and debugging your application. These tools support the latest features of the Android platform and
+are typically updated only when a new platform becomes available. You can access these tools in the
+<code>&lt;sdk&gt;/platform-tools/</code> directory. To learn more about them, see <a
+href="../../tools/index.html#tools-platform">Platform Tools</a> in the
+developer guide.</li>
+
+<li><strong>Android platforms</strong> &mdash; An SDK platform is
+available for every production Android platform deployable to Android-powered devices. Each
+SDK platform package includes a fully compliant Android library, system image, sample code,
+and emulator skins. To learn more about a specific platform, see the list of platforms that appears
+under the section "Downloadable SDK Packages" on the left part of this page.</li>
+
+<li><strong>USB Driver for Windows</strong> (Windows only) &mdash; Contains driver files
+that you can install on your Windows computer, so that you can run and debug
+your applications on an actual device. You <em>do not</em> need the USB driver unless
+you plan to debug your application on an actual Android-powered device. If you
+develop on Mac OS X or Linux, you do not need a special driver to debug
+your application on an Android-powered device. See <a
+href="../../tools/device.html">Using Hardware Devices</a> for more information
+about developing on a real device.</li>
+
+<li><strong>Samples</strong> &mdash; Contains the sample code and apps available
+for each Android development platform. If you are just getting started with
+Android development, make sure to download the samples to your SDK. <!--The download
+includes not only a set of very useful sample apps, but also the source for <a
+href="../../training/basics/firstapp/index.html">Building Your First App</a> and other
+tutorials. --></li>
+
+<li><strong>Documentation</strong> &mdash; Contains a local copy of the latest
+multiversion documentation for the Android framework API. </li>
+</ul>
+
+<p>The <em>Third party Add-ons</em> provide packages that allow you to create a development
+environment using a specific Android external library (such as the Google Maps library) or a
+customized (but fully compliant) Android system image. You can add additional Add-on repositories by
+clicking <strong>Add Add-on Site</strong>.</p>
+
+
+<h3 id="which">Recommended Packages</h3>
+
+<p>The SDK repository contains a range of packages that you can download.
+Use the table below to determine which packages you need, based on whether you
+want to set up a basic, recommended, or full development environment:
+</p>
+
+<table style="width:95%">
+
+<tr>
+<th>Environment</th>
+<th>SDK&nbsp;Package</th>
+<th>Comments</th>
+</tr>
+
+<tr>
+<td rowspan="3" style="font-size:.9em;background-color:#FFE;">Basic</td>
+<td style="font-size:.9em;background-color:#FFE;">SDK Tools</td>
+<td style="font-size:.9em;background-color:#FFE;">If you've just installed
+the SDK starter package, then you already have the latest version of this package. The
+SDK Tools package is required to develop an Android application. Make sure you keep this up to
+date.</td>
+</tr>
+
+<tr>
+<td style="font-size:.9em;background-color:#FFE;">SDK Platform-tools</td>
+<td style="font-size:.9em;background-color:#FFE;">This includes more tools that are required
+for application development. These tools are platform-dependent and typically update only when
+a new SDK platform is made available, in order to support new features in the platform. These
+tools are always backward compatible with older platforms, but you must be sure that you have
+the latest version of these tools when you install a new SDK platform.</td>
+</tr>
+
+<tr>
+<td style="font-size:.9em;background-color:#FFE;">SDK platform</td>
+<td style="font-size:.9em;background-color:#FFE;">You need to download <strong
+style="color:red">at least one platform</strong> into your environment, so that
+you will be able to compile your application and set up an Android Virtual
+Device (AVD) to run it on (in the emulator). To start with, just download the
+latest version of the platform. Later, if you plan to publish your application,
+you will want to download other platforms as well, so that you can test your
+application on the full range of Android platform versions that your application supports.</td>
+</tr>
+<tr>
+<td colspan="2"
+style="border:none;text-align:center;font-size:1.5em;font-weight:bold;">+</td><td
+style="border:none"></td>
+</tr>
+<tr>
+<td rowspan="3">Recommended<br/>(plus Basic)</td>
+<td>Documentation</td>
+<td>The Documentation package is useful because it lets you work offline and
+also look up API reference information from inside Eclipse.</td>
+</tr>
+
+<tr>
+<td>Samples</td>
+<td>The Samples packages give you source code that you can use to learn about
+Android, load as a project and run, or reuse in your own app. Note that multiple
+samples packages are available &mdash; one for each Android platform version. When
+you are choosing a samples package to download, select the one whose API Level
+matches the API Level of the Android platform that you plan to use.</td>
+</tr>
+<tr>
+<td>Usb Driver</td>
+<td>The Usb Driver package is needed only if you are developing on Windows and
+have an Android-powered device on which you want to install your application for
+debugging and testing. For Mac OS X and Linux platforms, no
+special driver is needed.</td>
+</tr>
+<tr>
+<td colspan="2"
+style="border:none;text-align:center;font-size:1.5em;font-weight:bold;">+</td><td
+style="border:none"></td>
+</tr>
+<tr>
+<td rowspan="3">Full<br/>(plus Recommended)</td>
+<td>Google APIs</td>
+<td>The Google APIs add-on gives your application access to the Maps external
+library, which makes it easy to display and manipulate Maps data in your
+application. </td>
+</tr>
+<tr>
+<td>Additional SDK Platforms</td>
+<td>If you plan to publish your application, you will want to download
+additional platforms corresponding to the Android platform versions on which you
+want the application to run. The recommended approach is to compile your
+application against the lowest version you want to support, but test it against
+higher versions that you intend the application to run on. You can test your
+applications on different platforms by running in an Android Virtual Device
+(AVD) on the Android emulator.</td>
+</tr>
+
+</table>
+
+<p>Once you've installed at least the basic configuration of SDK packages, you're ready to start
+developing Android apps. The next section describes the contents of the Android SDK to familiarize
+you with the packages you've just installed.</p>
+
+<p>For more information about using the Android SDK Manager, see the <a
+href="../../sdk/exploring.html">Exploring the SDK</a> document. </p>
+
+
+<h2 id="sdkContents">Step 5. Exploring the SDK (Optional)</h2>
+
+<p>Once you've installed the SDK and downloaded the platforms, documentation,
+and add-ons that you need, we suggest that you open the SDK directory and take a look at what's
+inside.</p>
+
+<p>The table below describes the full SDK directory contents, with packages
+installed. </p>
+
+<table>
+<tr>
+<th colspan="3">Name</th><th>Description</th>
+</tr>
+<tr>
+<td colspan="3"><code>add-ons/</code></td>
+<td>Contains add-ons to the Android SDK development
+environment, which let you develop against external libraries that are available on some
+devices. </td>
+</tr>
+<tr>
+<td colspan="3"><code>docs/</code></td>
+<td>A full set of documentation in HTML format, including the Developer's Guide,
+API Reference, and other information. To read the documentation, load the
+file <code>index.html</code> in a web browser.</td>
+</tr>
+<tr>
+<td colspan="3"><code>platform-tools/</code></td>
+<td>Contains platform-dependent development tools that may be updated with each platform release.
+The platform tools include the Android Debug Bridge (<code>adb</code>) as well as other tools that you
+don't typically use directly. These tools are separate from the development tools in the <code>tools/</code> directory because these tools may be updated in order to support new
+features in the latest Android platform.</td>
+</tr>
+<tr>
+<td colspan="3"><code>platforms/</code></td>
+<td>Contains a set of Android platform versions that you can develop
+applications against, each in a separate directory.  </td>
+</tr>
+<tr>
+<td style="width:2em;"></td>
+<td colspan="2"><code><em>&lt;platform&gt;</em>/</code></td>
+<td>Platform version directory, for example "android-11". All platform version directories contain
+a similar set of files and subdirectory structure. Each platform directory also includes the
+Android library (<code>android.jar</code>) that is used to compile applications against the
+platform version.</td>
+</tr>
+<tr>
+<td colspan="3"><code>samples/</code></td>
+<td>Sample code and apps that are specific to platform version.</td>
+</tr>
+<tr>
+<td colspan="3"><code>tools/</code></td>
+<td>Contains the set of development and profiling tools that are platform-independent, such
+as the emulator, the Android SDK Manager, the AVD Manager, <code>ddms</code>,
+<code>hierarchyviewer</code>
+and more. The tools in this directory may be updated at any time using the Android SDK
+Manager and are independent of platform releases.</td>
+</tr>
+<tr>
+<td colspan="3"><code>SDK Readme.txt</code></td>
+<td>A file that explains how to perform the initial setup of your SDK,
+including how to launch the Android SDK Manager tool on all
+platforms.</td>
+</tr>
+<tr>
+<td colspan="3"><code>SDK Manager.exe</code></td>
+<td>Windows SDK only. A shortcut that launches the Android SDK
+Manager tool, which you use to add packages to your SDK.</td>
+</tr>
+<!--<tr>
+<td colspan="3"><code>documentation.html</code></td>
+<td>A file that loads the entry page for the local Android SDK
+documentation.</td>
+</tr>-->
+
+</table>
+
+
+<p>Optionally, you might want to add the location of the SDK's <code>tools/</code> and
+<code>platform-tools</code> to your <code>PATH</code> environment variable, to provide easy
+access to the tools.</p>
+
+
+<div class="toggleable closed">
+  <a href="#" onclick="return toggleDiv(this)">
+        <img src="../../assets/images/triangle-closed.png" class="toggle-img" height="9px"
+width="9px" />
+        How to update your PATH</a>
+  <div class="toggleme">
+
+<p>Adding both <code>tools/</code> and <code>platform-tools/</code> to your PATH lets you run
+command line <a href="../../tools/index.html">tools</a> without needing to
+supply the full path to the tool directories. Depending on your operating system, you can
+include these directories in your PATH in the following way:</p>
+
+<ul>
+
+  <li>On Windows, right-click on My Computer, and select Properties.
+  Under the Advanced tab, hit the Environment Variables button, and in the
+  dialog that comes up, double-click on Path (under System Variables). Add the full path to the
+  <code>tools/</code> and <code>platform-tools/</code> directories to the path. </li>
+
+  <li>On Linux, edit your <code>~/.bash_profile</code> or <code>~/.bashrc</code> file. Look
+  for a line that sets the PATH environment variable and add the
+  full path to the <code>tools/</code> and <code>platform-tools/</code> directories to it. If you
+  don't see a line setting the path, you can add one:
+  <pre>export PATH=${PATH}:&lt;sdk&gt;/tools:&lt;sdk&gt;/platform-tools</pre>
+  </li>
+
+  <li>On a Mac OS X, look in your home directory for <code>.bash_profile</code> and
+  proceed as for Linux. You can create the <code>.bash_profile</code> if
+  you don't already have one. </li>
+</ul>
+
+</div><!-- end toggleme -->
+</div><!-- end toggleable -->
+
+
+<h2 id="NextSteps">Next Steps</h2>
+<p>Once you have completed installation, you are ready to
+begin developing applications. Here are a few ways you can get started: </p>
+
+<p><strong>Set up the Hello World application</strong></p>
+<ul>
+  <li>If you have just installed the SDK for the first time, go to the <a
+  href="../../training/basics/firstapp/index.html">Hello
+  World tutorial</a>. The tutorial takes you step-by-step through the process
+  of setting up your first Android project, including setting up an Android
+  Virtual Device (AVD) on which to run the application.
+</li>
+</ul>
+
+<p class="note">Following the Hello World tutorial is an essential
+first step in getting started with Android development. </p>
+
+<p><strong>Learn about Android</strong></p>
+<ul>
+  <li>Take a look at the <a href="../../guide/index.html">Dev
+  Guide</a> and the types of information it provides.</li>
+  <li>Read an introduction to Android as a platform in <a
+  href="../../guide/basics/what-is-android.html">What is
+  Android?</a></li>
+  <li>Learn about the Android framework and how applications run on it in
+  <a href="../../guide/components/fundamentals.html">Application
+  Fundamentals</a>.</li>
+  <li>Take a look at the Android framework API specification in the <a
+  href="../../reference/packages.html">Reference</a> tab.</li>
+</ul>
+
+<p><strong>Explore the development tools</strong></p>
+<ul>
+  <li>Get an overview of the <a
+  href="../../tools/index.html">development
+  tools</a> that are available to you.</li>
+  <li>Read the <a href="../../tools/workflow/index.html">Introduction</a> to Android
+application development.
+  </li>
+  <li>Read <a href="../../tools/device.html">Using Hardware Devices</a> to learn
+how to set up an Android-powered device so you can run and test your application.</li>
+</ul>
+
+<p><strong>Follow the Notepad tutorial</strong></p>
+
+<ul>
+  <li>The <a href="../../training/notepad/index.html">
+  Notepad Tutorial</a> shows you how to build a full Android application
+  and provides  helpful commentary on the Android system and API. The
+  Notepad tutorial helps you bring together the important design
+  and architectural concepts in a moderately complex application.
+  </li>
+</ul>
+<p class="note">Following the Notepad tutorial is an excellent
+second step in getting started with Android development. </p>
+
+<p><strong>Explore some code</strong></p>
+
+<ul>
+  <li>The Android SDK includes sample code and applications for each platform
+version. You can browse the samples in the <a
+href="../../resources/index.html">Resources</a> tab or download them
+into your SDK using the Android SDK Manager. Once you've downloaded the
+samples, you'll find them in
+<code><em>&lt;sdk&gt;</em>/samples/<em>&lt;platform&gt;/</em></code>. </li>
+</ul>
+
+<p><strong>Visit the Android developer groups</strong></p>
+<ul>
+  <li>Take a look at the <a
+  href="../../resources/community-groups.html">Community</a> pages to see a list of
+  Android developers groups. In particular, you might want to look at the
+  <a href="http://groups.google.com/group/android-developers">Android
+  Developers</a> group to get a sense for what the Android developer
+  community is like.</li>
+</ul>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3>Ubuntu Linux Notes</h3>
+
+<ul>
+  <li>If you need help installing and configuring Java on your
+    development machine, you might find these resources helpful:
+    <ul>
+      <li><a href="https://help.ubuntu.com/community/Java">https://help.ubuntu.com/community/Java </a></li>
+      <li><a href="https://help.ubuntu.com/community/Java">https://help.ubuntu.com/community/JavaInstallation</a></li>
+    </ul>
+  </li>
+  <li>Here are the steps to install Java and Eclipse, prior to installing
+  the Android SDK and ADT Plugin.
+    <ol>
+      <li>If you are running a 64-bit distribution on your development
+      machine, you need to install the <code>ia32-libs</code> package using
+      <code>apt-get:</code>:
+      <pre>apt-get install ia32-libs</pre>
+      </li>
+      <li>Next, install Java: <pre>apt-get install sun-java6-jdk</pre></li>
+      <li>The Ubuntu package manager does not currently offer an Eclipse 3.3
+      version for download, so we recommend that you download Eclipse from
+      eclipse.org (<a
+      href="http://www.eclipse.org/downloads/">http://www.eclipse.org/
+      downloads/</a>). A Java or RCP version of Eclipse is recommended.</li>
+      <li>Follow the steps given in previous sections to install the SDK
+      and the ADT plugin. </li>
+    </ol>
+  </li>
+</ul>
+
+<h3>Other Linux Notes</h3>
+
+<ul>
+  <li>If JDK is already installed on your development computer, please
+  take a moment to make sure that it meets the version requirements listed
+  in the <a href="requirements.html">System Requirements</a>.
+  In particular, note that some Linux distributions may include JDK 1.4 or Gnu
+  Compiler for Java, both of which are not supported for Android development.</li>
+</ul>
+
+    </div>
+      
+      <div class="content-footer layout-content-row" 
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+      
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>
+
+
+

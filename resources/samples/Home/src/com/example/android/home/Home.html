@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
+<title>Home.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../";
+</script>
+<script src="../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../index.html">
+            <img src="../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>Home.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*
+ * Copyright (C) 2007 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.home;
+
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.SearchManager;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PaintFlagsDrawFilter;
+import android.graphics.PixelFormat;
+import android.graphics.Rect;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.PaintDrawable;
+import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import android.util.Xml;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.GridView;
+import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.FileReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+public class Home extends Activity {
+    /**
+     * Tag used for logging errors.
+     */
+    private static final String LOG_TAG = "Home";
+
+    /**
+     * Keys during freeze/thaw.
+     */
+    private static final String KEY_SAVE_GRID_OPENED = "grid.opened";
+
+    private static final String DEFAULT_FAVORITES_PATH = "etc/favorites.xml";
+
+    private static final String TAG_FAVORITES = "favorites";
+    private static final String TAG_FAVORITE = "favorite";
+    private static final String TAG_PACKAGE = "package";
+    private static final String TAG_CLASS = "class";    
+
+    // Identifiers for option menu items
+    private static final int MENU_WALLPAPER_SETTINGS = Menu.FIRST + 1;
+    private static final int MENU_SEARCH = MENU_WALLPAPER_SETTINGS + 1;
+    private static final int MENU_SETTINGS = MENU_SEARCH + 1;
+
+    /**
+     * Maximum number of recent tasks to query.
+     */
+    private static final int MAX_RECENT_TASKS = 20;
+
+    private static boolean mWallpaperChecked;
+    private static ArrayList&lt;ApplicationInfo&gt; mApplications;
+    private static LinkedList&lt;ApplicationInfo&gt; mFavorites;
+
+    private final BroadcastReceiver mWallpaperReceiver = new WallpaperIntentReceiver();
+    private final BroadcastReceiver mApplicationsReceiver = new ApplicationsIntentReceiver();
+
+    private GridView mGrid;
+
+    private LayoutAnimationController mShowLayoutAnimation;
+    private LayoutAnimationController mHideLayoutAnimation;
+
+    private boolean mBlockAnimation;
+
+    private boolean mHomeDown;
+    private boolean mBackDown;
+
+    private View mShowApplications;
+    private CheckBox mShowApplicationsCheck;
+
+    private ApplicationsStackLayout mApplicationsStack;
+
+    private Animation mGridEntry;
+    private Animation mGridExit;
+
+    @Override
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+
+        setDefaultKeyMode(DEFAULT_KEYS_SEARCH_LOCAL);
+
+        setContentView(R.layout.home);
+
+        registerIntentReceivers();
+
+        setDefaultWallpaper();
+
+        loadApplications(true);
+
+        bindApplications();
+        bindFavorites(true);
+        bindRecents();
+        bindButtons();
+
+        mGridEntry = AnimationUtils.loadAnimation(this, R.anim.grid_entry);
+        mGridExit = AnimationUtils.loadAnimation(this, R.anim.grid_exit);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        // Close the menu
+        if (Intent.ACTION_MAIN.equals(intent.getAction())) {
+            getWindow().closeAllPanels();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        // Remove the callback for the cached drawables or we leak
+        // the previous Home screen on orientation change
+        final int count = mApplications.size();
+        for (int i = 0; i &lt; count; i++) {
+            mApplications.get(i).icon.setCallback(null);
+        }
+
+        unregisterReceiver(mWallpaperReceiver);
+        unregisterReceiver(mApplicationsReceiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bindRecents();
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle state) {
+        super.onRestoreInstanceState(state);
+        final boolean opened = state.getBoolean(KEY_SAVE_GRID_OPENED, false);
+        if (opened) {
+            showApplications(false);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(KEY_SAVE_GRID_OPENED, mGrid.getVisibility() == View.VISIBLE);
+    }
+
+    /**
+     * Registers various intent receivers. The current implementation registers
+     * only a wallpaper intent receiver to let other applications change the
+     * wallpaper.
+     */
+    private void registerIntentReceivers() {
+        IntentFilter filter = new IntentFilter(Intent.ACTION_WALLPAPER_CHANGED);
+        registerReceiver(mWallpaperReceiver, filter);
+
+        filter = new IntentFilter(Intent.ACTION_PACKAGE_ADDED);
+        filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        filter.addAction(Intent.ACTION_PACKAGE_CHANGED);
+        filter.addDataScheme("package");
+        registerReceiver(mApplicationsReceiver, filter);
+    }
+
+    /**
+     * Creates a new appplications adapter for the grid view and registers it.
+     */
+    private void bindApplications() {
+        if (mGrid == null) {
+            mGrid = (GridView) findViewById(R.id.all_apps);
+        }
+        mGrid.setAdapter(new ApplicationsAdapter(this, mApplications));
+        mGrid.setSelection(0);
+
+        if (mApplicationsStack == null) {
+            mApplicationsStack = (ApplicationsStackLayout) findViewById(R.id.faves_and_recents);
+        }
+    }
+
+    /**
+     * Binds actions to the various buttons.
+     */
+    private void bindButtons() {
+        mShowApplications = findViewById(R.id.show_all_apps);
+        mShowApplications.setOnClickListener(new ShowApplications());
+        mShowApplicationsCheck = (CheckBox) findViewById(R.id.show_all_apps_check);
+
+        mGrid.setOnItemClickListener(new ApplicationLauncher());
+    }
+
+    /**
+     * When no wallpaper was manually set, a default wallpaper is used instead.
+     */
+    private void setDefaultWallpaper() {
+        if (!mWallpaperChecked) {
+            Drawable wallpaper = peekWallpaper();
+            if (wallpaper == null) {
+                try {
+                    clearWallpaper();
+                } catch (IOException e) {
+                    Log.e(LOG_TAG, "Failed to clear wallpaper " + e);
+                }
+            } else {
+                getWindow().setBackgroundDrawable(new ClippedDrawable(wallpaper));
+            }
+            mWallpaperChecked = true;
+        }
+    }
+
+    /**
+     * Refreshes the favorite applications stacked over the all apps button.
+     * The number of favorites depends on the user.
+     */
+    private void bindFavorites(boolean isLaunching) {
+        if (!isLaunching || mFavorites == null) {
+
+            if (mFavorites == null) {
+                mFavorites = new LinkedList&lt;ApplicationInfo&gt;();
+            } else {
+                mFavorites.clear();
+            }
+            mApplicationsStack.setFavorites(mFavorites);            
+
+            FileReader favReader;
+
+            // Environment.getRootDirectory() is a fancy way of saying ANDROID_ROOT or "/system".
+            final File favFile = new File(Environment.getRootDirectory(), DEFAULT_FAVORITES_PATH);
+            try {
+                favReader = new FileReader(favFile);
+            } catch (FileNotFoundException e) {
+                Log.e(LOG_TAG, "Couldn't find or open favorites file " + favFile);
+                return;
+            }
+
+            final Intent intent = new Intent(Intent.ACTION_MAIN, null);
+            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+            final PackageManager packageManager = getPackageManager();
+
+            try {
+                final XmlPullParser parser = Xml.newPullParser();
+                parser.setInput(favReader);
+
+                beginDocument(parser, TAG_FAVORITES);
+
+                ApplicationInfo info;
+
+                while (true) {
+                    nextElement(parser);
+
+                    String name = parser.getName();
+                    if (!TAG_FAVORITE.equals(name)) {
+                        break;
+                    }
+
+                    final String favoritePackage = parser.getAttributeValue(null, TAG_PACKAGE);
+                    final String favoriteClass = parser.getAttributeValue(null, TAG_CLASS);
+
+                    final ComponentName cn = new ComponentName(favoritePackage, favoriteClass);
+                    intent.setComponent(cn);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                    info = getApplicationInfo(packageManager, intent);
+                    if (info != null) {
+                        info.intent = intent;
+                        mFavorites.addFirst(info);
+                    }
+                }
+            } catch (XmlPullParserException e) {
+                Log.w(LOG_TAG, "Got exception parsing favorites.", e);
+            } catch (IOException e) {
+                Log.w(LOG_TAG, "Got exception parsing favorites.", e);
+            }
+        }
+
+        mApplicationsStack.setFavorites(mFavorites);
+    }
+
+    private static void beginDocument(XmlPullParser parser, String firstElementName)
+            throws XmlPullParserException, IOException {
+
+        int type;
+        while ((type = parser.next()) != XmlPullParser.START_TAG &amp;&amp;
+                type != XmlPullParser.END_DOCUMENT) {
+            // Empty
+        }
+
+        if (type != XmlPullParser.START_TAG) {
+            throw new XmlPullParserException("No start tag found");
+        }
+
+        if (!parser.getName().equals(firstElementName)) {
+            throw new XmlPullParserException("Unexpected start tag: found " + parser.getName() +
+                    ", expected " + firstElementName);
+        }
+    }
+
+    private static void nextElement(XmlPullParser parser) throws XmlPullParserException, IOException {
+        int type;
+        while ((type = parser.next()) != XmlPullParser.START_TAG &amp;&amp;
+                type != XmlPullParser.END_DOCUMENT) {
+            // Empty
+        }
+    }
+
+    /**
+     * Refreshes the recently launched applications stacked over the favorites. The number
+     * of recents depends on how many favorites are present.
+     */
+    private void bindRecents() {
+        final PackageManager manager = getPackageManager();
+        final ActivityManager tasksManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        final List&lt;ActivityManager.RecentTaskInfo&gt; recentTasks = tasksManager.getRecentTasks(
+                MAX_RECENT_TASKS, 0);
+
+        final int count = recentTasks.size();
+        final ArrayList&lt;ApplicationInfo&gt; recents = new ArrayList&lt;ApplicationInfo&gt;();
+
+        for (int i = count - 1; i &gt;= 0; i--) {
+            final Intent intent = recentTasks.get(i).baseIntent;
+
+            if (Intent.ACTION_MAIN.equals(intent.getAction()) &amp;&amp;
+                    !intent.hasCategory(Intent.CATEGORY_HOME)) {
+
+                ApplicationInfo info = getApplicationInfo(manager, intent);
+                if (info != null) {
+                    info.intent = intent;
+                    if (!mFavorites.contains(info)) {
+                        recents.add(info);
+                    }
+                }
+            }
+        }
+
+        mApplicationsStack.setRecents(recents);
+    }
+
+    private static ApplicationInfo getApplicationInfo(PackageManager manager, Intent intent) {
+        final ResolveInfo resolveInfo = manager.resolveActivity(intent, 0);
+
+        if (resolveInfo == null) {
+            return null;
+        }
+
+        final ApplicationInfo info = new ApplicationInfo();
+        final ActivityInfo activityInfo = resolveInfo.activityInfo;
+        info.icon = activityInfo.loadIcon(manager);
+        if (info.title == null || info.title.length() == 0) {
+            info.title = activityInfo.loadLabel(manager);
+        }
+        if (info.title == null) {
+            info.title = "";
+        }
+        return info;
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (!hasFocus) {
+            mBackDown = mHomeDown = false;
+        }
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            switch (event.getKeyCode()) {
+                case KeyEvent.KEYCODE_BACK:
+                    mBackDown = true;
+                    return true;
+                case KeyEvent.KEYCODE_HOME:
+                    mHomeDown = true;
+                    return true;
+            }
+        } else if (event.getAction() == KeyEvent.ACTION_UP) {
+            switch (event.getKeyCode()) {
+                case KeyEvent.KEYCODE_BACK:
+                    if (!event.isCanceled()) {
+                        // Do BACK behavior.
+                    }
+                    mBackDown = true;
+                    return true;
+                case KeyEvent.KEYCODE_HOME:
+                    if (!event.isCanceled()) {
+                        // Do HOME behavior.
+                    }
+                    mHomeDown = true;
+                    return true;
+            }
+        }
+
+        return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        menu.add(0, MENU_WALLPAPER_SETTINGS, 0, R.string.menu_wallpaper)
+                 .setIcon(android.R.drawable.ic_menu_gallery)
+                 .setAlphabeticShortcut('W');
+        menu.add(0, MENU_SEARCH, 0, R.string.menu_search)
+                .setIcon(android.R.drawable.ic_search_category_default)
+                .setAlphabeticShortcut(SearchManager.MENU_KEY);
+        menu.add(0, MENU_SETTINGS, 0, R.string.menu_settings)
+                .setIcon(android.R.drawable.ic_menu_preferences)
+                .setIntent(new Intent(android.provider.Settings.ACTION_SETTINGS));
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_WALLPAPER_SETTINGS:
+                startWallpaper();
+                return true;
+            case MENU_SEARCH:
+                onSearchRequested();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void startWallpaper() {
+        final Intent pickWallpaper = new Intent(Intent.ACTION_SET_WALLPAPER);
+        startActivity(Intent.createChooser(pickWallpaper, getString(R.string.menu_wallpaper)));
+    }
+
+    /**
+     * Loads the list of installed applications in mApplications.
+     */
+    private void loadApplications(boolean isLaunching) {
+        if (isLaunching &amp;&amp; mApplications != null) {
+            return;
+        }
+
+        PackageManager manager = getPackageManager();
+
+        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+        final List&lt;ResolveInfo&gt; apps = manager.queryIntentActivities(mainIntent, 0);
+        Collections.sort(apps, new ResolveInfo.DisplayNameComparator(manager));
+
+        if (apps != null) {
+            final int count = apps.size();
+
+            if (mApplications == null) {
+                mApplications = new ArrayList&lt;ApplicationInfo&gt;(count);
+            }
+            mApplications.clear();
+
+            for (int i = 0; i &lt; count; i++) {
+                ApplicationInfo application = new ApplicationInfo();
+                ResolveInfo info = apps.get(i);
+
+                application.title = info.loadLabel(manager);
+                application.setActivity(new ComponentName(
+                        info.activityInfo.applicationInfo.packageName,
+                        info.activityInfo.name),
+                        Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                application.icon = info.activityInfo.loadIcon(manager);
+
+                mApplications.add(application);
+            }
+        }
+    }
+
+    /**
+     * Shows all of the applications by playing an animation on the grid.
+     */
+    private void showApplications(boolean animate) {
+        if (mBlockAnimation) {
+            return;
+        }
+        mBlockAnimation = true;
+
+        mShowApplicationsCheck.toggle();
+
+        if (mShowLayoutAnimation == null) {
+            mShowLayoutAnimation = AnimationUtils.loadLayoutAnimation(
+                    this, R.anim.show_applications);
+        }
+
+        // This enables a layout animation; if you uncomment this code, you need to
+        // comment the line mGrid.startAnimation() below
+//        mGrid.setLayoutAnimationListener(new ShowGrid());
+//        mGrid.setLayoutAnimation(mShowLayoutAnimation);
+//        mGrid.startLayoutAnimation();
+
+        if (animate) {
+            mGridEntry.setAnimationListener(new ShowGrid());
+            mGrid.startAnimation(mGridEntry);
+        }
+
+        mGrid.setVisibility(View.VISIBLE);
+
+        if (!animate) {
+            mBlockAnimation = false;
+        }
+
+        // ViewDebug.startHierarchyTracing("Home", mGrid);
+    }
+
+    /**
+     * Hides all of the applications by playing an animation on the grid.
+     */
+    private void hideApplications() {
+        if (mBlockAnimation) {
+            return;
+        }
+        mBlockAnimation = true;
+
+        mShowApplicationsCheck.toggle();
+
+        if (mHideLayoutAnimation == null) {
+            mHideLayoutAnimation = AnimationUtils.loadLayoutAnimation(
+                    this, R.anim.hide_applications);
+        }
+
+        mGridExit.setAnimationListener(new HideGrid());
+        mGrid.startAnimation(mGridExit);
+        mGrid.setVisibility(View.INVISIBLE);
+        mShowApplications.requestFocus();
+
+        // This enables a layout animation; if you uncomment this code, you need to
+        // comment the line mGrid.startAnimation() above
+//        mGrid.setLayoutAnimationListener(new HideGrid());
+//        mGrid.setLayoutAnimation(mHideLayoutAnimation);
+//        mGrid.startLayoutAnimation();
+    }
+
+    /**
+     * Receives intents from other applications to change the wallpaper.
+     */
+    private class WallpaperIntentReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            getWindow().setBackgroundDrawable(new ClippedDrawable(getWallpaper()));
+        }
+    }
+
+    /**
+     * Receives notifications when applications are added/removed.
+     */
+    private class ApplicationsIntentReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            loadApplications(false);
+            bindApplications();
+            bindRecents();
+            bindFavorites(false);
+        }
+    }
+
+    /**
+     * GridView adapter to show the list of all installed applications.
+     */
+    private class ApplicationsAdapter extends ArrayAdapter&lt;ApplicationInfo&gt; {
+        private Rect mOldBounds = new Rect();
+
+        public ApplicationsAdapter(Context context, ArrayList&lt;ApplicationInfo&gt; apps) {
+            super(context, 0, apps);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            final ApplicationInfo info = mApplications.get(position);
+
+            if (convertView == null) {
+                final LayoutInflater inflater = getLayoutInflater();
+                convertView = inflater.inflate(R.layout.application, parent, false);
+            }
+
+            Drawable icon = info.icon;
+
+            if (!info.filtered) {
+                //final Resources resources = getContext().getResources();
+                int width = 42;//(int) resources.getDimension(android.R.dimen.app_icon_size);
+                int height = 42;//(int) resources.getDimension(android.R.dimen.app_icon_size);
+
+                final int iconWidth = icon.getIntrinsicWidth();
+                final int iconHeight = icon.getIntrinsicHeight();
+
+                if (icon instanceof PaintDrawable) {
+                    PaintDrawable painter = (PaintDrawable) icon;
+                    painter.setIntrinsicWidth(width);
+                    painter.setIntrinsicHeight(height);
+                }
+
+                if (width &gt; 0 &amp;&amp; height &gt; 0 &amp;&amp; (width &lt; iconWidth || height &lt; iconHeight)) {
+                    final float ratio = (float) iconWidth / iconHeight;
+
+                    if (iconWidth &gt; iconHeight) {
+                        height = (int) (width / ratio);
+                    } else if (iconHeight &gt; iconWidth) {
+                        width = (int) (height * ratio);
+                    }
+
+                    final Bitmap.Config c =
+                            icon.getOpacity() != PixelFormat.OPAQUE ?
+                                Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565;
+                    final Bitmap thumb = Bitmap.createBitmap(width, height, c);
+                    final Canvas canvas = new Canvas(thumb);
+                    canvas.setDrawFilter(new PaintFlagsDrawFilter(Paint.DITHER_FLAG, 0));
+                    // Copy the old bounds to restore them later
+                    // If we were to do oldBounds = icon.getBounds(),
+                    // the call to setBounds() that follows would
+                    // change the same instance and we would lose the
+                    // old bounds
+                    mOldBounds.set(icon.getBounds());
+                    icon.setBounds(0, 0, width, height);
+                    icon.draw(canvas);
+                    icon.setBounds(mOldBounds);
+                    icon = info.icon = new BitmapDrawable(thumb);
+                    info.filtered = true;
+                }
+            }
+
+            final TextView textView = (TextView) convertView.findViewById(R.id.label);
+            textView.setCompoundDrawablesWithIntrinsicBounds(null, icon, null, null);
+            textView.setText(info.title);
+
+            return convertView;
+        }
+    }
+
+    /**
+     * Shows and hides the applications grid view.
+     */
+    private class ShowApplications implements View.OnClickListener {
+        public void onClick(View v) {
+            if (mGrid.getVisibility() != View.VISIBLE) {
+                showApplications(true);
+            } else {
+                hideApplications();
+            }
+        }
+    }
+
+    /**
+     * Hides the applications grid when the layout animation is over.
+     */
+    private class HideGrid implements Animation.AnimationListener {
+        public void onAnimationStart(Animation animation) {
+        }
+
+        public void onAnimationEnd(Animation animation) {
+            mBlockAnimation = false;
+        }
+
+        public void onAnimationRepeat(Animation animation) {
+        }
+    }
+
+    /**
+     * Shows the applications grid when the layout animation is over.
+     */
+    private class ShowGrid implements Animation.AnimationListener {
+        public void onAnimationStart(Animation animation) {
+        }
+
+        public void onAnimationEnd(Animation animation) {
+            mBlockAnimation = false;
+            // ViewDebug.stopHierarchyTracing();
+        }
+
+        public void onAnimationRepeat(Animation animation) {
+        }
+    }
+
+    /**
+     * Starts the selected activity/application in the grid view.
+     */
+    private class ApplicationLauncher implements AdapterView.OnItemClickListener {
+        public void onItemClick(AdapterView parent, View v, int position, long id) {
+            ApplicationInfo app = (ApplicationInfo) parent.getItemAtPosition(position);
+            startActivity(app.intent);
+        }
+    }
+
+    /**
+     * When a drawable is attached to a View, the View gives the Drawable its dimensions
+     * by calling Drawable.setBounds(). In this application, the View that draws the
+     * wallpaper has the same size as the screen. However, the wallpaper might be larger
+     * that the screen which means it will be automatically stretched. Because stretching
+     * a bitmap while drawing it is very expensive, we use a ClippedDrawable instead.
+     * This drawable simply draws another wallpaper but makes sure it is not stretched
+     * by always giving it its intrinsic dimensions. If the wallpaper is larger than the
+     * screen, it will simply get clipped but it won't impact performance.
+     */
+    private class ClippedDrawable extends Drawable {
+        private final Drawable mWallpaper;
+
+        public ClippedDrawable(Drawable wallpaper) {
+            mWallpaper = wallpaper;
+        }
+
+        @Override
+        public void setBounds(int left, int top, int right, int bottom) {
+            super.setBounds(left, top, right, bottom);
+            // Ensure the wallpaper is as large as it really is, to avoid stretching it
+            // at drawing time
+            mWallpaper.setBounds(left, top, left + mWallpaper.getIntrinsicWidth(),
+                    top + mWallpaper.getIntrinsicHeight());
+        }
+
+        public void draw(Canvas canvas) {
+            mWallpaper.draw(canvas);
+        }
+
+        public void setAlpha(int alpha) {
+            mWallpaper.setAlpha(alpha);
+        }
+
+        public void setColorFilter(ColorFilter cf) {
+            mWallpaper.setColorFilter(cf);
+        }
+
+        public int getOpacity() {
+            return mWallpaper.getOpacity();
+        }
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>What is the NDK? | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../";
+</script>
+<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+<body class="gc-documentation
+  develop" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../index.html">
+            <img src="../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../develop/index.html" class="selected"
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../')" 
+onkeyup="return search_changed(event, false, '../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:75%">
+                <li><a href="../../../training/index.html" 
+                  zh-TW-lang="訓練課程"
+                  zh-CN-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"               
+                  >Training</a></li>
+                <li><a href="../../../guide/components/index.html" 
+                  zh-TW-lang="API 指南"
+                  zh-CN-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"               
+                  >API Guides</a></li>
+                <li><a href="../../../reference/packages.html" 
+                  zh-TW-lang="參考資源"
+                  zh-CN-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"               
+                  >Reference</a></li>
+                <li><a href="../../../tools/index.html" class="selected"
+                  zh-TW-lang="相關工具"
+                  zh-CN-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"               
+                  >Tools</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+        <a href="../../../tools/index.html"><span class="en">Developer Tools</span></a>
+    </div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../sdk/index.html"><span class="en">Download</span></a></div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../sdk/installing/index.html"><span class="en">Installing
+    the SDK</span></a></div>
+        <ul>
+          <li><a href="../../../sdk/installing/adding-packages.html">
+              <span class="en">Adding Platforms and Packages</span></a></li>
+          <li><a href="../../../sdk/installing/installing-adt.html">
+              <span class="en">Installing the Eclipse Plugin</span></a></li>
+          <li><a href="../../../sdk/installing/next.html">
+              <span class="en">Next Steps</span></a></li>
+        </ul>
+      </li>
+          <li><a href="../../../sdk/exploring.html">
+              <span class="en">Exploring the SDK</span></a></li>
+      <li><a href="../../../tools/sdk/ndk/index.html">NDK</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+        <a href="/tools/workflow/index.html"><span class="en">Workflow</span></a>
+    </div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/devices/index.html"><span class="en">Setting Up Virtual Devices</span></a></div>
+        <ul>
+          <li><a href="/tools/devices/managing-avds.html"><span class="en">With AVD Manager</span></a></li>
+          <li><a href="/tools/devices/managing-avds-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="/tools/devices/emulator.html"><span class="en">Using the Android Emulator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="/tools/device.html"><span class="en">Using Hardware Devices</span></a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/projects/index.html"><span class="en">Setting Up Projects</span></a></div>
+        <ul>
+          <li><a href="/tools/projects/projects-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="/tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/building/index.html"><span class="en">Building and Running</span></a></div>
+        <ul>
+          <li><a href="/tools/building/building-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="/tools/building/building-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+  <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../tools/testing/index.html">
+            <span class="en">Testing</span>
+          </a></div>
+        <ul>
+          <li>
+            <a href="../../../tools/testing/testing_android.html">
+            <span class="en">Fundamentals</span></a>
+          </li>
+          <li><a href="../../../tools/testing/testing_eclipse.html">
+            <span class="en">From Eclipse</span></a>
+          </li>
+          <li><a href="../../../tools/testing/testing_otheride.html">
+            <span class="en">From Other IDEs</span></a>
+          </li>
+          <li>
+            <a href="../../../tools/testing/activity_testing.html">
+            <span class="en">Activity Testing</span></a>
+          </li>
+          <li>
+            <a href="../../../tools/testing/service_testing.html">
+            <span class="en">Service Testing</span></a>
+          </li>
+          <li>
+            <a href="../../../tools/testing/contentprovider_testing.html">
+            <span class="en">Content Provider Testing</span></a>
+          </li>
+          <li>
+            <a href="../../../tools/testing/testing_accessibility.html">
+            <span class="en">Accessibility Testing</span></a>
+          </li>
+           <li>
+            <a href="../../../tools/testing/testing_ui.html">
+            <span class="en">UI Testing</span></a>
+          </li>
+          <li>
+            <a href="../../../tools/testing/what_to_test.html">
+            <span class="en">What To Test</span></a>
+          </li>
+          <li>
+            <a href="../../../tools/testing/activity_test.html">
+            <span class="en">Activity Testing Tutorial</span></a>
+          </li>
+        </ul>
+  </li><!-- end of testing -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
+    <ul>
+      <li><a href="../../../tools/debugging/debugging-projects.html"><span class="en">From Eclipse with ADT</span></a></li>
+      <li><a href="../../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
+      <li><a href="../../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
+      <li><a href="../../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
+      <li><a href="../../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
+      <li><a href="../../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
+      <li><a href="../../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
+      <li><a href="../../../tools/debugging/systrace.html"><span class="en">Analysing Display and Performance with Systrace</span></a></li>
+      <li><a href="../../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
+    </ul>
+  </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../tools/publishing/publishing_overview.html"><span class="en">Publishing</span></a></div>
+        <ul>
+          <li><a href="../../../tools/publishing/preparing.html"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
+          <li><a href="../../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
+        </ul>
+      </li>
+</ul>
+</li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../tools/help/index.html"><span
+class="en">Tools Help</span></a></div>
+    <ul>
+      <li><a href="../../../tools/help/adb.html">adb</a></li>
+      <li><a href="../../../tools/help/adt.html">ADT</a></li>
+      <li><a href="../../../tools/help/android.html">android</a></li>
+      <li><a href="../../../tools/help/avd-manager.html">AVD Manager</a></li>
+      <li><a href="../../../tools/help/bmgr.html">bmgr</a>
+      <li><a href="../../../tools/help/monitor.html">Device Monitor</a></li>
+      <li><a href="../../../tools/help/dmtracedump.html">dmtracedump</a></li>
+      <li><a href="../../../tools/help/draw9patch.html">Draw 9-Patch</a></li>
+      <li><a href="../../../tools/help/emulator.html">Emulator</a></li>
+      <li><a href="../../../tools/help/etc1tool.html">etc1tool</a></li>
+      <li><a href="../../../tools/help/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      <li><a href="../../../tools/help/hprof-conv.html">hprof-conv</a></li>
+      <li><a href="../../../tools/help/jobb.html">jobb</a></li>
+      <li><a href="../../../tools/help/lint.html">lint</span></a></li>
+      <li><a href="../../../tools/help/logcat.html">logcat</a></li>
+      <li><a href="../../../tools/help/mksdcard.html">mksdcard</a></li>
+      <li><a href="../../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+       <li><a href="../../../tools/help/proguard.html">ProGuard</a></li>
+       <li><a href="../../../tools/help/sdk-manager.html">SDK Manager</a></li>
+       <li><a href="../../../tools/help/systrace.html">Systrace</a></li>
+       <li><a href="../../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
+       <li><a href="../../../tools/help/traceview.html">Traceview</a></li>
+       <li class="nav-section">
+          <div class="nav-section-header"><a href="../../../tools/help/uiautomator/index.html"><span class="en">uiautomator</span></a></div>
+          <ul>
+             <li><a href="../../../tools/help/uiautomator/IAutomationSupport.html"><span class="en">IAutomationSupport</span></a></li>
+             <li><a href="../../../tools/help/uiautomator/UiAutomatorTestCase.html"><span class="en">UiAutomatorTestCase</span></a></li>
+             <li><a href="../../../tools/help/uiautomator/UiCollection.html"><span class="en">UiCollection</span></a></li>
+             <li><a href="../../../tools/help/uiautomator/UiDevice.html"><span class="en">UiDevice</span></a></li>
+             <li><a href="../../../tools/help/uiautomator/UiObject.html"><span class="en">UiObject</span></a></li>
+             <li><a href="../../../tools/help/uiautomator/UiObjectNotFoundException.html"><span class="en">UiObjectNotFoundException</span></a></li>
+             <li><a href="../../../tools/help/uiautomator/UiScrollable.html"><span class="en">UiScrollable</span></a></li>
+             <li><a href="../../../tools/help/uiautomator/UiSelector.html"><span class="en">UiSelector</span></a></li>
+             <li><a href="../../../tools/help/uiautomator/UiWatcher.html"><span class="en">UiWatcher</span></a></li>
+          </ul>
+       </li>
+       <li><a href="../../../tools/help/zipalign.html">zipalign</a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
+    <ul>
+      <li><a href="../../../tools/sdk/tools-notes.html">
+        <span class="en">Tools</span>
+      </a></li>
+      <li><a href="../../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span>
+      </a></li>
+      <!--
+      <li><a href="../../../tools/sdk/addons.html"><span class="en">Add-ons</span></a></li>
+      -->
+      <li><a href="../../../tools/revisions/platforms.html"><span
+class="en">Platforms</span></a></li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../tools/extras/index.html"><span class="en">Extras</span></a></div>
+    <ul>
+      <li><a href="../../../tools/extras/support-library.html"><span class="en">Support
+Library</span></a></li>
+      <li><a href="../../../tools/extras/oem-usb.html"><span
+class="en">USB Drivers</span></a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../../tools/samples/index.html"><span class="en">Samples</span></a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../../tools/adk/index.html">
+      <span class="en">ADK</span></a>
+    </div>
+    <ul>
+      <li><a href="../../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
+      <li><a href="../../../tools/adk/adk.html">ADK 2011 Guide</a></li>
+    </ul>
+  </li>
+
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        
+        
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+  
+    
+      <h1 itemprop="name">What is the NDK?</h1>
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+    <div id="qv">
+      <h2>In this document</h2>
+
+      <ol>
+        <li><a href="#choosing">When to Develop in Native Code</a></li>
+        <li>
+          <a href="#contents">Contents of the NDK</a>
+          <ol>
+            <li><a href="#tools">Development tools</a></li>
+
+            <li><a href="#docs">Documentation</a></li>
+
+            <li><a href="#samples">Sample applications</a></li>
+          </ol>
+        </li>
+        <li><a href="#reqs">System and Software Requirements</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <p>The Android NDK is a toolset that lets you embed components that make use of native code in
+  your Android applications.</p>
+
+  <p>Android applications run in the Dalvik virtual machine. The NDK allows you to implement parts
+  of your applications using native-code languages such as C and C++. This can provide benefits to
+  certain classes of applications, in the form of reuse of existing code and in some cases
+  increased speed.</p>
+
+  <p>The NDK provides:</p>
+
+  <ul>
+    <li>A set of tools and build files used to generate native code libraries from C and C++
+    sources</li>
+
+    <li>A way to embed the corresponding native libraries into an application package file
+    (<code>.apk</code>) that can be deployed on Android devices</li>
+
+    <li>A set of native system headers and libraries that will be supported in all future versions
+    of the Android platform, starting from Android 1.5. Applications that use native activities
+    must be run on Android 2.3 or later.</li>
+
+    <li>Documentation, samples, and tutorials</li>
+  </ul>
+
+  <p>The latest release of the NDK supports the following instruction sets:</p>
+
+  <ul>
+    <li>ARMv5TE, including Thumb-1 instructions (see <code>docs/CPU-ARCH-ABIS.html</code> for more
+information)</li>
+
+    <li>ARMv7-A, including Thumb-2 and VFPv3-D16 instructions, with optional support for
+    NEON/VFPv3-D32 instructions (see <code>docs/CPU-ARM-NEON.html</code> for more information)</li>
+
+    <li>x86 instructions (see <code>docs/CPU-X86.html</code> for more information)</li>
+
+    <li>MIPS instructions (see <code>docs/CPU-MIPS.html</code> for more information)</li>
+  </ul>
+
+  <p>ARMv5TE machine code will run on all ARM-based Android devices. ARMv7-A will run only on
+  devices such as the Verizon Droid or Google Nexus One that have a compatible CPU. The main
+  difference between the two instruction sets is that ARMv7-A supports hardware FPU, Thumb-2, and
+  NEON instructions. You can target either or both of the instruction sets &mdash; ARMv5TE is the
+  default, but switching to ARMv7-A is as easy as adding a single line to the application's
+  <code>Application.mk</code> file, without needing to change anything else in the file. You can also build for
+  both architectures at the same time and have everything stored in the final <code>.apk</code>.
+  Complete information is provided in the CPU-ARCH-ABIS.HTML in the NDK package.</p>
+
+  <p>The NDK provides stable headers for libc (the C library), libm (the Math library), OpenGL ES
+  (3D graphics library), the JNI interface, and other libraries, as listed in the <a href=
+  "#tools">Development Tools</a> section.</p>
+
+  <h2 id="choosing">When to Develop in Native Code</h2>
+
+  <p>The NDK will not benefit most applications. As a developer, you need to balance its benefits
+  against its drawbacks; notably, using native code does not result in an automatic performance
+  increase, but always increases application complexity. In general, you should only use native
+  code if it is essential to your application, not just because you prefer to program in C/C++.</p>
+
+  <p>Typical good candidates for the NDK are self-contained, CPU-intensive operations that don't
+  allocate much memory, such as signal processing, physics simulation, and so on. Simply re-coding
+  a method to run in C usually does not result in a large performance increase. When examining
+  whether or not you should develop in native code, think about your requirements and see if the
+  Android framework APIs provide the functionality that you need. The NDK can, however, can be an
+  effective way to reuse a large corpus of existing C/C++ code.</p>
+
+  <p>The Android framework provides two ways to use native code:</p>
+
+  <ul>
+    <li>Write your application using the Android framework and use JNI to access the APIs provided
+    by the Android NDK. This technique allows you to take advantage of the convenience of the
+    Android framework, but still allows you to write native code when necessary. If you use this
+    approach, your application must target specific, minimum Android platform levels, see <a
+    href="#platform-compat">Android platform compatibility</a> for more information.</li>
+
+    <li>
+      <p>Write a native activity, which allows you to implement the lifecycle callbacks in native
+      code. The Android SDK provides the <code><a href="../../../reference/android/app/NativeActivity.html">NativeActivity</a></code> class, which is a
+      convenience class that notifies your
+      native code of any activity lifecycle callbacks (<code>onCreate()</code>, <code>onPause()</code>,
+      <code>onResume()</code>, etc). You can implement the callbacks in your native code to handle
+      these events when they occur. Applications that use native activities must be run on Android
+      2.3 (API Level 9) or later.</p>
+
+      <p>You cannot access features such as Services and Content Providers natively, so if you want
+      to use them or any other framework API, you can still write JNI code to do so.</p>
+    </li>
+  </ul>
+
+  <h2 id="contents">Contents of the NDK</h2>The NDK contains the APIs, documentation, and sample
+  applications that help you write your native code.
+
+  <h3 id="tools">Development tools</h3>
+
+  <p>The NDK includes a set of cross-toolchains (compilers, linkers, etc..) that can generate
+  native ARM binaries on Linux, OS X, and Windows (with Cygwin) platforms.</p>
+
+  <p>It provides a set of system headers for stable native APIs that are guaranteed to be supported
+  in all later releases of the platform:</p>
+
+  <ul>
+    <li>libc (C library) headers</li>
+
+    <li>libm (math library) headers</li>
+
+    <li>JNI interface headers</li>
+
+    <li>libz (Zlib compression) headers</li>
+
+    <li>liblog (Android logging) header</li>
+
+    <li>OpenGL ES 1.1 and OpenGL ES 2.0 (3D graphics libraries) headers</li>
+
+    <li>libjnigraphics (Pixel buffer access) header (for Android 2.2 and above).</li>
+
+    <li>A Minimal set of headers for C++ support</li>
+    
+    <li>OpenSL ES native audio libraries</li>
+    
+    <li>Android native application APIS</li>
+  </ul>
+
+  <p>The NDK also provides a build system that lets you work efficiently with your sources, without
+  having to handle the toolchain/platform/CPU/ABI details. You create very short build files to
+  describe which sources to compile and which Android application will use them &mdash; the build
+  system compiles the sources and places the shared libraries directly in your application
+  project.</p>
+
+  <p class="caution"><strong>Important:</strong> With the exception of the libraries listed above,
+  native system libraries in the Android platform are <em>not</em> stable and may change in future
+  platform versions. Your applications should <em>only</em> make use of the stable native system
+  libraries provided in this NDK.</p>
+
+  <h3 id="docs">Documentation</h3>
+
+  <p>The NDK package includes a set of documentation that describes the capabilities of the NDK and
+  how to use it to create shared libraries for your Android applications. In this release, the
+  documentation is provided only in the downloadable NDK package. You can find the documentation in
+  the <code>&lt;ndk&gt;/docs/</code> directory. Included are these files (partial listing):</p>
+
+  <ul>
+    <li>
+    INSTALL.HTML &mdash; describes how to install the NDK and configure it for your host
+    system</li>
+
+    <li>OVERVIEW.HTML &mdash; provides an overview of the NDK capabilities and usage</li>
+    
+    <li>ANDROID-MK.HTML &mdash; describes the use of the Android.mk file, which defines the native
+    sources you want to compile</li>
+    
+    <li>APPLICATION-MK.HTML &mdash; describes the use of the Application.mk file, which describes
+    the native sources required by your Android application</li>    
+    <li>CPLUSPLUS-SUPPORT.HTML &mdash; describes the C++ support provided in the Android NDK</li>    
+    <li>CPU-ARCH-ABIS.HTML &mdash; a description of supported CPU architectures and how to target
+    them.</li>
+
+    <li>CPU-FEATURES.HTML &mdash; a description of the <code>cpufeatures</code> static library that
+    lets your application code detect the target device's CPU family and the optional features at
+    runtime.</li>
+
+    <li>CHANGES.HTML &mdash; a complete list of changes to the NDK across all releases.</li>
+
+    <li>DEVELOPMENT.HTML &mdash; describes how to modify the NDK and generate release packages for it</li>
+    
+    <li>HOWTO.HTML &mdash; information about common tasks associated with NDK development</li>
+    
+    <li>IMPORT-MODULE.HTML &mdash; describes how to share and reuse modules</li>
+    
+    <li>LICENSES.HTML  &mdash; information about the various open source licenses that govern the Android NDK</li>
+ 
+    <li>NATIVE-ACTIVITY.HTML &mdash; describes how to implement native activities</li>
+    
+    <li>NDK-BUILD.HTML &mdash; describes the usage of the ndk-build script</li>
+
+    <li>NDK-GDB.HTML &mdash; describes how to use the native code debugger</li>
+
+    <li>PREBUILTS.HTML &mdash; information about how shared and static prebuilt libraries work </li>
+
+    <li>STANDALONE-TOOLCHAIN.HTML &mdash; describes how to use Android NDK toolchain as a standalone
+    compiler (still in beta).</li>
+    
+    <li>SYSTEM-ISSUES.HTML &mdash; known issues in the Android system images that you should be
+    aware of, if you are developing using the NDK.</li>
+
+    <li>STABLE-APIS.HTML &mdash; a complete list of the stable APIs exposed by headers in the
+    NDK.</li>
+    
+  </ul>
+
+  <p>Additionally, the package includes detailed information about the "bionic" C library provided
+  with the Android platform that you should be aware of, if you are developing using the NDK. You
+  can find the documentation in the <code>&lt;ndk&gt;/docs/system/libc/</code> directory:</p>
+
+  <ul>
+    <li>OVERVIEW.HTML &mdash; provides an overview of the "bionic" C library and the features it
+    offers.</li>
+  </ul>
+
+  <h3 id="samples">Sample applications</h3>
+
+<p>The NDK includes sample applications that illustrate how to use native code in your Android
+  applications:</p>
+
+  <ul>
+    <li><code>hello-jni</code> &mdash; a simple application that loads a string from a native
+    method implemented in a shared library and then displays it in the application UI.</li>
+
+    <li><code>two-libs</code> &mdash; a simple application that loads a shared library dynamically
+    and calls a native method provided by the library. In this case, the method is implemented in a
+    static library imported by the shared library.</li>
+
+    <li><code>san-angeles</code> &mdash; a simple application that renders 3D graphics through the
+    native OpenGL ES APIs, while managing activity lifecycle with a <code><a href="../../../reference/android/opengl/GLSurfaceView.html">GLSurfaceView</a></code> object.</li>
+
+    <li><code>hello-gl2</code> &mdash; a simple application that renders a triangle using OpenGL ES
+    2.0 vertex and fragment shaders.</li>
+
+    <li><code>hello-neon</code> &mdash; a simple application that shows how to use the
+    <code>cpufeatures</code> library to check CPU capabilities at runtime, then use NEON intrinsics
+    if supported by the CPU. Specifically, the application implements two versions of a tiny
+    benchmark for a FIR filter loop, a C version and a NEON-optimized version for devices that
+    support it.</li>
+
+    <li><code>bitmap-plasma</code> &mdash; a simple application that demonstrates how to access the
+    pixel buffers of Android <code><a href="../../../reference/android/graphics/Bitmap.html">Bitmap</a></code> objects from native code, and uses
+    this to generate an old-school "plasma" effect.</li>
+
+    <li><code>native-activity</code> &mdash; a simple application that demonstrates how to use the
+    native-app-glue static library to create a native activity</li>
+
+    <li><code>native-plasma</code> &mdash; a version of bitmap-plasma implemented with a native
+    activity.</li>
+  </ul>
+
+  <p>For each sample, the NDK includes the corresponding C source code and the necessary Android.mk
+  and Application.mk files. There are located under <code>&lt;ndk&gt;/samples/&lt;name&gt;/</code>
+  and their source code can be found under <code>&lt;ndk&gt;/samples/&lt;name&gt;/jni/</code>.</p>
+
+  <p>You can build the shared libraries for the sample apps by going into
+  <code>&lt;ndk&gt;/samples/&lt;name&gt;/</code> then calling the <code>ndk-build</code> command.
+  The generated shared libraries will be located under
+  <code>&lt;ndk&gt;/samples/&lt;name&gt;/libs/armeabi/</code> for (ARMv5TE machine code) and/or
+  <code>&lt;ndk&gt;/samples/&lt;name&gt;/libs/armeabi-v7a/</code> for (ARMv7 machine code).</p>
+
+  <p>Next, build the sample Android applications that use the shared libraries:</p>
+
+  <ul>
+    <li>If you are developing in Eclipse with ADT, use the New Project Wizard to create a new
+    Android project for each sample, using the "Import from Existing Source" option and importing
+    the source from <code>&lt;ndk&gt;/samples/&lt;name&gt;/</code>. Then, set up an AVD,
+    if necessary, and build/run the application in the emulator.</li>
+
+    <li>If you are developing with Ant, use the <code>android</code> tool to create the build file
+    for each of the sample projects at <code>&lt;ndk&gt;/samples/&lt;name&gt;/</code>.
+    Then set up an AVD, if necessary, build your project in the usual way, and run it in the
+    emulator.</li>    
+    
+  </ul>
+  
+  <p>For more information about developing with the Android SDK tools and what
+  you need to do to create, build, and run your applications, see
+  the <a href="../../../tools/workflow/index.html">Overview</a>
+  section for developing on Android.</p>
+
+  <h4 id="hello-jni">Exploring the hello-jni Sample</h4>
+
+  <p>The hello-jni sample is a simple demonstration on how to use JNI from an Android application.
+  The HelloJni activity receives a string from a simple C function and displays it in a
+  TextView.</p>
+
+  <p>The main components of the sample include:</p>
+
+  <ul>
+    <li>The familiar basic structure of an Android application (an <code>AndroidManifest.xml</code>
+    file, a <code>src/</code> and <code>res</code> directories, and a main activity)</li>
+
+    <li>A <code>jni/</code> directory that includes the implemented source file for the native code
+    as well as the Android.mk file</li>
+
+    <li>A <code>tests/</code> directory that contains unit test code.</li>
+  </ul>
+
+  <ol>
+    <li>Create a new project in Eclipse from the existing sample source or use the
+    <code>android</code> tool to update the project so it generates a build.xml file that you can
+    use to build the sample.
+
+      <ul>
+        <li>In Eclipse:
+
+          <ol type="a">
+            <li>Click <strong>File &gt; New Android Project...</strong></li>
+
+            <li>Select the <strong>Create project from existing source</strong> radio button.</li>
+
+            <li>Select any API level above Android 1.5.</li>
+
+            <li>In the <strong>Location</strong> field, click <strong>Browse...</strong> and select
+            the <code>&lt;ndk-root&gt;/samples/hello-jni</code> directory.</li>
+
+            <li>Click <strong>Finish</strong>.</li>
+          </ol>
+        </li>
+
+        <li>On the command line:
+
+          <ol type="a">
+            <li>Change to the <code>&lt;ndk-root&gt;/samples/hello-jni</code> directory.</li>
+
+            <li>Run the following command to generate a build.xml file:
+              <pre class="no-pretty-print">android update project -p . -s</pre>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+
+    <li>Compile the native code using the <code>ndk-build</code> command.
+      <pre class="no-pretty-print">
+cd &lt;ndk-root&gt;/samples/hello-jni
+&lt;ndk_root&gt;/ndk-build
+</pre>
+    </li>
+
+    <li>Build and install the application as you would a normal Android application. If you are
+    using Eclipse, run the application to build and install it on a device. If you are using Ant,
+    run the following commands from the project directory:
+      <pre class="no-pretty-print">
+ant debug
+adb install bin/HelloJni-debug.apk
+</pre>
+    </li>
+  </ol>
+
+  <p>When you run the application on the device, the string <code>Hello JNI</code> should appear on
+  your device. You can explore the rest of the samples that are located in the
+  <code>&lt;ndk-root&gt;/samples</code> directory for more examples on how to use the JNI.</p>
+
+  <h4 id="native-activity">Exploring the native-activity Sample Application</h4>
+
+  <p>The native-activity sample provided with the Android NDK demonstrates how to use the
+  android_native_app_glue static library. This static library makes creating a native activity
+  easier by providing you with an implementation that handles your callbacks in another thread, so
+  you do not have to worry about them blocking your main UI thread. The main parts of the sample
+  are described below:</p>
+
+  <ul>
+    <li>The familiar basic structure of an Android application (an <code>AndroidManifest.xml</code>
+    file, a <code>src/</code> and <code>res</code> directories). The AndroidManifest.xml declares
+    that the application is native and specifies the .so file of the native activity. See <code><a href="../../../reference/android/app/NativeActivity.html">NativeActivity</a></code> for the source or see the
+    <code>&lt;ndk_root&gt;/platforms/samples/native-activity/AndroidManifest.xml</code> file.</li>
+
+    <li>A <code>jni/</code> directory contains the native activity, main.c, which uses the
+    <code>android_native_app_glue.h</code> interface to implement the activity. The Android.mk that
+    describes the native module to the build system also exists here.</li>
+  </ul>
+
+  <p>To build this sample application:</p>
+
+  <ol>
+    <li>Create a new project in Eclipse from the existing sample source or use the
+    <code>android</code> tool to update the project so it generates a build.xml file that you can
+    use to build the sample.
+
+      <ul>
+        <li>In Eclipse:
+
+          <ol type="a">
+            <li>Click <strong>File &gt; New Android Project...</strong></li>
+
+            <li>Select the <strong>Create project from existing source</strong> radio button.</li>
+
+            <li>Select any API level above Android 2.3.</li>
+
+            <li>In the <strong>Location</strong> field, click <strong>Browse...</strong> and select
+            the <code>&lt;ndk-root&gt;/samples/native-activity</code> directory.</li>
+
+            <li>Click <strong>Finish</strong>.</li>
+          </ol>
+        </li>
+
+        <li>On the command line:
+
+          <ol type="a">
+            <li>Change to the <code>&lt;ndk-root&gt;/samples/native-activity</code> directory.</li>
+
+            <li>Run the following command to generate a build.xml file:
+              <pre class="no-pretty-print">
+android update project -p . -s
+</pre>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+
+    <li>Compile the native code using the <code>ndk-build</code> command.
+      <pre class="no-pretty-print">
+cd &lt;ndk-root&gt;/platforms/samples/android-9/samples/native-activity
+&lt;ndk_root&gt;/ndk-build
+</pre>
+    </li>
+
+    <li>Build and install the application as you would a normal Android application. If you are
+    using Eclipse, run the application to build and install it on a device. If you are using Ant,
+    run the following commands in the project directory, then run the application on the device:
+      <pre class="no-pretty-print">
+ant debug
+adb install bin/NativeActivity-debug.apk
+</pre>
+    </li>
+  </ol>
+
+
+  <h2 id="reqs">System and Software Requirements</h2>
+
+  <p>The sections below describe the system and software requirements for using the Android NDK, as
+  well as platform compatibility considerations that affect appplications using libraries produced
+  with the NDK.</p>
+
+  <h4>The Android SDK</h4>
+
+  <ul>
+    <li>A complete Android SDK installation (including all dependencies) is required.</li>
+
+    <li>Android 1.5 SDK or later version is required.</li>
+  </ul>
+
+  <h4>Supported operating systems</h4>
+
+  <ul>
+    <li>Windows XP (32-bit) or Vista (32- or 64-bit)</li>
+
+    <li>Mac OS X 10.4.8 or later (x86 only)</li>
+
+    <li>Linux (32 or 64-bit; Ubuntu 8.04, or other Linux distributions using GLibc 2.7 or
+later)</li>
+  </ul>
+
+  <h4>Required development tools</h4>
+
+  <ul>
+    <li>For all development platforms, GNU Make 3.81 or later is required. Earlier versions of GNU
+    Make might work but have not been tested.</li>
+
+    <li>A recent version of awk (either GNU Awk or Nawk) is also required.</li>
+
+    <li>For Windows, <a href="http://www.cygwin.com">Cygwin</a> 1.7 or higher is required. The NDK
+    will <em>not</em> work with Cygwin 1.5 installations.</li>
+  </ul>
+
+  <h4 id="platform-compat">Android platform compatibility</h4>
+
+  <ul>
+    <li>The native libraries created by the Android NDK can only be used on devices running
+      specific minimum Android platform versions. The minimum required platform version depends on
+      the CPU architecture of the devices you are targeting. The following table details which
+      Android platform versions are compatible with native code developed for specific CPU
+      architectures.
+
+    <table style="margin:1em;">
+      <tr>
+        <th>Native Code CPU Architecture Used</th>
+        <th>Compatible Android Platform(s)</th>
+      </tr>
+
+      <tr>
+        <td>ARM, ARM-NEON</td>
+        <td>Android 1.5 (API Level 3) and higher</td>
+      </tr>
+
+      <tr>
+        <td>x86</td>
+        <td>Android 2.3 (API Level 9) and higher</td>
+      </tr>
+
+      <tr>
+        <td>MIPS</td>
+        <td>Android 2.3 (API Level 9) and higher</td>
+      </tr>
+    </table>
+
+      <p>These requirements mean you can use native libraries produced with the NDK in
+      applications that are deployable to ARM-based devices running Android 1.5 or later. If you are
+      deploying native libraries to x86 and MIPS-based devices, your application must target Android
+      2.3 or later.</p>
+    </li>
+
+    <li>To ensure compatibility, an application using a native library produced with the NDK
+    <em>must</em> declare a <a href="../../../guide/topics/manifest/uses-sdk-element.html"><code>
+      &lt;uses-sdk&gt;</code></a> element in its manifest file, with an
+      <code>android:minSdkVersion</code> attribute value of "3" or higher. For example:
+
+<pre style="margin:1em;">
+&lt;manifest&gt;
+  &lt;uses-sdk android:minSdkVersion="3" /&gt;
+  ...
+&lt;/manifest&gt;
+</pre>
+    </li>
+
+    <li>If you use this NDK to create a native library that uses the OpenGL ES APIs, the
+    application containing the library can be deployed only to devices running the minimum platform
+    versions described in the table below. To ensure compatibility, make sure that your application
+    declares the proper <code>android:minSdkVersion</code> attribute value, as shown in the
+    following table.</li>
+
+    <li style="list-style: none; display: inline">
+      <table style="margin:1em;">
+        <tr>
+          <th>OpenGL ES Version Used</th>
+
+          <th>Compatible Android Platform(s)</th>
+
+          <th>Required uses-sdk Attribute</th>
+        </tr>
+
+        <tr>
+          <td>OpenGL ES 1.1</td>
+
+          <td>Android 1.6 (API Level 4) and higher</td>
+
+          <td><code>android:minSdkVersion="4"</code></td>
+        </tr>
+
+        <tr>
+          <td>OpenGL ES 2.0</td>
+
+          <td>Android 2.0 (API Level 5) and higher</td>
+
+          <td><code>android:minSdkVersion="5"</code></td>
+        </tr>
+      </table>
+
+      <p>For more information about API Level and its relationship to Android platform versions,
+      see <a href="../../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">Android API Levels</a>.</p>
+    </li>
+
+    <li>Additionally, an application using the OpenGL ES APIs should declare a
+    <code>&lt;uses-feature&gt;</code> element in its manifest, with an
+    <code>android:glEsVersion</code> attribute that specifies the minimum OpenGl ES version
+    required by the application. This ensures that Google Play will show your application only
+    to users whose devices are capable of supporting your application. For example:
+      <pre style="margin:1em;">
+&lt;manifest&gt;
+<!-- Declare that the application uses the OpenGL ES 2.0 API and is designed
+     to run only on devices that support OpenGL ES 2.0 or higher. -->
+  &lt;uses-feature android:glEsVersion="0x00020000" /&gt;
+  ...
+&lt;/manifest&gt;
+</pre>
+
+      <p>For more information, see the <a href=
+      "../../../guide/topics/manifest/uses-feature-element.html"><code>&lt;uses-feature&gt;</code></a>
+      documentation.</p>
+    </li>
+
+    <li>If you use this NDK to create a native library that uses the API to access Android <code><a href="../../../reference/android/graphics/Bitmap.html">Bitmap</a></code> pixel buffers or utilizes native activities, the application
+    containing the library can be deployed only to devices running Android 2.2 (API level 8) or
+    higher. To ensure compatibility, make sure that your application declares <code>&lt;uses-sdk
+    android:minSdkVersion="8" /&gt;</code> attribute value in its manifest.</li>
+  </ul>
+
+    </div>
+      
+      <div class="content-footer layout-content-row" 
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+      
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>
+
+
+

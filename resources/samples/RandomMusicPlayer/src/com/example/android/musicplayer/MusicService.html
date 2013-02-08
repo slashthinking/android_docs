@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
+<title>MusicService.java | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../../../../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../../../../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../../../../../../";
+</script>
+<script src="../../../../../../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../../../../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../../../../../../index.html">
+            <img src="../../../../../../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../../../../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../../../../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../../../../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../../../../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../../../../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../../../../../../')" 
+onkeyup="return search_changed(event, false, '../../../../../../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../../../../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../../../../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../../../../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../../../../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../../../../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../../../../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../../../../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../../../../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../../../../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../../../../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../../../../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../../../../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../../../../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../../../../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+<body class="gc-documentation">
+
+
+<a name="top"></a>
+<div class="g-unit" id="doc-content">
+ <div id="jd-header" class="guide-header">
+  <span class="crumb">&nbsp;</span>
+  <h1>MusicService.java</h1>
+ </div>
+
+<div id="jd-content">
+<p><a href="index.html">&larr; Back</a></p>
+
+<p>The file containing the source code shown below is located in the corresponding directory in <code>&lt;sdk&gt;/samples/android-&lt;version&gt;/...</code></p>
+
+<!-- begin file contents -->
+<pre>/*   
+ * Copyright (C) 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.example.android.musicplayer;
+
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.AudioManager;
+import android.media.MediaMetadataRetriever;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.media.MediaPlayer.OnErrorListener;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.media.RemoteControlClient;
+import android.net.Uri;
+import android.net.wifi.WifiManager;
+import android.net.wifi.WifiManager.WifiLock;
+import android.os.IBinder;
+import android.os.PowerManager;
+import android.util.Log;
+import android.widget.Toast;
+
+import java.io.IOException;
+
+/**
+ * Service that handles media playback. This is the Service through which we perform all the media
+ * handling in our application. Upon initialization, it starts a {@link MusicRetriever} to scan
+ * the user's media. Then, it waits for Intents (which come from our main activity,
+ * {@link MainActivity}, which signal the service to perform specific operations: Play, Pause,
+ * Rewind, Skip, etc.
+ */
+public class MusicService extends Service implements OnCompletionListener, OnPreparedListener,
+                OnErrorListener, MusicFocusable,
+                PrepareMusicRetrieverTask.MusicRetrieverPreparedListener {
+
+    // The tag we put on debug messages
+    final static String TAG = "RandomMusicPlayer";
+
+    // These are the Intent actions that we are prepared to handle. Notice that the fact these
+    // constants exist in our class is a mere convenience: what really defines the actions our
+    // service can handle are the &lt;action&gt; tags in the &lt;intent-filters&gt; tag for our service in
+    // AndroidManifest.xml.
+    public static final String ACTION_TOGGLE_PLAYBACK =
+            "com.example.android.musicplayer.action.TOGGLE_PLAYBACK";
+    public static final String ACTION_PLAY = "com.example.android.musicplayer.action.PLAY";
+    public static final String ACTION_PAUSE = "com.example.android.musicplayer.action.PAUSE";
+    public static final String ACTION_STOP = "com.example.android.musicplayer.action.STOP";
+    public static final String ACTION_SKIP = "com.example.android.musicplayer.action.SKIP";
+    public static final String ACTION_REWIND = "com.example.android.musicplayer.action.REWIND";
+    public static final String ACTION_URL = "com.example.android.musicplayer.action.URL";
+
+    // The volume we set the media player to when we lose audio focus, but are allowed to reduce
+    // the volume instead of stopping playback.
+    public static final float DUCK_VOLUME = 0.1f;
+
+    // our media player
+    MediaPlayer mPlayer = null;
+
+    // our AudioFocusHelper object, if it's available (it's available on SDK level &gt;= 8)
+    // If not available, this will be null. Always check for null before using!
+    AudioFocusHelper mAudioFocusHelper = null;
+
+    // indicates the state our service:
+    enum State {
+        Retrieving, // the MediaRetriever is retrieving music
+        Stopped,    // media player is stopped and not prepared to play
+        Preparing,  // media player is preparing...
+        Playing,    // playback active (media player ready!). (but the media player may actually be
+                    // paused in this state if we don't have audio focus. But we stay in this state
+                    // so that we know we have to resume playback once we get focus back)
+        Paused      // playback paused (media player ready!)
+    };
+
+    State mState = State.Retrieving;
+
+    // if in Retrieving mode, this flag indicates whether we should start playing immediately
+    // when we are ready or not.
+    boolean mStartPlayingAfterRetrieve = false;
+
+    // if mStartPlayingAfterRetrieve is true, this variable indicates the URL that we should
+    // start playing when we are ready. If null, we should play a random song from the device
+    Uri mWhatToPlayAfterRetrieve = null;
+
+    enum PauseReason {
+        UserRequest,  // paused by user request
+        FocusLoss,    // paused because of audio focus loss
+    };
+
+    // why did we pause? (only relevant if mState == State.Paused)
+    PauseReason mPauseReason = PauseReason.UserRequest;
+
+    // do we have audio focus?
+    enum AudioFocus {
+        NoFocusNoDuck,    // we don't have audio focus, and can't duck
+        NoFocusCanDuck,   // we don't have focus, but can play at a low volume ("ducking")
+        Focused           // we have full audio focus
+    }
+    AudioFocus mAudioFocus = AudioFocus.NoFocusNoDuck;
+
+    // title of the song we are currently playing
+    String mSongTitle = "";
+
+    // whether the song we are playing is streaming from the network
+    boolean mIsStreaming = false;
+
+    // Wifi lock that we hold when streaming files from the internet, in order to prevent the
+    // device from shutting off the Wifi radio
+    WifiLock mWifiLock;
+
+    // The ID we use for the notification (the onscreen alert that appears at the notification
+    // area at the top of the screen as an icon -- and as text as well if the user expands the
+    // notification area).
+    final int NOTIFICATION_ID = 1;
+
+    // Our instance of our MusicRetriever, which handles scanning for media and
+    // providing titles and URIs as we need.
+    MusicRetriever mRetriever;
+
+    // our RemoteControlClient object, which will use remote control APIs available in
+    // SDK level &gt;= 14, if they're available.
+    RemoteControlClientCompat mRemoteControlClientCompat;
+
+    // Dummy album art we will pass to the remote control (if the APIs are available).
+    Bitmap mDummyAlbumArt;
+
+    // The component name of MusicIntentReceiver, for use with media button and remote control
+    // APIs
+    ComponentName mMediaButtonReceiverComponent;
+
+    AudioManager mAudioManager;
+    NotificationManager mNotificationManager;
+
+    Notification mNotification = null;
+
+    /**
+     * Makes sure the media player exists and has been reset. This will create the media player
+     * if needed, or reset the existing media player if one already exists.
+     */
+    void createMediaPlayerIfNeeded() {
+        if (mPlayer == null) {
+            mPlayer = new MediaPlayer();
+
+            // Make sure the media player will acquire a wake-lock while playing. If we don't do
+            // that, the CPU might go to sleep while the song is playing, causing playback to stop.
+            //
+            // Remember that to use this, we have to declare the android.permission.WAKE_LOCK
+            // permission in AndroidManifest.xml.
+            mPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
+
+            // we want the media player to notify us when it's ready preparing, and when it's done
+            // playing:
+            mPlayer.setOnPreparedListener(this);
+            mPlayer.setOnCompletionListener(this);
+            mPlayer.setOnErrorListener(this);
+        }
+        else
+            mPlayer.reset();
+    }
+
+    @Override
+    public void onCreate() {
+        Log.i(TAG, "debug: Creating service");
+
+        // Create the Wifi lock (this does not acquire the lock, this just creates it)
+        mWifiLock = ((WifiManager) getSystemService(Context.WIFI_SERVICE))
+                        .createWifiLock(WifiManager.WIFI_MODE_FULL, "mylock");
+
+        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mAudioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+
+        // Create the retriever and start an asynchronous task that will prepare it.
+        mRetriever = new MusicRetriever(getContentResolver());
+        (new PrepareMusicRetrieverTask(mRetriever,this)).execute();
+
+        // create the Audio Focus Helper, if the Audio Focus feature is available (SDK 8 or above)
+        if (android.os.Build.VERSION.SDK_INT &gt;= 8)
+            mAudioFocusHelper = new AudioFocusHelper(getApplicationContext(), this);
+        else
+            mAudioFocus = AudioFocus.Focused; // no focus feature, so we always "have" audio focus
+
+        mDummyAlbumArt = BitmapFactory.decodeResource(getResources(), R.drawable.dummy_album_art);
+
+        mMediaButtonReceiverComponent = new ComponentName(this, MusicIntentReceiver.class);
+    }
+
+    /**
+     * Called when we receive an Intent. When we receive an intent sent to us via startService(),
+     * this is the method that gets called. So here we react appropriately depending on the
+     * Intent's action, which specifies what is being requested of us.
+     */
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        String action = intent.getAction();
+        if (action.equals(ACTION_TOGGLE_PLAYBACK)) processTogglePlaybackRequest();
+        else if (action.equals(ACTION_PLAY)) processPlayRequest();
+        else if (action.equals(ACTION_PAUSE)) processPauseRequest();
+        else if (action.equals(ACTION_SKIP)) processSkipRequest();
+        else if (action.equals(ACTION_STOP)) processStopRequest();
+        else if (action.equals(ACTION_REWIND)) processRewindRequest();
+        else if (action.equals(ACTION_URL)) processAddRequest(intent);
+
+        return START_NOT_STICKY; // Means we started the service, but don't want it to
+                                 // restart in case it's killed.
+    }
+
+    void processTogglePlaybackRequest() {
+        if (mState == State.Paused || mState == State.Stopped) {
+            processPlayRequest();
+        } else {
+            processPauseRequest();
+        }
+    }
+
+    void processPlayRequest() {
+        if (mState == State.Retrieving) {
+            // If we are still retrieving media, just set the flag to start playing when we're
+            // ready
+            mWhatToPlayAfterRetrieve = null; // play a random song
+            mStartPlayingAfterRetrieve = true;
+            return;
+        }
+
+        tryToGetAudioFocus();
+
+        // actually play the song
+
+        if (mState == State.Stopped) {
+            // If we're stopped, just go ahead to the next song and start playing
+            playNextSong(null);
+        }
+        else if (mState == State.Paused) {
+            // If we're paused, just continue playback and restore the 'foreground service' state.
+            mState = State.Playing;
+            setUpAsForeground(mSongTitle + " (playing)");
+            configAndStartMediaPlayer();
+        }
+
+        // Tell any remote controls that our playback state is 'playing'.
+        if (mRemoteControlClientCompat != null) {
+            mRemoteControlClientCompat
+                    .setPlaybackState(RemoteControlClient.PLAYSTATE_PLAYING);
+        }
+    }
+
+    void processPauseRequest() {
+        if (mState == State.Retrieving) {
+            // If we are still retrieving media, clear the flag that indicates we should start
+            // playing when we're ready
+            mStartPlayingAfterRetrieve = false;
+            return;
+        }
+
+        if (mState == State.Playing) {
+            // Pause media player and cancel the 'foreground service' state.
+            mState = State.Paused;
+            mPlayer.pause();
+            relaxResources(false); // while paused, we always retain the MediaPlayer
+            // do not give up audio focus
+        }
+
+        // Tell any remote controls that our playback state is 'paused'.
+        if (mRemoteControlClientCompat != null) {
+            mRemoteControlClientCompat
+                    .setPlaybackState(RemoteControlClient.PLAYSTATE_PAUSED);
+        }
+    }
+
+    void processRewindRequest() {
+        if (mState == State.Playing || mState == State.Paused)
+            mPlayer.seekTo(0);
+    }
+
+    void processSkipRequest() {
+        if (mState == State.Playing || mState == State.Paused) {
+            tryToGetAudioFocus();
+            playNextSong(null);
+        }
+    }
+
+    void processStopRequest() {
+        processStopRequest(false);
+    }
+
+    void processStopRequest(boolean force) {
+        if (mState == State.Playing || mState == State.Paused || force) {
+            mState = State.Stopped;
+
+            // let go of all resources...
+            relaxResources(true);
+            giveUpAudioFocus();
+
+            // Tell any remote controls that our playback state is 'paused'.
+            if (mRemoteControlClientCompat != null) {
+                mRemoteControlClientCompat
+                        .setPlaybackState(RemoteControlClient.PLAYSTATE_STOPPED);
+            }
+
+            // service is no longer necessary. Will be started again if needed.
+            stopSelf();
+        }
+    }
+
+    /**
+     * Releases resources used by the service for playback. This includes the "foreground service"
+     * status and notification, the wake locks and possibly the MediaPlayer.
+     *
+     * @param releaseMediaPlayer Indicates whether the Media Player should also be released or not
+     */
+    void relaxResources(boolean releaseMediaPlayer) {
+        // stop being a foreground service
+        stopForeground(true);
+
+        // stop and release the Media Player, if it's available
+        if (releaseMediaPlayer &amp;&amp; mPlayer != null) {
+            mPlayer.reset();
+            mPlayer.release();
+            mPlayer = null;
+        }
+
+        // we can also release the Wifi lock, if we're holding it
+        if (mWifiLock.isHeld()) mWifiLock.release();
+    }
+
+    void giveUpAudioFocus() {
+        if (mAudioFocus == AudioFocus.Focused &amp;&amp; mAudioFocusHelper != null
+                                &amp;&amp; mAudioFocusHelper.abandonFocus())
+            mAudioFocus = AudioFocus.NoFocusNoDuck;
+    }
+
+    /**
+     * Reconfigures MediaPlayer according to audio focus settings and starts/restarts it. This
+     * method starts/restarts the MediaPlayer respecting the current audio focus state. So if
+     * we have focus, it will play normally; if we don't have focus, it will either leave the
+     * MediaPlayer paused or set it to a low volume, depending on what is allowed by the
+     * current focus settings. This method assumes mPlayer != null, so if you are calling it,
+     * you have to do so from a context where you are sure this is the case.
+     */
+    void configAndStartMediaPlayer() {
+        if (mAudioFocus == AudioFocus.NoFocusNoDuck) {
+            // If we don't have audio focus and can't duck, we have to pause, even if mState
+            // is State.Playing. But we stay in the Playing state so that we know we have to resume
+            // playback once we get the focus back.
+            if (mPlayer.isPlaying()) mPlayer.pause();
+            return;
+        }
+        else if (mAudioFocus == AudioFocus.NoFocusCanDuck)
+            mPlayer.setVolume(DUCK_VOLUME, DUCK_VOLUME);  // we'll be relatively quiet
+        else
+            mPlayer.setVolume(1.0f, 1.0f); // we can be loud
+
+        if (!mPlayer.isPlaying()) mPlayer.start();
+    }
+
+    void processAddRequest(Intent intent) {
+        // user wants to play a song directly by URL or path. The URL or path comes in the "data"
+        // part of the Intent. This Intent is sent by {@link MainActivity} after the user
+        // specifies the URL/path via an alert box.
+        if (mState == State.Retrieving) {
+            // we'll play the requested URL right after we finish retrieving
+            mWhatToPlayAfterRetrieve = intent.getData();
+            mStartPlayingAfterRetrieve = true;
+        }
+        else if (mState == State.Playing || mState == State.Paused || mState == State.Stopped) {
+            Log.i(TAG, "Playing from URL/path: " + intent.getData().toString());
+            tryToGetAudioFocus();
+            playNextSong(intent.getData().toString());
+        }
+    }
+
+    void tryToGetAudioFocus() {
+        if (mAudioFocus != AudioFocus.Focused &amp;&amp; mAudioFocusHelper != null
+                        &amp;&amp; mAudioFocusHelper.requestFocus())
+            mAudioFocus = AudioFocus.Focused;
+    }
+
+    /**
+     * Starts playing the next song. If manualUrl is null, the next song will be randomly selected
+     * from our Media Retriever (that is, it will be a random song in the user's device). If
+     * manualUrl is non-null, then it specifies the URL or path to the song that will be played
+     * next.
+     */
+    void playNextSong(String manualUrl) {
+        mState = State.Stopped;
+        relaxResources(false); // release everything except MediaPlayer
+
+        try {
+            MusicRetriever.Item playingItem = null;
+            if (manualUrl != null) {
+                // set the source of the media player to a manual URL or path
+                createMediaPlayerIfNeeded();
+                mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                mPlayer.setDataSource(manualUrl);
+                mIsStreaming = manualUrl.startsWith("http:") || manualUrl.startsWith("https:");
+
+                playingItem = new MusicRetriever.Item(0, null, manualUrl, null, 0);
+            }
+            else {
+                mIsStreaming = false; // playing a locally available song
+
+                playingItem = mRetriever.getRandomItem();
+                if (playingItem == null) {
+                    Toast.makeText(this,
+                            "No available music to play. Place some music on your external storage "
+                            + "device (e.g. your SD card) and try again.",
+                            Toast.LENGTH_LONG).show();
+                    processStopRequest(true); // stop everything!
+                    return;
+                }
+
+                // set the source of the media player a a content URI
+                createMediaPlayerIfNeeded();
+                mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                mPlayer.setDataSource(getApplicationContext(), playingItem.getURI());
+            }
+
+            mSongTitle = playingItem.getTitle();
+
+            mState = State.Preparing;
+            setUpAsForeground(mSongTitle + " (loading)");
+
+            // Use the media button APIs (if available) to register ourselves for media button
+            // events
+
+            MediaButtonHelper.registerMediaButtonEventReceiverCompat(
+                    mAudioManager, mMediaButtonReceiverComponent);
+
+            // Use the remote control APIs (if available) to set the playback state
+
+            if (mRemoteControlClientCompat == null) {
+                Intent intent = new Intent(Intent.ACTION_MEDIA_BUTTON);
+                intent.setComponent(mMediaButtonReceiverComponent);
+                mRemoteControlClientCompat = new RemoteControlClientCompat(
+                        PendingIntent.getBroadcast(this /*context*/,
+                                0 /*requestCode, ignored*/, intent /*intent*/, 0 /*flags*/));
+                RemoteControlHelper.registerRemoteControlClient(mAudioManager,
+                        mRemoteControlClientCompat);
+            }
+
+            mRemoteControlClientCompat.setPlaybackState(
+                    RemoteControlClient.PLAYSTATE_PLAYING);
+
+            mRemoteControlClientCompat.setTransportControlFlags(
+                    RemoteControlClient.FLAG_KEY_MEDIA_PLAY |
+                    RemoteControlClient.FLAG_KEY_MEDIA_PAUSE |
+                    RemoteControlClient.FLAG_KEY_MEDIA_NEXT |
+                    RemoteControlClient.FLAG_KEY_MEDIA_STOP);
+
+            // Update the remote controls
+            mRemoteControlClientCompat.editMetadata(true)
+                    .putString(MediaMetadataRetriever.METADATA_KEY_ARTIST, playingItem.getArtist())
+                    .putString(MediaMetadataRetriever.METADATA_KEY_ALBUM, playingItem.getAlbum())
+                    .putString(MediaMetadataRetriever.METADATA_KEY_TITLE, playingItem.getTitle())
+                    .putLong(MediaMetadataRetriever.METADATA_KEY_DURATION,
+                            playingItem.getDuration())
+                    // TODO: fetch real item artwork
+                    .putBitmap(
+                            RemoteControlClientCompat.MetadataEditorCompat.METADATA_KEY_ARTWORK,
+                            mDummyAlbumArt)
+                    .apply();
+
+            // starts preparing the media player in the background. When it's done, it will call
+            // our OnPreparedListener (that is, the onPrepared() method on this class, since we set
+            // the listener to 'this').
+            //
+            // Until the media player is prepared, we *cannot* call start() on it!
+            mPlayer.prepareAsync();
+
+            // If we are streaming from the internet, we want to hold a Wifi lock, which prevents
+            // the Wifi radio from going to sleep while the song is playing. If, on the other hand,
+            // we are *not* streaming, we want to release the lock if we were holding it before.
+            if (mIsStreaming) mWifiLock.acquire();
+            else if (mWifiLock.isHeld()) mWifiLock.release();
+        }
+        catch (IOException ex) {
+            Log.e("MusicService", "IOException playing next song: " + ex.getMessage());
+            ex.printStackTrace();
+        }
+    }
+
+    /** Called when media player is done playing current song. */
+    public void onCompletion(MediaPlayer player) {
+        // The media player finished playing the current song, so we go ahead and start the next.
+        playNextSong(null);
+    }
+
+    /** Called when media player is done preparing. */
+    public void onPrepared(MediaPlayer player) {
+        // The media player is done preparing. That means we can start playing!
+        mState = State.Playing;
+        updateNotification(mSongTitle + " (playing)");
+        configAndStartMediaPlayer();
+    }
+
+    /** Updates the notification. */
+    void updateNotification(String text) {
+        PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0,
+                new Intent(getApplicationContext(), MainActivity.class),
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        mNotification.setLatestEventInfo(getApplicationContext(), "RandomMusicPlayer", text, pi);
+        mNotificationManager.notify(NOTIFICATION_ID, mNotification);
+    }
+
+    /**
+     * Configures service as a foreground service. A foreground service is a service that's doing
+     * something the user is actively aware of (such as playing music), and must appear to the
+     * user as a notification. That's why we create the notification here.
+     */
+    void setUpAsForeground(String text) {
+        PendingIntent pi = PendingIntent.getActivity(getApplicationContext(), 0,
+                new Intent(getApplicationContext(), MainActivity.class),
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        mNotification = new Notification();
+        mNotification.tickerText = text;
+        mNotification.icon = R.drawable.ic_stat_playing;
+        mNotification.flags |= Notification.FLAG_ONGOING_EVENT;
+        mNotification.setLatestEventInfo(getApplicationContext(), "RandomMusicPlayer",
+                text, pi);
+        startForeground(NOTIFICATION_ID, mNotification);
+    }
+
+    /**
+     * Called when there's an error playing media. When this happens, the media player goes to
+     * the Error state. We warn the user about the error and reset the media player.
+     */
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        Toast.makeText(getApplicationContext(), "Media player error! Resetting.",
+            Toast.LENGTH_SHORT).show();
+        Log.e(TAG, "Error: what=" + String.valueOf(what) + ", extra=" + String.valueOf(extra));
+
+        mState = State.Stopped;
+        relaxResources(true);
+        giveUpAudioFocus();
+        return true; // true indicates we handled the error
+    }
+
+    public void onGainedAudioFocus() {
+        Toast.makeText(getApplicationContext(), "gained audio focus.", Toast.LENGTH_SHORT).show();
+        mAudioFocus = AudioFocus.Focused;
+
+        // restart media player with new focus settings
+        if (mState == State.Playing)
+            configAndStartMediaPlayer();
+    }
+
+    public void onLostAudioFocus(boolean canDuck) {
+        Toast.makeText(getApplicationContext(), "lost audio focus." + (canDuck ? "can duck" :
+            "no duck"), Toast.LENGTH_SHORT).show();
+        mAudioFocus = canDuck ? AudioFocus.NoFocusCanDuck : AudioFocus.NoFocusNoDuck;
+
+        // start/restart/pause media player with new focus settings
+        if (mPlayer != null &amp;&amp; mPlayer.isPlaying())
+            configAndStartMediaPlayer();
+    }
+
+    public void onMusicRetrieverPrepared() {
+        // Done retrieving!
+        mState = State.Stopped;
+
+        // If the flag indicates we should start playing after retrieving, let's do that now.
+        if (mStartPlayingAfterRetrieve) {
+            tryToGetAudioFocus();
+            playNextSong(mWhatToPlayAfterRetrieve == null ?
+                    null : mWhatToPlayAfterRetrieve.toString());
+        }
+    }
+
+
+    @Override
+    public void onDestroy() {
+        // Service is being killed, so make sure we release our resources
+        mState = State.Stopped;
+        relaxResources(true);
+        giveUpAudioFocus();
+    }
+
+    @Override
+    public IBinder onBind(Intent arg0) {
+        return null;
+    }
+}</pre>
+<!-- end file contents -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../../../../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../../../../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../../../../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end jd-content -->
+</div> <!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../../../../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../../../../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>

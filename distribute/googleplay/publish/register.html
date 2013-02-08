@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Get Started with Publishing | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../";
+</script>
+<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+<body class="gc-documentation
+  distribute" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../index.html">
+            <img src="../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../distribute/index.html" class="selected"
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../')" 
+onkeyup="return search_changed(event, false, '../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../distribute/index.html">
+      <span class="en">Google Play</span></a>
+    </div>
+    <ul>
+      <li><a href="../../../distribute/googleplay/about/visibility.html">
+           <span class="en">Visibility</a></li>
+      <li><a href="../../../distribute/googleplay/about/monetizing.html">
+           <span class="en">Monetizing</a></li>
+       <li><a href="../../../distribute/googleplay/about/distribution.html">
+           <span class="en">Distribution</a></li>
+    </ul>  
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../distribute/googleplay/publish/index.html">
+      <span class="en">Publishing</span></a>
+    </div>
+    <ul>
+       <li><a href="../../../distribute/googleplay/publish/register.html">
+           <span class="en">Get Started</span>
+          </a></li>
+       <li><a href="../../../distribute/googleplay/publish/console.html">
+           <span class="en">Developer Console</span>
+          </a></li>
+       <li><a href="../../../distribute/googleplay/publish/preparing.html">
+           <span class="en">Publishing Checklist</span>
+          </a></li>
+
+     </ul>
+  </li>
+  
+<!--  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../distribute/googleplay/developer-console.html">
+        <span class="en">The Developer Console</span>
+      </a>
+    </div>
+    <ul>
+      <li class="nav-section"><a href="../../../distribute/googleplay/register.html">
+        <span class="en">Get Started</span></a></li>
+      <li><a href="../../../distribute/googleplay/distribution-controls.html">
+        <span class="en">Managing Distribution</span>
+        </a></li>
+      <li><a href="../../../distribute/googleplay/pricing-billing.html">
+        <span class="en">Pricing and Billing</span>
+        </a></li>
+      <li><a href="../../../distribute/googleplay/app-data.html">
+        <span class="en">Reviewing App Data</span>
+        </a></li>
+      <li><a href="../../../distribute/googleplay/advanced-options.html">
+        <span class="en">Advanced Options</span>
+        </a></li>
+      <li><a href="../../../distribute/googleplay/publishing.html">
+        <span class="en">Publishing and Updating</span>
+        </a></li>
+    </ul>
+  </li> end of Developer Console -->
+  
+   <li class="nav-section">
+     <div class="nav-section-header"><a href="../../../distribute/googleplay/promote/index.html">
+       <span class="en">Promoting</span></a>
+     </div>
+     <ul>
+<!--   <li><a href="../../../distribute/googleplay/promote/product-pages.html">
+        <span class="en">Your Product Pages</a></li> 
+-->
+       <li><a href="../../../distribute/googleplay/promote/linking.html">
+        <span class="en">Linking to Your Products</a></li>
+       <li><a href="../../../distribute/googleplay/promote/badges.html">
+        <span class="en">Google Play Badges</a></li>
+       <li><a href="../../../distribute/promote/device-art.html">
+        <span class="en">Device Art Generator</a></li>
+       <li><a href="../../../distribute/googleplay/promote/brand.html">
+        <span class="en">Brand Guidelines</a></li>
+     </ul>
+   </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../distribute/googleplay/quality/index.html">
+      <span class="en">App Quality</span></a>
+    </div>
+    <ul>
+       <li><a href="../../../distribute/googleplay/quality/core.html">
+          <span class="en">Core App Quality</span>
+         </a></li>
+       <li><a href="../../../distribute/googleplay/quality/tablet.html">
+          <span class="en">Tablet App Quality</span>
+         </a></li>
+       <li><a href="../../../distribute/googleplay/strategies/app-quality.html">
+          <span class="en">Improving App Quality</span>
+         </a></li>
+
+    </ul>
+  </li> 
+
+
+<!--    
+   <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../distribute/googleplay/after.html">
+      <span class="en">After Launch</span></a>
+    </div>
+    <ul>
+       <li><a href="../../../distribute/googleplay/errors.html.html">Reviewing Errors</a></li>
+       <li><a href="../../../distribute/googleplay/reviews.html">Tracking User Reviews</a></li>
+       <li><a href="../../../distribute/googleplay/supporting-users.html">Supporting Users</a></li>
+    </ul>
+  </li> 
+-->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../../distribute/googleplay/spotlight/index.html">
+      <span class="en">Spotlight</span></a>
+    </div>
+    <ul>
+       <li><a href="../../../distribute/googleplay/spotlight/tablets.html">
+          <span class="en">Tablet Stories</span>
+         </a></li>
+    </ul>
+  </li> 
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+      <a href="../../../distribute/open.html">
+        <span class="en">Open Distribution</span>
+      </a>
+    </div>
+  </li>
+</ul>
+  
+        
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+  
+    
+      <h1 itemprop="name">Get Started with Publishing</h1>
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+<h2>Help topics</h2>
+<ul>
+  <li><a href="http://support.google.com/googleplay/android-developer/bin/answer.py?hl=en&answer=113468">Developer Registration</a></li>
+  <li><a href="http://support.google.com/googleplay/android-developer/bin/answer.py?hl=en&answer=138294&topic=2365624&ctx=topic">Supported Locations for Distributing Apps</a></li>
+  <li><a href="http://support.google.com/googleplay/android-developer/bin/topic.py?hl=en&topic=2364761">Policy and Best Practices</a></li>
+  <li><a href="http://support.google.com/googleplay/android-developer/">Developer Support</a></li>
+</ul>
+
+<h2>Get Started</h2>
+<ol>
+  <li><a href="https://play.google.com/apps/publish/">Google Play Android Developer Console</a></li>
+</ol>
+
+</div>
+</div>
+
+<p>You can set up to start publishing on Google Play in only a few minutes. Here's how you do it: </p>
+
+<ul>
+<li>Register for a Google Play publisher account</li>
+<li>If you will sell apps, set up a Google Checkout Merchant Account</li>
+<li>Explore the Google Play Android Developer Console and learn about the tools for publishing</li>
+</ul>
+
+
+<h3>Register for a publisher account</h3>
+
+<p>The first step is to visit the Google Play Android Developer Console and register for a publisher account.</p>
+
+<p>Here's what you will do during registration: </p>
+
+<div class="sidebox-wrapper">
+<div class="sidebox">
+<h2>Tips</h2>
+  <ul>
+    <li>You need a Google account to register. You can create one during the process. </li>
+    <li>If you are an organization, consider registering a new Google account rather than using a personal account.</li>
+    <li>Review the <a href="https://support.google.com/googleplay/android-developer/bin/answer.py?hl=en&answer=138294">developer countries</a> and <a href="https://support.google.com/googleplay/android-developer/bin/answer.py?hl=en&answer=150324">merchant countries</a> where you can distribute and sell apps.</li> 
+  </ul>
+</div></div>
+
+
+<ol>
+<li>Visit the Google Play Android Developer Console at <a href="https://play.google.com/apps/publish/">https://play.google.com/apps/publish/</a>.
+<li>Enter basic information about your <strong>developer identity</strong> &mdash; developer name, email address, and so on. You can modify this information later.</li>
+<li>Read and accept the <strong>Developer Distribution Agreement</strong> that applies to your country or region. Note that apps and store listings that you publish on Google Play must comply with the Developer Program Policies and US export law,</li>
+<li>Pay a <strong>$25 USD registration fee</strong> using Google Checkout. If you don't have a Google Checkout account, you can quickly set one up during the process.</li>
+</ol>
+
+<p>When your registration is verified, you’ll be notified at the email address you specified during registration. </p>
+
+<h3>Set up a Google Checkout Merchant account</h3>
+ 
+<p>If you want to sell products on Google Play &mdash; priced apps, in-app products, or subscriptions &mdash; you will also need to set up a Google Checkout <a href="http://checkout.google.com/sell">Merchant Account</a>. You can do that at any time, but make sure to first review the list of <a href="https://support.google.com/googleplay/android-developer/bin/answer.py?hl=en&answer=150324">merchant countries</a>.</p>
+
+<p>To set up a Merchant account from the Developer Console:</p>
+
+<ol>
+<li><strong>Sign in</strong> to your Google Play Android Developer Console at <a href="https://play.google.com/apps/publish/">https://play.google.com/apps/publish/</a>
+<li>Click on the "<strong>Edit profile</strong>" link.
+<li>Select "<strong>Setup a Merchant Account at Google Checkout</strong>".</li>
+</ol>
+
+<p>This will take you to the Google Checkout site to sign up as a Merchant; you'll need to have information about your business handy to complete this step.</p>
+
+<h3>Explore the Developer Console</h3>
+<p>When your registration is verified, you can sign in to your Android Developer Console, which will be the home for your app publishing operations and tools on Google Play. </p>
+
+    </div>
+      
+      <div class="content-footer layout-content-row" 
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+      
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>
+
+
+

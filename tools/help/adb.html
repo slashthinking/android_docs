@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+<title>Android Debug Bridge | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../";
+</script>
+<script src="../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+<body class="gc-documentation
+  develop" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../index.html">
+            <img src="../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../develop/index.html" class="selected"
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../')" 
+onkeyup="return search_changed(event, false, '../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../design/index.html">Get Started</a></li>
+                        <li><a href="../../design/style/index.html">Style</a></li>
+                        <li><a href="../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:75%">
+                <li><a href="../../training/index.html" 
+                  zh-TW-lang="訓練課程"
+                  zh-CN-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"               
+                  >Training</a></li>
+                <li><a href="../../guide/components/index.html" 
+                  zh-TW-lang="API 指南"
+                  zh-CN-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"               
+                  >API Guides</a></li>
+                <li><a href="../../reference/packages.html" 
+                  zh-TW-lang="參考資源"
+                  zh-CN-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"               
+                  >Reference</a></li>
+                <li><a href="../../tools/index.html" class="selected"
+                  zh-TW-lang="相關工具"
+                  zh-CN-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"               
+                  >Tools</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-3" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+<ul id="nav">
+
+  <li class="nav-section">
+    <div class="nav-section-header empty">
+        <a href="../../tools/index.html"><span class="en">Developer Tools</span></a>
+    </div>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../sdk/index.html"><span class="en">Download</span></a></div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../sdk/installing/index.html"><span class="en">Installing
+    the SDK</span></a></div>
+        <ul>
+          <li><a href="../../sdk/installing/adding-packages.html">
+              <span class="en">Adding Platforms and Packages</span></a></li>
+          <li><a href="../../sdk/installing/installing-adt.html">
+              <span class="en">Installing the Eclipse Plugin</span></a></li>
+          <li><a href="../../sdk/installing/next.html">
+              <span class="en">Next Steps</span></a></li>
+        </ul>
+      </li>
+          <li><a href="../../sdk/exploring.html">
+              <span class="en">Exploring the SDK</span></a></li>
+      <li><a href="../../tools/sdk/ndk/index.html">NDK</a>
+      </li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+        <a href="/tools/workflow/index.html"><span class="en">Workflow</span></a>
+    </div>
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/devices/index.html"><span class="en">Setting Up Virtual Devices</span></a></div>
+        <ul>
+          <li><a href="/tools/devices/managing-avds.html"><span class="en">With AVD Manager</span></a></li>
+          <li><a href="/tools/devices/managing-avds-cmdline.html"><span class="en">From the Command Line</span></a></li>
+          <li><a href="/tools/devices/emulator.html"><span class="en">Using the Android Emulator</span></a></li>
+        </ul>
+      </li>
+      <li><a href="/tools/device.html"><span class="en">Using Hardware Devices</span></a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/projects/index.html"><span class="en">Setting Up Projects</span></a></div>
+        <ul>
+          <li><a href="/tools/projects/projects-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="/tools/projects/projects-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="/tools/building/index.html"><span class="en">Building and Running</span></a></div>
+        <ul>
+          <li><a href="/tools/building/building-eclipse.html"><span class="en">From Eclipse with ADT</span></a></li>
+          <li><a href="/tools/building/building-cmdline.html"><span class="en">From the Command Line</span></a></li>
+        </ul>
+      </li>
+
+
+  <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/testing/index.html">
+            <span class="en">Testing</span>
+          </a></div>
+        <ul>
+          <li>
+            <a href="../../tools/testing/testing_android.html">
+            <span class="en">Fundamentals</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_eclipse.html">
+            <span class="en">From Eclipse</span></a>
+          </li>
+          <li><a href="../../tools/testing/testing_otheride.html">
+            <span class="en">From Other IDEs</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_testing.html">
+            <span class="en">Activity Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/service_testing.html">
+            <span class="en">Service Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/contentprovider_testing.html">
+            <span class="en">Content Provider Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/testing_accessibility.html">
+            <span class="en">Accessibility Testing</span></a>
+          </li>
+           <li>
+            <a href="../../tools/testing/testing_ui.html">
+            <span class="en">UI Testing</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/what_to_test.html">
+            <span class="en">What To Test</span></a>
+          </li>
+          <li>
+            <a href="../../tools/testing/activity_test.html">
+            <span class="en">Activity Testing Tutorial</span></a>
+          </li>
+        </ul>
+  </li><!-- end of testing -->
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/debugging/index.html"><span class="en">Debugging</span></a></div>
+    <ul>
+      <li><a href="../../tools/debugging/debugging-projects.html"><span class="en">From Eclipse with ADT</span></a></li>
+      <li><a href="../../tools/debugging/debugging-projects-cmdline.html"><span class="en">From Other IDEs</span></a></li>
+      <li><a href="../../tools/debugging/ddms.html"><span class="en">Using DDMS</span></a></li>
+      <li><a href="../../tools/debugging/debugging-log.html"><span class="en">Reading and Writing Logs</span></a></li>
+      <li><a href="../../tools/debugging/improving-w-lint.html"><span class="en">Improving Your Code with lint</span></a></li>
+      <li><a href="../../tools/debugging/debugging-ui.html"><span class="en">Optimizing your UI</span></a></li>
+      <li><a href="../../tools/debugging/debugging-tracing.html"><span class="en">Profiling with Traceview and dmtracedump</span></a></li>
+      <li><a href="../../tools/debugging/systrace.html"><span class="en">Analysing Display and Performance with Systrace</span></a></li>
+      <li><a href="../../tools/debugging/debugging-devtools.html"><span class="en">Using the Dev Tools App</span></a></li>
+    </ul>
+  </li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/publishing/publishing_overview.html"><span class="en">Publishing</span></a></div>
+        <ul>
+          <li><a href="../../tools/publishing/preparing.html"><span class="en">Preparing for Release</span></a></li>
+          <li><a href="../../tools/publishing/versioning.html"><span class="en">Versioning Your Apps</span></a></li>
+          <li><a href="../../tools/publishing/app-signing.html"><span class="en">Signing Your Apps</span></a></li>
+        </ul>
+      </li>
+</ul>
+</li>
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/help/index.html"><span
+class="en">Tools Help</span></a></div>
+    <ul>
+      <li><a href="../../tools/help/adb.html">adb</a></li>
+      <li><a href="../../tools/help/adt.html">ADT</a></li>
+      <li><a href="../../tools/help/android.html">android</a></li>
+      <li><a href="../../tools/help/avd-manager.html">AVD Manager</a></li>
+      <li><a href="../../tools/help/bmgr.html">bmgr</a>
+      <li><a href="../../tools/help/monitor.html">Device Monitor</a></li>
+      <li><a href="../../tools/help/dmtracedump.html">dmtracedump</a></li>
+      <li><a href="../../tools/help/draw9patch.html">Draw 9-Patch</a></li>
+      <li><a href="../../tools/help/emulator.html">Emulator</a></li>
+      <li><a href="../../tools/help/etc1tool.html">etc1tool</a></li>
+      <li><a href="../../tools/help/hierarchy-viewer.html">Hierarchy Viewer</a></li>
+      <li><a href="../../tools/help/hprof-conv.html">hprof-conv</a></li>
+      <li><a href="../../tools/help/jobb.html">jobb</a></li>
+      <li><a href="../../tools/help/lint.html">lint</span></a></li>
+      <li><a href="../../tools/help/logcat.html">logcat</a></li>
+      <li><a href="../../tools/help/mksdcard.html">mksdcard</a></li>
+      <li><a href="../../tools/help/monkey.html">monkey</a></li>
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../tools/help/monkeyrunner_concepts.html"><span class="en">monkeyrunner</span></a></div>
+        <ul>
+          <li><a href="../../tools/help/MonkeyDevice.html"><span
+class="en">MonkeyDevice</span></a></li>
+          <li><a href="../../tools/help/MonkeyImage.html"><span
+class="en">MonkeyImage</span></a></li>
+          <li><a href="../../tools/help/MonkeyRunner.html"><span
+class="en">MonkeyRunner</span></a></li>
+        </ul>
+      </li>
+       <li><a href="../../tools/help/proguard.html">ProGuard</a></li>
+       <li><a href="../../tools/help/sdk-manager.html">SDK Manager</a></li>
+       <li><a href="../../tools/help/systrace.html">Systrace</a></li>
+       <li><a href="../../tools/help/gltracer.html">Tracer for OpenGL ES</a></li>
+       <li><a href="../../tools/help/traceview.html">Traceview</a></li>
+       <li class="nav-section">
+          <div class="nav-section-header"><a href="../../tools/help/uiautomator/index.html"><span class="en">uiautomator</span></a></div>
+          <ul>
+             <li><a href="../../tools/help/uiautomator/IAutomationSupport.html"><span class="en">IAutomationSupport</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiAutomatorTestCase.html"><span class="en">UiAutomatorTestCase</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiCollection.html"><span class="en">UiCollection</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiDevice.html"><span class="en">UiDevice</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObject.html"><span class="en">UiObject</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiObjectNotFoundException.html"><span class="en">UiObjectNotFoundException</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiScrollable.html"><span class="en">UiScrollable</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiSelector.html"><span class="en">UiSelector</span></a></li>
+             <li><a href="../../tools/help/uiautomator/UiWatcher.html"><span class="en">UiWatcher</span></a></li>
+          </ul>
+       </li>
+       <li><a href="../../tools/help/zipalign.html">zipalign</a></li>
+    </ul>
+  </li>
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/revisions/index.html"><span class="en">Revisions</span></a></div>
+    <ul>
+      <li><a href="../../tools/sdk/tools-notes.html">
+        <span class="en">Tools</span>
+      </a></li>
+      <li><a href="../../tools/sdk/eclipse-adt.html">
+        <span class="en">ADT Plugin</span>
+      </a></li>
+      <!--
+      <li><a href="../../tools/sdk/addons.html"><span class="en">Add-ons</span></a></li>
+      -->
+      <li><a href="../../tools/revisions/platforms.html"><span
+class="en">Platforms</span></a></li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header"><a href="../../tools/extras/index.html"><span class="en">Extras</span></a></div>
+    <ul>
+      <li><a href="../../tools/extras/support-library.html"><span class="en">Support
+Library</span></a></li>
+      <li><a href="../../tools/extras/oem-usb.html"><span
+class="en">USB Drivers</span></a>
+      </li>
+    </ul>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header empty"><a href="../../tools/samples/index.html"><span class="en">Samples</span></a></div>
+  </li>
+
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+    <a href="../../tools/adk/index.html">
+      <span class="en">ADK</span></a>
+    </div>
+    <ul>
+      <li><a href="../../tools/adk/adk2.html">ADK 2012 Guide</a></li>
+      <li><a href="../../tools/adk/adk.html">ADK 2011 Guide</a></li>
+    </ul>
+  </li>
+
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        
+        
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+
+<div class="col-13" id="doc-col" >
+
+
+  
+    
+      <h1 itemprop="name">Android Debug Bridge</h1>
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="qv-wrapper">
+<div id="qv">
+  <h2>ADB quickview</h2>
+  <ul>
+<li>Manage the state of an emulator or device</li>
+<li>Run shell commands on a device</li>
+<li>Manage port forwarding on an emulator or device</li>
+<li>Copy files to/from an emulator or device</li>
+  </ul>
+
+  <h2>In this document</h2>
+  <ol>
+<li><a href="#issuingcommands">Issuing ADB Commands</a></li>
+<li><a href="#devicestatus">Querying for Emulator/Device Instances</a></li>
+<li><a href="#directingcommands">Directing Commands to a Specific Emulator/Device Instance</a></li>
+<li><a href="#move">Installing an Application</a></li>
+<li><a href="#forwardports">Forwarding Ports</a></li>
+<li><a href="#copyfiles">Copying Files to or from an Emulator/Device Instance</a></li>
+<li><a href="#commandsummary">Listing of adb Commands </a></li>
+<li><a href="#shellcommands">Issuing Shell Commands</a></li>
+<li><a href="#logcat">Enabling Logcat Logging</a></li>
+<li><a href="#stopping">Stopping the adb Server</a></li>
+  </ol>
+
+  <h2>See also</h2>
+  <ol>
+    <li><a href="emulator.html">Emulator</a></li>
+  </ol>
+
+</div>
+</div>
+
+<p>Android Debug Bridge (adb) is a versatile command line tool that lets you communicate with an
+emulator instance or connected Android-powered device. It is a client-server program that includes
+three components: </p>
+
+<ul>
+  <li>A client, which runs on your development machine. You can invoke a client from a shell by issuing an adb command. Other Android tools such as the ADT plugin and DDMS also create adb clients. </li>
+  <li>A server, which runs as a background process on your development machine. The server manages communication between the client and the adb daemon running on an emulator or device. </li>
+  <li>A daemon, which runs as a background process on each emulator or device instance. </li>
+</ul>
+
+<p>You can find the <code>adb</code> tool in <code>&lt;sdk&gt;/platform-tools/</code>.</p>
+
+<p>When you start an adb client, the client first checks whether there is an adb server process already running. If there isn't, it starts the server process. When the server starts, it binds to local TCP port 5037 and listens for commands sent from adb clients&mdash;all adb clients use port 5037 to communicate with the adb server. </p>
+
+<p>The server then sets up connections to all running emulator/device instances. It locates emulator/device instances by scanning odd-numbered ports in the range 5555 to 5585, the range used by emulators/devices. Where the server finds an adb daemon, it sets up a connection to that port. Note that each emulator/device instance acquires a pair of sequential ports &mdash; an even-numbered port for console connections and an odd-numbered port for adb connections. For example: </p>
+
+<p style="margin-left:2em">
+Emulator 1, console: 5554<br/>
+Emulator 1, adb: 5555<br>
+Emulator 2, console: 5556<br>
+Emulator 2, adb: 5557 ...
+</p>
+
+<p>As shown, the emulator instance connected to adb on port 5555 is the same as the instance whose console listens on port 5554. </p>
+
+<p>Once the server has set up connections to all emulator instances, you can use adb commands to control and access those instances. Because the server manages connections to emulator/device instances and handles commands from multiple adb clients, you can control any emulator/device instance from any client (or from a script).</p>
+
+<p>The sections below describe the commands that you can use to access adb capabilities and manage the state of an emulator/device. Note that if you are developing Android applications in Eclipse and have installed the ADT plugin, you do not need to access adb from the command line. The ADT plugin provides a transparent integration of adb into the Eclipse IDE. However, you can still use adb directly as necessary, such as for debugging.</p>
+
+<a name="issuingcommands"></a>
+
+<h2>Issuing adb Commands</h2>
+
+<p>You can issue adb commands from a command line on your development machine or from a script. The usage is: </p>
+
+    <pre>adb [-d|-e|-s &lt;serialNumber&gt;] &lt;command&gt; </pre>
+
+<p>When you issue a command, the program invokes an adb client. The client is not specifically associated with any emulator instance, so if multiple emulators/devices are running, you need to use the <code>-d</code> option to specify the target instance to which the command should be directed. For more information about using this option, see <a href="#directingcommands">Directing Commands to a Specific Emulator/Device Instance</a>. </p>
+
+<a name="devicestatus"></a>
+
+<h2>Querying for Emulator/Device Instances</h2>
+
+<p>Before issuing adb commands, it is helpful to know what emulator/device instances are connected to the adb server. You can generate a list of attached emulators/devices using the <code>devices</code> command: </p>
+
+	<pre>adb devices</pre>
+
+<p>In response, adb prints this status information for each instance:</p>
+
+<ul>
+	<li>Serial number &mdash; A string created by adb to uniquely identify an emulator/device instance by its 
+        console port number. The format of the serial number is <code>&lt;type&gt;-&lt;consolePort&gt;</code>. 
+        Here's an example serial number: <code>emulator-5554</code></li>
+	<li>State &mdash; The connection state of the instance may be one of the following:
+		<ul>
+		<li><code>offline</code> &mdash; the instance is not connected to adb or is not responding.</li>
+		<li><code>device</code> &mdash; the instance is now connected to the adb server. Note that this state does not 
+                    imply that the Android system is fully booted and operational, since the instance connects to adb 
+                    while the system is still booting. However, after boot-up, this is the normal operational state of 
+                    an emulator/device instance.</li>
+                <li><code>no device</code> &mdash; there is no emulator/device connected.
+		</ul>
+	</li>
+</ul>
+
+<p>The output for each instance is formatted like this: </p>
+
+	<pre>[serialNumber] [state]</pre>
+
+<p>Here's an example showing the <code>devices</code> command and its output:</p>
+
+	<pre>$ adb devices
+List of devices attached 
+emulator-5554&nbsp;&nbsp;device
+emulator-5556&nbsp;&nbsp;device
+emulator-5558&nbsp;&nbsp;device</pre>
+
+
+
+<a name="directingcommands"></a>
+
+<h2>Directing Commands to a Specific Emulator/Device Instance</h2>
+
+<p>If multiple emulator/device instances are running, you need to specify a target instance when issuing adb commands. To so so, use the <code>-s</code> option in the commands. The usage for the <code>-s</code> option is:</p>
+
+    <pre>adb -s &lt;serialNumber&gt; &lt;command&gt; </pre>
+	
+<p>As shown, you specify the target instance for a command using its adb-assigned serial number. You can use the <code>devices</code> command to obtain the serial numbers of running emulator/device instances. </p>
+
+<p>Here is an example: </p>
+
+	<pre>adb -s emulator-5556 install helloWorld.apk</pre>
+
+<p>Note that, if you issue a command without specifying a target emulator/device instance using <code>-s</code>, adb generates an error. 
+
+<a name="move"></a>
+
+<h2>Installing an Application</h2>
+<p>You can use adb to copy an application from your development computer and install it on an emulator/device instance. To do so, use the <code>install</code> command. With the command, you must specify the path to the .apk file that you want to install:</p>
+
+<pre>adb install &lt;path_to_apk&gt;</pre>
+
+<p>For more information about how to create an .apk file that you can install on an emulator/device
+instance, see <a href="../../tools/building/index.html">Building and Running</a></p>
+
+<p>Note that, if you are using the Eclipse IDE and have the ADT plugin installed, you do not need to use adb (or aapt) directly to install your application on the emulator/device. Instead, the ADT plugin handles the packaging and installation of the application for you. </p>
+
+
+<a name="forwardports"></a>
+
+<h2>Forwarding Ports</h2>
+
+    <p>You can use the <code>forward</code> command to set up arbitrary port forwarding &mdash; forwarding of requests on a specific host port to a different port on an emulator/device instance. Here's how you would set up forwarding of host port 6100 to emulator/device port 7100:</p>
+<pre>adb forward tcp:6100 tcp:7100</pre>
+    <p>You can also use adb to set up forwarding to named abstract UNIX domain sockets, as illustrated here:</p>
+<pre>adb forward tcp:6100 local:logd </pre>
+
+<a name="copyfiles"></a>
+
+<h2>Copying Files to or from an Emulator/Device Instance</h2>
+
+<p>You can use the adb commands <code>pull</code> and <code>push</code> to copy files to and from an emulator/device instance's data file. Unlike the <code>install</code> command, which only copies an .apk file to a specific location, the <code>pull</code> and <code>push</code> commands let you copy arbitrary directories and files to any location in an emulator/device instance. </p>
+
+<p>To copy a file or directory (recursively) <em>from</em> the emulator or device, use</p>
+<pre>adb pull &lt;remote&gt; &lt;local&gt;</pre> 
+
+<p>To copy a file or directory (recursively) <em>to</em> the emulator or device, use</p>
+    <pre>adb push &lt;local&gt; &lt;remote&gt;</pre> 
+
+<p>In the commands, <code>&lt;local&gt;</code> and <code>&lt;remote&gt;</code> refer to the paths to the target files/directory on your development machine (local) and on the emulator/device instance (remote).</p>
+
+<p>Here's an example: </p>
+<pre>adb push foo.txt /sdcard/foo.txt</pre>
+
+<a name="commandsummary"></a>
+
+<h2>Listing of adb Commands</h2>
+
+<p>The table below lists all of the supported adb commands and explains their meaning and usage. </p>
+
+
+<table>
+<tr>
+	<th>Category</th>
+	<th>Command</th>
+	<th>Description</th>
+	<th>Comments</th>
+</tr>
+
+<tr>
+<td rowspan="3">Options</td>
+<td><code>-d</code></td>
+<td>Direct an adb command to the only attached USB device.</td>
+<td>Returns an error if more than one USB device is attached.</td>
+</tr>
+
+<tr>
+<td><code>-e</code></td>
+<td>Direct an adb command to the only running emulator instance.</td>
+<td>Returns an error if more than one emulator instance is running. </td>
+</tr>
+
+<tr>
+<td><code>-s&nbsp;&lt;serialNumber&gt;</code></td>
+<td>Direct an adb command a specific emulator/device instance, referred to by its adb-assigned serial number (such as "emulator-5556").</td>
+<td>If not specified, adb generates an error.</td>
+</tr>
+
+<tr>
+<td rowspan="3">General</td>
+<td><code>devices</code></td>
+<td>Prints a list of all attached emulator/device instances.</td>
+<td>See <a href="#devicestatus">Querying for Emulator/Device Instances</a> for more information.</td>
+</tr>
+
+<tr>
+<td><code>help</code></td>
+<td>Prints a list of supported adb commands.</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><code>version</code></td>
+<td>Prints the adb version number. </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td rowspan="3">Debug</td>
+<td ><code>logcat&nbsp;[&lt;option&gt;] [&lt;filter-specs&gt;]</code></td>
+<td>Prints log data to the screen. </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><code>bugreport</code></td>
+<td>Prints <code>dumpsys</code>, <code>dumpstate</code>, and <code>logcat</code> data to the screen, for the purposes of bug reporting. </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><code>jdwp</code></td>
+<td>Prints a list of available JDWP processes on a given device. </td>
+<td>You can use the <code>forward jdwp:&lt;pid&gt;</code> port-forwarding specification to connect to a specific JDWP process. For example: <br>
+    <code>adb forward tcp:8000 jdwp:472</code><br>
+    <code>jdb -attach localhost:8000</code></p>
+ </td>
+</tr>
+
+<tr>
+<td rowspan=3">Data</td>
+<td><code>install&nbsp;&lt;path-to-apk&gt;</code></td>
+<td>Pushes an Android application (specified as a full path to an .apk file) to the data file of an emulator/device. </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><code>pull&nbsp;&lt;remote&gt;&nbsp;&lt;local&gt;</code></td>
+<td>Copies a specified file from an emulator/device instance to your development computer. </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><code>push&nbsp;&lt;local&gt;&nbsp;&lt;remote&gt;</code></td>
+<td>Copies a specified file from your development computer to an emulator/device instance. </td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td rowspan="2">Ports and Networking</td>
+<td><code>forward&nbsp;&lt;local&gt;&nbsp;&lt;remote&gt;</code></td>
+<td>Forwards socket connections from a specified local port to a specified remote port on the emulator/device instance. </td>
+<td>Port specifications can use these schemes: 
+<ul><li><code>tcp:&lt;portnum&gt;</code></li>
+<li><code>local:&lt;UNIX domain socket name&gt;</code></li>
+<li><code>dev:&lt;character device name&gt;</code></li>
+<li><code>jdwp:&lt;pid&gt;</code></li></ul>
+</td>
+</tr>
+
+<tr>
+<td><code>ppp&nbsp;&lt;tty&gt;&nbsp;[parm]...</code></td>
+<td>Run PPP over USB.
+<ul>
+<li><code>&lt;tty&gt;</code> &mdash; the tty for PPP stream. For example <code>dev:/dev/omap_csmi_ttyl</code>. </li>
+<li><code>[parm]... </code> &mdash; zero or more PPP/PPPD options, such as <code>defaultroute</code>, <code>local</code>, <code>notty</code>, etc.</li></ul>
+
+<p>Note that you should not automatically start a PPP connection. </p></td>
+<td></td>
+</tr>
+
+<tr>
+<td rowspan="3">Scripting</td>
+<td><code>get-serialno</code></td>
+<td>Prints the adb instance serial number string.</td>
+<td rowspan="2">See <a href="#devicestatus">Querying for Emulator/Device Instances</a> for more information. </td>
+</tr>
+
+<tr>
+<td><code>get-state</code></td>
+<td>Prints the adb state of an emulator/device instance.</td>
+</td>
+</tr>
+
+<tr>
+<td><code>wait-for-device</code></td>
+<td>Blocks execution until the device is online &mdash; that is, until the instance state is <code>device</code>.</td>
+<td>You can prepend this command to other adb commands, in which case adb will wait until the emulator/device instance is connected before issuing the other commands. Here's an example: 
+<pre>adb wait-for-device shell getprop</pre>
+
+Note that this command does <em>not</em> cause adb to wait until the entire system is fully booted. For that reason, you should not prepend it to other commands that require a fully booted system. As an example, the <code>install</code> requires the Android package manager, which is available only after the system is fully booted. A command such as 
+
+<pre>adb wait-for-device install &lt;app&gt;.apk</pre>
+
+would issue the <code>install</code> command as soon as the emulator or device instance connected to the adb server, but before the Android system was fully booted, so it would result in an error. </td>
+</tr>
+
+
+
+<tr>
+<td rowspan="2">Server</td>
+<td><code>start-server</code></td>
+<td>Checks whether the adb server process is running and starts it, if not.</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><code>kill-server</code></td>
+<td>Terminates the adb server process.</td>
+<td>&nbsp;</td>
+</tr>
+
+
+
+<tr>
+<td rowspan="2">Shell</td>
+<td><code>shell</code></td>
+<td>Starts a remote shell in the target emulator/device instance.</td>
+<td rowspan="2">See <a href="#shellcommands">Issuing Shell Commands</a> for more information. </td>
+</tr>
+
+<tr>
+<td><code>shell&nbsp;[&lt;shellCommand&gt;]</code></td>
+<td>Issues a shell command in the target emulator/device instance and then exits the remote shell.</td>
+</tr>
+
+</table>
+
+
+<a name="shellcommands"></a>
+
+<h2>Issuing Shell Commands</h2>
+
+<p>Adb provides an ash shell that you can use to run a variety of commands on an emulator 
+or device. The command binaries are stored in the file system of the emulator or device, 
+in this location: </p>
+
+<pre>/system/bin/...</pre>
+
+<p>You can use the <code>shell</code> command to issue commands, with or without entering the adb remote shell on the emulator/device. </p>
+
+<p>To issue a single command without entering a remote shell, use the <code>shell</code> command like this: </p>
+
+	<pre>adb [-d|-e|-s {&lt;serialNumber&gt;}] shell &lt;shellCommand&gt;</pre>
+	
+<p>To drop into a remote shell on a emulator/device instance, use the <code>shell</code> command like this:</p>
+
+	<pre>adb [-d|-e|-s {&lt;serialNumber&gt;}] shell</pre>
+
+<p>When you are ready to exit the remote shell, use <code>CTRL+D</code> or <code>exit</code> to end the shell session. </p>
+
+<p>The sections below provide more information about shell commands that you can use.</p>
+      
+<a name="sqlite" id="sqlite"></a>
+
+<h3>Examining sqlite3 Databases from a Remote Shell</h3>
+
+<p>From an adb remote shell, you can use the 
+<a href="http://www.sqlite.org/sqlite.html">sqlite3</a> command-line program to 
+manage SQLite databases created by Android applications. The 
+<code>sqlite3</code> tool includes many useful commands, such as 
+<code>.dump</code> to print out the contents of a table and 
+<code>.schema</code> to print the SQL CREATE statement for an existing table. 
+The tool also gives you the ability to execute SQLite commands on the fly.</p>
+
+<p>To use <code>sqlite3</code>, enter a remote shell on the emulator instance, as described above, then invoke the tool using the <code>sqlite3</code> command. Optionally, when invoking <code>sqlite3</code> you can specify the full path to the database you want to explore. Emulator/device instances store SQLite3 databases in the folder <code><span chatdir="1"><span chatindex="259474B4B070F261">/data/data/<em>&lt;package_name&gt;</em>/databases</span></span>/</code>. </p>
+
+<p>Here's an example: </p>
+
+<pre>$ adb -s emulator-5554 shell
+# sqlite3 /data/data/com.example.google.rss.rssexample/databases/rssitems.db
+SQLite version 3.3.12
+Enter &quot;.help&quot; for instructions
+<em>.... enter commands, then quit...</em>
+sqlite&gt; .exit </pre>
+
+<p>Once you've invoked <code>sqlite3</code>, you can issue <code>sqlite3</code> commands in the shell. To exit and return to the adb remote shell, use <code>exit</code> or <code>CTRL+D</code>.
+
+
+<a name="monkey"></a>
+
+<h3>UI/Application Exerciser Monkey</h3>
+
+<p>The Monkey is a program that runs on your emulator or device and generates pseudo-random
+streams of user events such as clicks, touches, or gestures, as well as a number of system-level 
+events.  You can use the Monkey to stress-test applications that you are developing,
+in a random yet repeatable manner.</p>
+
+<p>The simplest way to use the monkey is with the following command, which will launch your
+application and send 500 pseudo-random events to it.</p>
+
+<pre>$ adb shell monkey -v -p your.package.name 500</pre>
+
+<p>For more information about command options for Monkey, see the complete 
+<a href="../../tools/help/monkey.html" title="monkey">UI/Application Exerciser Monkey</a> documentation page.</p>
+
+
+<a name="othershellcommands"></a>
+
+<h3>Other Shell Commands</h3>
+
+<p>The table below lists several of the adb shell commands available. For a complete list of commands and programs, start an emulator instance and use the <code>adb -help</code> command. </p>
+
+<pre>adb shell ls /system/bin</pre>
+
+<p>Help is available for most of the commands. </p>
+
+<table>
+<tr>
+	<th>Shell Command</th>
+	<th>Description</th>
+	<th>Comments</th>
+</tr>
+
+<tr>
+<td><code>dumpsys</code></td>
+<td>Dumps system data to the screen.</td>
+<td rowspan=4">The <a href="../../tools/debugging/ddms.html">Dalvik Debug Monitor Server</a> 
+(DDMS) tool offers integrated debug environment that you may find easier to use.</td>
+</tr>
+
+<tr>
+<td><code>dumpstate</code></td>
+<td>Dumps state to a file.</td>
+</tr>
+
+<tr>
+<td><code>logcat&nbsp;[&lt;option&gt;]...&nbsp;[&lt;filter-spec&gt;]...</code></td>
+<td>Enables radio logging and prints output to the screen. </td>
+</tr>
+
+<tr>
+<td><code>dmesg</code></td>
+<td>Prints kernel debugging messages to the screen. </td>
+</tr>
+
+<tr>
+<td><code>start</code></td>
+<td>Starts (restarts) an emulator/device instance.</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><code>stop</code></td>
+<td>Stops execution of an emulator/device instance.</td>
+<td>&nbsp;</td>
+</tr>
+
+</table>
+<a name="stdout"></a>
+<a name="usinglogcat"></a>
+<a name="outputformat"></a>
+<a name="filteringoutput"></a>
+<a name="stdout"></a>
+<a name="logcatoptions"></a>
+<a name="logcat"></a>
+
+<h2>Enabling logcat Logging</h2>
+
+<p>The Android logging system provides a mechanism for collecting and viewing system debug output. Logs from various applications and portions of the system are collected in a series of circular buffers, which then can be viewed and filtered by the <code>logcat</code> command.</p>
+
+<p>You can use the <code>logcat</code> command to view and follow the contents of the system's log buffers. The general usage is:</p>
+
+<pre>[adb] logcat [&lt;option&gt;] ... [&lt;filter-spec&gt;] ...</pre>
+
+<p>You can use the <code>logcat</code> command from your development computer  or from a remote adb shell in an emulator/device instance. To view log output in your development computer, you use</p>
+
+<pre>$ adb logcat</pre>
+
+<p>and from a remote adb shell you use</p>
+
+<pre># logcat</pre>
+
+<p>See <a href="../../tools/debugging/debugging-log.html">Reading and Writing Logs</a> for complete information about logcat commend options and filter specifications.</p>
+
+
+<a name="stopping"></a>
+
+<h2>Stopping the adb Server</h2>
+
+<p>In some cases, you might need to terminate the adb server process and then restart it. For example, if adb does not respond to a command, you can terminate the server and restart it and that may resolve the problem. </p>
+
+<p>To stop the adb server, use the <code>kill-server</code>. You can then restart the server by issuing any adb command. </p>
+
+
+
+    </div>
+      
+      <div class="content-footer layout-content-row" 
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+      
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>
+
+
+

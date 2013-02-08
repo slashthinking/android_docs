@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>Saving Files | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../";
+</script>
+<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+<body class="gc-documentation
+  develop" itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../index.html">
+            <img src="../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../develop/index.html" class="selected"
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../')" 
+onkeyup="return search_changed(event, false, '../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+    <!-- Secondary x-nav -->
+    <div id="nav-x">
+        <div class="wrap">
+            <ul class="nav-x col-9 develop" style="width:75%">
+                <li><a href="../../../training/index.html" class="selected"
+                  zh-TW-lang="訓練課程"
+                  zh-CN-lang="培训"
+                  ru-lang="Курсы"
+                  ko-lang="교육"
+                  ja-lang="トレーニング"
+                  es-lang="Capacitación"               
+                  >Training</a></li>
+                <li><a href="../../../guide/components/index.html" 
+                  zh-TW-lang="API 指南"
+                  zh-CN-lang="API 指南"
+                  ru-lang="Руководства по API"
+                  ko-lang="API 가이드"
+                  ja-lang="API ガイド"
+                  es-lang="Guías de la API"               
+                  >API Guides</a></li>
+                <li><a href="../../../reference/packages.html" 
+                  zh-TW-lang="參考資源"
+                  zh-CN-lang="参考"
+                  ru-lang="Справочник"
+                  ko-lang="참조문서"
+                  ja-lang="リファレンス"
+                  es-lang="Referencia"               
+                  >Reference</a></li>
+                <li><a href="../../../tools/index.html" 
+                  zh-TW-lang="相關工具"
+                  zh-CN-lang="工具"
+                  ru-lang="Инструменты"
+                  ko-lang="도구"
+                  ja-lang="ツール"
+                  es-lang="Herramientas"               
+                  >Tools</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    <!-- /Sendondary x-nav -->
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav" class="scroll-pane">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+
+
+<ul id="nav">
+
+
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../../training/index.html">
+        <span class="en">Get Started</span>
+      </a>
+    </div>
+
+    <ul>
+      <li class="nav-section">
+        <div class="nav-section-header">
+          <a href="../../../training/basics/firstapp/index.html">
+            <span class="en">Building Your First App</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../training/basics/firstapp/creating-project.html">
+            <span class="en">Creating an Android Project</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/firstapp/running-app.html">
+            <span class="en">Running Your Application</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/firstapp/building-ui.html">
+            <span class="en">Building a Simple User Interface</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/firstapp/starting-activity.html">
+            <span class="en">Starting Another Activity</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/basics/activity-lifecycle/index.html">
+            <span class="en">Managing the Activity Lifecycle</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/basics/activity-lifecycle/starting.html">
+            <span class="en">Starting an Activity</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/activity-lifecycle/pausing.html">
+            <span class="en">Pausing and Resuming an Activity</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/activity-lifecycle/stopping.html">
+            <span class="en">Stopping and Restarting an Activity</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/activity-lifecycle/recreating.html">
+            <span class="en">Recreating an Activity</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/basics/supporting-devices/index.html">
+            <span class="en">Supporting Different Devices</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/basics/supporting-devices/languages.html">
+            <span class="en">Supporting Different Languages</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/supporting-devices/screens.html">
+            <span class="en">Supporting Different Screens</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/supporting-devices/platforms.html">
+            <span class="en">Supporting Different Platform Versions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/basics/fragments/index.html">
+            <span class="en">Building a Dynamic UI with Fragments</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/basics/fragments/support-lib.html">
+            <span class="en">Using the Support Library</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/fragments/creating.html">
+            <span class="en">Creating a Fragment</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/fragments/fragment-ui.html">
+            <span class="en">Building a Flexible UI</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/fragments/communicating.html">
+            <span class="en">Communicating with Other Fragments</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/basics/data-storage/index.html">
+            <span class="en">Saving Data</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/basics/data-storage/shared-preferences.html">
+            <span class="en">Saving Key-Value Sets</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/data-storage/files.html">
+            <span class="en">Saving Files</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/data-storage/databases.html">
+            <span class="en">Saving Data in SQL Databases</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/basics/intents/index.html">
+            <span class="en">Interacting with Other Apps</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/basics/intents/sending.html">
+            <span class="en">Sending the User to Another App</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/intents/result.html">
+            <span class="en">Getting a Result from the Activity</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/intents/filters.html">
+            <span class="en">Allowing Other Apps to Start Your Activity</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+
+    </ul>
+  </li><!-- end basic training -->
+  <li class="nav-section">
+    <div class="nav-section-header">
+      <a href="../../../training/advanced.html">
+      <span class="en">Advanced Training</span>
+      </a>
+    </div>
+    <ul>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/basics/location/index.html">
+            <span class="en">Making Your App Location Aware</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/basics/location/locationmanager.html">
+            <span class="en">Using the Location Manager</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/location/currentlocation.html">
+            <span class="en">Obtaining the Current Location</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/location/geocoding.html">
+            <span class="en">Displaying a Location Address</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+       <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/basics/network-ops/index.html">
+            <span class="en">Performing Network Operations</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/basics/network-ops/connecting.html">
+            <span class="en">Connecting to the Network</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/network-ops/managing.html">
+            <span class="en">Managing Network Usage</span>
+          </a>
+          </li>
+          <li><a href="../../../training/basics/network-ops/xml.html">
+            <span class="en">Parsing XML Data</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/efficient-downloads/index.html">
+            <span class="en">Transferring Data Without Draining the Battery</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/efficient-downloads/efficient-network-access.html">
+            <span class="en">Optimizing Downloads for Efficient Network Access</span>
+          </a>
+          </li>
+          <li><a href="../../../training/efficient-downloads/regular_updates.html">
+            <span class="en">Minimizing the Effect of Regular Updates</span>
+          </a>
+          </li>
+          <li><a href="../../../training/efficient-downloads/redundant_redundant.html">
+            <span class="en">Redundant Downloads are Redundant</span>
+          </a>
+          </li>
+          <li><a href="../../../training/efficient-downloads/connectivity_patterns.html">
+            <span class="en">Modifying Patterns Based on the Connectivity Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/cloudsync/index.html">
+            <span class="en">Syncing to the Cloud</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/cloudsync/backupapi.html">
+            <span class="en">Using the Backup API</span>
+          </a>
+          </li>
+          <li><a href="../../../training/cloudsync/gcm.html">
+            <span class="en">Making the Most of Google Cloud Messaging</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/multiscreen/index.html"
+          zh-CN-lang="针对多种屏幕进行设计"
+          ja-lang="複数画面のデザイン"
+          es-lang="Cómo diseñar aplicaciones para varias pantallas"
+          >Designing for Multiple Screens</a>
+        </div>
+        <ul>
+          <li><a href="../../../training/multiscreen/screensizes.html"
+            zh-CN-lang="支持各种屏幕尺寸"
+            ko-lang="다양한 화면 크기 지원"
+            ja-lang="さまざまな画面サイズのサポート"
+            es-lang="Cómo admitir varios tamaños de pantalla"
+            >Designing for Multiple Screens</a>
+          </li>
+          <li><a href="../../../training/multiscreen/screendensities.html"
+            zh-CN-lang="支持各种屏幕密度"
+            ja-lang="さまざまな画面密度のサポート"
+            es-lang="Cómo admitir varias densidades de pantalla"
+            >Supporting Different Screen Densities</a>
+          </li>
+          <li><a href="../../../training/multiscreen/adaptui.html"
+            zh-CN-lang="实施自适应用户界面流程"
+            ja-lang="順応性のある UI フローの実装"
+            es-lang="Cómo implementar interfaces de usuario adaptables"
+            >Implementing Adaptive UI Flows</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/improving-layouts/index.html">
+            <span class="en">Improving Layout Performance</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/improving-layouts/optimizing-layout.html">
+            <span class="en">Optimizing Layout Hierarchies</span>
+          </a>
+          </li>
+          <li><a href="../../../training/improving-layouts/reusing-layouts.html">
+            <span class="en">Re-using Layouts with &lt;include/&gt;</span>
+          </a>
+          </li>
+          <li><a href="../../../training/improving-layouts/loading-ondemand.html">
+            <span class="en">Loading Views On Demand</span>
+          </a>
+          </li>
+          <li><a href="../../../training/improving-layouts/smooth-scrolling.html">
+            <span class="en">Making ListView Scrolling Smooth</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+        <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/animation/index.html">
+            <span class="en">Adding Animations</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/animation/crossfade.html">
+            <span class="en">Crossfading Two Views</span>
+          </a>
+          </li>
+          <li><a href="../../../training/animation/screen-slide.html">
+            <span class="en">Using ViewPager for Screen Slide</span>
+          </a>
+          </li>
+          <li><a href="../../../training/animation/cardflip.html">
+            <span class="en">Displaying Card Flip Animations</span>
+          </a>
+          </li>
+          <li><a href="../../../training/animation/zoom.html">
+            <span class="en">Zooming a View</span>
+          </a>
+          </li>
+          <li><a href="../../../training/animation/layout.html">
+            <span class="en">Animating Layout Changes</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/managing-audio/index.html">
+            <span class="en">Managing Audio Playback</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/managing-audio/volume-playback.html">
+            <span class="en">Controlling Your App?s Volume and Playback</span>
+          </a>
+          </li>
+          <li><a href="../../../training/managing-audio/audio-focus.html">
+            <span class="en">Managing Audio Focus</span>
+          </a>
+          </li>
+          <li><a href="../../../training/managing-audio/audio-output.html">
+            <span class="en">Dealing with Audio Output Hardware</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/monitoring-device-state/index.html"
+          zh-CN-lang="优化电池使用时间"
+          ja-lang="電池消費量の最適化"
+          es-lang="Cómo optimizar la duración de la batería"
+          >Optimizing Battery Life</a>
+        </div>
+        <ul>
+          <li><a href="../../../training/monitoring-device-state/battery-monitoring.html"
+            zh-CN-lang="监控电池电量和充电状态"
+            ja-lang="電池残量と充電状態の監視"
+            es-lang="Cómo controlar el nivel de batería y el estado de carga"
+            >Monitoring the Battery Level and Charging State</a>
+          </li>
+          <li><a href="../../../training/monitoring-device-state/docking-monitoring.html"
+            zh-CN-lang="确定和监控基座对接状态和类型"
+            ja-lang="ホルダーの装着状態とタイプの特定と監視"
+            es-lang="Cómo determinar y controlar el tipo de conector y el estado de la conexión"
+            >Determining and Monitoring the Docking State and Type</a>
+          </li>
+          <li><a href="../../../training/monitoring-device-state/connectivity-monitoring.html"
+            zh-CN-lang="确定和监控网络连接状态"
+            ja-lang="接続状態の特定と監視"
+            es-lang="Cómo determinar y controlar el estado de la conectividad"
+            >Determining and Monitoring the Connectivity Status</a>
+          </li>
+          <li><a href="../../../training/monitoring-device-state/manifest-receivers.html"
+            zh-CN-lang="根据需要操作广播接收器"
+            ja-lang="オンデマンドでのブロードキャスト レシーバ操作"
+            es-lang="Cómo manipular los receptores de emisión bajo demanda"
+            >Manipulating Broadcast Receivers On Demand</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/custom-views/index.html">
+            <span class="en">Creating Custom Views</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/custom-views/create-view.html">
+            <span class="en">Creating a Custom View Class</span>
+          </a>
+          </li>
+          <li><a href="../../../training/custom-views/custom-drawing.html">
+            <span class="en">Implementing Custom Drawing</span>
+          </a>
+          </li>
+          <li><a href="../../../training/custom-views/making-interactive.html">
+            <span class="en">Making the View Interactive</span>
+          </a>
+          </li>
+          <li><a href="../../../training/custom-views/optimizing-view.html">
+            <span class="en">Optimizing the View</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/search/index.html">
+            <span class="en">Adding Search Functionality</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../training/search/setup.html">
+            <span class="en">Setting up the Search Interface</span>
+          </a>
+          </li>
+          <li><a href="../../../training/search/search.html">
+            <span class="en">Storing and Searching for Data</span>
+          </a>
+          </li>
+          <li><a href="../../../training/search/backward-compat.html">
+            <span class="en">Remaining Backward Compatible</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/id-auth/index.html">
+            <span class="en">Remembering Users</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/id-auth/identify.html">
+            <span class="en">Remembering Your User</span>
+          </a>
+          </li>
+          <li><a href="../../../training/id-auth/authenticate.html">
+            <span class="en">Authenticating to OAuth2 Services</span>
+          </a>
+          </li>
+          <li><a href="../../../training/id-auth/custom_auth.html">
+            <span class="en">Creating a Custom Account Type</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/sharing/index.html">
+            <span class="en">Sharing Content</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/sharing/send.html">
+            <span class="en">Sending Content to Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../training/sharing/receive.html">
+            <span class="en">Receiving Content from Other Apps</span>
+          </a>
+          </li>
+          <li><a href="../../../training/sharing/shareaction.html">
+            <span class="en">Adding an Easy Share Action</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/camera/index.html">
+            <span class="en">Capturing Photos</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/camera/photobasics.html">
+            <span class="en">Taking Photos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../training/camera/videobasics.html">
+            <span class="en">Recording Videos Simply</span>
+          </a>
+          </li>
+          <li><a href="../../../training/camera/cameradirect.html">
+            <span class="en">Controlling the Camera</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/multiple-apks/index.html">
+            <span class="en">Maintaining Multiple APKs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/multiple-apks/api.html">
+            <span class="en">Creating Multiple APKs for Different API Levels</span>
+          </a>
+          </li>
+          <li><a href="../../../training/multiple-apks/screensize.html">
+            <span class="en">Creating Multiple APKs for Different Screen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../training/multiple-apks/texture.html">
+            <span class="en">Creating Multiple APKs for Different GL Textures</span>
+          </a>
+          </li>
+          <li><a href="../../../training/multiple-apks/multiple.html">
+            <span class="en">Creating Multiple APKs with 2+ Dimensions</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/backward-compatible-ui/index.html">
+            <span class="en">Creating Backward-Compatible UIs</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/backward-compatible-ui/abstracting.html">
+            <span class="en">Abstracting the New APIs</span>
+          </a>
+          </li>
+          <li><a href="../../../training/backward-compatible-ui/new-implementation.html">
+            <span class="en">Proxying to the New APIs</span>
+          </a>
+          </li>
+          <li><a href="../../../training/backward-compatible-ui/older-implementation.html">
+            <span class="en">Creating an Implementation with Older APIs</span>
+          </a>
+          </li>
+          <li><a href="../../../training/backward-compatible-ui/using-component.html">
+            <span class="en">Using the Version-Aware Component</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/enterprise/index.html">
+            <span class="en">Developing for Enterprise</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/enterprise/device-management-policy.html">
+            <span class="en">Enhancing Security with Device Management Policies</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/monetization/index.html">
+            <span class="en">Monetizing Your App</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/monetization/ads-and-ux.html">
+            <span class="en">Advertising without Compromising User Experience</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/design-navigation/index.html">
+            <span class="en">Designing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/design-navigation/screen-planning.html">
+            <span class="en">Planning Screens and Their Relationships</span>
+          </a>
+          </li>
+          <li><a href="../../../training/design-navigation/multiple-sizes.html">
+            <span class="en">Planning for Multiple Touchscreen Sizes</span>
+          </a>
+          </li>
+          <li><a href="../../../training/design-navigation/descendant-lateral.html">
+            <span class="en">Providing Descendant and Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../training/design-navigation/ancestral-temporal.html">
+            <span class="en">Providing Ancestral and Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../training/design-navigation/wireframing.html">
+            <span class="en">Putting it All Together: Wireframing the Example App</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/implementing-navigation/index.html">
+            <span class="en">Implementing Effective Navigation</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/implementing-navigation/lateral.html">
+            <span class="en">Implementing Lateral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../training/implementing-navigation/ancestral.html">
+            <span class="en">Implementing Ancestral Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../training/implementing-navigation/temporal.html">
+            <span class="en">Implementing Temporal Navigation</span>
+          </a>
+          </li>
+          <li><a href="../../../training/implementing-navigation/descendant.html">
+            <span class="en">Implementing Descendant Navigation</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/tv/index.html">
+           <span class="en">Designing for TV</span>
+           </a>
+        </div>
+        <ul>
+          <li><a href="../../../training/tv/optimizing-layouts-tv.html">
+            <span class="en">Optimizing Layouts for TV</span>
+          </a>
+          </li>
+          <li><a href="../../../training/tv/optimizing-navigation-tv.html">
+            <span class="en">Optimizing Navigation for TV</span>
+          </a>
+          </li>
+          <li><a href="../../../training/tv/unsupported-features-tv.html">
+            <span class="en">Handling Features Not Supported on TV</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/displaying-bitmaps/index.html">
+            <span class="en">Displaying Bitmaps Efficiently</span>
+          </a>
+        </div>
+        <ul>
+          <li><a href="../../../training/displaying-bitmaps/load-bitmap.html">
+            <span class="en">Loading Large Bitmaps Efficiently</span>
+          </a>
+          </li>
+          <li><a href="../../../training/displaying-bitmaps/process-bitmap.html">
+            <span class="en">Processing Bitmaps Off the UI Thread</span>
+          </a>
+          </li>
+          <li><a href="../../../training/displaying-bitmaps/cache-bitmap.html">
+            <span class="en">Caching Bitmaps</span>
+          </a>
+          </li>
+          <li><a href="../../../training/displaying-bitmaps/display-bitmap.html">
+            <span class="en">Displaying Bitmaps in Your UI</span>
+          </a></li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/accessibility/index.html">
+            <span class="en">Implementing Accessibility</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/accessibility/accessible-app.html">
+            <span class="en">Developing Accessible Applications</span>
+          </a>
+          </li>
+          <li><a href="../../../training/accessibility/service.html">
+            <span class="en">Developing Accessibility Services</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/graphics/opengl/index.html">
+            <span class="en">Displaying Graphics with OpenGL ES</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/graphics/opengl/environment.html">
+            <span class="en">Building an OpenGL ES Environment</span>
+          </a>
+          </li>
+          <li><a href="../../../training/graphics/opengl/shapes.html">
+            <span class="en">Defining Shapes</span>
+          </a>
+          </li>
+          <li><a href="../../../training/graphics/opengl/draw.html">
+            <span class="en">Drawing Shapes</span>
+          </a>
+          </li>
+          <li><a href="../../../training/graphics/opengl/projection.html">
+            <span class="en">Applying Projection and Camera Views</span>
+          </a>
+          </li>
+          <li><a href="../../../training/graphics/opengl/motion.html">
+            <span class="en">Adding Motion</span>
+          </a>
+          </li>
+          <li><a href="../../../training/graphics/opengl/touch.html">
+            <span class="en">Responding to Touch Events</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/connect-devices-wirelessly/index.html">
+            <span class="en">Connecting Devices Wirelessly</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/connect-devices-wirelessly/nsd.html">
+            <span class="en">Using Network Service Discovery</span>
+          </a>
+          </li>
+          <li><a href="../../../training/connect-devices-wirelessly/wifi-direct.html">
+            <span class="en">Connecting with Wi-Fi Direct</span>
+          </a>
+          </li>
+          <li><a href="../../../training/connect-devices-wirelessly/nsd-wifi-direct.html">
+            <span class="en">Using Wi-Fi Direct for Service Discovery</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-section">
+        <div class="nav-section-header"><a href="../../../training/load-data-background/index.html">
+            <span class="en">Loading Data in the Background</span>
+          </a></div>
+        <ul>
+          <li><a href="../../../training/load-data-background/setup-loader.html">
+            <span class="en">Setting Up the Loader</span>
+          </a>
+          </li>
+          <li><a href="../../../training/load-data-background/define-launch-query.html">
+            <span class="en">Defining and Launching the Query</span>
+          </a>
+          </li>
+          <li><a href="../../../training/load-data-background/handle-results.html">
+            <span class="en">Handling the Results</span>
+          </a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </li>
+</ul><!-- nav -->
+
+<script type="text/javascript">
+<!--
+    buildToggleLists();
+    changeNavLang(getLangPref());
+//-->
+</script>
+
+        
+
+      </div>
+    </div> <!-- end side-nav -->
+    <script>
+      $(document).ready(function() {
+        scrollIntoView("devdoc-nav");
+        });
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+  <div class="layout-content-row content-header ">
+    <div class="layout-content-col span-7">
+      <h1 itemprop="name">Saving Files</h1>
+      
+    </div>
+    
+      <div class="training-nav-top layout-content-col span-5" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <a href="#" class="prev-page-link hide"
+            zh-TW-lang="上一堂課"
+            zh-CN-lang="上一课"
+            ru-lang="Предыдущий"
+            ko-lang="이전"
+            ja-lang="前へ"
+            es-lang="Anterior"               
+            >Previous</a>
+        <a href="#" class="next-page-link hide"
+            zh-TW-lang="下一堂課"
+            zh-CN-lang="下一课"
+            ru-lang="Следующий"
+            ko-lang="다음"
+            ja-lang="次へ"
+            es-lang="Siguiente"               
+            >Next</a>
+        <a href="#" class="start-class-link hide"
+            zh-TW-lang="開始上課"
+            zh-CN-lang="开始"
+            ru-lang="Начало работы"
+            ko-lang="시작하기"
+            ja-lang="開始する"
+            es-lang="Empezar"               
+            >Get started</a>
+        <a href="#" class="start-course-link hide"
+            zh-TW-lang="第一堂課"
+            zh-CN-lang="第一课"
+            ru-lang="Первый урок"
+            ko-lang="첫 번째 강의"
+            ja-lang="最初のクラス"
+            es-lang="Primera clase"               
+            >First class</a>
+      </div>
+    
+  </div>
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="tb-wrapper">
+<div id="tb">
+
+<h2>This lesson teaches you to</h2>
+<ol>
+  <li><a href="#InternalVsExternalStorage">Choose Internal or External Storage</a></li>
+  <li><a href="#GetWritePermission">Obtain Permissions for External Storage</a></li>
+  <li><a href="#WriteInternalStorage">Save a File on Internal Storage</a></li>
+  <li><a href="#WriteExternalStorage">Save a File on External Storage</a></li>
+  <li><a href="#GetFreeSpace">Query Free Space</a></li>
+  <li><a href="#DeleteFile">Delete a File</a></li>
+</ol>
+
+<h2>You should also read</h2>
+<ul>
+  <li><a href="../../../guide/topics/data/data-storage.html#filesInternal">Using the Internal
+Storage</a></li>
+  <li><a href="../../../guide/topics/data/data-storage.html#filesExternal">Using the External
+Storage</a></li>
+</ul>
+
+</div>
+</div>
+
+<p>Android uses a file system that's
+similar to disk-based file systems on other platforms. This lesson describes
+how to work with the Android file system to read and write files with the <code><a href="../../../reference/java/io/File.html">File</a></code>
+APIs.</p>
+
+<p>A <code><a href="../../../reference/java/io/File.html">File</a></code> object is suited to reading or writing large amounts of data in
+start-to-finish order without skipping around. For example, it's good for image files or
+anything exchanged over a network.</p>
+
+<p>This lesson shows how to perform basic file-related tasks in your app.
+The lesson assumes that you are familiar with the basics of the Linux file system and the
+standard file input/output APIs in <code><a href="../../../reference/java/io/package-summary.html">java.io</a></code>.</p>
+
+
+<h2 id="InternalVsExternalStorage">Choose Internal or External Storage</h2>
+
+<p>All Android devices have two file storage areas: "internal" and "external" storage.  These names
+come from the early days of Android, when most devices offered built-in non-volatile memory
+(internal storage), plus a removable storage medium such as a micro SD card (external storage).
+Some devices divide the permanent storage space into "internal" and "external" partitions, so even
+without a removable storage medium, there are always two storage spaces and
+the API behavior is the same whether the external storage is removable or not.
+The following lists summarize the facts about each storage space.</p>
+
+<div class="col-5" style="margin-left:0">
+<p><b>Internal storage:</b></p>
+<ul>
+<li>It's always available.</li>
+<li>Files saved here are accessible by only your app by default.</li>
+<li>When the user uninstalls your app, the system removes all your app's files from
+internal storage.</li>
+</ul>
+<p>Internal storage is best when you want to be sure that neither the user nor other apps can
+access your files.</p>
+</div>
+
+<div class="col-7" style="margin-right:0">
+<p><b>External storage:</b></p>
+<ul>
+<li>It's not always available, because the user can mount the external storage as USB storage
+and in some cases remove it from the device.</li>
+<li>It's world-readable, so
+files saved here may be read outside of your control.</li>
+<li>When the user uninstalls your app, the system removes your app's files from here
+only if you save them in the directory from <code><a href="../../../reference/android/content/Context.html#getExternalFilesDir(java.lang.String)">getExternalFilesDir()</a></code>.</li>
+</ul>
+<p>External storage is the best
+place for files that don't require access restrictions and for files that you want to share
+with other apps or allow the user to access with a computer.</p>
+</div>
+
+
+<p class="note" style="clear:both">
+<strong>Tip:</strong> Although apps are installed onto the internal storage by
+default, you can specify the <a
+href="../../../guide/topics/manifest/manifest-element.html#install"><code>android:installLocation</code></a> attribute in your manifest so your app may
+be installed on external storage. Users appreciate this option when the APK size is very large and
+they have an external storage space that's larger than the internal storage. For more
+information, see <a
+href="../../../guide/topics/data/install-location.html">App Install Location</a>.</p>
+
+
+<h2 id="GetWritePermission">Obtain Permissions for External Storage</h2>
+
+<p>To write to the external storage, you must request the
+  <code><a href="../../../reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE">WRITE_EXTERNAL_STORAGE</a></code> permission in your <a
+href="../../../guide/topics/manifest/manifest-intro.html">manifest file</a>:</p>
+
+<pre>
+&lt;manifest ...>
+    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+    ...
+&lt;/manifest>
+</pre>
+
+<div class="caution"><p><strong>Caution:</strong>
+Currently, all apps have the ability to read the external storage
+without a special permission. However, this will change in a future release. If your app needs
+to read the external storage (but not write to it), then you will need to declare the <code><a href="../../../reference/android/Manifest.permission.html#READ_EXTERNAL_STORAGE">READ_EXTERNAL_STORAGE</a></code> permission. To ensure that your app continues
+to work as expected, you should declare this permission now, before the change takes effect.</p>
+<pre>
+&lt;manifest ...>
+    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot; /&gt;
+    ...
+&lt;/manifest>
+</pre>
+<p>However, if your app uses the <code><a href="../../../reference/android/Manifest.permission.html#WRITE_EXTERNAL_STORAGE">WRITE_EXTERNAL_STORAGE</a></code>
+permission, then it implicitly has permission to read the external storage as well.</p>
+</div>
+
+<p>You don’t need any permissions to save files on the internal
+storage. Your application always has permission to read and
+write files in its internal storage directory.</p>
+
+
+
+
+
+<h2 id="WriteInternalStorage">Save a File on Internal Storage</h2>
+
+<p>When saving a file to internal storage, you can acquire the appropriate directory as a
+<code><a href="../../../reference/java/io/File.html">File</a></code> by calling one of two methods:</p>
+
+<dl>
+  <dt><code><a href="../../../reference/android/content/Context.html#getFilesDir()">getFilesDir()</a></code></dt>
+  <dd>Returns a <code><a href="../../../reference/java/io/File.html">File</a></code> representing an internal directory for your app.</dd>
+  <dt><code><a href="../../../reference/android/content/Context.html#getCacheDir()">getCacheDir()</a></code></dt>
+  <dd>Returns a <code><a href="../../../reference/java/io/File.html">File</a></code> representing an internal directory for your app's temporary
+cache files. Be sure to delete each file once it is no
+longer needed and implement a reasonable size limit for the amount of memory you use at any given
+time, such as 1MB. If the system begins running low on storage, it may delete your cache files
+without warning.</dd>
+</dl>
+
+<p>To create a new file in one of these directories, you can use the <code><a href="../../../reference/java/io/File.html#File(java.io.File, java.lang.String)">File()</a></code> constructor, passing the <code><a href="../../../reference/java/io/File.html">File</a></code> provided by one
+of the above methods that specifies your internal storage directory. For example:</p>
+
+<pre>
+File file = new File(context.getFilesDir(), filename);
+</pre>
+
+<p>Alternatively, you can call <code><a href="../../../reference/android/content/Context.html#openFileOutput(java.lang.String, int)">openFileOutput()</a></code> to get a <code><a href="../../../reference/java/io/FileOutputStream.html">FileOutputStream</a></code>
+that writes to a file in your internal directory. For example, here's
+how to write some text to a file:</p>
+
+<pre>
+String filename = "myfile";
+String string = "Hello world!";
+FileOutputStream outputStream;
+
+try {
+  outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+  outputStream.write(string.getBytes());
+  outputStream.close();
+} catch (Exception e) {
+  e.printStackTrace();
+}
+</pre>
+
+<p>Or, if you need to cache some files, you should instead use <code><a href="../../../reference/java/io/File.html#createTempFile(java.lang.String, java.lang.String)">createTempFile()</a></code>. For example, the following method extracts the
+file name from a <code><a href="../../../reference/java/net/URL.html">URL</a></code> and creates a file with that name
+in your app's internal cache directory:</p>
+
+<pre>
+public File getTempFile(Context context, String url) {
+    File file;
+    try {
+        String fileName = Uri.parse(url).getLastPathSegment();
+        file = File.createTempFile(fileName, null, context.getCacheDir());
+    catch (IOException e) {
+        // Error while creating file
+    }
+    return file;
+}
+</pre>
+
+<p class="note"><strong>Note:</strong>
+Your app's internal storage directory is specified
+by your app's package name in a special location of the Android file system.
+Technically, another app can read your internal files if you set
+the file mode to be readable. However, the other app would also need to know your app package
+name and file names. Other apps cannot browse your internal directories and do not have
+read or write access unless you explicitly set the files to be readable or writable. So as long
+as you use <code><a href="../../../reference/android/content/Context.html#MODE_PRIVATE">MODE_PRIVATE</a></code> for your files on the internal storage,
+they are never accessible to other apps.</p>
+
+
+
+
+
+<h2 id="WriteExternalStorage">Save a File on External Storage</h2>
+
+<p>Because the external storage may be unavailable&mdash;such as when the user has mounted the
+storage to a PC or has removed the SD card that provides the external storage&mdash;you
+should always verify that the volume is available before accessing it. You can query the external
+storage state by calling <code><a href="../../../reference/android/os/Environment.html#getExternalStorageState()">getExternalStorageState()</a></code>. If the returned
+state is equal to <code><a href="../../../reference/android/os/Environment.html#MEDIA_MOUNTED">MEDIA_MOUNTED</a></code>, then you can read and
+write your files. For example, the following methods are useful to determine the storage
+availability:</p>
+
+<pre>
+/* Checks if external storage is available for read and write */
+public boolean isExternalStorageWritable() {
+    String state = Environment.getExternalStorageState();
+    if (Environment.MEDIA_MOUNTED.equals(state)) {
+        return true;
+    }
+    return false;
+}
+
+/* Checks if external storage is available to at least read */
+public boolean isExternalStorageReadable() {
+    String state = Environment.getExternalStorageState();
+    if (Environment.MEDIA_MOUNTED.equals(state) ||
+        Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+        return true;
+    }
+    return false;
+}
+</pre>
+
+<p>Although the external storage is modifiable by the user and other apps, there are two
+categories of files you might save here:</p>
+
+<dl>
+  <dt>Public files</dt>
+  <dd>Files that
+should be freely available to other apps and to the user. When the user uninstalls your app,
+these files should remain available to the user.
+  <p>For example, photos captured by your app or other downloaded files.</p>
+  </dd>
+  <dt>Private files</dt>
+  <dd>Files that rightfully belong to your app and should be deleted when the user uninstalls
+  your app. Although these files are technically accessible by the user and other apps because they
+  are on the external storage, they are files that realistically don't provide value to the user
+  outside your app. When the user uninstalls your app, the system deletes
+  all files in your app's external private  directory. 
+  <p>For example, additional resources downloaded by your app or temporary media files.</p>
+  </dd>
+</dl>
+
+<p>If you want to save public files on the external storage, use the
+<code><a href="../../../reference/android/os/Environment.html#getExternalStoragePublicDirectory(java.lang.String)">getExternalStoragePublicDirectory()</a></code> method to get a <code><a href="../../../reference/java/io/File.html">File</a></code> representing
+the appropriate directory on the external storage. The method takes an argument specifying
+the type of file you want to save so that they can be logically organized with other public
+files, such as <code><a href="../../../reference/android/os/Environment.html#DIRECTORY_MUSIC">DIRECTORY_MUSIC</a></code> or <code><a href="../../../reference/android/os/Environment.html#DIRECTORY_PICTURES">DIRECTORY_PICTURES</a></code>. For example:</p>
+
+<pre>
+public File getAlbumStorageDir(String albumName) {
+    // Get the directory for the user's public pictures directory. 
+    File file = new File(Environment.getExternalStoragePublicDirectory(
+            Environment.DIRECTORY_PICTURES), albumName);
+    if (!file.mkdirs()) {
+        Log.e(LOG_TAG, "Directory not created");
+    }
+    return file;
+}
+</pre>
+
+
+<p>If you want to save files that are private to your app, you can acquire the
+appropriate directory by calling <code><a href="../../../reference/android/content/Context.html#getExternalFilesDir(java.lang.String)">getExternalFilesDir()</a></code> and passing it a name indicating
+the type of directory you'd like. Each directory created this way is added to a parent
+directory that encapsulates all your app's external storage files, which the system deletes when the
+user uninstalls your app.</p>
+
+<p>For example, here's a method you can use to create a directory for an individual photo album:</p>
+
+<pre>
+public File getAlbumStorageDir(Context context, String albumName) {
+    // Get the directory for the app's private pictures directory. 
+    File file = new File(context.getExternalFilesDir(
+            Environment.DIRECTORY_PICTURES), albumName);
+    if (!file.mkdirs()) {
+        Log.e(LOG_TAG, "Directory not created");
+    }
+    return file;
+}
+</pre>
+
+<p>If none of the pre-defined sub-directory names suit your files, you can instead call <code><a href="../../../reference/android/content/Context.html#getExternalFilesDir(java.lang.String)">getExternalFilesDir()</a></code> and pass <code>null</code>. This
+returns the root directory for your app's private directory on the external storage.</p>
+
+<p>Remember that <code><a href="../../../reference/android/content/Context.html#getExternalFilesDir(java.lang.String)">getExternalFilesDir()</a></code>
+creates a directory inside a directory that is deleted when the user uninstalls your app.
+If the files you're saving should remain available after the user uninstalls your
+app&mdash;such as when your app is a camera and the user will want to keep the photos&mdash;you
+should instead use <code><a href="../../../reference/android/os/Environment.html#getExternalStoragePublicDirectory(java.lang.String)">getExternalStoragePublicDirectory()</a></code>.</p>
+
+
+<p>Regardless of whether you use <code><a href="../../../reference/android/os/Environment.html#getExternalStoragePublicDirectory(java.lang.String)">getExternalStoragePublicDirectory()</a></code> for files that are shared or
+<code><a href="../../../reference/android/content/Context.html#getExternalFilesDir(java.lang.String)">getExternalFilesDir()</a></code> for files that are private to your app, it's important that you use
+directory names provided by API constants like
+<code><a href="../../../reference/android/os/Environment.html#DIRECTORY_PICTURES">DIRECTORY_PICTURES</a></code>. These directory names ensure
+that the files are treated properly by the system. For instance, files saved in <code><a href="../../../reference/android/os/Environment.html#DIRECTORY_RINGTONES">DIRECTORY_RINGTONES</a></code> are categorized by the system media scanner as ringtones
+instead of music.</p>
+
+
+
+
+<h2 id="GetFreeSpace">Query Free Space</h2>
+
+<p>If you know ahead of time how much data you're saving, you can find out
+whether sufficient space is available without causing an <code><a href="../../../reference/java/io/IOException.html">IOException</a></code> by calling <code><a href="../../../reference/java/io/File.html#getFreeSpace()">getFreeSpace()</a></code> or <code><a href="../../../reference/java/io/File.html#getTotalSpace()">getTotalSpace()</a></code>. These methods provide the current available space and the
+total space in the storage volume, respectively. This information is also useful to avoid filling
+the storage volume above a certain threshold.</p>
+
+<p>However, the system does not guarantee that you can write as many bytes as are
+indicated by <code><a href="../../../reference/java/io/File.html#getFreeSpace()">getFreeSpace()</a></code>.  If the number returned is a
+few MB more than the size of the data you want to save, or if the file system
+is less than 90% full, then it's probably safe to proceed.
+Otherwise, you probably shouldn't write to storage.</p>
+
+<p class="note"><strong>Note:</strong> You aren't required to check the amount of available space
+before you save your file. You can instead try writing the file right away, then
+catch an <code><a href="../../../reference/java/io/IOException.html">IOException</a></code> if one occurs. You may need to do
+this if you don't know exactly how much space you need. For example, if you
+change the file's encoding before you save it by converting a PNG image to
+JPEG, you won't know the file's size beforehand.</p>
+
+
+
+
+<h2 id="DeleteFile">Delete a File</h2>
+
+<p>You should always delete files that you no longer need. The most straightforward way to delete a
+file is to have the opened file reference call <code><a href="../../../reference/java/io/File.html#delete()">delete()</a></code> on itself.</p>
+
+<pre>
+myFile.delete();
+</pre>
+
+<p>If the file is saved on internal storage, you can also ask the <code><a href="../../../reference/android/content/Context.html">Context</a></code> to locate and
+delete a file by calling <code><a href="../../../reference/android/content/Context.html#deleteFile(java.lang.String)">deleteFile()</a></code>:</p>
+
+<pre>
+myContext.deleteFile(fileName);
+</pre>
+
+<div class="note">
+<p><strong>Note:</strong> When the user uninstalls your app, the Android system deletes
+the following:</p> 
+<ul>
+<li>All files you saved on internal storage</li>
+<li>All files you saved on external storage using <code><a href="../../../reference/android/content/Context.html#getExternalFilesDir(java.lang.String)">getExternalFilesDir()</a></code>.</li>
+</ul>
+<p>However, you should manually delete all cached files created with
+<code><a href="../../../reference/android/content/Context.html#getCacheDir()">getCacheDir()</a></code> on a regular basis and also regularly delete
+other files you no longer need.</p>
+</div>
+
+
+    </div>
+      
+      <div class="content-footer layout-content-row" 
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-8" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+            <a href="#" class="prev-page-link hide"
+                zh-TW-lang="上一堂課"
+                zh-CN-lang="上一课"
+                ru-lang="Предыдущий"
+                ko-lang="이전"
+                ja-lang="前へ"
+                es-lang="Anterior"               
+                >Previous</a>
+            <a href="#" class="next-page-link hide"
+                zh-TW-lang="下一堂課"
+                zh-CN-lang="下一课"
+                ru-lang="Следующий"
+                ko-lang="다음"
+                ja-lang="次へ"
+                es-lang="Siguiente"               
+                >Next</a>
+          
+        </div>
+        
+      </div>
+      
+      
+      
+      <div class="layout-content-row content-footer next-class" style="display:none" itemscope itemtype="http://schema.org/SiteNavigationElement">
+          <a href="#" class="next-class-link hide">Next class: </a>
+      </div>
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>
+
+
+

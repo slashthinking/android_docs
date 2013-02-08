@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+<title>コミュニティ | Android Developers</title>
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet"
+href="http://fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,mediumitalic,bold" title="roboto">
+<link href="../../../assets/css/default.css" rel="stylesheet" type="text/css">
+
+
+
+<!-- JAVASCRIPT -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="../../../assets/js/global-libraries-combined.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var toRoot = "../../../";
+</script>
+<script src="../../../assets/js/docs.js" type="text/javascript"></script>
+<script src="../../../navtree_data.js" type="text/javascript"></script>
+
+</head>
+<body class="gc-documentation
+  " itemscope itemtype="http://schema.org/Article">
+<a name="top"></a>
+
+    <!-- Header -->
+    <div id="header">
+        <div class="wrap" id="header-wrap">
+          <div class="col-3 logo">
+          <a href="../../../index.html">
+            <img src="../../../assets/images/dac_logo.png" width="123" height="25" alt="Android Developers" />
+          </a>
+          <div class="btn-quicknav" id="btn-quicknav">
+          	<a href="#" class="arrow-inactive">Quicknav</a>
+			      <a href="#" class="arrow-active">Quicknav</a>
+          </div>
+          </div>
+            <ul class="nav-x col-9">
+                <li class="design">
+                  <a href="../../../design/index.html" 
+                  zh-TW-lang="設計"
+                  zh-CN-lang="设计"
+                  ru-lang="Проектирование"
+                  ko-lang="디자인"
+                  ja-lang="設計"
+                  es-lang="Diseñar"               
+                  >Design</a></li>
+                <li class="develop"><a href="../../../develop/index.html" 
+                  zh-TW-lang="開發"
+                  zh-CN-lang="开发"
+                  ru-lang="Разработка"
+                  ko-lang="개발"
+                  ja-lang="開発"
+                  es-lang="Desarrollar"               
+                  >Develop</a></li>
+                <li class="distribute last"><a href="../../../distribute/index.html" 
+                  zh-TW-lang="發佈"
+                  zh-CN-lang="分发"
+                  ru-lang="Распространение"
+                  ko-lang="배포"
+                  ja-lang="配布"
+                  es-lang="Distribuir"               
+                  >Distribute</a></li>
+            </ul>
+            
+            <!-- New Search -->
+            <div class="menu-container">
+            <div class="moremenu">
+    <div id="more-btn"></div>
+  </div>
+  <div class="morehover" id="moremenu">
+    <div class="top"></div>
+    <div class="mid">
+      <div class="header">Links</div>
+      <ul>
+        <li><a href="https://play.google.com/apps/publish/">Google Play Developer Console</a></li>
+        <li><a href="http://android-developers.blogspot.com/">Android Developers Blog</a></li>
+        <li><a href="../../../about/index.html">About Android</a></li>
+      </ul>
+      <div class="header">Android Sites</div>
+      <ul>
+        <li><a href="http://www.android.com">Android.com</a></li>
+        <li class="active"><a>Android Developers</a></li>
+        <li><a href="http://source.android.com">Android Open Source Project</a></li>
+      </ul>
+      <!-- <div class="header">Support</div>
+      <ul>
+        <li><a href="../../../support.html">Developer Support</a></li>
+      </ul> -->
+      <div class="header">Languages</div>
+        <div id="language" class="locales">
+          <select name="language" onChange="changeLangPref(this.value, true)">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ja">日本語</option>
+              <option value="ko">한국어</option>
+              <option value="ru">Русский</option>
+              <option value="zh-CN">中文 (中国)</option>
+              <option value="zh-TW">中文 (台灣)</option>
+          </select>
+        </div>
+      <script type="text/javascript">
+        <!--  
+        loadLangPref();  
+          //-->
+      </script>
+      <br class="clearfix" />
+    </div>
+    <div class="bottom"></div>
+  </div>
+  <div class="search" id="search-container">
+    <div class="search-inner">
+      <div id="search-btn"></div>
+      <div class="left"></div>
+      <form onsubmit="return submit_search()">
+        <input id="search_autocomplete" type="text" value="" autocomplete="off" name="q"
+onfocus="search_focus_changed(this, true)" onblur="search_focus_changed(this, false)"
+onkeydown="return search_changed(event, true, '../../../')" 
+onkeyup="return search_changed(event, false, '../../../')" />
+      </form>
+      <div class="right"></div>
+        <a class="close hide">close</a>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+  </div>
+  <div id="search_filtered_wrapper">
+    <div id="search_filtered_div" class="no-display">
+        <ul id="search_filtered">
+        </ul>
+    </div>
+  </div>
+  
+  </div>
+  <!-- /New Search>
+          
+          
+          <!-- Expanded quicknav -->
+           <div id="quicknav" class="col-9">
+                <ul>
+                    <li class="design">
+                      <ul>
+                        <li><a href="../../../design/index.html">Get Started</a></li>
+                        <li><a href="../../../design/style/index.html">Style</a></li>
+                        <li><a href="../../../design/patterns/index.html">Patterns</a></li>
+                        <li><a href="../../../design/building-blocks/index.html">Building Blocks</a></li>
+                        <li><a href="../../../design/downloads/index.html">Downloads</a></li>
+                        <li><a href="../../../design/videos/index.html">Videos</a></li>
+                      </ul>
+                    </li>
+                    <li class="develop">
+                      <ul>
+                        <li><a href="../../../training/index.html"
+                          zh-TW-lang="訓練課程"
+                          zh-CN-lang="培训"
+                          ru-lang="Курсы"
+                          ko-lang="교육"
+                          ja-lang="トレーニング"
+                          es-lang="Capacitación"               
+                          >Training</a></li>
+                        <li><a href="../../../guide/components/index.html"
+                          zh-TW-lang="API 指南"
+                          zh-CN-lang="API 指南"
+                          ru-lang="Руководства по API"
+                          ko-lang="API 가이드"
+                          ja-lang="API ガイド"
+                          es-lang="Guías de la API"               
+                          >API Guides</a></li>
+                        <li><a href="../../../reference/packages.html"
+                          zh-TW-lang="參考資源"
+                          zh-CN-lang="参考"
+                          ru-lang="Справочник"
+                          ko-lang="참조문서"
+                          ja-lang="リファレンス"
+                          es-lang="Referencia"               
+                          >Reference</a></li>
+                        <li><a href="../../../tools/index.html"
+                          zh-TW-lang="相關工具"
+                          zh-CN-lang="工具"
+                          ru-lang="Инструменты"
+                          ko-lang="도구"
+                          ja-lang="ツール"
+                          es-lang="Herramientas"               
+                          >Tools</a>
+                          <ul><li><a href="../../../sdk/index.html">Get the
+SDK</a></li></ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="distribute last">
+                      <ul>
+                        <li><a href="../../../distribute/index.html">Google Play</a></li>
+                        <li><a href="../../../distribute/googleplay/publish/index.html">Publishing</a></li>
+                        <li><a href="../../../distribute/googleplay/promote/index.html">Promoting</a></li>
+                        <li><a href="../../../distribute/googleplay/quality/index.html">App Quality</a></li>
+                        <li><a href="../../../distribute/googleplay/spotlight/index.html">Spotlight</a></li>
+                        <li><a href="../../../distribute/open.html">Open Distribution</a></li>
+                      </ul>
+                    </li>
+                </ul>
+          </div>
+          <!-- /Expanded quicknav -->
+        </div>
+    </div>
+    <!-- /Header -->
+    
+    
+  <div id="searchResults" class="wrap" style="display:none;">
+          <h2 id="searchTitle">Results</h2>
+          <div id="leftSearchControl" class="search-control">Loading...</div>
+  </div>
+    
+    
+    
+
+  
+
+  <div class="wrap clearfix" id="body-content">
+    <div class="col-4" id="side-nav" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div id="devdoc-nav">
+<a class="totop" href="#top" data-g-event="left-nav-top">to top</a>
+      <div id="api-nav-header">
+        <div id="api-level-toggle">
+          <label for="apiLevelCheckbox" class="disabled">API level: </label>
+          <div class="select-wrapper">
+            <select id="apiLevelSelector">
+              <!-- option elements added by buildApiLevelSelector() -->
+            </select>
+          </div>
+        </div><!-- end toggle -->
+        <div id="api-nav-title">Android APIs</div>
+        </div><!-- end nav header -->
+      <script>
+        var SINCE_DATA = [  ];
+        buildApiLevelSelector();
+      </script>
+                  
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav" class="scroll-pane">
+
+              <ul>
+              	
+              </ul><br/>
+
+            </div> <!-- end packages-nav -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav" class="scroll-pane">
+
+
+
+              <p style="padding:10px">Select a package to view its members</p><br/>
+        
+
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none" class="scroll-pane">
+          <div id="tree-list"></div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+      <div id="nav-swap">
+      <a class="fullscreen">fullscreen</a>
+      <a href='#' onclick='swapNav();return false;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>
+      </div>
+    </div> <!-- end devdoc-nav -->
+    </div> <!-- end side-nav -->
+    <script type="text/javascript">
+      // init fullscreen based on user pref
+      var fullscreen = readCookie("fullscreen");
+      if (fullscreen != 0) {
+        if (fullscreen == "false") {
+          toggleFullscreen(false);
+        } else {
+          toggleFullscreen(true);
+        }
+      }
+      // init nav version for mobile
+      if (isMobile) {
+        swapNav(); // tree view should be used on mobile
+        $('#nav-swap').hide();
+      } else {
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../");
+        }
+      }
+      // scroll the selected page into view
+      $(document).ready(function() {
+        scrollIntoView("packages-nav");
+        scrollIntoView("classes-nav");
+        });
+    </script>
+    <script>
+      $(document).ready(function() {
+        changeDocLang(getLangPref());
+        });
+    </script>
+
+
+
+<div class="col-12" id="doc-col" >
+
+
+  
+    
+      <h1 itemprop="name">コミュニティ</h1>
+    
+  
+
+
+  
+  <div id="jd-content">
+
+
+    <div class="jd-descr" itemprop="articleBody">
+    <div id="mainBodyFluid">
+			<h1>コミュニティ</h1>
+			<p>Android デベロッパー コミュニティへようこそ。コミュニティでのディスカッションにぜひ参加してください。投稿する前に、コミュニティ ガイドラインが記載されている<a href="http://source.android.com/community/groups-charter.html">グループの趣意</a>をお読みください。</p>
+
+<p class="note"><strong>注:</strong> Android ソース コード（アプリケーション開発ではなく）に関するディスカッションは、<a href="http://source.android.com/community">オープンソース プロジェクトのメーリング リスト</a>（英語）を参照してください。</p>
+
+<p style="margin-bottom:.5em"><strong>目次</strong></p>
+<ol class="toc">
+  <li><a href="#BeforeYouPost">質問を投稿する前に</a></li>
+  <li><a href="#ApplicationDeveloperLists">アプリケーション デベロッパー メーリング リスト</a></li>
+  <li><a href="#UsingEmail">メーリング リストにメールを使用</a></li>
+  <li><a href="#UsingIRC">IRC の使用</a></li>
+</ol>
+
+<h2 id="BeforeYouPost">質問を投稿する前に</h2>
+<p>投稿を作成する前に、下記をお試しください:</p>
+
+<ol>
+<li><a href="../../../resources/faq/index.html">よくある質問を参照します</a>。Android アプリケーションの開発について非常に一般的な質問が、この一覧に記載されており、頻繁に更新されています。</li>
+<li><strong>Android のメイン サイトの検索バー（このページの上部にあるのと同じもの）に、調べたいキーワードを入力してください</strong>。この検索は、サイト、ドキュメント、ブログに含まれるすべてのコンテンツの他に、すべてのグループで以前行われたすべてのディスカッションを網羅しています。誰か他の人が、以前にも同じ問題に遭遇した可能性は大いにあります。</li>
+<li><b>メーリング リストのアーカイブを検索</b>して、同じ質問に関するディスカッションが既に存在しないか調べてください。
+  </li>
+</ol>
+
+<p>質問への答えが見つからない場合、コミュニティで質問することをおすすめします。投稿する際は、次の手順に従ってください。
+<ol>
+<li>コミュニティ ガイドラインが記載されている<b><a href="http://source.android.com/community/groups-charter.html">Android メーリングリストの趣意</a></b>をお読みください。 
+</li>
+<li><b>質問に最適なメーリング リストを選択してください</b>。後述するように、デベロッパー向けのメーリング リストは何種類かに分かれています。</li>
+<li>
+    <b>質問の内容を明確に</b>。明確な質問は、回答者と、将来情報を探そうとする人の双方にとって有益です。</li>
+<li><b>投稿は詳しく書いてください</b>。回答者の人たちが問題を理解するのに役立ちます。コードやログのスニペット、スクリーンショットへのリンクを含めることも有用です。質問をわかりやすく表現するための詳しいガイドラインは、<a href="http://www.catb.org/%7Eesr/faqs/smart-questions.html">賢い質問のしかた</a>（英語）をご覧ください。
+  </li>
+</ol>
+
+
+<h3 id="ApplicationDeveloperLists">アプリケーション デベロッパー メーリング リスト</h3>
+<ul>
+
+<li><b>Android SDK Japan</b> - Android SDK に関する質問と答え、提案とフィードバックを交換できる場です。
+<ul>
+<li>Google グループで登録:&nbsp;<a href="http://groups.google.co.jp/group/android-sdk-japan?hl=ja">android-sdk-japan</a></li>
+<li>メールで登録:&nbsp;<a href="mailto:android-sdk-japan-subscribe@googlegroups.com">android-sdk-japan-subscribe@googlegroups.com</a></li>
+</ul>
+</li>
+
+<li><b>Android 初心者向け</b> - Android アプリケーションの開発初心者向けです。Android SDK と基本的な Android API の利用方法について学習したい場合は、このメーリング リストから始めてください。このメーリング リストには、SDK を利用するデベロッパーの初歩的なディスカッションの場所です。Android プラットフォームで初めてアプリケーションを作成して実行する際は、非常に有益な情報を得ることができるでしょう。開発環境のインストール方法についての質問を投稿したり、Android 開発の初歩（初めて作成するユーザー インターフェース、権限、Android ファイルシステムでのファイル、Android マーケットでのアプリケーションなど）について教えてもらうことができます。新たに質問する前に、必ず最初にアーカイブを確認してください。高度な内容の質問の場合はここでは質問せず、android-developers メーリング リストで質問してください。また使用に関する質問は、android-discuss メーリング リストの方が適しています。
+<ul>
+<li>Google グループで登録:&nbsp;<a href="http://groups.google.com/group/android-beginners?hl=ja">android-beginners</a></li>
+<li>メールで登録:&nbsp;<a href="mailto:android-beginners-subscribe@googlegroups.com">android-beginners-subscribe@googlegroups.com</a></li>
+</ul>
+</li>
+
+<li><b>Android デベロッパー向け</b> - Android アプリケーション デベロッパーとして経験を積むにつれ、Android アプリケーション開発の基本を把握して、SDK を使いこなせるようになります。今度は、より高度な内容について質問する必要があります。アプリケーションのトラブルシューティング、実装へのアドバイス、アプリケーションのパフォーマンスやユーザー エクスペリエンスを改良するテクニックに関する質問には、次のメーリング リストが役立ちます。使用に関する問題（android-discuss をご利用ください）や、Android SDK を使用する際の初歩的質問（android-beginners をご利用ください）についてのディスカッションの場所ではありません。
+<ul>
+<li>Google グループで登録:&nbsp;<a href="http://groups.google.com/group/android-developers?hl=ja">android-developers</a></li>
+<li>メールで登録:&nbsp;<a href="mailto:android-developers-subscribe@googlegroups.com">android-developers-subscribe@googlegroups.com</a></li>
+</ul>
+</li>
+
+<li><b>Android ディスカッション</b> - Android に関する「井戸端会議」です。ここでは、Android プラットフォームへのアイデア、自分のアプリケーションの公表、Android 携帯端末に関するディスカッション、コミュニティ リソースなど、Android に関することなら何でも投稿可能です。ただし他のメーリング リストに該当する内容の場合は、そのメーリング リストに投稿することをおすすめします。質問のテーマが限定されている場所の方が、より多くの回答を得ることができるでしょう。
+<ul>
+<li>Google グループで登録:&nbsp;<a href="http://groups.google.com/group/android-discuss?hl=ja">android-discuss</a></li>
+<li>メールで登録:&nbsp;<a href="mailto:android-discuss-subscribe@googlegroups.com">android-discuss-subscribe@googlegroups.com</a></li>
+</ul>
+</li>
+
+<li><b>Android セキュリティ ディスカッション</b> - 安全な開発、新たに発生したセキュリティの問題、Android デベロッパー向けの Android デベロッパーによるベスト プラクティスについて自由にディスカッションを行える場所です。メーリング リストで脆弱性を直接公開することは、すべての Android ユーザーを危険にさらすことになるので、避けてください。
+<ul>
+<li>Google グループで登録:&nbsp;<a href="http://groups.google.com/group/android-security-discuss?hl=ja">android-security-discuss</a></li>
+<li>メールで登録:&nbsp;<a href="mailto:android-security-discuss@googlegroups.com">android-security-discuss@googlegroups.com</a></li>
+</ul>
+</li>
+
+<li><b>Android セキュリティに関する発表</b> - Android セキュリティ チームがセキュリティ関連の発表を行う、小規模なグループです。
+<ul>
+<li>Google グループで登録:&nbsp;<a href="http://groups.google.com/group/android-security-announce?hl=ja">android-security-announce</a></li>
+<li>メールで登録:&nbsp;<a href="mailto:android-security-announce-subscribe@googlegroups.com">android-security-announce-subscribe@googlegroups.com</a></li>
+</ul>
+</li>
+
+<li><b>Android マーケット ヘルプフォーラム</b> - Android マーケットに関する質問や問題の報告をするための、ウェブベースのディスカッション フォーラムです。
+<ul>
+<li>URL:&nbsp;<a href="http://support.google.com/googleplay?hl=ja">http://support.google.com/googleplay?hl=ja</a></li>
+</ul>
+</li>
+
+</ul>
+
+
+
+<h2 id="UsingEmail">メーリング リストにメールを使用</h2>
+<p><a href="http://groups.google.com/">Google グループ</a> のサイトを使用する代わりに、メール クライアントを使用して、メーリング リストに投稿することも可能です。</p>
+<p>Google グループのサイトを使用せずに、グループに登録するには、上記の「メールで登録」のリンクを使用します。</p>
+<p>メーリング リストへの投稿をメールで受信するように設定する方法は、次のとおりです:</p>
+
+<ol><li>Google グループ サイトから、グループにログインします。たとえば android-framework グループには <a href="http://groups.google.com/group/android-framework?hl=ja">http://groups.google.com/group/android-framework?hl=ja</a> にアクセスします。</li>
+<li>右側の [メンバーステータスを編集] をクリックします。</li>
+<li>[このグループの閲覧方法] で、メール オプションのいずれかを選択します。 </li>
+</ol>
+
+<h2 id="UsingIRC">IRC の使用</h2>
+<p>Android コミュニティは irc.freenode.net サーバーの #android チャンネルを使用しています。
+</p>
+
+
+
+
+
+
+
+</div>
+
+    </div>
+      
+      <div class="content-footer layout-content-row" 
+                    itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <div class="layout-content-col col-9" style="padding-top:4px">
+          
+            <div class="g-plusone" data-size="medium"></div>
+          
+        </div>
+        
+        <div class="paging-links layout-content-col col-4">
+          
+        </div>
+        
+      </div>
+      
+      
+      
+
+  </div> <!-- end jd-content -->
+
+<div id="footer" class="wrap" >
+        
+
+  <div id="copyright">
+    
+  Except as noted, this content is 
+  licensed under <a href="http://creativecommons.org/licenses/by/2.5/">
+  Creative Commons Attribution 2.5</a>. For details and 
+  restrictions, see the <a href="../../../license.html">Content 
+  License</a>.
+  </div>
+
+
+  <div id="footerlinks">
+    
+  <p>
+    <a href="../../../about/index.html">About Android</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../legal.html">Legal</a>&nbsp;&nbsp;|&nbsp;
+    <a href="../../../support.html">Support</a>
+  </p>
+  </div>
+
+</div> <!-- end footer -->
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+
+
+
+<!-- Grid - for dev 
+<script type="text/javascript">
+
+window.gOverride = {
+		gColor: '#FF0000',
+		pColor: '#EEEEEE',
+		gOpacity: 0.10,
+		pOpacity: 0.40,
+		pHeight: 16,
+		pOffset: 2,
+		gColumns:16,
+		gEnabled:false,
+		pEnabled:false
+	}
+</script>
+	
+<link href="../../../assets/js/grid/960.gridder.css" rel="stylesheet" type="text/css">
+<script src="../../../assets/js/grid/960.gridder.js" type="text/javascript"></script>
+-->
+
+
+
+
+
+<script type="text/javascript">
+init(); /* initialize android-developer-docs.js */
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+  var pageTracker = _gat._getTracker("UA-5831155-1");
+  pageTracker._trackPageview();
+</script>
+
+
+
+</body>
+</html>
+
+
+
