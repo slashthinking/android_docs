@@ -400,7 +400,7 @@ differences report &raquo;</a> </li>
 
   <h2>See Also</h2>
   <ol>
-    <li><a href="../../sdk/exploring.html">Exploring the SDK</a></li>
+    <li><a href="../../sdk/exploring.html">探索SDK</a></li>
   </ol>
 
 </div>
@@ -506,7 +506,7 @@ built-in applications:</p>
 	<li>Browser</li>
 	<li>Calculator</li>
 	<li>Camcorder</li>
-	<li>Camera</li>
+	<li>相机</li>
 	<li>Contacts</li>
 	<li>Custom Locale (developer app)</li>
 	<li>Dev Tools (developer app)</li>
@@ -664,21 +664,21 @@ do so from the application at run-time, with <code><a href="../../reference/andr
 <p>The following is a summary of changes that affect the behavior of some
 framework APIs but do not add or remove API functionality.</p>
 
-<h4>Bluetooth</h4>
+<h4>蓝牙</h4>
 
-<p>Changes to the values returned by <code><a href="../../reference/android/bluetooth/BluetoothAdapter.html#ACTION_REQUEST_ENABLE">ACTION_REQUEST_ENABLE</a></code> and
-<code><a href="../../reference/android/bluetooth/BluetoothAdapter.html#ACTION_REQUEST_DISCOVERABLE">ACTION_REQUEST_DISCOVERABLE</a></code>:</p>
+<p>Changes to the values returned by <code><a href="../../reference/android/bluetooth/蓝牙Adapter.html#ACTION_REQUEST_ENABLE">ACTION_REQUEST_ENABLE</a></code> and
+<code><a href="../../reference/android/bluetooth/蓝牙Adapter.html#ACTION_REQUEST_DISCOVERABLE">ACTION_REQUEST_DISCOVERABLE</a></code>:</p>
 
 <ul>
-<li><code><a href="../../reference/android/bluetooth/BluetoothAdapter.html#ACTION_REQUEST_ENABLE">ACTION_REQUEST_ENABLE</a></code> now
-returns <code><a href="../../reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> if Bluetooth was successfully
+<li><code><a href="../../reference/android/bluetooth/蓝牙Adapter.html#ACTION_REQUEST_ENABLE">ACTION_REQUEST_ENABLE</a></code> now
+returns <code><a href="../../reference/android/app/Activity.html#RESULT_OK">RESULT_OK</a></code> if 蓝牙 was successfully
 enabled and <code><a href="../../reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code> if the user rejected
-the request to enable Bluetooth, rather than 0 and -1 (or -2),
+the request to enable 蓝牙, rather than 0 and -1 (or -2),
 respectively.</li>
 
-<li><code><a href="../../reference/android/bluetooth/BluetoothAdapter.html#ACTION_REQUEST_DISCOVERABLE">ACTION_REQUEST_DISCOVERABLE</a></code>
+<li><code><a href="../../reference/android/bluetooth/蓝牙Adapter.html#ACTION_REQUEST_DISCOVERABLE">ACTION_REQUEST_DISCOVERABLE</a></code>
 now returns <code><a href="../../reference/android/app/Activity.html#RESULT_CANCELED">RESULT_CANCELED</a></code> if the user rejected
-the request to enable discoverability or if Bluetooth is not enabled, rather
+the request to enable discoverability or if 蓝牙 is not enabled, rather
 than -1 and -2, respectively.</li>
 </ul>
 

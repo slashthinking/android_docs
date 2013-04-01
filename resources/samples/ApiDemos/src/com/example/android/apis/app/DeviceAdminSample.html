@@ -636,9 +636,9 @@ public class DeviceAdminSample extends PreferenceActivity {
             implements OnPreferenceChangeListener {
         // UI elements
         private CheckBoxPreference mEnableCheckbox;
-        private CheckBoxPreference mDisableCameraCheckbox;
+        private CheckBoxPreference mDisable相机Checkbox;
         private CheckBoxPreference mDisableKeyguardWidgetsCheckbox;
-        private CheckBoxPreference mDisableKeyguardSecureCameraCheckbox;
+        private CheckBoxPreference mDisableKeyguardSecure相机Checkbox;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -646,14 +646,14 @@ public class DeviceAdminSample extends PreferenceActivity {
             addPreferencesFromResource(R.xml.device_admin_general);
             mEnableCheckbox = (CheckBoxPreference) findPreference(KEY_ENABLE_ADMIN);
             mEnableCheckbox.setOnPreferenceChangeListener(this);
-            mDisableCameraCheckbox = (CheckBoxPreference) findPreference(KEY_DISABLE_CAMERA);
-            mDisableCameraCheckbox.setOnPreferenceChangeListener(this);
+            mDisable相机Checkbox = (CheckBoxPreference) findPreference(KEY_DISABLE_CAMERA);
+            mDisable相机Checkbox.setOnPreferenceChangeListener(this);
             mDisableKeyguardWidgetsCheckbox =
                 (CheckBoxPreference) findPreference(KEY_DISABLE_KEYGUARD_WIDGETS);
             mDisableKeyguardWidgetsCheckbox.setOnPreferenceChangeListener(this);
-            mDisableKeyguardSecureCameraCheckbox =
+            mDisableKeyguardSecure相机Checkbox =
                 (CheckBoxPreference) findPreference(KEY_DISABLE_KEYGUARD_SECURE_CAMERA);
-            mDisableKeyguardSecureCameraCheckbox.setOnPreferenceChangeListener(this);
+            mDisableKeyguardSecure相机Checkbox.setOnPreferenceChangeListener(this);
         }
 
         // At onResume time, reload UI with current values as required
@@ -664,7 +664,7 @@ public class DeviceAdminSample extends PreferenceActivity {
             enableDeviceCapabilitiesArea(mAdminActive);
 
             if (mAdminActive) {
-                mDPM.setCameraDisabled(mDeviceAdminSample, mDisableCameraCheckbox.isChecked());
+                mDPM.set相机Disabled(mDeviceAdminSample, mDisable相机Checkbox.isChecked());
                 mDPM.setKeyguardDisabledFeatures(mDeviceAdminSample, createKeyguardDisabledFlag());
                 reloadSummaries();
             }
@@ -674,7 +674,7 @@ public class DeviceAdminSample extends PreferenceActivity {
             int flags = DevicePolicyManager.KEYGUARD_DISABLE_FEATURES_NONE;
             flags |= mDisableKeyguardWidgetsCheckbox.isChecked() ?
                     DevicePolicyManager.KEYGUARD_DISABLE_WIDGETS_ALL : 0;
-            flags |= mDisableKeyguardSecureCameraCheckbox.isChecked() ?
+            flags |= mDisableKeyguardSecure相机Checkbox.isChecked() ?
                     DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA : 0;
             return flags;
         }
@@ -702,11 +702,11 @@ public class DeviceAdminSample extends PreferenceActivity {
                         mAdminActive = false;
                     }
                 }
-            } else if (preference == mDisableCameraCheckbox) {
-                mDPM.setCameraDisabled(mDeviceAdminSample, value);
+            } else if (preference == mDisable相机Checkbox) {
+                mDPM.set相机Disabled(mDeviceAdminSample, value);
                 reloadSummaries();
             } else if (preference == mDisableKeyguardWidgetsCheckbox
-                    || preference == mDisableKeyguardSecureCameraCheckbox) {
+                    || preference == mDisableKeyguardSecure相机Checkbox) {
                 mDPM.setKeyguardDisabledFeatures(mDeviceAdminSample, createKeyguardDisabledFlag());
                 reloadSummaries();
             }
@@ -716,9 +716,9 @@ public class DeviceAdminSample extends PreferenceActivity {
         @Override
         protected void reloadSummaries() {
             super.reloadSummaries();
-            String cameraSummary = getString(mDPM.getCameraDisabled(mDeviceAdminSample)
+            String cameraSummary = getString(mDPM.get相机Disabled(mDeviceAdminSample)
                     ? R.string.camera_disabled : R.string.camera_enabled);
-            mDisableCameraCheckbox.setSummary(cameraSummary);
+            mDisable相机Checkbox.setSummary(cameraSummary);
 
             int disabled = mDPM.getKeyguardDisabledFeatures(mDeviceAdminSample);
 
@@ -727,17 +727,17 @@ public class DeviceAdminSample extends PreferenceActivity {
                             R.string.keyguard_widgets_disabled : R.string.keyguard_widgets_enabled);
             mDisableKeyguardWidgetsCheckbox.setSummary(keyguardWidgetSummary);
 
-            String keyguardSecureCameraSummary = getString(
+            String keyguardSecure相机Summary = getString(
                 (disabled &amp; DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA) != 0 ?
                 R.string.keyguard_secure_camera_disabled : R.string.keyguard_secure_camera_enabled);
-            mDisableKeyguardSecureCameraCheckbox.setSummary(keyguardSecureCameraSummary);
+            mDisableKeyguardSecure相机Checkbox.setSummary(keyguardSecure相机Summary);
         }
 
         /** Updates the device capabilities area (dis/enabling) as the admin is (de)activated */
         private void enableDeviceCapabilitiesArea(boolean enabled) {
-            mDisableCameraCheckbox.setEnabled(enabled);
+            mDisable相机Checkbox.setEnabled(enabled);
             mDisableKeyguardWidgetsCheckbox.setEnabled(enabled);
-            mDisableKeyguardSecureCameraCheckbox.setEnabled(enabled);
+            mDisableKeyguardSecure相机Checkbox.setEnabled(enabled);
         }
     }
 

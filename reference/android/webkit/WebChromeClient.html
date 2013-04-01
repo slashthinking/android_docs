@@ -735,7 +735,7 @@ SDK</a></li></ul>
     <li><h2>Interfaces</h2>
       <ul>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/DownloadListener.html">DownloadListener</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/webkit/GeolocationPermissions.Callback.html">GeolocationPermissions.Callback</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/webkit/Geolocation权限体系.Callback.html">Geolocation权限体系.Callback</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/webkit/PluginStub.html">PluginStub</a></li>
           <li class="api apilevel-7"><a href="../../../reference/android/webkit/ValueCallback.html">ValueCallback</a></li>
           <li class="api apilevel-7"><a href="../../../reference/android/webkit/WebChromeClient.CustomViewCallback.html">WebChromeClient.CustomViewCallback</a></li>
@@ -752,7 +752,7 @@ SDK</a></li></ul>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/CookieManager.html">CookieManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/CookieSyncManager.html">CookieSyncManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/DateSorter.html">DateSorter</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/webkit/GeolocationPermissions.html">GeolocationPermissions</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/webkit/Geolocation权限体系.html">Geolocation权限体系</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/HttpAuthHandler.html">HttpAuthHandler</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/JsPromptResult.html">JsPromptResult</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/JsResult.html">JsResult</a></li>
@@ -1214,11 +1214,11 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocationPermissionsHidePrompt()">onGeolocationPermissionsHidePrompt</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocation权限体系HidePrompt()">onGeolocation权限体系HidePrompt</a></span>()</nobr>
         
         <div class="jd-descrdiv">Notify the host application that a request for Geolocation permissions,
  made with a previous call to
- <code><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocationPermissionsShowPrompt(java.lang.String, android.webkit.GeolocationPermissions.Callback)">onGeolocationPermissionsShowPrompt()</a></code>
+ <code><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocation权限体系ShowPrompt(java.lang.String, android.webkit.Geolocation权限体系.Callback)">onGeolocation权限体系ShowPrompt()</a></code>
  has been canceled.</div>
   
   </td></tr>
@@ -1235,7 +1235,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocationPermissionsShowPrompt(java.lang.String, android.webkit.GeolocationPermissions.Callback)">onGeolocationPermissionsShowPrompt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> origin, <a href="../../../reference/android/webkit/GeolocationPermissions.Callback.html">GeolocationPermissions.Callback</a> callback)</nobr>
+        <span class="sympad"><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocation权限体系ShowPrompt(java.lang.String, android.webkit.Geolocation权限体系.Callback)">onGeolocation权限体系ShowPrompt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> origin, <a href="../../../reference/android/webkit/Geolocation权限体系.Callback.html">Geolocation权限体系.Callback</a> callback)</nobr>
         
         <div class="jd-descrdiv">Notify the host application that web content from the specified origin
  is attempting to use the Geolocation API, but no permission state is
@@ -2222,7 +2222,7 @@ From class
 </div>
 
 
-<A NAME="onGeolocationPermissionsHidePrompt()"></A>
+<A NAME="onGeolocation权限体系HidePrompt()"></A>
 
 <div class="jd-details api apilevel-5"> 
     <h4 class="jd-details-title">
@@ -2234,7 +2234,7 @@ From class
          
         void
       </span>
-      <span class="sympad">onGeolocationPermissionsHidePrompt</span>
+      <span class="sympad">onGeolocation权限体系HidePrompt</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2248,7 +2248,7 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Notify the host application that a request for Geolocation permissions,
  made with a previous call to
- <code><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocationPermissionsShowPrompt(java.lang.String, android.webkit.GeolocationPermissions.Callback)">onGeolocationPermissionsShowPrompt()</a></code>
+ <code><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocation权限体系ShowPrompt(java.lang.String, android.webkit.Geolocation权限体系.Callback)">onGeolocation权限体系ShowPrompt()</a></code>
  has been canceled. Any related UI should therefore be hidden.
 </p></div>
 
@@ -2256,7 +2256,7 @@ From class
 </div>
 
 
-<A NAME="onGeolocationPermissionsShowPrompt(java.lang.String, android.webkit.GeolocationPermissions.Callback)"></A>
+<A NAME="onGeolocation权限体系ShowPrompt(java.lang.String, android.webkit.Geolocation权限体系.Callback)"></A>
 
 <div class="jd-details api apilevel-5"> 
     <h4 class="jd-details-title">
@@ -2268,8 +2268,8 @@ From class
          
         void
       </span>
-      <span class="sympad">onGeolocationPermissionsShowPrompt</span>
-      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> origin, <a href="../../../reference/android/webkit/GeolocationPermissions.Callback.html">GeolocationPermissions.Callback</a> callback)</span>
+      <span class="sympad">onGeolocation权限体系ShowPrompt</span>
+      <span class="normal">(<a href="../../../reference/java/lang/String.html">String</a> origin, <a href="../../../reference/android/webkit/Geolocation权限体系.Callback.html">Geolocation权限体系.Callback</a> callback)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2284,7 +2284,7 @@ From class
  is attempting to use the Geolocation API, but no permission state is
  currently set for that origin. The host application should invoke the
  specified callback with the desired permission state. See
- <code><a href="../../../reference/android/webkit/GeolocationPermissions.html">GeolocationPermissions</a></code> for details.</p></div>
+ <code><a href="../../../reference/android/webkit/Geolocation权限体系.html">Geolocation权限体系</a></code> for details.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

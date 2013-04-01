@@ -735,7 +735,7 @@ SDK</a></li></ul>
     <li><h2>Interfaces</h2>
       <ul>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/DownloadListener.html">DownloadListener</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/webkit/GeolocationPermissions.Callback.html">GeolocationPermissions.Callback</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/webkit/Geolocation权限体系.Callback.html">Geolocation权限体系.Callback</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/webkit/PluginStub.html">PluginStub</a></li>
           <li class="api apilevel-7"><a href="../../../reference/android/webkit/ValueCallback.html">ValueCallback</a></li>
           <li class="api apilevel-7"><a href="../../../reference/android/webkit/WebChromeClient.CustomViewCallback.html">WebChromeClient.CustomViewCallback</a></li>
@@ -752,7 +752,7 @@ SDK</a></li></ul>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/CookieManager.html">CookieManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/CookieSyncManager.html">CookieSyncManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/DateSorter.html">DateSorter</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/webkit/GeolocationPermissions.html">GeolocationPermissions</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/webkit/Geolocation权限体系.html">Geolocation权限体系</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/HttpAuthHandler.html">HttpAuthHandler</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/JsPromptResult.html">JsPromptResult</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/JsResult.html">JsResult</a></li>
@@ -1097,7 +1097,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody"><p>A View that displays web pages. This class is the basis upon which you
  can roll your own web browser or simply display some online content within your Activity.
  It uses the WebKit rendering engine to display
@@ -1116,7 +1116,7 @@ Summary:
  element.</p>
 
  <p>For more information, read
- <a href="../../../guide/webapps/webview.html">Building Web Apps in WebView</a>.</p>
+ <a href="../../../guide/webapps/webview.html">在WebView中创建网页应用</a>.</p>
 
  <h3>Basic usage</h3>
 
@@ -1223,7 +1223,7 @@ Summary:
  can set your Activity to handle the <code>orientation</code> and <code>keyboardHidden</code>
  changes, and then just leave the WebView alone. It'll automatically
  re-orient itself as appropriate. Read <a
- href="../../../guide/topics/resources/runtime-changes.html">Handling Runtime Changes</a> for
+ href="../../../guide/topics/resources/runtime-changes.html">处理运行时变化</a> for
  more information about how to handle configuration changes during runtime.</p>
 
 
@@ -10049,7 +10049,7 @@ From class
             float</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/view/View.html#getCameraDistance()">getCameraDistance</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/view/View.html#get相机Distance()">get相机Distance</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the distance along the Z axis from the camera to this view.</div>
   
@@ -14648,7 +14648,7 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/view/View.html#setCameraDistance(float)">setCameraDistance</a></span>(float distance)</nobr>
+        <span class="sympad"><a href="../../../reference/android/view/View.html#set相机Distance(float)">set相机Distance</a></span>(float distance)</nobr>
         
         <div class="jd-descrdiv"><p>Sets the distance along the Z axis (orthogonal to the X/Y plane on which
  views are drawn) from the camera to this view.</div>
@@ -21139,7 +21139,7 @@ From interface
  <code><a href="../../../reference/android/view/ViewGroup.html#getDescendantFocusability()">getDescendantFocusability()</a></code> equal to
  <code><a href="../../../reference/android/view/ViewGroup.html#FOCUS_BLOCK_DESCENDANTS">FOCUS_BLOCK_DESCENDANTS</a></code>.
 
- See also <code><a href="../../../reference/android/view/View.html#focusSearch(int)">focusSearch(int)</a></code>, which is what you call to say that you
+ 同时查看 <code><a href="../../../reference/android/view/View.html#focusSearch(int)">focusSearch(int)</a></code>, which is what you call to say that you
  have focus, and you want your parent to look for the next one.
 
  You may wish to override this method if your custom <code><a href="../../../reference/android/view/View.html">View</a></code> has an internal

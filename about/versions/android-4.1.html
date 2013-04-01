@@ -379,21 +379,21 @@ SDK</a></li></ul>
   
   <h2>In this document</h2>
 <ol>
-  <li><a href="#AppComponents">App Components</a></li>
+  <li><a href="#AppComponents">应用组件</a></li>
   <li><a href="#Multimedia">Multimedia</a></li>
-  <li><a href="#Camera">Camera</a></li>
-  <li><a href="#Connectivity">Connectivity</a></li>
+  <li><a href="#相机">相机</a></li>
+  <li><a href="#链接">链接</a></li>
   <li><a href="#A11y">Accessibility</a></li>
   <li><a href="#CopyPaste">Copy and Paste</a></li>
   <li><a href="#Renderscript">Renderscript</a></li>
   <li><a href="#Animation">Animation</a></li>
-  <li><a href="#UI">User Interface</a></li>
+  <li><a href="#UI">用户界面</a></li>
   <li><a href="#Input">Input Framework</a></li>
-  <li><a href="#Permissions">Permissions</a></li>
+  <li><a href="#权限体系">权限体系</a></li>
   <li><a href="#DeviceFeatures">Device Features</a></li>
 </ol>
 
-<h2>See also</h2>
+<h2>同时查看</h2>
 <ol>
 <li><a
 href="../../sdk/api_diff/16/changes.html">API
@@ -451,7 +451,7 @@ app on Android 4.1. To 开始 developing and testing against Android
 
 
 
-<h2 id="AppComponents">App Components</h2>
+<h2 id="AppComponents">应用组件</h2>
 
 
 
@@ -687,18 +687,18 @@ Media router. The new APIs MediaRouter, MediaRouteActionProvider, and MediaRoute
 standard mechanisms and UI for choosing where to play media.
 
 
-<h2 id="Camera">Camera</h2>
+<h2 id="相机">相机</h2>
 
 <h3 id="AutoFocus">Auto focus movement</h3>
 
-<p>The new interface <code><a href="../../reference/android/hardware/Camera.AutoFocusMoveCallback.html">Camera.AutoFocusMoveCallback</a></code> allows you to listen
-for changes to the auto focus movement. You can register your interface with <code><a href="../../reference/android/hardware/Camera.html#setAutoFocusMoveCallback(android.hardware.Camera.AutoFocusMoveCallback)">setAutoFocusMoveCallback()</a></code>. Then when the camera
-is in a continuous autofocus mode (<code><a href="../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code> or 
-<code><a href="../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></code>), you'll receive a call
-to <code><a href="../../reference/android/hardware/Camera.AutoFocusMoveCallback.html#onAutoFocusMoving(boolean, android.hardware.Camera)">onAutoFocusMoving()</a></code>,
+<p>The new interface <code><a href="../../reference/android/hardware/相机.AutoFocusMoveCallback.html">相机.AutoFocusMoveCallback</a></code> allows you to listen
+for changes to the auto focus movement. You can register your interface with <code><a href="../../reference/android/hardware/相机.html#setAutoFocusMoveCallback(android.hardware.相机.AutoFocusMoveCallback)">setAutoFocusMoveCallback()</a></code>. Then when the camera
+is in a continuous autofocus mode (<code><a href="../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code> or 
+<code><a href="../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></code>), you'll receive a call
+to <code><a href="../../reference/android/hardware/相机.AutoFocusMoveCallback.html#onAutoFocusMoving(boolean, android.hardware.相机)">onAutoFocusMoving()</a></code>,
 which tells you whether auto focus has started moving or has stopped moving.</p>
 
-<h3 id="CameraSounds">Camera sounds</h3>
+<h3 id="相机Sounds">相机 sounds</h3>
 
 <p>The <code><a href="../../reference/android/media/MediaActionSound.html">MediaActionSound</a></code> class provides a simple set of APIs to produce
 standard sounds made by the camera or other media actions. You should use these APIs to play
@@ -710,18 +710,18 @@ appropriate time, call <code><a href="../../reference/android/media/MediaActionS
 
 
 
-<h2 id="Connectivity">Connectivity</h2>
+<h2 id="链接">链接</h2>
 
 
 <h3 id="AndroidBeam">Android Beam</h3>
 
-<p>Android Beam&trade; now supports large payload transfers over Bluetooth. When you define the data
+<p>Android Beam&trade; now supports large payload transfers over 蓝牙. When you define the data
 to transfer with either the new <code><a href="../../reference/android/nfc/NfcAdapter.html#setBeamPushUris(android.net.Uri[], android.app.Activity)">setBeamPushUris()</a></code>
 method or the new callback interface <code><a href="../../reference/android/nfc/NfcAdapter.CreateBeamUrisCallback.html">NfcAdapter.CreateBeamUrisCallback</a></code>, Android
-hands off the data transfer to Bluetooth or another alternate transport to
+hands off the data transfer to 蓝牙 or another alternate transport to
 achieve faster transfer speeds. This is especially useful for large payloads such as image and
 audio files and requires no visible pairing between the devices. No additional work is required by
-your app to take advantage of transfers over Bluetooth.</p>
+your app to take advantage of transfers over 蓝牙.</p>
 
 <p>The <code><a href="../../reference/android/nfc/NfcAdapter.html#setBeamPushUris(android.net.Uri[], android.app.Activity)">setBeamPushUris()</a></code> method takes an array of
 <code><a href="../../reference/android/net/Uri.html">Uri</a></code> objects that specify the data you want to transfer from your app.
@@ -800,7 +800,7 @@ registered to use Bonjour or Upnp. The callback received in either case contains
 
 <h3 id="NetworkUsage">Network usage</h3>
 
-<p>The new method <code><a href="../../reference/android/net/ConnectivityManager.html#isActiveNetworkMetered()">isActiveNetworkMetered()</a></code> allows you to
+<p>The new method <code><a href="../../reference/android/net/链接Manager.html#isActiveNetworkMetered()">isActiveNetworkMetered()</a></code> allows you to
 check whether the device is currently connected to a metered network. By checking this state
 before performing intensive network transactions, you can help manage the data usage that may cost your users money and make
 informed decisions about whether to perform the transactions now or later (such as when the
@@ -924,7 +924,7 @@ type of animation you may want to show as your activity opens:</p>
 
 
 
-<h2 id="UI">User Interface</h2>
+<h2 id="UI">用户界面</h2>
 
 
 <h3 id="Notifications">Notifications</h3>
@@ -1092,7 +1092,7 @@ by calling <code><a href="../../reference/android/view/InputDevice.html#getVibra
 
 
 
-<h2 id="Permissions">Permissions</h2>
+<h2 id="权限体系">权限体系</h2>
 
 <p>The following are new permissions:</p>
 
@@ -1121,7 +1121,7 @@ IME, or a dictionary editor like the Settings app.</dd>
 <h2 id="DeviceFeatures">Device Features</h2>
 
 <p>Android 4.1 includes a new feature declaration for devices that are dedicated
-to displaying the user interface on a television screen: <code><a href="../../reference/android/content/pm/PackageManager.html#FEATURE_TELEVISION">FEATURE_TELEVISION</a></code>. To declare that your app requires
+to displaying the 用户界面 on a television screen: <code><a href="../../reference/android/content/pm/PackageManager.html#FEATURE_TELEVISION">FEATURE_TELEVISION</a></code>. To declare that your app requires
 a television interface, declare this feature in your manifest file with the <a href="../../guide/topics/manifest/uses-feature-element.html"><code>&lt;uses-feature></code></a> element:</p>
 <pre>
 &lt;manifest ... >

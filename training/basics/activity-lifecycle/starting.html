@@ -1293,7 +1293,7 @@ specific lifecycle behaviors.</p>
 
 <p>When the user selects your app icon from the Home screen, the system calls the <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method for the <code><a href="../../../reference/android/app/Activity.html">Activity</a></code> in your app
 that you've declared to be the "launcher" (or "main") activity. This is the activity that serves as
-the main entry point to your app's user interface.</p>
+the main entry point to your app's 用户界面.</p>
 
 <p>You can define which activity to use as the main activity in the Android manifest file, <a
 href="../../../guide/topics/manifest/manifest-intro.html"><code>AndroidManifest.xml</code></a>, which is
@@ -1332,11 +1332,11 @@ every new instance of <code><a href="../../../reference/android/app/Activity.htm
 <p>You must implement the <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> method to perform basic
 application startup logic that should happen only once for the entire life of the activity. For
 example, your implementation of <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code> should define the
-user interface and possibly instantiate some class-scope variables.</p>
+用户界面 and possibly instantiate some class-scope variables.</p>
 
 <p>For example, the following example of the <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code>
 method shows some code that performs some fundamental setup for the activity, such as
-declaring the user interface (defined in an XML layout file), defining member variables,
+declaring the 用户界面 (defined in an XML layout file), defining member variables,
 and configuring some of the UI.</p>
 
 <pre>
@@ -1346,7 +1346,7 @@ TextView mTextView; // Member variable for text view in the layout
 public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    // Set the user interface layout for this Activity
+    // Set the 用户界面 layout for this Activity
     // The layout file is defined in the project res/layout/main_activity.xml file
     setContentView(R.layout.main_activity);
     

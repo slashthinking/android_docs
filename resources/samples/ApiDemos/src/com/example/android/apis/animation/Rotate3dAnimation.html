@@ -407,7 +407,7 @@ package com.example.android.apis.animation;
 
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
-import android.graphics.Camera;
+import android.graphics.相机;
 import android.graphics.Matrix;
 
 /**
@@ -421,7 +421,7 @@ public class Rotate3dAnimation extends Animation {
     private final float mCenterY;
     private final float mDepthZ;
     private final boolean mReverse;
-    private Camera mCamera;
+    private 相机 m相机;
 
     /**
      * Creates a new 3D rotation on the Y axis. The rotation is defined by its
@@ -451,7 +451,7 @@ public class Rotate3dAnimation extends Animation {
     @Override
     public void initialize(int width, int height, int parentWidth, int parentHeight) {
         super.initialize(width, height, parentWidth, parentHeight);
-        mCamera = new Camera();
+        m相机 = new 相机();
     }
 
     @Override
@@ -461,7 +461,7 @@ public class Rotate3dAnimation extends Animation {
 
         final float centerX = mCenterX;
         final float centerY = mCenterY;
-        final Camera camera = mCamera;
+        final 相机 camera = m相机;
 
         final Matrix matrix = t.getMatrix();
 

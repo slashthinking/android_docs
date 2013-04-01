@@ -1178,8 +1178,8 @@ SDK</a></li></ul>
 <ul>
   <li><a href="../../../training/monitoring-device-state/index.html">优化电池寿命</a></li>
   <li><a href="../../../training/efficient-downloads/index.html">传输数据而不耗尽电池</a></li>
-  <li><a href="../../../guide/webapps/index.html">Web Apps Overview</a></li>
-  <li><a href="../../../guide/components/fundamentals.html">Application Fundamentals</a></li>
+  <li><a href="../../../guide/webapps/index.html">网页应用 概览</a></li>
+  <li><a href="../../../guide/components/fundamentals.html">应用基础</a></li>
 </ul>
 
 </div> 
@@ -1211,7 +1211,7 @@ href="http://android-developers.blogspot.com/2011/09/androids-http-clients.html"
 
 <p>Before your app attempts to connect to the network, it should check to see whether a
 network connection is available using 
-<code><a href="../../../reference/android/net/ConnectivityManager.html#getActiveNetworkInfo()">getActiveNetworkInfo()</a></code>
+<code><a href="../../../reference/android/net/链接Manager.html#getActiveNetworkInfo()">getActiveNetworkInfo()</a></code>
 and <code><a href="../../../reference/android/net/NetworkInfo.html#isConnected()">isConnected()</a></code>. 
 Remember, the device may be out of range of a
 network, or the user may have disabled both Wi-Fi and mobile data access. 
@@ -1222,7 +1222,7 @@ Usage</a>.</p>
 <pre>
 public void myClickHandler(View view) {
     ...
-    ConnectivityManager connMgr = (ConnectivityManager) 
+    链接Manager connMgr = (链接Manager) 
         getSystemService(Context.CONNECTIVITY_SERVICE);
     NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
     if (networkInfo != null &amp;&amp; networkInfo.isConnected()) {
@@ -1281,7 +1281,7 @@ public class HttpExampleActivity extends Activity {
     public void myClickHandler(View view) {
         // Gets the URL from the UI's text field.
         String stringUrl = urlText.getText().toString();
-        ConnectivityManager connMgr = (ConnectivityManager) 
+        链接Manager connMgr = (链接Manager) 
             getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null &amp;&amp; networkInfo.isConnected()) {

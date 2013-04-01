@@ -762,7 +762,7 @@ SDK</a></li></ul>
           <li class="api apilevel-3"><a href="../../../reference/android/media/AudioRecord.html">AudioRecord</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/media/AudioTrack.html">AudioTrack</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/media/CamcorderProfile.html">CamcorderProfile</a></li>
-          <li class="api apilevel-8"><a href="../../../reference/android/media/CameraProfile.html">CameraProfile</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/media/相机Profile.html">相机Profile</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/media/ExifInterface.html">ExifInterface</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/media/FaceDetector.html">FaceDetector</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/media/FaceDetector.Face.html">FaceDetector.Face</a></li>
@@ -975,18 +975,18 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody"><p>A class for producing sounds that match those produced by various actions
  taken by the media and camera APIs.  </p>
 
  <p>Use this class to play an appropriate camera operation sound when
- implementing a custom still or video recording mechanism (through the Camera
- preview callbacks with <code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallback(android.hardware.Camera.PreviewCallback)">Camera.setPreviewCallback</a></code>, or through GPU processing with <code><a href="../../../reference/android/hardware/Camera.html#setPreviewTexture(android.graphics.SurfaceTexture)">Camera.setPreviewTexture</a></code>, for
+ implementing a custom still or video recording mechanism (through the 相机
+ preview callbacks with <code><a href="../../../reference/android/hardware/相机.html#setPreviewCallback(android.hardware.相机.PreviewCallback)">相机.setPreviewCallback</a></code>, or through GPU processing with <code><a href="../../../reference/android/hardware/相机.html#setPreviewTexture(android.graphics.SurfaceTexture)">相机.setPreviewTexture</a></code>, for
  example), or when implementing some other camera-like function in your
  application.</p>
 
  <p>There is no need to play sounds when using
- <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">Camera.takePicture</a></code> or
+ <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">相机.takePicture</a></code> or
  <code><a href="../../../reference/android/media/MediaRecorder.html">MediaRecorder</a></code> for still images or video, respectively,
  as the Android framework will play the appropriate sounds when needed for
  these calls.</p>
@@ -1047,7 +1047,7 @@ Summary:
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/media/MediaActionSound.html#SHUTTER_CLICK">SHUTTER_CLICK</a></td>
         <td class="jd-descrcol" width="100%">The sound used by
- <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">Camera.takePicture</a></code> to
+ <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">相机.takePicture</a></code> to
  indicate still image capture.</td>
     </tr>
     
@@ -1517,7 +1517,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>The sound used by
- <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">Camera.takePicture</a></code> to
+ <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">相机.takePicture</a></code> to
  indicate still image capture.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
@@ -1769,7 +1769,7 @@ From class
  <p>Use this method to play a platform-specific sound for various media
  actions. The sound playback is done asynchronously, with the same
  behavior and content as the sounds played by
- <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">Camera.takePicture</a></code>,
+ <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">相机.takePicture</a></code>,
  <code><a href="../../../reference/android/media/MediaRecorder.html#start()">MediaRecorder.start</a></code>, and
  <code><a href="../../../reference/android/media/MediaRecorder.html#stop()">MediaRecorder.stop</a></code>.</p>
 
@@ -1794,7 +1794,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code></li><li><code><a href="../../../reference/android/media/MediaRecorder.html">MediaRecorder</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html#SHUTTER_CLICK">SHUTTER_CLICK</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html#FOCUS_COMPLETE">FOCUS_COMPLETE</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html#START_VIDEO_RECORDING">START_VIDEO_RECORDING</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html#STOP_VIDEO_RECORDING">STOP_VIDEO_RECORDING</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code></li><li><code><a href="../../../reference/android/media/MediaRecorder.html">MediaRecorder</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html#SHUTTER_CLICK">SHUTTER_CLICK</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html#FOCUS_COMPLETE">FOCUS_COMPLETE</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html#START_VIDEO_RECORDING">START_VIDEO_RECORDING</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html#STOP_VIDEO_RECORDING">STOP_VIDEO_RECORDING</a></code></li>
       </ul>
   </div>
 

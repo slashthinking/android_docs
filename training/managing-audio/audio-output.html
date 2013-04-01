@@ -1171,7 +1171,7 @@ SDK</a></li></ul>
 
 <h2>你需要同时阅读</h2>
 <ul>
-  <li><a href="../../guide/topics/media/mediaplayer.html">Media Playback</a></li>
+  <li><a href="../../guide/topics/media/mediaplayer.html">播放媒体</a></li>
 </ul>
 
 
@@ -1180,7 +1180,7 @@ SDK</a></li></ul>
 
 <p>Users have a number of alternatives when it comes to enjoying the audio from their Android
 devices. Most devices have a built-in speaker, headphone jacks for wired headsets, and many also
-feature Bluetooth connectivity and support for A2DP audio. </p>
+feature 蓝牙 connectivity and support for A2DP audio. </p>
 
  
 <h2 id="CheckHardware">Check What Hardware is Being Used</h2> 
@@ -1188,12 +1188,12 @@ feature Bluetooth connectivity and support for A2DP audio. </p>
 <p>How your app behaves might be affected by which hardware its output is being routed to.</p>
 
 <p>You can query the <code><a href="../../reference/android/media/AudioManager.html">AudioManager</a></code> to determine if the audio is currently
-being routed to the device speaker, wired headset, or attached Bluetooth device as shown in the
+being routed to the device speaker, wired headset, or attached 蓝牙 device as shown in the
 following snippet:</p>
 
 <pre>
-if (isBluetoothA2dpOn()) {
-    // Adjust output for Bluetooth.
+if (is蓝牙A2dpOn()) {
+    // Adjust output for 蓝牙.
 } else if (isSpeakerphoneOn()) {
     // Adjust output for Speakerphone.
 } else if (isWiredHeadsetOn()) {
@@ -1206,7 +1206,7 @@ if (isBluetoothA2dpOn()) {
 
 <h2 id="HandleChanges">Handle Changes in the Audio Output Hardware</h2> 
 
-<p>When a headset is unplugged, or a Bluetooth device disconnected, the audio stream
+<p>When a headset is unplugged, or a 蓝牙 device disconnected, the audio stream
 automatically reroutes to the built in speaker. If you listen to your music at as high a volume as I
 do, that can be a noisy surprise.</p>
 

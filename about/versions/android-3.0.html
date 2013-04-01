@@ -379,7 +379,7 @@ SDK</a></li></ul>
 
 <h2>In this document</h2>
 <ol>
-  <li><a href="#api">API Overview</a></li>
+  <li><a href="#api">API 概览</a></li>
   <li><a href="#api-level">API Level</a></li>
 </ol>
 
@@ -412,7 +412,7 @@ use the Android SDK Manager to download the platform into your SDK.</p>
 
 
 
-<h2 id="#api">API Overview</h2>
+<h2 id="#api">API 概览</h2>
 
 <p>The sections below provide a technical overview of what's new for developers in Android 3.0,
 including new features and changes in the framework API since the previous version.</p>
@@ -551,7 +551,7 @@ sample and a more complete implementation in the Note Pad sample.</p>
 
 <h3>Drag and drop</h3>
 
-<p>New APIs simplify drag and drop operations in your application's user interface. A drag
+<p>New APIs simplify drag and drop operations in your application's 用户界面. A drag
 operation is the transfer of some kind of data&mdash;carried in a <code><a href="../../reference/android/content/ClipData.html">ClipData</a></code>
 object&mdash;from one place to another. The start and end point for the drag operation is a <code><a href="../../reference/android/view/View.html">View</a></code>, so the APIs that directly handle the drag and drop operations are
 in the <code><a href="../../reference/android/view/View.html">View</a></code> class.</p>
@@ -650,17 +650,17 @@ LoaderThrottle</a> samples.</p>
 
 
 
-<h3>Bluetooth A2DP and headset APIs</h3>
+<h3>蓝牙 A2DP and headset APIs</h3>
 
-<p>Android now includes APIs for applications to verify the state of connected Bluetooth A2DP and
-headset profile devices. For example, applications can identify when a Bluetooth headset is
+<p>Android now includes APIs for applications to verify the state of connected 蓝牙 A2DP and
+headset profile devices. For example, applications can identify when a 蓝牙 headset is
 connected for listening to music and notify the user as appropriate. Applications can also receive
 broadcasts for vendor specific AT commands and notify the user about the state of the connected
 device, such as when the connected device's battery is low.</p>
 
-<p>You can initialize the respective <code><a href="../../reference/android/bluetooth/BluetoothProfile.html">BluetoothProfile</a></code> by calling <code><a href="../../reference/android/bluetooth/BluetoothAdapter.html#getProfileProxy(android.content.Context, android.bluetooth.BluetoothProfile.ServiceListener, int)">getProfileProxy()</a></code> with either the <code><a href="../../reference/android/bluetooth/BluetoothProfile.html#A2DP">A2DP</a></code> or <code><a href="../../reference/android/bluetooth/BluetoothProfile.html#HEADSET">HEADSET</a></code>
-profile constant and a <code><a href="../../reference/android/bluetooth/BluetoothProfile.ServiceListener.html">BluetoothProfile.ServiceListener</a></code> to receive
-callbacks when the Bluetooth client is connected or disconnected.</p>
+<p>You can initialize the respective <code><a href="../../reference/android/bluetooth/蓝牙Profile.html">蓝牙Profile</a></code> by calling <code><a href="../../reference/android/bluetooth/蓝牙Adapter.html#getProfileProxy(android.content.Context, android.bluetooth.蓝牙Profile.ServiceListener, int)">getProfileProxy()</a></code> with either the <code><a href="../../reference/android/bluetooth/蓝牙Profile.html#A2DP">A2DP</a></code> or <code><a href="../../reference/android/bluetooth/蓝牙Profile.html#HEADSET">HEADSET</a></code>
+profile constant and a <code><a href="../../reference/android/bluetooth/蓝牙Profile.ServiceListener.html">蓝牙Profile.ServiceListener</a></code> to receive
+callbacks when the 蓝牙 client is connected or disconnected.</p>
 
 
 
@@ -761,7 +761,7 @@ animator.start();
   <li><b>New holographic themes</b>
 
     <p>The standard system widgets and overall look have been redesigned and incorporate a new
-"holographic" user interface theme. The system applies the new theme
+"holographic" 用户界面 theme. The system applies the new theme
 using the standard <a href="../../guide/topics/ui/themes.html">style and theme</a> system.</p>
 
 <p>Any application that targets the Android 3.0 platform&mdash;by setting either the <a
@@ -873,7 +873,7 @@ as a special, platform-independent shader language for maximum performance. Usin
 can accelerate graphics operations and data processing. Renderscript is an ideal way to create
 high-performance 3D effects for applications, wallpapers, carousels, and more.</p>
 <p>For more information, see the <a
-href="../../guide/topics/graphics/renderscript.html">3D Rendering and Computation with
+href="../../guide/topics/graphics/renderscript.html">3D Rendering and 计算 with
 Renderscript</a> documentation.</p></li>
 </ul>
 
@@ -893,8 +893,8 @@ should be captured.</p></li>
   <li><b>Texture support for image streams</b>
     
 <p>New <code><a href="../../reference/android/graphics/SurfaceTexture.html">SurfaceTexture</a></code> allows you to capture an image stream as an OpenGL ES
-texture. By calling <code><a href="../../reference/android/hardware/Camera.html#setPreviewTexture(android.graphics.SurfaceTexture)">setPreviewTexture()</a></code> for your
-<code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> instance, you can specify the <code><a href="../../reference/android/graphics/SurfaceTexture.html">SurfaceTexture</a></code> upon which to draw video playback or preview frames from the
+texture. By calling <code><a href="../../reference/android/hardware/相机.html#setPreviewTexture(android.graphics.SurfaceTexture)">setPreviewTexture()</a></code> for your
+<code><a href="../../reference/android/hardware/相机.html">相机</a></code> instance, you can specify the <code><a href="../../reference/android/graphics/SurfaceTexture.html">SurfaceTexture</a></code> upon which to draw video playback or preview frames from the
 camera.</p></li>
 
   <li><b>HTTP Live streaming</b>
@@ -902,7 +902,7 @@ camera.</p></li>
 <p>Applications can now pass an M3U playlist URL to the media framework to begin an HTTP Live
 streaming session. The media framework supports most of the HTTP Live streaming specification,
 including adaptive bit rate. See the <a
-href="../../guide/appendix/media-formats.html">Supported Media Formats</a> document for
+href="../../guide/appendix/media-formats.html">支持媒体类型</a> document for
 more information.</p></li>
 
   <li><b>EXIF data</b>
@@ -1033,7 +1033,7 @@ activity. This does <em>not</em> affect whether views inside the activity can sp
 events&mdash;by default, the activity can still split touch events across views.</p>
 
 <p>For more information about creating a theme, read <a
-href="../../guide/topics/ui/themes.html">Applying Styles and Themes</a>.</p>
+href="../../guide/topics/ui/themes.html">Applying 样式和主题</a>.</p>
 </li>
 </ul>
 

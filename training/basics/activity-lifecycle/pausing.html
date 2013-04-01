@@ -1226,7 +1226,7 @@ GPS), or any resources that may affect battery life while your activity is pause
 does not need them.</li>
 </ul>
 
-<p>For example, if your application uses the <code><a href="../../../reference/android/hardware/Camera.html">Camera</a></code>, the
+<p>For example, if your application uses the <code><a href="../../../reference/android/hardware/相机.html">相机</a></code>, the
 <code><a href="../../../reference/android/app/Activity.html#onPause()">onPause()</a></code> method is a good place to release it.</p>
 
 <pre>
@@ -1234,11 +1234,11 @@ does not need them.</li>
 public void onPause() {
     super.onPause();  // Always call the superclass method first
 
-    // Release the Camera because we don't need it when paused
+    // Release the 相机 because we don't need it when paused
     // and other activities might need to use it.
-    if (mCamera != null) {
-        mCamera.release()
-        mCamera = null;
+    if (m相机 != null) {
+        m相机.release()
+        m相机 = null;
     }
 }
 </pre>
@@ -1278,9 +1278,9 @@ released when the activity pauses.</p>
 public void onResume() {
     super.onResume();  // Always call the superclass method first
 
-    // Get the Camera instance as the activity achieves full user focus
-    if (mCamera == null) {
-        initializeCamera(); // Local method to handle camera init
+    // Get the 相机 instance as the activity achieves full user focus
+    if (m相机 == null) {
+        initialize相机(); // Local method to handle camera init
     }
 }
 </pre>

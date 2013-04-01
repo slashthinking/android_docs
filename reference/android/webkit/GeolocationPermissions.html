@@ -75,7 +75,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
-<title>GeolocationPermissions - Android SDK | Android Developers</title>
+<title>Geolocation权限体系 - Android SDK | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -735,7 +735,7 @@ SDK</a></li></ul>
     <li><h2>Interfaces</h2>
       <ul>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/DownloadListener.html">DownloadListener</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/webkit/GeolocationPermissions.Callback.html">GeolocationPermissions.Callback</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/webkit/Geolocation权限体系.Callback.html">Geolocation权限体系.Callback</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/webkit/PluginStub.html">PluginStub</a></li>
           <li class="api apilevel-7"><a href="../../../reference/android/webkit/ValueCallback.html">ValueCallback</a></li>
           <li class="api apilevel-7"><a href="../../../reference/android/webkit/WebChromeClient.CustomViewCallback.html">WebChromeClient.CustomViewCallback</a></li>
@@ -752,7 +752,7 @@ SDK</a></li></ul>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/CookieManager.html">CookieManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/CookieSyncManager.html">CookieSyncManager</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/DateSorter.html">DateSorter</a></li>
-          <li class="selected api apilevel-5"><a href="../../../reference/android/webkit/GeolocationPermissions.html">GeolocationPermissions</a></li>
+          <li class="selected api apilevel-5"><a href="../../../reference/android/webkit/Geolocation权限体系.html">Geolocation权限体系</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/HttpAuthHandler.html">HttpAuthHandler</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/JsPromptResult.html">JsPromptResult</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/webkit/JsResult.html">JsResult</a></li>
@@ -896,7 +896,7 @@ Summary:
      
     
     class
-<h1 itemprop="name">GeolocationPermissions</h1>
+<h1 itemprop="name">Geolocation权限体系</h1>
 
 
 
@@ -929,7 +929,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">android.webkit.GeolocationPermissions</td>
+        <td colspan="1" class="jd-inheritance-class-cell">android.webkit.Geolocation权限体系</td>
     </tr>
     
 
@@ -944,7 +944,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody">This class is used to manage permissions for the WebView's Geolocation
  JavaScript API.
 
@@ -958,7 +958,7 @@ Summary:
 
  When an origin attempts to use the Geolocation API, but no permission state
  is currently set for that origin,
- <code><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocationPermissionsShowPrompt(java.lang.String, android.webkit.GeolocationPermissions.Callback)">WebChromeClient.onGeolocationPermissionsShowPrompt()</a></code>
+ <code><a href="../../../reference/android/webkit/WebChromeClient.html#onGeolocation权限体系ShowPrompt(java.lang.String, android.webkit.Geolocation权限体系.Callback)">WebChromeClient.onGeolocation权限体系ShowPrompt()</a></code>
  is called. This allows the permission state to be set for that origin.
 
  The methods of this class can be used to modify and interrogate the stored
@@ -1005,7 +1005,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/webkit/GeolocationPermissions.Callback.html">GeolocationPermissions.Callback</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/webkit/Geolocation权限体系.Callback.html">Geolocation权限体系.Callback</a></td>
       <td class="jd-descrcol" width="100%">A callback interface used by the host application to set the Geolocation
  permission state for an origin.&nbsp;</td>
     </tr>
@@ -1054,7 +1054,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/webkit/GeolocationPermissions.html#allow(java.lang.String)">allow</a></span>(<a href="../../../reference/java/lang/String.html">String</a> origin)</nobr>
+        <span class="sympad"><a href="../../../reference/android/webkit/Geolocation权限体系.html#allow(java.lang.String)">allow</a></span>(<a href="../../../reference/java/lang/String.html">String</a> origin)</nobr>
         
         <div class="jd-descrdiv">Allows the specified origin to use the Geolocation API.</div>
   
@@ -1072,7 +1072,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/webkit/GeolocationPermissions.html#clear(java.lang.String)">clear</a></span>(<a href="../../../reference/java/lang/String.html">String</a> origin)</nobr>
+        <span class="sympad"><a href="../../../reference/android/webkit/Geolocation权限体系.html#clear(java.lang.String)">clear</a></span>(<a href="../../../reference/java/lang/String.html">String</a> origin)</nobr>
         
         <div class="jd-descrdiv">Clears the Geolocation permission state for the specified origin.</div>
   
@@ -1090,7 +1090,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/webkit/GeolocationPermissions.html#clearAll()">clearAll</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/webkit/Geolocation权限体系.html#clearAll()">clearAll</a></span>()</nobr>
         
         <div class="jd-descrdiv">Clears the Geolocation permission state for all origins.</div>
   
@@ -1108,7 +1108,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/webkit/GeolocationPermissions.html#getAllowed(java.lang.String, android.webkit.ValueCallback<java.lang.Boolean>)">getAllowed</a></span>(<a href="../../../reference/java/lang/String.html">String</a> origin, <a href="../../../reference/android/webkit/ValueCallback.html">ValueCallback</a>&lt;<a href="../../../reference/java/lang/Boolean.html">Boolean</a>&gt; callback)</nobr>
+        <span class="sympad"><a href="../../../reference/android/webkit/Geolocation权限体系.html#getAllowed(java.lang.String, android.webkit.ValueCallback<java.lang.Boolean>)">getAllowed</a></span>(<a href="../../../reference/java/lang/String.html">String</a> origin, <a href="../../../reference/android/webkit/ValueCallback.html">ValueCallback</a>&lt;<a href="../../../reference/java/lang/Boolean.html">Boolean</a>&gt; callback)</nobr>
         
         <div class="jd-descrdiv">Gets the Geolocation permission state for the specified origin.</div>
   
@@ -1123,10 +1123,10 @@ Summary:
             
             static
             
-            <a href="../../../reference/android/webkit/GeolocationPermissions.html">GeolocationPermissions</a></nobr>
+            <a href="../../../reference/android/webkit/Geolocation权限体系.html">Geolocation权限体系</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/webkit/GeolocationPermissions.html#getInstance()">getInstance</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/webkit/Geolocation权限体系.html#getInstance()">getInstance</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the singleton instance of this class.</div>
   
@@ -1144,7 +1144,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/webkit/GeolocationPermissions.html#getOrigins(android.webkit.ValueCallback<java.util.Set<java.lang.String>>)">getOrigins</a></span>(<a href="../../../reference/android/webkit/ValueCallback.html">ValueCallback</a>&lt;<a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;&gt; callback)</nobr>
+        <span class="sympad"><a href="../../../reference/android/webkit/Geolocation权限体系.html#getOrigins(android.webkit.ValueCallback<java.util.Set<java.lang.String>>)">getOrigins</a></span>(<a href="../../../reference/android/webkit/ValueCallback.html">ValueCallback</a>&lt;<a href="../../../reference/java/util/Set.html">Set</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;&gt; callback)</nobr>
         
         <div class="jd-descrdiv">Gets the set of origins for which Geolocation permissions are stored.</div>
   
@@ -1608,7 +1608,7 @@ From class
          
          
          
-        <a href="../../../reference/android/webkit/GeolocationPermissions.html">GeolocationPermissions</a>
+        <a href="../../../reference/android/webkit/Geolocation权限体系.html">Geolocation权限体系</a>
       </span>
       <span class="sympad">getInstance</span>
       <span class="normal">()</span>
@@ -1625,7 +1625,7 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Gets the singleton instance of this class.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the singleton <code><a href="../../../reference/android/webkit/GeolocationPermissions.html">GeolocationPermissions</a></code> instance
+      <ul class="nolist"><li>the singleton <code><a href="../../../reference/android/webkit/Geolocation权限体系.html">Geolocation权限体系</a></code> instance
 </li></ul>
   </div>
 

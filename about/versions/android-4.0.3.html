@@ -379,7 +379,7 @@ SDK</a></li></ul>
 
 <h2>In this document</h2>
 <ol>
-  <li><a href="#api">API Overview</a></li>
+  <li><a href="#api">API 概览</a></li>
   <li><a href="#Honeycomb">Previous APIs</a></li>
   <li><a href="#api-level">API Level</a></li>
 </ol>
@@ -407,7 +407,7 @@ more. To 开始 developing or testing against Android 4.0.3,
 use the Android SDK Manager to download the platform into your SDK.</p>
 
 
-<h2 id="api">API Overview</h2>
+<h2 id="api">API 概览</h2>
 
 <p>The sections below provide a technical overview of new APIs in Android 4.0.3.</p>
 
@@ -424,14 +424,14 @@ class="toggle-content-img" alt="" /><strong>Table of Contents</strong>
       <li><a href="#calendar">Calendar Provider</a></li>
       <li><a href="#widgets">Home screen widgets</a></li>
       <li><a href="#textservices">Spell-checking</a></li>
-      <li><a href="#bluetooth">Bluetooth</a></li>
+      <li><a href="#bluetooth">蓝牙</a></li>
       <li><a href="#ui">UI toolkit</a></li>
       <li><a href="#accessibility">Accessibility</a></li>
       <li><a href="#tts">Text-to-speech</a></li>
       <li><a href="#database">Database</a></li>
       <li><a href="#intents">Intents</a></li>
-      <li><a href="#camera">Camera</a></li>
-      <li><a href="#permissions">Permissions</a></li>
+      <li><a href="#camera">相机</a></li>
+      <li><a href="#permissions">权限体系</a></li>
     </ol>
   </div>
 </div>
@@ -521,11 +521,11 @@ word/text that the user is typing/composing. This type of suggestion is rendered
 differently, to indicate the auto correction is happening.</li>
 </ul>
 
-<h3 id="bluetooth">Bluetooth</h3>
-<p>New public methods <code><a href="../../reference/android/bluetooth/BluetoothDevice.html#fetchUuidsWithSdp()">fetchUuidsWithSdp()</a></code> and <code><a href="../../reference/android/bluetooth/BluetoothDevice.html#getUuids()">getUuids()</a></code> let apps determine the features
-(UUIDs) supported by a remote device. In the case of <code><a href="../../reference/android/bluetooth/BluetoothDevice.html#fetchUuidsWithSdp()">fetchUuidsWithSdp()</a></code>, the system performs a
+<h3 id="bluetooth">蓝牙</h3>
+<p>New public methods <code><a href="../../reference/android/bluetooth/蓝牙Device.html#fetchUuidsWithSdp()">fetchUuidsWithSdp()</a></code> and <code><a href="../../reference/android/bluetooth/蓝牙Device.html#getUuids()">getUuids()</a></code> let apps determine the features
+(UUIDs) supported by a remote device. In the case of <code><a href="../../reference/android/bluetooth/蓝牙Device.html#fetchUuidsWithSdp()">fetchUuidsWithSdp()</a></code>, the system performs a
 service discovery on the remote device to get the UUIDs supported, then
-broadcasts the result in an <code><a href="../../reference/android/bluetooth/BluetoothDevice.html#ACTION_UUID">ACTION_UUID</a></code> intent.</p>
+broadcasts the result in an <code><a href="../../reference/android/bluetooth/蓝牙Device.html#ACTION_UUID">ACTION_UUID</a></code> intent.</p>
 
 <h3 id="ui">UI toolkit</h3>
 
@@ -601,7 +601,7 @@ between local and remote cursor windows, so <code><a href="../../reference/andro
 <p>Adds new categories for targeting common types of applications on the
 device, such as <code><a href="../../reference/android/content/Intent.html#CATEGORY_APP_BROWSER">CATEGORY_APP_BROWSER</a></code>, <code><a href="../../reference/android/content/Intent.html#CATEGORY_APP_CALENDAR">CATEGORY_APP_CALENDAR</a></code>, <code><a href="../../reference/android/content/Intent.html#CATEGORY_APP_MAPS">CATEGORY_APP_MAPS</a></code>, and more.</li>
 
-<h3 id="camera">Camera</h3>
+<h3 id="camera">相机</h3>
 
 <ul>
 <li><code><a href="../../reference/android/media/MediaMetadataRetriever.html">MediaMetadataRetriever</a></code> adds the new constant
@@ -613,12 +613,12 @@ profiles. Quality level is represented by the
 <code><a href="../../reference/android/media/CamcorderProfile.html#QUALITY_QVGA">QUALITY_QVGA</a></code>.and
 <code><a href="../../reference/android/media/CamcorderProfile.html#QUALITY_TIME_LAPSE_QVGA">QUALITY_TIME_LAPSE_QVGA</a></code> constants.</li>
 
-<li>New methods <code><a href="../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization()</a></code>,
-<code><a href="../../reference/android/hardware/Camera.Parameters.html#getVideoStabilization()">setVideoStabilization()</a></code>, and <code><a href="../../reference/android/hardware/Camera.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code>
-let you check and manage video stabilization for a <code><a href="../../reference/android/hardware/Camera.html">Camera</a></code>.</li>
+<li>New methods <code><a href="../../reference/android/hardware/相机.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization()</a></code>,
+<code><a href="../../reference/android/hardware/相机.Parameters.html#getVideoStabilization()">setVideoStabilization()</a></code>, and <code><a href="../../reference/android/hardware/相机.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code>
+let you check and manage video stabilization for a <code><a href="../../reference/android/hardware/相机.html">相机</a></code>.</li>
 </ul>
 
-<h3 id="Permissions">Permissions</h3>
+<h3 id="权限体系">权限体系</h3>
 
 <p>The following are new permissions:</p>
 <ul>

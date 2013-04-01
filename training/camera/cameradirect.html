@@ -1164,19 +1164,19 @@ SDK</a></li></ul>
     
     <h2>这堂课可以教会你</h2>
     <ol>
-      <li><a href="#TaskOpenCamera">Open the Camera Object</a></li>
-      <li><a href="#camera-preview">Create the Camera Preview</a></li>
-      <li><a href="#TaskSettings">Modify Camera Settings</a></li>
+      <li><a href="#TaskOpen相机">Open the 相机 Object</a></li>
+      <li><a href="#camera-preview">Create the 相机 Preview</a></li>
+      <li><a href="#TaskSettings">Modify 相机 Settings</a></li>
       <li><a href="#TaskOrientation">Set the Preview Orientation</a></li>
       <li><a href="#TaskTakePicture">Take a Picture</a></li>
       <li><a href="#TaskRestartPreview">Restart the Preview</a></li>
-      <li><a href="#TaskReleaseCamera">Stop the Preview and Release the Camera</a></li>
+      <li><a href="#TaskRelease相机">Stop the Preview and Release the 相机</a></li>
     </ol>
     
     <h2>你需要同时阅读</h2>
     <ul>
       <li><a href="../../guide/topics/media/camera.html#custom-camera">Building
-              a Camera App</a></li>
+              a 相机 App</a></li>
     </ul>
   </div>
 </div>
@@ -1189,51 +1189,51 @@ from existing camera applications. However, if you want to build a specialized c
 or something fully integrated in your app UI, this lesson shows you how.</p>
 
 
-<h2 id="TaskOpenCamera">Open the Camera Object</h2>
+<h2 id="TaskOpen相机">Open the 相机 Object</h2>
 
-<p>Getting an instance of the <code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> object is the first step in the
-process of directly 控制相机. As Android's own Camera application does, the
-recommended way to access the camera is to open <code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> on a separate thread
+<p>Getting an instance of the <code><a href="../../reference/android/hardware/相机.html">相机</a></code> object is the first step in the
+process of directly 控制相机. As Android's own 相机 application does, the
+recommended way to access the camera is to open <code><a href="../../reference/android/hardware/相机.html">相机</a></code> on a separate thread
 that's launched from <code><a href="../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate()</a></code>. This approach is a good idea
 since it can take a while and might bog down the UI thread. In a more basic implementation,
 opening the camera can be deferred to the <code><a href="../../reference/android/app/Activity.html#onResume()">onResume()</a></code> method to facilitate code reuse and keep the flow of
 control simple.</p>
 
-<p>Calling <code><a href="../../reference/android/hardware/Camera.html#open()">Camera.open()</a></code> throws an
+<p>Calling <code><a href="../../reference/android/hardware/相机.html#open()">相机.open()</a></code> throws an
 exception if the camera is already in use by another application, so we wrap it
 in a <code>try</code> block.</p>
 
 <pre>
-private boolean safeCameraOpen(int id) {
+private boolean safe相机Open(int id) {
     boolean qOpened = false;
   
     try {
-        releaseCameraAndPreview();
-        mCamera = Camera.open(id);
-        qOpened = (mCamera != null);
+        release相机AndPreview();
+        m相机 = 相机.open(id);
+        qOpened = (m相机 != null);
     } catch (Exception e) {
-        Log.e(getString(R.string.app_name), "failed to open Camera");
+        Log.e(getString(R.string.app_name), "failed to open 相机");
         e.printStackTrace();
     }
 
     return qOpened;    
 }
 
-private void releaseCameraAndPreview() {
-    mPreview.setCamera(null);
-    if (mCamera != null) {
-        mCamera.release();
-        mCamera = null;
+private void release相机AndPreview() {
+    mPreview.set相机(null);
+    if (m相机 != null) {
+        m相机.release();
+        m相机 = null;
     }
 }
 </pre>
 
 <p>Since API level 9, the camera framework supports multiple cameras. If you use the
-legacy API and call <code><a href="../../reference/android/hardware/Camera.html#open()">open()</a></code> without an
+legacy API and call <code><a href="../../reference/android/hardware/相机.html#open()">open()</a></code> without an
 argument, you get the first rear-facing camera.</p>
 
 
-<h2 id="camera-preview">Create the Camera Preview</h2>
+<h2 id="camera-preview">Create the 相机 Preview</h2>
 
 <p>Taking a picture usually requires that your users see a preview of their subject before clicking
 the shutter. To do so, you can use a <code><a href="../../reference/android/view/SurfaceView.html">SurfaceView</a></code> to draw previews of what the
@@ -1267,7 +1267,7 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
 }
 </pre>
 
-<p>The preview class must be passed to the <code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> object before the live
+<p>The preview class must be passed to the <code><a href="../../reference/android/hardware/相机.html">相机</a></code> object before the live
 image preview can be started, as shown in the next section.</p>
 
 
@@ -1275,25 +1275,25 @@ image preview can be started, as shown in the next section.</p>
 
 <p>A camera instance and its related preview must be created in a specific
 order, with the camera object being first. In the snippet below, the
-process of initializing the camera is encapsulated so that <code><a href="../../reference/android/hardware/Camera.html#startPreview()">Camera.startPreview()</a></code> is called by the
-<code>setCamera()</code> method, whenever the user does something to change the
+process of initializing the camera is encapsulated so that <code><a href="../../reference/android/hardware/相机.html#startPreview()">相机.startPreview()</a></code> is called by the
+<code>set相机()</code> method, whenever the user does something to change the
 camera. The preview must also be restarted in the preview class <code>surfaceChanged()</code> callback method.</p>
 
 <pre>
-public void setCamera(Camera camera) {
-    if (mCamera == camera) { return; }
+public void set相机(相机 camera) {
+    if (m相机 == camera) { return; }
     
-    stopPreviewAndFreeCamera();
+    stopPreviewAndFree相机();
     
-    mCamera = camera;
+    m相机 = camera;
     
-    if (mCamera != null) {
-        List&lt;Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
+    if (m相机 != null) {
+        List&lt;Size> localSizes = m相机.getParameters().getSupportedPreviewSizes();
         mSupportedPreviewSizes = localSizes;
         requestLayout();
       
         try {
-            mCamera.setPreviewDisplay(mHolder);
+            m相机.setPreviewDisplay(mHolder);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -1302,32 +1302,32 @@ public void setCamera(Camera camera) {
           Important: Call startPreview() to start updating the preview surface. Preview must 
           be started before you can take a picture.
           */
-        mCamera.startPreview();
+        m相机.startPreview();
     }
 }
 </pre>
 
 
-<h2 id="TaskSettings">Modify Camera Settings</h2>
+<h2 id="TaskSettings">Modify 相机 Settings</h2>
 
-<p>Camera settings change the way that the camera takes pictures, from the zoom
+<p>相机 settings change the way that the camera takes pictures, from the zoom
 level to exposure compensation. This example changes only the preview size;
-see the source code of the Camera application for many more.</p>
+see the source code of the 相机 application for many more.</p>
 
 <pre>
 public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
     // Now that the size is known, set up the camera parameters and begin
     // the preview.
-    Camera.Parameters parameters = mCamera.getParameters();
+    相机.Parameters parameters = m相机.getParameters();
     parameters.setPreviewSize(mPreviewSize.width, mPreviewSize.height);
     requestLayout();
-    mCamera.setParameters(parameters);
+    m相机.setParameters(parameters);
 
     /*
       Important: Call startPreview() to start updating the preview surface. Preview must be
       started before you can take a picture.
     */
-    mCamera.startPreview();
+    m相机.startPreview();
 }
 </pre>
 
@@ -1336,19 +1336,19 @@ public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
 
 <p>Most camera applications lock the display into landscape mode because that is the natural
 orientation of the camera sensor. This setting does not prevent you from taking portrait-mode
-photos, because the orientation of the device is recorded in the EXIF header. The <code><a href="../../reference/android/hardware/Camera.html#setDisplayOrientation(int)">setCameraDisplayOrientation()</a></code> method lets you change
+photos, because the orientation of the device is recorded in the EXIF header. The <code><a href="../../reference/android/hardware/相机.html#setDisplayOrientation(int)">set相机DisplayOrientation()</a></code> method lets you change
 how the preview is displayed without affecting how the image is recorded. However, in Android prior
 to API level 14, you must stop your preview before changing the orientation and then restart it.</p>
 
 
 <h2 id="TaskTakePicture">Take a Picture</h2>
 
-<p>Use the <code><a href="../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">Camera.takePicture()</a></code>
-method to take a picture once the preview is started. You can create <code><a href="../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a></code> and <code><a href="../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a></code> objects and pass them into <code><a href="../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">Camera.takePicture()</a></code>.</p>
+<p>Use the <code><a href="../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">相机.takePicture()</a></code>
+method to take a picture once the preview is started. You can create <code><a href="../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a></code> and <code><a href="../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a></code> objects and pass them into <code><a href="../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">相机.takePicture()</a></code>.</p>
 
-<p>If you want to grab images continously, you can create a <code><a href="../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></code> that implements <code><a href="../../reference/android/hardware/Camera.PreviewCallback.html#onPreviewFrame(byte[], android.hardware.Camera)">onPreviewFrame()</a></code>. For
+<p>If you want to grab images continously, you can create a <code><a href="../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a></code> that implements <code><a href="../../reference/android/hardware/相机.PreviewCallback.html#onPreviewFrame(byte[], android.hardware.相机)">onPreviewFrame()</a></code>. For
 something in between, you can capture only selected preview frames, or set up a
-delayed action to call <code><a href="../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture()</a></code>.</p>
+delayed action to call <code><a href="../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture()</a></code>.</p>
 
 
 <h2 id="TaskRestartPreview">Restart the Preview</h2>
@@ -1362,12 +1362,12 @@ the shutter button.</p>
 public void onClick(View v) {
     switch(mPreviewState) {
     case K_STATE_FROZEN:
-        mCamera.startPreview();
+        m相机.startPreview();
         mPreviewState = K_STATE_PREVIEW;
         break;
 
     default:
-        mCamera.takePicture( null, rawCallback, null);
+        m相机.takePicture( null, rawCallback, null);
         mPreviewState = K_STATE_BUSY;
     } // switch
     shutterBtnConfig();
@@ -1375,10 +1375,10 @@ public void onClick(View v) {
 </pre>
 
 
-<h2 id="TaskReleaseCamera">Stop the Preview and Release the Camera</h2>
+<h2 id="TaskRelease相机">Stop the Preview and Release the 相机</h2>
 
 <p>Once your application is done using the camera, it's time to clean up. In
-particular, you must release the <code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> object, or you risk crashing other
+particular, you must release the <code><a href="../../reference/android/hardware/相机.html">相机</a></code> object, or you risk crashing other
 applications, including new instances of your own application.</p>
 
 <p>When should you stop the preview and release the camera? Well, having your
@@ -1388,38 +1388,38 @@ preview and release the camera, as shown in these methods from the <code>Preview
 <pre>
 public void surfaceDestroyed(SurfaceHolder holder) {
     // Surface will be destroyed when we return, so stop the preview.
-    if (mCamera != null) {
+    if (m相机 != null) {
         /*
           Call stopPreview() to stop updating the preview surface.
         */
-        mCamera.stopPreview();
+        m相机.stopPreview();
     }
 }
 
 /**
-  * When this function returns, mCamera will be null.
+  * When this function returns, m相机 will be null.
   */
-private void stopPreviewAndFreeCamera() {
+private void stopPreviewAndFree相机() {
 
-    if (mCamera != null) {
+    if (m相机 != null) {
         /*
           Call stopPreview() to stop updating the preview surface.
         */
-        mCamera.stopPreview();
+        m相机.stopPreview();
     
         /*
           Important: Call release() to release the camera for use by other applications. 
           Applications should release the camera immediately in onPause() (and re-open() it in
           onResume()).
         */
-        mCamera.release();
+        m相机.release();
     
-        mCamera = null;
+        m相机 = null;
     }
 }
 </pre>
 
-<p>Earlier in the lesson, this procedure was also part of the <code>setCamera()</code> method, so initializing a camera always begins with stopping the
+<p>Earlier in the lesson, this procedure was also part of the <code>set相机()</code> method, so initializing a camera always begins with stopping the
 preview.</p>
 
 

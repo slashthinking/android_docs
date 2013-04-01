@@ -379,7 +379,7 @@ SDK</a></li></ul>
 
 <h2>In this document</h2>
 <ol>
-  <li><a href="#api">API Overview</a></li>
+  <li><a href="#api">API 概览</a></li>
   <li><a href="#Honeycomb">Previous APIs</a></li>
   <li><a href="#api-level">API Level</a></li>
 </ol>
@@ -411,7 +411,7 @@ an Android library and system image, as well as a set of emulator skins and
 more. To 开始 developing or testing against Android 4.0,
 use the Android SDK Manager to download the platform into your SDK.</p>
 
-<h2 id="api">API Overview</h2>
+<h2 id="api">API 概览</h2>
 
 <p>The sections below provide a technical overview of new APIs in Android 4.0.</p>
 
@@ -429,10 +429,10 @@ class="toggle-content-img" alt="" />
       <li><a href="#Calendar">Calendar Provider</a></li>
       <li><a href="#Voicemail">Voicemail Provider</a></li>
       <li><a href="#Multimedia">Multimedia</a></li>
-      <li><a href="#Camera">Camera</a></li>
+      <li><a href="#相机">相机</a></li>
       <li><a href="#AndroidBeam">Android Beam (NDEF Push with NFC)</a></li>
       <li><a href="#WiFiDirect">Wi-Fi Direct</a></li>
-      <li><a href="#Bluetooth">Bluetooth Health Devices</a></li>
+      <li><a href="#蓝牙">蓝牙 Health Devices</a></li>
       <li><a href="#A11y">Accessibility</a></li>
       <li><a href="#SpellChecker">Spell Checker Services</a></li>
       <li><a href="#TTS">Text-to-speech Engines</a></li>
@@ -441,13 +441,13 @@ class="toggle-content-img" alt="" />
       <li><a href="#Enterprise">Enterprise</a></li>
       <li><a href="#Sensors">Device Sensors</a></li>
       <li><a href="#ActionBar">Action Bar</a></li>
-      <li><a href="#UI">User Interface and Views</a></li>
+      <li><a href="#UI">用户界面 and Views</a></li>
       <li><a href="#Input">Input Framework</a></li>
       <li><a href="#Properties">Properties</a></li>
-      <li><a href="#HwAccel">Hardware Acceleration</a></li>
+      <li><a href="#HwAccel">硬件加速</a></li>
       <li><a href="#Jni">JNI Changes</a></li>
       <li><a href="#WebKit">WebKit</a></li>
-      <li><a href="#Permissions">Permissions</a></li>
+      <li><a href="#权限体系">权限体系</a></li>
       <li><a href="#DeviceFeatures">Device Features</a></li>
     </ol>
   </div>
@@ -749,26 +749,26 @@ Formats</a>.</p>
 
 
 
-<h3 id="Camera">Camera</h3>
+<h3 id="相机">相机</h3>
 
-<p>The <code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> class now includes APIs for detecting faces and controlling
+<p>The <code><a href="../../reference/android/hardware/相机.html">相机</a></code> class now includes APIs for detecting faces and controlling
 focus and metering areas.</p>
 
 
 <h4>Face detection</h4>
 
-<p>Camera apps can now enhance their abilities with Android’s face detection APIs, which not
+<p>相机 apps can now enhance their abilities with Android’s face detection APIs, which not
 only detect the face of a subject, but also specific facial features, such as the eyes and mouth.
 </p>
 
-<p>To detect faces in your camera application, you must register a <code><a href="../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></code> by calling <code><a href="../../reference/android/hardware/Camera.html#setFaceDetectionListener(android.hardware.Camera.FaceDetectionListener)">setFaceDetectionListener()</a></code>. You can then start
-your camera surface and start  detecting faces by calling <code><a href="../../reference/android/hardware/Camera.html#startFaceDetection()">startFaceDetection()</a></code>.</p>
+<p>To detect faces in your camera application, you must register a <code><a href="../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a></code> by calling <code><a href="../../reference/android/hardware/相机.html#setFaceDetectionListener(android.hardware.相机.FaceDetectionListener)">setFaceDetectionListener()</a></code>. You can then start
+your camera surface and start  detecting faces by calling <code><a href="../../reference/android/hardware/相机.html#startFaceDetection()">startFaceDetection()</a></code>.</p>
 
-<p>When the system detects one or more faces in the camera scene, it calls the <code><a href="../../reference/android/hardware/Camera.FaceDetectionListener.html#onFaceDetection(android.hardware.Camera.Face[], android.hardware.Camera)">onFaceDetection()</a></code> callback in your
-implementation of <code><a href="../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></code>, including an array of
-<code><a href="../../reference/android/hardware/Camera.Face.html">Camera.Face</a></code> objects.</p>
+<p>When the system detects one or more faces in the camera scene, it calls the <code><a href="../../reference/android/hardware/相机.FaceDetectionListener.html#onFaceDetection(android.hardware.相机.Face[], android.hardware.相机)">onFaceDetection()</a></code> callback in your
+implementation of <code><a href="../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a></code>, including an array of
+<code><a href="../../reference/android/hardware/相机.Face.html">相机.Face</a></code> objects.</p>
 
-<p>An instance of the <code><a href="../../reference/android/hardware/Camera.Face.html">Camera.Face</a></code> class provides various information about
+<p>An instance of the <code><a href="../../reference/android/hardware/相机.Face.html">相机.Face</a></code> class provides various information about
 the face detected, including:</p>
 <ul>
 <li>A <code><a href="../../reference/android/graphics/Rect.html">Rect</a></code> that specifies the bounds of the face, relative to the camera's
@@ -781,65 +781,65 @@ located</li>
 </ul>
 
 <p class="note"><strong>Note:</strong> Face detection may not be supported on some
-devices, so you should check by calling <code><a href="../../reference/android/hardware/Camera.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces()</a></code> and ensure the return
+devices, so you should check by calling <code><a href="../../reference/android/hardware/相机.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces()</a></code> and ensure the return
 value is greater than zero. Also, some devices may not support identification of eyes and mouth,
-in which case, those fields in the <code><a href="../../reference/android/hardware/Camera.Face.html">Camera.Face</a></code> object will be null.</p>
+in which case, those fields in the <code><a href="../../reference/android/hardware/相机.Face.html">相机.Face</a></code> object will be null.</p>
 
   
 <h4>Focus and metering areas</h4>
 
-<p>Camera apps can now control the areas that the camera uses for focus and for metering white
+<p>相机 apps can now control the areas that the camera uses for focus and for metering white
 balance
-and auto-exposure. Both features use the new <code><a href="../../reference/android/hardware/Camera.Area.html">Camera.Area</a></code> class to specify
-the region of the camera’s current view that should be focused or metered. An instance of the <code><a href="../../reference/android/hardware/Camera.Area.html">Camera.Area</a></code> class defines the bounds of the area with a <code><a href="../../reference/android/graphics/Rect.html">Rect</a></code> and the area's weight&mdash;representing the level of importance of that
+and auto-exposure. Both features use the new <code><a href="../../reference/android/hardware/相机.Area.html">相机.Area</a></code> class to specify
+the region of the camera’s current view that should be focused or metered. An instance of the <code><a href="../../reference/android/hardware/相机.Area.html">相机.Area</a></code> class defines the bounds of the area with a <code><a href="../../reference/android/graphics/Rect.html">Rect</a></code> and the area's weight&mdash;representing the level of importance of that
 area, relative to other areas in consideration&mdash;with an integer.</p>
 
-<p>Before setting either a focus area or metering area, you should first call <code><a href="../../reference/android/hardware/Camera.Parameters.html#getMaxNumFocusAreas()">getMaxNumFocusAreas()</a></code> or <code><a href="../../reference/android/hardware/Camera.Parameters.html#getMaxNumMeteringAreas()">getMaxNumMeteringAreas()</a></code>, respectively. If these return zero, then
+<p>Before setting either a focus area or metering area, you should first call <code><a href="../../reference/android/hardware/相机.Parameters.html#getMaxNumFocusAreas()">getMaxNumFocusAreas()</a></code> or <code><a href="../../reference/android/hardware/相机.Parameters.html#getMaxNumMeteringAreas()">getMaxNumMeteringAreas()</a></code>, respectively. If these return zero, then
 the device does not support the corresponding feature.</p>
 
-<p>To specify the focus or metering areas to use, simply call <code><a href="../../reference/android/hardware/Camera.Parameters.html#setFocusAreas(java.util.List<android.hardware.Camera.Area>)">setFocusAreas()</a></code> or <code><a href="../../reference/android/hardware/Camera.Parameters.html#setMeteringAreas(java.util.List<android.hardware.Camera.Area>)">setMeteringAreas()</a></code>. Each take a <code><a href="../../reference/java/util/List.html">List</a></code> of <code><a href="../../reference/android/hardware/Camera.Area.html">Camera.Area</a></code> objects that indicate the areas to consider
+<p>To specify the focus or metering areas to use, simply call <code><a href="../../reference/android/hardware/相机.Parameters.html#setFocusAreas(java.util.List<android.hardware.相机.Area>)">setFocusAreas()</a></code> or <code><a href="../../reference/android/hardware/相机.Parameters.html#setMeteringAreas(java.util.List<android.hardware.相机.Area>)">setMeteringAreas()</a></code>. Each take a <code><a href="../../reference/java/util/List.html">List</a></code> of <code><a href="../../reference/android/hardware/相机.Area.html">相机.Area</a></code> objects that indicate the areas to consider
 for focus or metering. For example, you might implement a feature that allows the user to set the
-focus area by touching an area of the preview, which you then translate to an <code><a href="../../reference/android/hardware/Camera.Area.html">Camera.Area</a></code> object and request that the camera focus on that area of the scene.
+focus area by touching an area of the preview, which you then translate to an <code><a href="../../reference/android/hardware/相机.Area.html">相机.Area</a></code> object and request that the camera focus on that area of the scene.
 The focus or exposure in that area will continually update as the scene in the area changes.</p>
 
 
 <h4>Continuous auto focus for photos</h4>
 
 <p>You can now enable continuous auto focusing (CAF) when taking photos. To enable CAF in your
-camera app, pass <code><a href="../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></code>
-to <code><a href="../../reference/android/hardware/Camera.Parameters.html#setFocusMode(java.lang.String)">setFocusMode()</a></code>. When ready to capture
-a photo, call <code><a href="../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus()</a></code>. Your <code><a href="../../reference/android/hardware/Camera.AutoFocusCallback.html">Camera.AutoFocusCallback</a></code> immediately receives a callback to indicate whether
-focus was achieved. To resume CAF after receiving the callback, you must call <code><a href="../../reference/android/hardware/Camera.html#cancelAutoFocus()">cancelAutoFocus()</a></code>.</p>
+camera app, pass <code><a href="../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></code>
+to <code><a href="../../reference/android/hardware/相机.Parameters.html#setFocusMode(java.lang.String)">setFocusMode()</a></code>. When ready to capture
+a photo, call <code><a href="../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus()</a></code>. Your <code><a href="../../reference/android/hardware/相机.AutoFocusCallback.html">相机.AutoFocusCallback</a></code> immediately receives a callback to indicate whether
+focus was achieved. To resume CAF after receiving the callback, you must call <code><a href="../../reference/android/hardware/相机.html#cancelAutoFocus()">cancelAutoFocus()</a></code>.</p>
 
 <p class="note"><strong>Note:</strong> Continuous auto focus is also supported when capturing
-video, using <code><a href="../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code>, which was
+video, using <code><a href="../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code>, which was
 added in API level 9.</p>
 
 
 <h4>Other camera features</h4>
 
 <ul>  
-<li>While recording video, you can now call <code><a href="../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture()</a></code> to save a photo without interrupting the video session. Before doing so, you should
-call <code><a href="../../reference/android/hardware/Camera.Parameters.html#isVideoSnapshotSupported()">isVideoSnapshotSupported()</a></code> to be sure the hardware
+<li>While recording video, you can now call <code><a href="../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture()</a></code> to save a photo without interrupting the video session. Before doing so, you should
+call <code><a href="../../reference/android/hardware/相机.Parameters.html#isVideoSnapshotSupported()">isVideoSnapshotSupported()</a></code> to be sure the hardware
 supports it.</li>
 
-<li>You can now lock auto exposure and white balance with <code><a href="../../reference/android/hardware/Camera.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock()</a></code> and <code><a href="../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock()</a></code> to prevent
+<li>You can now lock auto exposure and white balance with <code><a href="../../reference/android/hardware/相机.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock()</a></code> and <code><a href="../../reference/android/hardware/相机.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock()</a></code> to prevent
 these properties from changing.</li>
 
-<li>You can now call <code><a href="../../reference/android/hardware/Camera.html#setDisplayOrientation(int)">setDisplayOrientation()</a></code> while the camera preview is running. Previously, you could call this
+<li>You can now call <code><a href="../../reference/android/hardware/相机.html#setDisplayOrientation(int)">setDisplayOrientation()</a></code> while the camera preview is running. Previously, you could call this
 only before beginning the preview, but you can now change the orientation at any time.</li>
 </ul>
 
 
-<h4>Camera broadcast intents</h4>
+<h4>相机 broadcast intents</h4>
 
 <ul>
-<li><code><a href="../../reference/android/hardware/Camera.html#ACTION_NEW_PICTURE">Camera.ACTION_NEW_PICTURE</a></code>:
-This indicates that the user has captured a new photo. The built-in Camera app invokes this
+<li><code><a href="../../reference/android/hardware/相机.html#ACTION_NEW_PICTURE">相机.ACTION_NEW_PICTURE</a></code>:
+This indicates that the user has captured a new photo. The built-in 相机 app invokes this
 broadcast after a photo is captured and third-party camera apps should also broadcast this intent
 after capturing a photo.</li>
-<li><code><a href="../../reference/android/hardware/Camera.html#ACTION_NEW_VIDEO">Camera.ACTION_NEW_VIDEO</a></code>:
-This indicates that the user has captured a new video. The built-in Camera app invokes this
+<li><code><a href="../../reference/android/hardware/相机.html#ACTION_NEW_VIDEO">相机.ACTION_NEW_VIDEO</a></code>:
+This indicates that the user has captured a new video. The built-in 相机 app invokes this
 broadcast after a video is recorded and third-party camera apps should also broadcast this intent
 after capturing a video.</li>
 </ul>
@@ -929,7 +929,7 @@ Beam Demo</a>.</p>
 devices and other device types without a hotspot or Internet connection. The Android framework
 provides a set of Wi-Fi P2P APIs that allow you to discover and connect to other devices when each
 device supports Wi-Fi Direct, then communicate over a speedy connection across distances much longer
-than a Bluetooth connection.</p>
+than a 蓝牙 connection.</p>
 
 <p>A new package, <code><a href="../../reference/android/net/wifi/p2p/package-summary.html">android.net.wifi.p2p</a></code>, contains all the APIs for performing peer-to-peer
 connections with Wi-Fi. The primary class you need to work with is <code><a href="../../reference/android/net/wifi/p2p/WifiP2pManager.html">WifiP2pManager</a></code>, which you can acquire by calling <code><a href="../../reference/android/app/Activity.html#getSystemService(java.lang.String)">getSystemService(WIFI_P2P_SERVICE)</a></code>. The <code><a href="../../reference/android/net/wifi/p2p/WifiP2pManager.html">WifiP2pManager</a></code> includes APIs that allow you to:</p>
@@ -993,28 +993,28 @@ sample application.</p>
 
 
 
-<h3 id="Bluetooth">Bluetooth Health Devices</h3>
+<h3 id="蓝牙">蓝牙 Health Devices</h3>
 
-<p>Android now supports Bluetooth Health Profile devices, so you can create applications that use
-Bluetooth to communicate with health devices that support Bluetooth, such as heart-rate monitors,
+<p>Android now supports 蓝牙 Health Profile devices, so you can create applications that use
+蓝牙 to communicate with health devices that support 蓝牙, such as heart-rate monitors,
 blood meters, thermometers, and scales.</p>
 
-<p>Similar to regular headset and A2DP profile devices, you must call <code><a href="../../reference/android/bluetooth/BluetoothAdapter.html#getProfileProxy(android.content.Context, android.bluetooth.BluetoothProfile.ServiceListener, int)">getProfileProxy()</a></code> with a <code><a href="../../reference/android/bluetooth/BluetoothProfile.ServiceListener.html">BluetoothProfile.ServiceListener</a></code> and the <code><a href="../../reference/android/bluetooth/BluetoothProfile.html#HEALTH">HEALTH</a></code> profile type to establish a connection with the profile
+<p>Similar to regular headset and A2DP profile devices, you must call <code><a href="../../reference/android/bluetooth/蓝牙Adapter.html#getProfileProxy(android.content.Context, android.bluetooth.蓝牙Profile.ServiceListener, int)">getProfileProxy()</a></code> with a <code><a href="../../reference/android/bluetooth/蓝牙Profile.ServiceListener.html">蓝牙Profile.ServiceListener</a></code> and the <code><a href="../../reference/android/bluetooth/蓝牙Profile.html#HEALTH">HEALTH</a></code> profile type to establish a connection with the profile
 proxy object.</p>
 
-<p>Once you’ve acquired the Health Profile proxy (the <code><a href="../../reference/android/bluetooth/BluetoothHealth.html">BluetoothHealth</a></code>
+<p>Once you’ve acquired the Health Profile proxy (the <code><a href="../../reference/android/bluetooth/蓝牙Health.html">蓝牙Health</a></code>
 object), connecting to and communicating with paired health devices involves the following new
-Bluetooth classes:</p>
+蓝牙 classes:</p>
 <ul>
-<li><code><a href="../../reference/android/bluetooth/BluetoothHealthCallback.html">BluetoothHealthCallback</a></code>: You must extend this class and implement the
+<li><code><a href="../../reference/android/bluetooth/蓝牙HealthCallback.html">蓝牙HealthCallback</a></code>: You must extend this class and implement the
 callback methods to receive updates about changes in the application’s registration state and
-Bluetooth channel state.</li>
-<li><code><a href="../../reference/android/bluetooth/BluetoothHealthAppConfiguration.html">BluetoothHealthAppConfiguration</a></code>: During callbacks to your <code><a href="../../reference/android/bluetooth/BluetoothHealthCallback.html">BluetoothHealthCallback</a></code>, you’ll receive an instance of this object, which
-provides configuration information about the available Bluetooth health device, which you must use
-to perform various operations such as initiate and terminate connections with the <code><a href="../../reference/android/bluetooth/BluetoothHealth.html">BluetoothHealth</a></code> APIs.</li>
+蓝牙 channel state.</li>
+<li><code><a href="../../reference/android/bluetooth/蓝牙HealthAppConfiguration.html">蓝牙HealthAppConfiguration</a></code>: During callbacks to your <code><a href="../../reference/android/bluetooth/蓝牙HealthCallback.html">蓝牙HealthCallback</a></code>, you’ll receive an instance of this object, which
+provides configuration information about the available 蓝牙 health device, which you must use
+to perform various operations such as initiate and terminate connections with the <code><a href="../../reference/android/bluetooth/蓝牙Health.html">蓝牙Health</a></code> APIs.</li>
 </ul>
 
-<p>For more information about using the Bluetooth Health Profile, see the documentation for <code><a href="../../reference/android/bluetooth/BluetoothHealth.html">BluetoothHealth</a></code>.</p>
+<p>For more information about using the 蓝牙 Health Profile, see the documentation for <code><a href="../../reference/android/bluetooth/蓝牙Health.html">蓝牙Health</a></code>.</p>
 
 
 
@@ -1248,9 +1248,9 @@ application’s data usage. Thus, when the user inspects how much data your app 
 Settings app, a “View application settings" button is available that launches your
 preference activity so the user can refine how much data your app uses.</p>
 
-<p>Also beware that <code><a href="../../reference/android/net/ConnectivityManager.html#getBackgroundDataSetting()">getBackgroundDataSetting()</a></code> is now
-deprecated and always returns true&mdash;use  <code><a href="../../reference/android/net/ConnectivityManager.html#getActiveNetworkInfo()">getActiveNetworkInfo()</a></code> instead. Before you attempt any network
-transactions, you should always call <code><a href="../../reference/android/net/ConnectivityManager.html#getActiveNetworkInfo()">getActiveNetworkInfo()</a></code>
+<p>Also beware that <code><a href="../../reference/android/net/链接Manager.html#getBackgroundDataSetting()">getBackgroundDataSetting()</a></code> is now
+deprecated and always returns true&mdash;use  <code><a href="../../reference/android/net/链接Manager.html#getActiveNetworkInfo()">getActiveNetworkInfo()</a></code> instead. Before you attempt any network
+transactions, you should always call <code><a href="../../reference/android/net/链接Manager.html#getActiveNetworkInfo()">getActiveNetworkInfo()</a></code>
 to get the <code><a href="../../reference/android/net/NetworkInfo.html">NetworkInfo</a></code> that represents the current network and query <code><a href="../../reference/android/net/NetworkInfo.html#isConnected()">isConnected()</a></code> to check whether the device has a
 connection. You can then check other connection properties, such as whether the device is
 roaming or connected to Wi-Fi.</p>
@@ -1322,7 +1322,7 @@ users must manually enable it in the system settings.</p>
 
 <h4>Device policies</h4>
 
-<p>Applications that manage the device restrictions can now disable the camera using <code><a href="../../reference/android/app/admin/DevicePolicyManager.html#setCameraDisabled(android.content.ComponentName, boolean)">setCameraDisabled()</a></code> and the <code><a href="../../reference/android/app/admin/DeviceAdminInfo.html#USES_POLICY_DISABLE_CAMERA">USES_POLICY_DISABLE_CAMERA</a></code> property (applied with a <code>&lt;disable-camera /&gt;</code> element in the policy configuration file).</p>
+<p>Applications that manage the device restrictions can now disable the camera using <code><a href="../../reference/android/app/admin/DevicePolicyManager.html#set相机Disabled(android.content.ComponentName, boolean)">set相机Disabled()</a></code> and the <code><a href="../../reference/android/app/admin/DeviceAdminInfo.html#USES_POLICY_DISABLE_CAMERA">USES_POLICY_DISABLE_CAMERA</a></code> property (applied with a <code>&lt;disable-camera /&gt;</code> element in the policy configuration file).</p>
 
 
 <h4>Certificate management</h4>
@@ -1498,7 +1498,7 @@ in which using the equivalent method from <code><a href="../../reference/android
 
 
 
-<h3 id="UI">User Interface and Views</h3>
+<h3 id="UI">用户界面 and Views</h3>
 
 <p>Android 4.0 introduces a variety of new views and other UI components.</p>
 
@@ -1569,7 +1569,7 @@ callback when the menu is dismissed.</li>
 <p>A new <code><a href="../../reference/android/preference/TwoStatePreference.html">TwoStatePreference</a></code> abstract class serves as the basis for
 preferences that provide a two-state selection option. The new <code><a href="../../reference/android/preference/SwitchPreference.html">SwitchPreference</a></code> is an extension of <code><a href="../../reference/android/preference/TwoStatePreference.html">TwoStatePreference</a></code> that provides a <code><a href="../../reference/android/widget/Switch.html">Switch</a></code> widget in the
 preference view to allow users to toggle a setting on or off without the need to open an additional
-preference screen or dialog. For example, the Settings application uses a <code><a href="../../reference/android/preference/SwitchPreference.html">SwitchPreference</a></code> for the Wi-Fi and Bluetooth settings.</p>
+preference screen or dialog. For example, the Settings application uses a <code><a href="../../reference/android/preference/SwitchPreference.html">SwitchPreference</a></code> for the Wi-Fi and 蓝牙 settings.</p>
 
 
 
@@ -1768,7 +1768,7 @@ approach.</p>
 
 
 
-<h3 id="HwAccel">Hardware Acceleration</h3>
+<h3 id="HwAccel">硬件加速</h3>
 
 <p>Beginning with Android 4.0, hardware acceleration for all windows is enabled by default if your
 application has set either <a
@@ -1844,7 +1844,7 @@ events</a></li>
 
 
 
-<h3 id="Permissions">Permissions</h3>
+<h3 id="权限体系">权限体系</h3>
 
 <p>The following are new permissions:</p>
 <ul>
@@ -1905,7 +1905,7 @@ the system-wide clipboard. Clipped data can be plain text, a URI, or an intent. 
 <a href="../../guide/topics/text/copy-paste.html">Copy and Paste</a> developer guide.</li>
       <li>Drag and drop: A set of APIs built into the view framework that facilitates drag and drop
 operations. See the
-<a href="../../guide/topics/ui/drag-drop.html">Drag and Drop</a> developer guide.</li>
+<a href="../../guide/topics/ui/drag-drop.html">拖放</a> developer guide.</li>
       <li>An all new flexible animation framework allows you to animate arbitrary properties of any
 object (View, Drawable, Fragment, Object, or anything else) and define animation aspects such
 as duration, interpolation, repeat and more. The new framework makes Animations in Android
@@ -1941,7 +1941,7 @@ notes for more information.</li>
       <li>USB APIs: Powerful new APIs for integrating connected peripherals with
 Android applications. The APIs are based on a USB stack and services that are
 built into the platform, including support for both USB host and device interactions. See the <a
-href="../../guide/topics/connectivity/usb/index.html">USB Host and Accessory</a> developer guide.</li>
+href="../../guide/topics/connectivity/usb/index.html">USB主从设备</a> developer guide.</li>
       <li>MTP/PTP APIs: Applications can interact directly with connected cameras and other PTP
 devices to receive notifications when devices are attached and removed, manage files and storage on
 those devices, and transfer files and metadata to and from them. The MTP API implements the PTP

@@ -1180,15 +1180,15 @@ SDK</a></li></ul>
 
 <p>반복 알람과 백그라운드 서비스는 일반적으로 인터넷 리소스 및 캐시 데이터로부터 애플리케이션의 업데이트를 예약하거나 긴 시간이 필요한 다운로드를 실행하는 데 사용됩니다. 하지만 인터넷에 연결되어 있지 않거나 연결이 매우 느려 다운로드를 완료하지 못한다면 업데이트 예약을 해도 소용이 없겠죠?</p>
 
-<p>인터넷에 연결되었는지, 어떤 연결 방식인지를 확인하기 위하여 <code><a href="../../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code>를 사용할 수 있습니다.</p>
+<p>인터넷에 연결되었는지, 어떤 연결 방식인지를 확인하기 위하여 <code><a href="../../../../reference/android/net/链接Manager.html">链接Manager</a></code>를 사용할 수 있습니다.</p>
 
 
 <h2 id="DetermineConnection">인터넷에 연결되어 있는지 확인</h2> 
  
-<p>인터넷에 연결되어 있지 않는 경우 인터넷 리소스를 기반으로 한 업데이트 예약을 할 필요가 없습니다. 다음은 활성 네트워크를 쿼리하고 인터넷이 연결되어 있는지 확인하기 위한 <code><a href="../../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> 사용법을 보여줍니다.</p>
+<p>인터넷에 연결되어 있지 않는 경우 인터넷 리소스를 기반으로 한 업데이트 예약을 할 필요가 없습니다. 다음은 활성 네트워크를 쿼리하고 인터넷이 연결되어 있는지 확인하기 위한 <code><a href="../../../../reference/android/net/链接Manager.html">链接Manager</a></code> 사용법을 보여줍니다.</p>
 
-<pre>ConnectivityManager cm =
-        (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+<pre>链接Manager cm =
+        (链接Manager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
  
 NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 boolean isConnected = activeNetwork.isConnectedOrConnecting();</pre>
@@ -1200,7 +1200,7 @@ boolean isConnected = activeNetwork.isConnectedOrConnecting();</pre>
 
 <p>연결은 모바일 데이터, WiMAZ, Wi-Fi 및 이더넷 연결을 통해 제공될 수 있습니다. 아래와 같이 활성 네트워크의 유형을 쿼리하면, 사용 가능한 대역폭에 따라 업데이트 빈도를 변경할 수 있습니다.</p>
 
-<pre>boolean isWiFi = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;</pre>
+<pre>boolean isWiFi = activeNetwork.getType() == 链接Manager.TYPE_WIFI;</pre>
 
 <p>모바일 데이터 비용은 Wi-Fi보다 높은 경향이 있으므로, 모바일 연결인 경우 앱의 업데이트 빈도를 줄여야 합니다. 마찬가지로 Wi-Fi로 연결되기까지 큰 용량의 다운로드는 일시 중지해야 합니다.</p>
 
@@ -1209,7 +1209,7 @@ boolean isConnected = activeNetwork.isConnectedOrConnecting();</pre>
 
 <h2 id="MonitorChanges">연결 변경사항 모니터링</h2> 
 
-<p>연결 정보가 변경될 때마다 <code><a href="../../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code>는 <code><a href="../../../../reference/android/net/ConnectivityManager.html#CONNECTIVITY_ACTION">CONNECTIVITY_ACTION</a></code>(<code>"android.net.conn.CONNECTIVITY_CHANGE"</code>) 액션을 브로드캐스트합니다. 변경사항을 수신하거나 적절히 백그라운드 업데이트를 다시 시작 또는 일시 중지하기 위해 매니페스트에서 브로드캐스트 리시버를 등록할 수 있습니다.</p>
+<p>연결 정보가 변경될 때마다 <code><a href="../../../../reference/android/net/链接Manager.html">链接Manager</a></code>는 <code><a href="../../../../reference/android/net/链接Manager.html#CONNECTIVITY_ACTION">CONNECTIVITY_ACTION</a></code>(<code>"android.net.conn.CONNECTIVITY_CHANGE"</code>) 액션을 브로드캐스트합니다. 변경사항을 수신하거나 적절히 백그라운드 업데이트를 다시 시작 또는 일시 중지하기 위해 매니페스트에서 브로드캐스트 리시버를 등록할 수 있습니다.</p>
 
 <pre>&lt;action android:name="android.net.conn.CONNECTIVITY_CHANGE"/></pre>
 

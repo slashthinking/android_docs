@@ -76,7 +76,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../../favicon.ico" />
-<title>CameraPreview.java | Android Developers</title>
+<title>相机Preview.java | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -378,7 +378,7 @@ SDK</a></li></ul>
 <div class="g-unit" id="doc-content">
  <div id="jd-header" class="guide-header">
   <span class="crumb">&nbsp;</span>
-  <h1>CameraPreview.java</h1>
+  <h1>相机Preview.java</h1>
  </div>
 
 <div id="jd-content">
@@ -408,9 +408,9 @@ package com.example.android.apis.graphics;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.hardware.Camera;
-import android.hardware.Camera.CameraInfo;
-import android.hardware.Camera.Size;
+import android.hardware.相机;
+import android.hardware.相机.相机Info;
+import android.hardware.相机.Size;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -432,14 +432,14 @@ import com.example.android.apis.R;
 
 // ----------------------------------------------------------------------
 
-public class CameraPreview extends Activity {
+public class 相机Preview extends Activity {
     private Preview mPreview;
-    Camera mCamera;
-    int numberOfCameras;
+    相机 m相机;
+    int numberOf相机s;
     int cameraCurrentlyLocked;
 
     // The first rear facing camera
-    int defaultCameraId;
+    int default相机Id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -455,14 +455,14 @@ public class CameraPreview extends Activity {
         setContentView(mPreview);
 
         // Find the total number of cameras available
-        numberOfCameras = Camera.getNumberOfCameras();
+        numberOf相机s = 相机.getNumberOf相机s();
 
         // Find the ID of the default camera
-        CameraInfo cameraInfo = new CameraInfo();
-            for (int i = 0; i &lt; numberOfCameras; i++) {
-                Camera.getCameraInfo(i, cameraInfo);
-                if (cameraInfo.facing == CameraInfo.CAMERA_FACING_BACK) {
-                    defaultCameraId = i;
+        相机Info cameraInfo = new 相机Info();
+            for (int i = 0; i &lt; numberOf相机s; i++) {
+                相机.get相机Info(i, cameraInfo);
+                if (cameraInfo.facing == 相机Info.CAMERA_FACING_BACK) {
+                    default相机Id = i;
                 }
             }
     }
@@ -472,21 +472,21 @@ public class CameraPreview extends Activity {
         super.onResume();
 
         // Open the default i.e. the first rear facing camera.
-        mCamera = Camera.open();
-        cameraCurrentlyLocked = defaultCameraId;
-        mPreview.setCamera(mCamera);
+        m相机 = 相机.open();
+        cameraCurrentlyLocked = default相机Id;
+        mPreview.set相机(m相机);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        // Because the Camera object is a shared resource, it's very
+        // Because the 相机 object is a shared resource, it's very
         // important to release it when the activity is paused.
-        if (mCamera != null) {
-            mPreview.setCamera(null);
-            mCamera.release();
-            mCamera = null;
+        if (m相机 != null) {
+            mPreview.set相机(null);
+            m相机.release();
+            m相机 = null;
         }
     }
 
@@ -505,7 +505,7 @@ public class CameraPreview extends Activity {
         switch (item.getItemId()) {
         case R.id.switch_cam:
             // check for availability of multiple cameras
-            if (numberOfCameras == 1) {
+            if (numberOf相机s == 1) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(this.getString(R.string.camera_alert))
                        .setNeutralButton("Close", null);
@@ -516,23 +516,23 @@ public class CameraPreview extends Activity {
 
             // OK, we have multiple cameras.
             // Release this camera -&gt; cameraCurrentlyLocked
-            if (mCamera != null) {
-                mCamera.stopPreview();
-                mPreview.setCamera(null);
-                mCamera.release();
-                mCamera = null;
+            if (m相机 != null) {
+                m相机.stopPreview();
+                mPreview.set相机(null);
+                m相机.release();
+                m相机 = null;
             }
 
             // Acquire the next camera and request Preview to reconfigure
             // parameters.
-            mCamera = Camera
-                    .open((cameraCurrentlyLocked + 1) % numberOfCameras);
+            m相机 = 相机
+                    .open((cameraCurrentlyLocked + 1) % numberOf相机s);
             cameraCurrentlyLocked = (cameraCurrentlyLocked + 1)
-                    % numberOfCameras;
-            mPreview.switchCamera(mCamera);
+                    % numberOf相机s;
+            mPreview.switch相机(m相机);
 
             // Start the preview
-            mCamera.startPreview();
+            m相机.startPreview();
             return true;
         default:
             return super.onOptionsItemSelected(item);
@@ -543,7 +543,7 @@ public class CameraPreview extends Activity {
 // ----------------------------------------------------------------------
 
 /**
- * A simple wrapper around a Camera and a SurfaceView that renders a centered preview of the Camera
+ * A simple wrapper around a 相机 and a SurfaceView that renders a centered preview of the 相机
  * to the surface. We need to center the SurfaceView because not all devices have cameras that
  * support preview sizes at the same aspect ratio as the device's display.
  */
@@ -554,7 +554,7 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
     SurfaceHolder mHolder;
     Size mPreviewSize;
     List&lt;Size&gt; mSupportedPreviewSizes;
-    Camera mCamera;
+    相机 m相机;
 
     Preview(Context context) {
         super(context);
@@ -569,22 +569,22 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
         mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
 
-    public void setCamera(Camera camera) {
-        mCamera = camera;
-        if (mCamera != null) {
-            mSupportedPreviewSizes = mCamera.getParameters().getSupportedPreviewSizes();
+    public void set相机(相机 camera) {
+        m相机 = camera;
+        if (m相机 != null) {
+            mSupportedPreviewSizes = m相机.getParameters().getSupportedPreviewSizes();
             requestLayout();
         }
     }
 
-    public void switchCamera(Camera camera) {
-       setCamera(camera);
+    public void switch相机(相机 camera) {
+       set相机(camera);
        try {
            camera.setPreviewDisplay(mHolder);
        } catch (IOException exception) {
            Log.e(TAG, "IOException caused by setPreviewDisplay()", exception);
        }
-       Camera.Parameters parameters = camera.getParameters();
+       相机.Parameters parameters = camera.getParameters();
        parameters.setPreviewSize(mPreviewSize.width, mPreviewSize.height);
        requestLayout();
 
@@ -637,8 +637,8 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
         // The Surface has been created, acquire the camera and tell it where
         // to draw.
         try {
-            if (mCamera != null) {
-                mCamera.setPreviewDisplay(holder);
+            if (m相机 != null) {
+                m相机.setPreviewDisplay(holder);
             }
         } catch (IOException exception) {
             Log.e(TAG, "IOException caused by setPreviewDisplay()", exception);
@@ -647,8 +647,8 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
 
     public void surfaceDestroyed(SurfaceHolder holder) {
         // Surface will be destroyed when we return, so stop the preview.
-        if (mCamera != null) {
-            mCamera.stopPreview();
+        if (m相机 != null) {
+            m相机.stopPreview();
         }
     }
 
@@ -689,12 +689,12 @@ class Preview extends ViewGroup implements SurfaceHolder.Callback {
     public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
         // Now that the size is known, set up the camera parameters and begin
         // the preview.
-        Camera.Parameters parameters = mCamera.getParameters();
+        相机.Parameters parameters = m相机.getParameters();
         parameters.setPreviewSize(mPreviewSize.width, mPreviewSize.height);
         requestLayout();
 
-        mCamera.setParameters(parameters);
-        mCamera.startPreview();
+        m相机.setParameters(parameters);
+        m相机.startPreview();
     }
 
 }</pre>

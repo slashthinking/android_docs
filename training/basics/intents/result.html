@@ -1255,7 +1255,7 @@ contact the user selected.</p>
 one of your own activities. Apps included with the Android platform offer their own APIs that
 you can count on for specific result data. For instance, the People app (Contacts app on some older
 versions) always returns a result with the content URI that identifies the selected contact, and the
-Camera app returns a <code><a href="../../../reference/android/graphics/Bitmap.html">Bitmap</a></code> in the <code>"data"</code> extra (see the class
+相机 app returns a <code><a href="../../../reference/android/graphics/Bitmap.html">Bitmap</a></code> in the <code>"data"</code> extra (see the class
 about <a href="../../../training/camera/index.html">抓取照片</a>).</p>
 
 
@@ -1301,7 +1301,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 <p class="note"><strong>Note:</strong> Before Android 2.3 (API level 9), performing a query
 on the <code><a href="../../../reference/android/provider/ContactsContract.Contacts.html">Contacts Provider</a></code> (like the one shown
 above) requires that your app declare the <code><a href="../../../reference/android/Manifest.permission.html#READ_CONTACTS">READ_CONTACTS</a></code> permission (see <a
-href="../../../guide/topics/security/security.html">Security and Permissions</a>). However,
+href="../../../guide/topics/security/security.html">Security and 权限体系</a>). However,
 beginning with Android 2.3, the Contacts/People app grants your app a temporary
 permission to read from the Contacts Provider when it returns you a result. The temporary permission
 applies only to the specific contact requested, so you cannot query a contact other than the one

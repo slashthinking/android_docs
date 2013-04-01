@@ -76,7 +76,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
-<title>BluetoothHDPService.java | Android Developers</title>
+<title>蓝牙HDPService.java | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -378,7 +378,7 @@ SDK</a></li></ul>
 <div class="g-unit" id="doc-content">
  <div id="jd-header" class="guide-header">
   <span class="crumb">&nbsp;</span>
-  <h1>BluetoothHDPService.java</h1>
+  <h1>蓝牙HDPService.java</h1>
  </div>
 
 <div id="jd-content">
@@ -406,12 +406,12 @@ SDK</a></li></ul>
 package com.example.bluetooth.health;
 
 import android.app.Service;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothHealth;
-import android.bluetooth.BluetoothHealthAppConfiguration;
-import android.bluetooth.BluetoothHealthCallback;
-import android.bluetooth.BluetoothProfile;
+import android.bluetooth.蓝牙Adapter;
+import android.bluetooth.蓝牙Device;
+import android.bluetooth.蓝牙Health;
+import android.bluetooth.蓝牙HealthAppConfiguration;
+import android.bluetooth.蓝牙HealthCallback;
+import android.bluetooth.蓝牙Profile;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
@@ -426,15 +426,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * This Service encapsulates Bluetooth Health API to establish, manage, and disconnect
- * communication between the Android device and a Bluetooth HDP-enabled device.  Possible HDP
+ * This Service encapsulates 蓝牙 Health API to establish, manage, and disconnect
+ * communication between the Android device and a 蓝牙 HDP-enabled device.  Possible HDP
  * device type includes blood pressure monitor, glucose meter, thermometer, etc.
  *
  * As outlined in the
- * &lt;a href="http://developer.android.com/reference/android/bluetooth/BluetoothHealth.html"&gt;BluetoothHealth&lt;/a&gt;
+ * &lt;a href="http://developer.android.com/reference/android/bluetooth/蓝牙Health.html"&gt;蓝牙Health&lt;/a&gt;
  * documentation, the steps involve:
- * 1. Get a reference to the BluetoothHealth proxy object.
- * 2. Create a BluetoothHealth callback and register an application configuration that acts as a
+ * 1. Get a reference to the 蓝牙Health proxy object.
+ * 2. Create a 蓝牙Health callback and register an application configuration that acts as a
  *    Health SINK.
  * 3. Establish connection to a health device.  Some devices will initiate the connection.  It is
  *    unnecessary to carry out this step for those devices.
@@ -444,8 +444,8 @@ import java.io.IOException;
  * 5. When done, close the health channel and unregister the application.  The channel will
  *    also close when there is extended inactivity.
  */
-public class BluetoothHDPService extends Service {
-    private static final String TAG = "BluetoothHDPService";
+public class 蓝牙HDPService extends Service {
+    private static final String TAG = "蓝牙HDPService";
 
     public static final int RESULT_OK = 0;
     public static final int RESULT_FAIL = -1;
@@ -459,7 +459,7 @@ public class BluetoothHDPService extends Service {
     public static final int STATUS_CREATE_CHANNEL = 102;
     // Channel destroy complete.
     public static final int STATUS_DESTROY_CHANNEL = 103;
-    // Reading data from Bluetooth HDP device.
+    // Reading data from 蓝牙 HDP device.
     public static final int STATUS_READ_DATA = 104;
     // Done with reading data.
     public static final int STATUS_READ_DATA_DONE = 105;
@@ -478,10 +478,10 @@ public class BluetoothHDPService extends Service {
     // Disconnect channel.
     public static final int MSG_DISCONNECT_CHANNEL = 401;
 
-    private BluetoothHealthAppConfiguration mHealthAppConfig;
-    private BluetoothAdapter mBluetoothAdapter;
-    private BluetoothHealth mBluetoothHealth;
-    private BluetoothDevice mDevice;
+    private 蓝牙HealthAppConfiguration mHealthAppConfig;
+    private 蓝牙Adapter m蓝牙Adapter;
+    private 蓝牙Health m蓝牙Health;
+    private 蓝牙Device mDevice;
     private int mChannelId;
 
     private Messenger mClient;
@@ -510,12 +510,12 @@ public class BluetoothHDPService extends Service {
                     break;
                 // Connect channel.
                 case MSG_CONNECT_CHANNEL:
-                    mDevice = (BluetoothDevice) msg.obj;
+                    mDevice = (蓝牙Device) msg.obj;
                     connectChannel();
                     break;
                 // Disconnect channel.
                 case MSG_DISCONNECT_CHANNEL:
-                    mDevice = (BluetoothDevice) msg.obj;
+                    mDevice = (蓝牙Device) msg.obj;
                     disconnectChannel();
                     break;
                 default:
@@ -527,21 +527,21 @@ public class BluetoothHDPService extends Service {
     final Messenger mMessenger = new Messenger(new IncomingHandler());
 
     /**
-     * Make sure Bluetooth and health profile are available on the Android device.  Stop service
+     * Make sure 蓝牙 and health profile are available on the Android device.  Stop service
      * if they are not available.
      */
     @Override
     public void onCreate() {
         super.onCreate();
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (mBluetoothAdapter == null || !mBluetoothAdapter.isEnabled()) {
-            // Bluetooth adapter isn't available.  The client of the service is supposed to
+        m蓝牙Adapter = 蓝牙Adapter.getDefaultAdapter();
+        if (m蓝牙Adapter == null || !m蓝牙Adapter.isEnabled()) {
+            // 蓝牙 adapter isn't available.  The client of the service is supposed to
             // verify that it is available and activate before invoking this service.
             stopSelf();
             return;
         }
-        if (!mBluetoothAdapter.getProfileProxy(this, mBluetoothServiceListener,
-                BluetoothProfile.HEALTH)) {
+        if (!m蓝牙Adapter.getProfileProxy(this, m蓝牙ServiceListener,
+                蓝牙Profile.HEALTH)) {
             Toast.makeText(this, R.string.bluetooth_health_profile_not_available,
                     Toast.LENGTH_LONG);
             stopSelf();
@@ -551,7 +551,7 @@ public class BluetoothHDPService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG, "BluetoothHDPService is running.");
+        Log.d(TAG, "蓝牙HDPService is running.");
         return START_STICKY;
     }
 
@@ -560,61 +560,61 @@ public class BluetoothHDPService extends Service {
         return mMessenger.getBinder();
     };
 
-    // Register health application through the Bluetooth Health API.
+    // Register health application through the 蓝牙 Health API.
     private void registerApp(int dataType) {
-        mBluetoothHealth.registerSinkAppConfiguration(TAG, dataType, mHealthCallback);
+        m蓝牙Health.registerSinkAppConfiguration(TAG, dataType, mHealthCallback);
     }
 
-    // Unregister health application through the Bluetooth Health API.
+    // Unregister health application through the 蓝牙 Health API.
     private void unregisterApp() {
-        mBluetoothHealth.unregisterAppConfiguration(mHealthAppConfig);
+        m蓝牙Health.unregisterAppConfiguration(mHealthAppConfig);
     }
 
-    // Connect channel through the Bluetooth Health API.
+    // Connect channel through the 蓝牙 Health API.
     private void connectChannel() {
         Log.i(TAG, "connectChannel()");
-        mBluetoothHealth.connectChannelToSource(mDevice, mHealthAppConfig);
+        m蓝牙Health.connectChannelToSource(mDevice, mHealthAppConfig);
     }
 
-    // Disconnect channel through the Bluetooth Health API.
+    // Disconnect channel through the 蓝牙 Health API.
     private void disconnectChannel() {
         Log.i(TAG, "disconnectChannel()");
-        mBluetoothHealth.disconnectChannel(mDevice, mHealthAppConfig, mChannelId);
+        m蓝牙Health.disconnectChannel(mDevice, mHealthAppConfig, mChannelId);
     }
 
     // Callbacks to handle connection set up and disconnection clean up.
-    private final BluetoothProfile.ServiceListener mBluetoothServiceListener =
-            new BluetoothProfile.ServiceListener() {
-        public void onServiceConnected(int profile, BluetoothProfile proxy) {
-            if (profile == BluetoothProfile.HEALTH) {
-                mBluetoothHealth = (BluetoothHealth) proxy;
+    private final 蓝牙Profile.ServiceListener m蓝牙ServiceListener =
+            new 蓝牙Profile.ServiceListener() {
+        public void onServiceConnected(int profile, 蓝牙Profile proxy) {
+            if (profile == 蓝牙Profile.HEALTH) {
+                m蓝牙Health = (蓝牙Health) proxy;
                 if (Log.isLoggable(TAG, Log.DEBUG))
                     Log.d(TAG, "onServiceConnected to profile: " + profile);
             }
         }
 
         public void onServiceDisconnected(int profile) {
-            if (profile == BluetoothProfile.HEALTH) {
-                mBluetoothHealth = null;
+            if (profile == 蓝牙Profile.HEALTH) {
+                m蓝牙Health = null;
             }
         }
     };
 
-    private final BluetoothHealthCallback mHealthCallback = new BluetoothHealthCallback() {
+    private final 蓝牙HealthCallback mHealthCallback = new 蓝牙HealthCallback() {
         // Callback to handle application registration and unregistration events.  The service
         // passes the status back to the UI client.
-        public void onHealthAppConfigurationStatusChange(BluetoothHealthAppConfiguration config,
+        public void onHealthAppConfigurationStatusChange(蓝牙HealthAppConfiguration config,
                 int status) {
-            if (status == BluetoothHealth.APP_CONFIG_REGISTRATION_FAILURE) {
+            if (status == 蓝牙Health.APP_CONFIG_REGISTRATION_FAILURE) {
                 mHealthAppConfig = null;
                 sendMessage(STATUS_HEALTH_APP_REG, RESULT_FAIL);
-            } else if (status == BluetoothHealth.APP_CONFIG_REGISTRATION_SUCCESS) {
+            } else if (status == 蓝牙Health.APP_CONFIG_REGISTRATION_SUCCESS) {
                 mHealthAppConfig = config;
                 sendMessage(STATUS_HEALTH_APP_REG, RESULT_OK);
-            } else if (status == BluetoothHealth.APP_CONFIG_UNREGISTRATION_FAILURE ||
-                    status == BluetoothHealth.APP_CONFIG_UNREGISTRATION_SUCCESS) {
+            } else if (status == 蓝牙Health.APP_CONFIG_UNREGISTRATION_FAILURE ||
+                    status == 蓝牙Health.APP_CONFIG_UNREGISTRATION_SUCCESS) {
                 sendMessage(STATUS_HEALTH_APP_UNREG,
-                        status == BluetoothHealth.APP_CONFIG_UNREGISTRATION_SUCCESS ?
+                        status == 蓝牙Health.APP_CONFIG_UNREGISTRATION_SUCCESS ?
                         RESULT_OK : RESULT_FAIL);
             }
         }
@@ -623,14 +623,14 @@ public class BluetoothHDPService extends Service {
         // Note that the logic of the state machine may need to be modified based on the HDP device.
         // When the HDP device is connected, the received file descriptor is passed to the
         // ReadThread to read the content.
-        public void onHealthChannelStateChange(BluetoothHealthAppConfiguration config,
-                BluetoothDevice device, int prevState, int newState, ParcelFileDescriptor fd,
+        public void onHealthChannelStateChange(蓝牙HealthAppConfiguration config,
+                蓝牙Device device, int prevState, int newState, ParcelFileDescriptor fd,
                 int channelId) {
             if (Log.isLoggable(TAG, Log.DEBUG))
                 Log.d(TAG, String.format("prevState\t%d ----------&gt; newState\t%d",
                         prevState, newState));
-            if (prevState == BluetoothHealth.STATE_CHANNEL_DISCONNECTED &amp;&amp;
-                    newState == BluetoothHealth.STATE_CHANNEL_CONNECTED) {
+            if (prevState == 蓝牙Health.STATE_CHANNEL_DISCONNECTED &amp;&amp;
+                    newState == 蓝牙Health.STATE_CHANNEL_CONNECTED) {
                 if (config.equals(mHealthAppConfig)) {
                     mChannelId = channelId;
                     sendMessage(STATUS_CREATE_CHANNEL, RESULT_OK);
@@ -638,10 +638,10 @@ public class BluetoothHDPService extends Service {
                 } else {
                     sendMessage(STATUS_CREATE_CHANNEL, RESULT_FAIL);
                 }
-            } else if (prevState == BluetoothHealth.STATE_CHANNEL_CONNECTING &amp;&amp;
-                       newState == BluetoothHealth.STATE_CHANNEL_DISCONNECTED) {
+            } else if (prevState == 蓝牙Health.STATE_CHANNEL_CONNECTING &amp;&amp;
+                       newState == 蓝牙Health.STATE_CHANNEL_DISCONNECTED) {
                 sendMessage(STATUS_CREATE_CHANNEL, RESULT_FAIL);
-            } else if (newState == BluetoothHealth.STATE_CHANNEL_DISCONNECTED) {
+            } else if (newState == 蓝牙Health.STATE_CHANNEL_DISCONNECTED) {
                 if (config.equals(mHealthAppConfig)) {
                     sendMessage(STATUS_DESTROY_CHANNEL, RESULT_OK);
                 } else {

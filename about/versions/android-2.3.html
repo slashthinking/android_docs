@@ -379,7 +379,7 @@ SDK</a></li></ul>
 
 <h2>In this document</h2>
 <ol>
-  <li><a href="#api">API Overview</a></li>
+  <li><a href="#api">API 概览</a></li>
   <li><a href="#api-level">API Level</a></li>
 </ol>
 
@@ -405,7 +405,7 @@ use the Android SDK Manager to download the platform into your SDK.</p>
 
 
 
-<h2 id="api">API Overview</h2>
+<h2 id="api">API 概览</h2>
 
 <p>The sections below provide a technical overview of what's new for developers
 in 2.3, including new features and changes in the framework
@@ -517,28 +517,28 @@ android:required="true"&gt;</code> to the application manifest.</p>
 <h3 id="cameras">Multiple cameras support</h3>
 
 <p>Applications can now make use of any cameras that are available on a device,
-for either photo or video capture. The <code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> lets
+for either photo or video capture. The <code><a href="../../reference/android/hardware/相机.html">相机</a></code> lets
 applications query for the number of cameras available and the unique
 characteristics of each. </p>
 
 <ul>
-<li>New <code><a href="../../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a></code> class stores a camera's
+<li>New <code><a href="../../reference/android/hardware/相机.相机Info.html">相机.相机Info</a></code> class stores a camera's
 positional characteristics (orientation, front-facing or back-facing).</li>
-<li>New <code><a href="../../reference/android/hardware/Camera.html#getNumberOfCameras()">getNumberOfCameras()</a></code> and <code><a href="../../reference/android/hardware/Camera.html#getCameraInfo(int, android.hardware.Camera.CameraInfo)">getCameraInfo()</a></code> methods in the <code><a href="../../reference/android/hardware/Camera.html">Camera</a></code> class let applications query for the cameras available
+<li>New <code><a href="../../reference/android/hardware/相机.html#getNumberOf相机s()">getNumberOf相机s()</a></code> and <code><a href="../../reference/android/hardware/相机.html#get相机Info(int, android.hardware.相机.相机Info)">get相机Info()</a></code> methods in the <code><a href="../../reference/android/hardware/相机.html">相机</a></code> class let applications query for the cameras available
 and open the camera that they need.</li>
 <li>New <code><a href="../../reference/android/media/CamcorderProfile.html#get(int)">get()</a></code> method lets
 applications retrieve a <code><a href="../../reference/android/media/CamcorderProfile.html">CamcorderProfile</a></code> for a specific camera. </li>
-<li>New <code><a href="../../reference/android/media/CameraProfile.html#getJpegEncodingQualityParameter(int, int)">getJpegEncodingQualityParameter()</a></code> lets applications obtain the still-image
+<li>New <code><a href="../../reference/android/media/相机Profile.html#getJpegEncodingQualityParameter(int, int)">getJpegEncodingQualityParameter()</a></code> lets applications obtain the still-image
 capture quality level for a specific camera.</li>
 </ul>
 
-<p class="note">To look at sample code for accessing a front-facing camera, see <a href="../../resources/samples/ApiDemos/src/com/example/android/apis/graphics/CameraPreview.html">CameraPreview.java</a>
+<p class="note">To look at sample code for accessing a front-facing camera, see <a href="../../resources/samples/ApiDemos/src/com/example/android/apis/graphics/相机Preview.html">相机Preview.java</a>
 in the ApiDemos sample application.</p>
 
-<p>The Camera API also adds: </p>
+<p>The 相机 API also adds: </p>
 <ul>
 <li>New parameters for cameras, including focus distance, focus mode, and
-preview fps maximum/minimum. New <code><a href="../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances()</a></code>, <code><a href="../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange()</a></code>, and <code><a href="../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code> for getting camera parameters, as well as <code><a href="../../reference/android/hardware/Camera.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange()</a></code> for setting preview framerate. </li>
+preview fps maximum/minimum. New <code><a href="../../reference/android/hardware/相机.Parameters.html#getFocusDistances(float[])">getFocusDistances()</a></code>, <code><a href="../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange()</a></code>, and <code><a href="../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code> for getting camera parameters, as well as <code><a href="../../reference/android/hardware/相机.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange()</a></code> for setting preview framerate. </li>
 </ul>
 
 <h3 id="media">Mixable audio effects</h3>
@@ -753,7 +753,7 @@ Screens</a>.</p>
 planar 4:2:0 YCrCb format.</li>
 </ul>
 
-<h3 id="providers">Content Providers</h3>
+<h3 id="providers">内容提供器</h3>
 
 <ul>
 <li>New <code><a href="../../reference/android/provider/AlarmClock.html">AlarmClock</a></code> provider class for setting an alarm
@@ -919,7 +919,7 @@ rotation).</li>
 </li>
 </ul>
 
-<h3 id="permissions">New Permissions</h3>
+<h3 id="permissions">New 权限体系</h3>
 
 <ul>
 <li><code>com.android.permission.SET_ALARM</code> &mdash; Allows an application

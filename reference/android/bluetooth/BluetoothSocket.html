@@ -75,7 +75,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
-<title>BluetoothSocket - Android SDK | Android Developers</title>
+<title>蓝牙Socket - Android SDK | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -734,27 +734,27 @@ SDK</a></li></ul>
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/BluetoothProfile.html">BluetoothProfile</a></li>
-          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/BluetoothProfile.ServiceListener.html">BluetoothProfile.ServiceListener</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/蓝牙Profile.html">蓝牙Profile</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/蓝牙Profile.ServiceListener.html">蓝牙Profile.ServiceListener</a></li>
       </ul>
     </li>
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/BluetoothA2dp.html">BluetoothA2dp</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/BluetoothAdapter.html">BluetoothAdapter</a></li>
-          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/BluetoothAssignedNumbers.html">BluetoothAssignedNumbers</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/BluetoothClass.html">BluetoothClass</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/BluetoothClass.Device.html">BluetoothClass.Device</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/BluetoothClass.Device.Major.html">BluetoothClass.Device.Major</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/BluetoothClass.Service.html">BluetoothClass.Service</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a></li>
-          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/BluetoothHeadset.html">BluetoothHeadset</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/bluetooth/BluetoothHealth.html">BluetoothHealth</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/bluetooth/BluetoothHealthAppConfiguration.html">BluetoothHealthAppConfiguration</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/bluetooth/BluetoothHealthCallback.html">BluetoothHealthCallback</a></li>
-          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/BluetoothServerSocket.html">BluetoothServerSocket</a></li>
-          <li class="selected api apilevel-5"><a href="../../../reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/蓝牙A2dp.html">蓝牙A2dp</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/蓝牙Adapter.html">蓝牙Adapter</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/蓝牙AssignedNumbers.html">蓝牙AssignedNumbers</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/蓝牙Class.html">蓝牙Class</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/蓝牙Class.Device.html">蓝牙Class.Device</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/蓝牙Class.Device.Major.html">蓝牙Class.Device.Major</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/蓝牙Class.Service.html">蓝牙Class.Service</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/蓝牙Device.html">蓝牙Device</a></li>
+          <li class="api apilevel-11"><a href="../../../reference/android/bluetooth/蓝牙Headset.html">蓝牙Headset</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/bluetooth/蓝牙Health.html">蓝牙Health</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/bluetooth/蓝牙HealthAppConfiguration.html">蓝牙HealthAppConfiguration</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/bluetooth/蓝牙HealthCallback.html">蓝牙HealthCallback</a></li>
+          <li class="api apilevel-5"><a href="../../../reference/android/bluetooth/蓝牙ServerSocket.html">蓝牙ServerSocket</a></li>
+          <li class="selected api apilevel-5"><a href="../../../reference/android/bluetooth/蓝牙Socket.html">蓝牙Socket</a></li>
       </ul>
     </li>
               
@@ -872,7 +872,7 @@ Summary:
     final 
     
     class
-<h1 itemprop="name">BluetoothSocket</h1>
+<h1 itemprop="name">蓝牙Socket</h1>
 
 
 
@@ -910,7 +910,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">android.bluetooth.BluetoothSocket</td>
+        <td colspan="1" class="jd-inheritance-class-cell">android.bluetooth.蓝牙Socket</td>
     </tr>
     
 
@@ -925,38 +925,38 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
-<p itemprop="articleBody">A connected or connecting Bluetooth socket.
+<h2>Class 概览</h2>
+<p itemprop="articleBody">A connected or connecting 蓝牙 socket.
 
- <p>The interface for Bluetooth Sockets is similar to that of TCP sockets:
+ <p>The interface for 蓝牙 Sockets is similar to that of TCP sockets:
  <code><a href="../../../reference/java/net/Socket.html">Socket</a></code> and <code><a href="../../../reference/java/net/ServerSocket.html">ServerSocket</a></code>. On the server
- side, use a <code><a href="../../../reference/android/bluetooth/BluetoothServerSocket.html">BluetoothServerSocket</a></code> to create a listening server
- socket. When a connection is accepted by the <code><a href="../../../reference/android/bluetooth/BluetoothServerSocket.html">BluetoothServerSocket</a></code>,
- it will return a new <code><a href="../../../reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a></code> to manage the connection.
- On the client side, use a single <code><a href="../../../reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a></code> to both initiate
+ side, use a <code><a href="../../../reference/android/bluetooth/蓝牙ServerSocket.html">蓝牙ServerSocket</a></code> to create a listening server
+ socket. When a connection is accepted by the <code><a href="../../../reference/android/bluetooth/蓝牙ServerSocket.html">蓝牙ServerSocket</a></code>,
+ it will return a new <code><a href="../../../reference/android/bluetooth/蓝牙Socket.html">蓝牙Socket</a></code> to manage the connection.
+ On the client side, use a single <code><a href="../../../reference/android/bluetooth/蓝牙Socket.html">蓝牙Socket</a></code> to both initiate
  an outgoing connection and to manage the connection.
 
- <p>The most common type of Bluetooth socket is RFCOMM, which is the type
+ <p>The most common type of 蓝牙 socket is RFCOMM, which is the type
  supported by the Android APIs. RFCOMM is a connection-oriented, streaming
- transport over Bluetooth. It is also known as the Serial Port Profile (SPP).
+ transport over 蓝牙. It is also known as the Serial Port Profile (SPP).
 
- <p>To create a <code><a href="../../../reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a></code> for connecting to a known device, use
- <code><a href="../../../reference/android/bluetooth/BluetoothDevice.html#createRfcommSocketToServiceRecord(java.util.UUID)">BluetoothDevice.createRfcommSocketToServiceRecord()</a></code>.
- Then call <code><a href="../../../reference/android/bluetooth/BluetoothSocket.html#connect()">connect()</a></code> to attempt a connection to the remote device.
+ <p>To create a <code><a href="../../../reference/android/bluetooth/蓝牙Socket.html">蓝牙Socket</a></code> for connecting to a known device, use
+ <code><a href="../../../reference/android/bluetooth/蓝牙Device.html#createRfcommSocketToServiceRecord(java.util.UUID)">蓝牙Device.createRfcommSocketToServiceRecord()</a></code>.
+ Then call <code><a href="../../../reference/android/bluetooth/蓝牙Socket.html#connect()">connect()</a></code> to attempt a connection to the remote device.
  This call will block until a connection is established or the connection
  fails.
 
- <p>To create a <code><a href="../../../reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a></code> as a server (or "host"), see the
- <code><a href="../../../reference/android/bluetooth/BluetoothServerSocket.html">BluetoothServerSocket</a></code> documentation.
+ <p>To create a <code><a href="../../../reference/android/bluetooth/蓝牙Socket.html">蓝牙Socket</a></code> as a server (or "host"), see the
+ <code><a href="../../../reference/android/bluetooth/蓝牙ServerSocket.html">蓝牙ServerSocket</a></code> documentation.
 
  <p>Once the socket is connected, whether initiated as a client or accepted
- as a server, open the IO streams by calling <code><a href="../../../reference/android/bluetooth/BluetoothSocket.html#getInputStream()">getInputStream()</a></code> and
- <code><a href="../../../reference/android/bluetooth/BluetoothSocket.html#getOutputStream()">getOutputStream()</a></code> in order to retrieve <code><a href="../../../reference/java/io/InputStream.html">InputStream</a></code>
+ as a server, open the IO streams by calling <code><a href="../../../reference/android/bluetooth/蓝牙Socket.html#getInputStream()">getInputStream()</a></code> and
+ <code><a href="../../../reference/android/bluetooth/蓝牙Socket.html#getOutputStream()">getOutputStream()</a></code> in order to retrieve <code><a href="../../../reference/java/io/InputStream.html">InputStream</a></code>
  and <code><a href="../../../reference/java/io/OutputStream.html">OutputStream</a></code> objects, respectively, which are
  automatically connected to the socket.
 
- <p><code><a href="../../../reference/android/bluetooth/BluetoothSocket.html">BluetoothSocket</a></code> is thread
- safe. In particular, <code><a href="../../../reference/android/bluetooth/BluetoothSocket.html#close()">close()</a></code> will always immediately abort ongoing
+ <p><code><a href="../../../reference/android/bluetooth/蓝牙Socket.html">蓝牙Socket</a></code> is thread
+ safe. In particular, <code><a href="../../../reference/android/bluetooth/蓝牙Socket.html#close()">close()</a></code> will always immediately abort ongoing
  operations and close the socket.
 
  <p class="note"><strong>Note:</strong>
@@ -964,8 +964,8 @@ Summary:
 
  <div class="special reference">
  <h3>Developer Guides</h3>
- <p>For more information about using Bluetooth, read the
- <a href="../../../guide/topics/wireless/bluetooth.html">Bluetooth</a> developer guide.</p>
+ <p>For more information about using 蓝牙, read the
+ <a href="../../../guide/topics/wireless/bluetooth.html">蓝牙</a> developer guide.</p>
  </div>
 
  
@@ -977,7 +977,7 @@ Summary:
 
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/bluetooth/BluetoothServerSocket.html">BluetoothServerSocket</a></code></li><li><code><a href="../../../reference/java/io/InputStream.html">InputStream</a></code></li><li><code><a href="../../../reference/java/io/OutputStream.html">OutputStream</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/bluetooth/蓝牙ServerSocket.html">蓝牙ServerSocket</a></code></li><li><code><a href="../../../reference/java/io/InputStream.html">InputStream</a></code></li><li><code><a href="../../../reference/java/io/OutputStream.html">OutputStream</a></code></li>
       </ul>
   </div>
 
@@ -1046,7 +1046,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/bluetooth/BluetoothSocket.html#close()">close</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/bluetooth/蓝牙Socket.html#close()">close</a></span>()</nobr>
         
         <div class="jd-descrdiv">Closes the object and release any system resources it holds.</div>
   
@@ -1064,7 +1064,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/bluetooth/BluetoothSocket.html#connect()">connect</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/bluetooth/蓝牙Socket.html#connect()">connect</a></span>()</nobr>
         
         <div class="jd-descrdiv">Attempt to connect to a remote device.</div>
   
@@ -1082,7 +1082,7 @@ Summary:
             <a href="../../../reference/java/io/InputStream.html">InputStream</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/bluetooth/BluetoothSocket.html#getInputStream()">getInputStream</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/bluetooth/蓝牙Socket.html#getInputStream()">getInputStream</a></span>()</nobr>
         
         <div class="jd-descrdiv">Get the input stream associated with this socket.</div>
   
@@ -1100,7 +1100,7 @@ Summary:
             <a href="../../../reference/java/io/OutputStream.html">OutputStream</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/bluetooth/BluetoothSocket.html#getOutputStream()">getOutputStream</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/bluetooth/蓝牙Socket.html#getOutputStream()">getOutputStream</a></span>()</nobr>
         
         <div class="jd-descrdiv">Get the output stream associated with this socket.</div>
   
@@ -1115,10 +1115,10 @@ Summary:
             
             
             
-            <a href="../../../reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a></nobr>
+            <a href="../../../reference/android/bluetooth/蓝牙Device.html">蓝牙Device</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/bluetooth/BluetoothSocket.html#getRemoteDevice()">getRemoteDevice</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/bluetooth/蓝牙Socket.html#getRemoteDevice()">getRemoteDevice</a></span>()</nobr>
         
         <div class="jd-descrdiv">Get the remote device this socket is connecting, or connected, to.</div>
   
@@ -1136,7 +1136,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/bluetooth/BluetoothSocket.html#isConnected()">isConnected</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/bluetooth/蓝牙Socket.html#isConnected()">isConnected</a></span>()</nobr>
         
         <div class="jd-descrdiv">Get the connection status of this socket, ie, whether there is an active connection with
  remote device.</div>
@@ -1549,15 +1549,15 @@ From interface
  fails. If this method returns without an exception then this socket
  is now connected.
  <p>Creating new connections to
- remote Bluetooth devices should not be attempted while device discovery
+ remote 蓝牙 devices should not be attempted while device discovery
  is in progress. Device discovery is a heavyweight procedure on the
- Bluetooth adapter and will significantly slow a device connection.
- Use <code><a href="../../../reference/android/bluetooth/BluetoothAdapter.html#cancelDiscovery()">cancelDiscovery()</a></code> to cancel an ongoing
+ 蓝牙 adapter and will significantly slow a device connection.
+ Use <code><a href="../../../reference/android/bluetooth/蓝牙Adapter.html#cancelDiscovery()">cancelDiscovery()</a></code> to cancel an ongoing
  discovery. Discovery is not managed by the Activity,
  but is run as a system service, so an application should always call
- <code><a href="../../../reference/android/bluetooth/BluetoothAdapter.html#cancelDiscovery()">cancelDiscovery()</a></code> even if it
+ <code><a href="../../../reference/android/bluetooth/蓝牙Adapter.html#cancelDiscovery()">cancelDiscovery()</a></code> even if it
  did not directly request a discovery, just to be sure.
- <p><code><a href="../../../reference/android/bluetooth/BluetoothSocket.html#close()">close()</a></code> can be used to abort this call from another thread.</p></div>
+ <p><code><a href="../../../reference/android/bluetooth/蓝牙Socket.html#close()">close()</a></code> can be used to abort this call from another thread.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
@@ -1677,7 +1677,7 @@ From interface
          
          
          
-        <a href="../../../reference/android/bluetooth/BluetoothDevice.html">BluetoothDevice</a>
+        <a href="../../../reference/android/bluetooth/蓝牙Device.html">蓝牙Device</a>
       </span>
       <span class="sympad">getRemoteDevice</span>
       <span class="normal">()</span>

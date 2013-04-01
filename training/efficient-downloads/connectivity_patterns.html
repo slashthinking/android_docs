@@ -75,7 +75,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-<title>Modifying your Download Patterns Based on the Connectivity Type | Android Developers</title>
+<title>Modifying your Download Patterns Based on the 链接 Type | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -1111,7 +1111,7 @@ SDK</a></li></ul>
   
   <div class="layout-content-row content-header ">
     <div class="layout-content-col span-7">
-      <h1 itemprop="name">Modifying your Download Patterns Based on the Connectivity Type</h1>
+      <h1 itemprop="name">Modifying your Download Patterns Based on the 链接 Type</h1>
       
     </div>
     
@@ -1196,8 +1196,8 @@ SDK</a></li></ul>
 
 <p>You can use the connectivity manager to determine the active wireless radio, and modify your prefetching routines accordingly:</p>
 
-<pre>ConnectivityManager cm =
- (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+<pre>链接Manager cm =
+ (链接Manager)getSystemService(Context.CONNECTIVITY_SERVICE);
 
 TelephonyManager tm =
   (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
@@ -1207,9 +1207,9 @@ NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 int PrefetchCacheSize = DEFAULT_PREFETCH_CACHE;
  
 switch (activeNetwork.getType()) {
-  case (ConnectivityManager.TYPE_WIFI): 
+  case (链接Manager.TYPE_WIFI): 
     PrefetchCacheSize = MAX_PREFETCH_CACHE; break;
-  case (ConnectivityManager.TYPE_MOBILE): {
+  case (链接Manager.TYPE_MOBILE): {
     switch (tm.getNetworkType()) {
       case (TelephonyManager.NETWORK_TYPE_LTE | 
             TelephonyManager.NETWORK_TYPE_HSPAP): 

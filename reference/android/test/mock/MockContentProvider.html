@@ -947,7 +947,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody">Mock implementation of ContentProvider.  All methods are non-functional and throw
  <code><a href="../../../../reference/java/lang/UnsupportedOperationException.html">UnsupportedOperationException</a></code>.  Tests can extend this class to
  implement behavior needed for tests.
@@ -1078,7 +1078,7 @@ Summary:
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_UI_HIDDEN">TRIM_MEMORY_UI_HIDDEN</a></td>
         <td class="jd-descrcol" width="100%">Level for <code><a href="../../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process had been showing
- a user interface, and is no longer doing so.</td>
+ a 用户界面, and is no longer doing so.</td>
     </tr>
     
     
@@ -1133,7 +1133,7 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../reference/android/test/mock/MockContentProvider.html#MockContentProvider(android.content.Context, java.lang.String, java.lang.String, android.content.pm.PathPermission[])">MockContentProvider</a></span>(<a href="../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../reference/java/lang/String.html">String</a> readPermission, <a href="../../../../reference/java/lang/String.html">String</a> writePermission, <a href="../../../../reference/android/content/pm/PathPermission.html">PathPermission[]</a> pathPermissions)</nobr>
+        <span class="sympad"><a href="../../../../reference/android/test/mock/MockContentProvider.html#MockContentProvider(android.content.Context, java.lang.String, java.lang.String, android.content.pm.PathPermission[])">MockContentProvider</a></span>(<a href="../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../reference/java/lang/String.html">String</a> readPermission, <a href="../../../../reference/java/lang/String.html">String</a> writePermission, <a href="../../../../reference/android/content/pm/PathPermission.html">PathPermission[]</a> path权限体系)</nobr>
         
         <div class="jd-descrdiv">A constructor which initialize four member variables which
  <code><a href="../../../../reference/android/content/ContentProvider.html">ContentProvider</a></code> have internally.</div>
@@ -1543,7 +1543,7 @@ From class
             <a href="../../../../reference/android/content/pm/PathPermission.html">PathPermission[]</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../reference/android/content/ContentProvider.html#getPathPermissions()">getPathPermissions</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../reference/android/content/ContentProvider.html#getPath权限体系()">getPath权限体系</a></span>()</nobr>
         
         <div class="jd-descrdiv">Return the path-based permissions required for read and/or write access to
  this content provider.</div>
@@ -1885,7 +1885,7 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../reference/android/content/ContentProvider.html#setPathPermissions(android.content.pm.PathPermission[])">setPathPermissions</a></span>(<a href="../../../../reference/android/content/pm/PathPermission.html">PathPermission[]</a> permissions)</nobr>
+        <span class="sympad"><a href="../../../../reference/android/content/ContentProvider.html#setPath权限体系(android.content.pm.PathPermission[])">setPath权限体系</a></span>(<a href="../../../../reference/android/content/pm/PathPermission.html">PathPermission[]</a> permissions)</nobr>
         
         <div class="jd-descrdiv">Change the path-based permission required to read and/or write data in
  the content provider.</div>
@@ -2392,7 +2392,7 @@ From interface
         
       </span>
       <span class="sympad">MockContentProvider</span>
-      <span class="normal">(<a href="../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../reference/java/lang/String.html">String</a> readPermission, <a href="../../../../reference/java/lang/String.html">String</a> writePermission, <a href="../../../../reference/android/content/pm/PathPermission.html">PathPermission[]</a> pathPermissions)</span>
+      <span class="normal">(<a href="../../../../reference/android/content/Context.html">Context</a> context, <a href="../../../../reference/java/lang/String.html">String</a> readPermission, <a href="../../../../reference/java/lang/String.html">String</a> writePermission, <a href="../../../../reference/android/content/pm/PathPermission.html">PathPermission[]</a> path权限体系)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2424,9 +2424,9 @@ From interface
  in the test, which is available via <code><a href="../../../../reference/android/content/ContentProvider.html#getWritePermission()">getWritePermission()</a></code>.</td>
         </tr>
         <tr>
-          <th>pathPermissions</td>
-          <td>The PathPermissions you want this instance should have
- in the test, which is available via <code><a href="../../../../reference/android/content/ContentProvider.html#getPathPermissions()">getPathPermissions()</a></code>.
+          <th>path权限体系</td>
+          <td>The Path权限体系 you want this instance should have
+ in the test, which is available via <code><a href="../../../../reference/android/content/ContentProvider.html#getPath权限体系()">getPath权限体系()</a></code>.
 </td>
         </tr>
       </table>

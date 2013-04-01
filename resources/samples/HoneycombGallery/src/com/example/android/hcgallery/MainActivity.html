@@ -503,7 +503,7 @@ public class MainActivity extends Activity implements TitlesFragment.OnItemSelec
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
         case R.id.menu_camera:
-            Intent intent = new Intent(this, CameraActivity.class);
+            Intent intent = new Intent(this, 相机Activity.class);
             intent.putExtra("theme", mThemeId);
             startActivity(intent);
             return true;

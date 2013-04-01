@@ -1171,7 +1171,7 @@ SDK</a></li></ul>
 <h2>你需要同时阅读</h2>
 <ul>
   <li><a href="../../training/design-navigation/ancestral-temporal.html">提供原始和时间导航</a></li>
-  <li><a href="../../guide/components/tasks-and-back-stack.html">Tasks and Back Stack</a></li>
+  <li><a href="../../guide/components/tasks-and-back-stack.html">任务和后退栈</a></li>
   <li><a href="../../design/patterns/navigation.html">Android Design: Navigation</a></li>
 </ul>
 
@@ -1179,9 +1179,9 @@ SDK</a></li></ul>
 </div>
 
 
-<p><em>Temporal navigation</em> is navigation to previously visited screens. Users can visit previous screens by pressing the device <em>Back</em> button. This user interface pattern is described further in <a href="../../training/design-navigation/ancestral-temporal.html">提供原始和时间导航</a> in <em>设计高效导航</em> and in <a href="../../design/patterns/navigation.html">Android Design: Navigation</a>.</p>
+<p><em>Temporal navigation</em> is navigation to previously visited screens. Users can visit previous screens by pressing the device <em>Back</em> button. This 用户界面 pattern is described further in <a href="../../training/design-navigation/ancestral-temporal.html">提供原始和时间导航</a> in <em>设计高效导航</em> and in <a href="../../design/patterns/navigation.html">Android Design: Navigation</a>.</p>
 
-<p>Android handles basic <em>Back</em> navigation for you (see <a href="../../guide/components/tasks-and-back-stack.html">Tasks and Back Stack</a> for details on this behavior). This lesson discusses a number of cases where applications should provide specialized logic for the <em>Back</em> button.</p>
+<p>Android handles basic <em>Back</em> navigation for you (see <a href="../../guide/components/tasks-and-back-stack.html">任务和后退栈</a> for details on this behavior). This lesson discusses a number of cases where applications should provide specialized logic for the <em>Back</em> button.</p>
 
 
 <h2 id="back-fragments">Implement <em>Back</em> Navigation with Fragments</h2>
@@ -1201,7 +1201,7 @@ getFragmentManager().beginTransaction()
 
 <p>The activity's <code><a href="../../reference/android/app/FragmentManager.html">FragmentManager</a></code> handles <em>Back</em> button presses if there are <code><a href="../../reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code> objects on the back stack. When this happens, the <code><a href="../../reference/android/app/FragmentManager.html">FragmentManager</a></code> pops the most recent transaction off the back stack and performs the reverse action (e.g., removing a fragment if the transaction added it).</p>
 
-<p>If your application updates other user interface elements to reflect the current state of your fragments, such as the action bar, remember to update the UI when you commit the transaction. You should update your user interface after the fragment manager back stack changes in addition to when you commit the transaction. You can listen for when a <code>FragmentTransaction</code> is reverted by setting up an <code><a href="../../reference/android/app/FragmentManager.OnBackStackChangedListener.html">FragmentManager.OnBackStackChangedListener</a></code>:</p>
+<p>If your application updates other 用户界面 elements to reflect the current state of your fragments, such as the action bar, remember to update the UI when you commit the transaction. You should update your 用户界面 after the fragment manager back stack changes in addition to when you commit the transaction. You can listen for when a <code>FragmentTransaction</code> is reverted by setting up an <code><a href="../../reference/android/app/FragmentManager.OnBackStackChangedListener.html">FragmentManager.OnBackStackChangedListener</a></code>:</p>
 
 <pre>
 getFragmentManager().addOnBackStackChangedListener(

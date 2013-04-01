@@ -76,7 +76,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
-<title>BluetoothChatService.java | Android Developers</title>
+<title>蓝牙ChatService.java | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -378,7 +378,7 @@ SDK</a></li></ul>
 <div class="g-unit" id="doc-content">
  <div id="jd-header" class="guide-header">
   <span class="crumb">&nbsp;</span>
-  <h1>BluetoothChatService.java</h1>
+  <h1>蓝牙ChatService.java</h1>
  </div>
 
 <div id="jd-content">
@@ -403,17 +403,17 @@ SDK</a></li></ul>
  * limitations under the License.
  */
 
-package com.example.android.BluetoothChat;
+package com.example.android.蓝牙Chat;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothServerSocket;
-import android.bluetooth.BluetoothSocket;
+import android.bluetooth.蓝牙Adapter;
+import android.bluetooth.蓝牙Device;
+import android.bluetooth.蓝牙ServerSocket;
+import android.bluetooth.蓝牙Socket;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -421,19 +421,19 @@ import android.os.Message;
 import android.util.Log;
 
 /**
- * This class does all the work for setting up and managing Bluetooth
+ * This class does all the work for setting up and managing 蓝牙
  * connections with other devices. It has a thread that listens for
  * incoming connections, a thread for connecting with a device, and a
  * thread for performing data transmissions when connected.
  */
-public class BluetoothChatService {
+public class 蓝牙ChatService {
     // Debugging
-    private static final String TAG = "BluetoothChatService";
+    private static final String TAG = "蓝牙ChatService";
     private static final boolean D = true;
 
     // Name for the SDP record when creating server socket
-    private static final String NAME_SECURE = "BluetoothChatSecure";
-    private static final String NAME_INSECURE = "BluetoothChatInsecure";
+    private static final String NAME_SECURE = "蓝牙ChatSecure";
+    private static final String NAME_INSECURE = "蓝牙ChatInsecure";
 
     // Unique UUID for this application
     private static final UUID MY_UUID_SECURE =
@@ -442,7 +442,7 @@ public class BluetoothChatService {
         UUID.fromString("8ce255c0-200a-11e0-ac64-0800200c9a66");
 
     // Member fields
-    private final BluetoothAdapter mAdapter;
+    private final 蓝牙Adapter mAdapter;
     private final Handler mHandler;
     private AcceptThread mSecureAcceptThread;
     private AcceptThread mInsecureAcceptThread;
@@ -457,12 +457,12 @@ public class BluetoothChatService {
     public static final int STATE_CONNECTED = 3;  // now connected to a remote device
 
     /**
-     * Constructor. Prepares a new BluetoothChat session.
+     * Constructor. Prepares a new 蓝牙Chat session.
      * @param context  The UI Activity Context
      * @param handler  A Handler to send messages back to the UI Activity
      */
-    public BluetoothChatService(Context context, Handler handler) {
-        mAdapter = BluetoothAdapter.getDefaultAdapter();
+    public 蓝牙ChatService(Context context, Handler handler) {
+        mAdapter = 蓝牙Adapter.getDefaultAdapter();
         mState = STATE_NONE;
         mHandler = handler;
     }
@@ -476,7 +476,7 @@ public class BluetoothChatService {
         mState = state;
 
         // Give the new state to the Handler so the UI Activity can update
-        mHandler.obtainMessage(BluetoothChat.MESSAGE_STATE_CHANGE, state, -1).sendToTarget();
+        mHandler.obtainMessage(蓝牙Chat.MESSAGE_STATE_CHANGE, state, -1).sendToTarget();
     }
 
     /**
@@ -499,7 +499,7 @@ public class BluetoothChatService {
 
         setState(STATE_LISTEN);
 
-        // Start the thread to listen on a BluetoothServerSocket
+        // Start the thread to listen on a 蓝牙ServerSocket
         if (mSecureAcceptThread == null) {
             mSecureAcceptThread = new AcceptThread(true);
             mSecureAcceptThread.start();
@@ -512,10 +512,10 @@ public class BluetoothChatService {
 
     /**
      * Start the ConnectThread to initiate a connection to a remote device.
-     * @param device  The BluetoothDevice to connect
+     * @param device  The 蓝牙Device to connect
      * @param secure Socket Security type - Secure (true) , Insecure (false)
      */
-    public synchronized void connect(BluetoothDevice device, boolean secure) {
+    public synchronized void connect(蓝牙Device device, boolean secure) {
         if (D) Log.d(TAG, "connect to: " + device);
 
         // Cancel any thread attempting to make a connection
@@ -533,11 +533,11 @@ public class BluetoothChatService {
     }
 
     /**
-     * Start the ConnectedThread to begin managing a Bluetooth connection
-     * @param socket  The BluetoothSocket on which the connection was made
-     * @param device  The BluetoothDevice that has been connected
+     * Start the ConnectedThread to begin managing a 蓝牙 connection
+     * @param socket  The 蓝牙Socket on which the connection was made
+     * @param device  The 蓝牙Device that has been connected
      */
-    public synchronized void connected(BluetoothSocket socket, BluetoothDevice
+    public synchronized void connected(蓝牙Socket socket, 蓝牙Device
             device, final String socketType) {
         if (D) Log.d(TAG, "connected, Socket Type:" + socketType);
 
@@ -562,9 +562,9 @@ public class BluetoothChatService {
         mConnectedThread.start();
 
         // Send the name of the connected device back to the UI Activity
-        Message msg = mHandler.obtainMessage(BluetoothChat.MESSAGE_DEVICE_NAME);
+        Message msg = mHandler.obtainMessage(蓝牙Chat.MESSAGE_DEVICE_NAME);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothChat.DEVICE_NAME, device.getName());
+        bundle.putString(蓝牙Chat.DEVICE_NAME, device.getName());
         msg.setData(bundle);
         mHandler.sendMessage(msg);
 
@@ -621,14 +621,14 @@ public class BluetoothChatService {
      */
     private void connectionFailed() {
         // Send a failure message back to the Activity
-        Message msg = mHandler.obtainMessage(BluetoothChat.MESSAGE_TOAST);
+        Message msg = mHandler.obtainMessage(蓝牙Chat.MESSAGE_TOAST);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothChat.TOAST, "Unable to connect device");
+        bundle.putString(蓝牙Chat.TOAST, "Unable to connect device");
         msg.setData(bundle);
         mHandler.sendMessage(msg);
 
         // Start the service over to restart listening mode
-        BluetoothChatService.this.start();
+        蓝牙ChatService.this.start();
     }
 
     /**
@@ -636,14 +636,14 @@ public class BluetoothChatService {
      */
     private void connectionLost() {
         // Send a failure message back to the Activity
-        Message msg = mHandler.obtainMessage(BluetoothChat.MESSAGE_TOAST);
+        Message msg = mHandler.obtainMessage(蓝牙Chat.MESSAGE_TOAST);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothChat.TOAST, "Device connection was lost");
+        bundle.putString(蓝牙Chat.TOAST, "Device connection was lost");
         msg.setData(bundle);
         mHandler.sendMessage(msg);
 
         // Start the service over to restart listening mode
-        BluetoothChatService.this.start();
+        蓝牙ChatService.this.start();
     }
 
     /**
@@ -653,11 +653,11 @@ public class BluetoothChatService {
      */
     private class AcceptThread extends Thread {
         // The local server socket
-        private final BluetoothServerSocket mmServerSocket;
+        private final 蓝牙ServerSocket mmServerSocket;
         private String mSocketType;
 
         public AcceptThread(boolean secure) {
-            BluetoothServerSocket tmp = null;
+            蓝牙ServerSocket tmp = null;
             mSocketType = secure ? "Secure":"Insecure";
 
             // Create a new listening server socket
@@ -680,7 +680,7 @@ public class BluetoothChatService {
                     "BEGIN mAcceptThread" + this);
             setName("AcceptThread" + mSocketType);
 
-            BluetoothSocket socket = null;
+            蓝牙Socket socket = null;
 
             // Listen to the server socket if we're not connected
             while (mState != STATE_CONNECTED) {
@@ -695,7 +695,7 @@ public class BluetoothChatService {
 
                 // If a connection was accepted
                 if (socket != null) {
-                    synchronized (BluetoothChatService.this) {
+                    synchronized (蓝牙ChatService.this) {
                         switch (mState) {
                         case STATE_LISTEN:
                         case STATE_CONNECTING:
@@ -737,17 +737,17 @@ public class BluetoothChatService {
      * succeeds or fails.
      */
     private class ConnectThread extends Thread {
-        private final BluetoothSocket mmSocket;
-        private final BluetoothDevice mmDevice;
+        private final 蓝牙Socket mmSocket;
+        private final 蓝牙Device mmDevice;
         private String mSocketType;
 
-        public ConnectThread(BluetoothDevice device, boolean secure) {
+        public ConnectThread(蓝牙Device device, boolean secure) {
             mmDevice = device;
-            BluetoothSocket tmp = null;
+            蓝牙Socket tmp = null;
             mSocketType = secure ? "Secure" : "Insecure";
 
-            // Get a BluetoothSocket for a connection with the
-            // given BluetoothDevice
+            // Get a 蓝牙Socket for a connection with the
+            // given 蓝牙Device
             try {
                 if (secure) {
                     tmp = device.createRfcommSocketToServiceRecord(
@@ -769,7 +769,7 @@ public class BluetoothChatService {
             // Always cancel discovery because it will slow down a connection
             mAdapter.cancelDiscovery();
 
-            // Make a connection to the BluetoothSocket
+            // Make a connection to the 蓝牙Socket
             try {
                 // This is a blocking call and will only return on a
                 // successful connection or an exception
@@ -787,7 +787,7 @@ public class BluetoothChatService {
             }
 
             // Reset the ConnectThread because we're done
-            synchronized (BluetoothChatService.this) {
+            synchronized (蓝牙ChatService.this) {
                 mConnectThread = null;
             }
 
@@ -809,17 +809,17 @@ public class BluetoothChatService {
      * It handles all incoming and outgoing transmissions.
      */
     private class ConnectedThread extends Thread {
-        private final BluetoothSocket mmSocket;
+        private final 蓝牙Socket mmSocket;
         private final InputStream mmInStream;
         private final OutputStream mmOutStream;
 
-        public ConnectedThread(BluetoothSocket socket, String socketType) {
+        public ConnectedThread(蓝牙Socket socket, String socketType) {
             Log.d(TAG, "create ConnectedThread: " + socketType);
             mmSocket = socket;
             InputStream tmpIn = null;
             OutputStream tmpOut = null;
 
-            // Get the BluetoothSocket input and output streams
+            // Get the 蓝牙Socket input and output streams
             try {
                 tmpIn = socket.getInputStream();
                 tmpOut = socket.getOutputStream();
@@ -843,13 +843,13 @@ public class BluetoothChatService {
                     bytes = mmInStream.read(buffer);
 
                     // Send the obtained bytes to the UI Activity
-                    mHandler.obtainMessage(BluetoothChat.MESSAGE_READ, bytes, -1, buffer)
+                    mHandler.obtainMessage(蓝牙Chat.MESSAGE_READ, bytes, -1, buffer)
                             .sendToTarget();
                 } catch (IOException e) {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
                     // Start the service over to restart listening mode
-                    BluetoothChatService.this.start();
+                    蓝牙ChatService.this.start();
                     break;
                 }
             }
@@ -864,7 +864,7 @@ public class BluetoothChatService {
                 mmOutStream.write(buffer);
 
                 // Share the sent message back to the UI Activity
-                mHandler.obtainMessage(BluetoothChat.MESSAGE_WRITE, -1, -1, buffer)
+                mHandler.obtainMessage(蓝牙Chat.MESSAGE_WRITE, -1, -1, buffer)
                         .sendToTarget();
             } catch (IOException e) {
                 Log.e(TAG, "Exception during write", e);

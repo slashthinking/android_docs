@@ -1270,7 +1270,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody">An activity is a single, focused thing that the user can do.  Almost all
  activities interact with the user, so the Activity class takes care of
  creating a window for you in which you can place your UI with
@@ -1306,7 +1306,7 @@ Summary:
  <li><a href="#ConfigurationChanges">Configuration Changes</a>
  <li><a href="#StartingActivities">Starting Activities and Getting Results</a>
  <li><a href="#SavingPersistentState">Saving Persistent State</a>
- <li><a href="#Permissions">Permissions</a>
+ <li><a href="#权限体系">权限体系</a>
  <li><a href="#ProcessLifecycle">Process Lifecycle</a>
  </ol>
 
@@ -1316,8 +1316,8 @@ Summary:
  and the way activities are launched and put together is a fundamental
  part of the platform's application model. For a detailed perspective on the structure of an
  Android application and how activities behave, please read the
- <a href="../../../guide/topics/fundamentals.html">Application Fundamentals</a> and
- <a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">Tasks and Back Stack</a>
+ <a href="../../../guide/topics/fundamentals.html">应用基础</a> and
+ <a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">任务和后退栈</a>
  developer guides.</p>
 
  <p>You can also find a detailed discussion about how to create activities in the
@@ -1330,7 +1330,7 @@ Summary:
 
  <p>Starting with <code><a href="../../../reference/android/os/Build.VERSION_CODES.html#HONEYCOMB">HONEYCOMB</a></code>, Activity
  implementations can make use of the <code><a href="../../../reference/android/app/Fragment.html">Fragment</a></code> class to better
- modularize their code, build more sophisticated user interfaces for larger
+ modularize their code, build more sophisticated 用户界面s for larger
  screens, and help scale their application between small and large screens.
 
  <a name="ActivityLifecycle"></a>
@@ -1563,7 +1563,7 @@ Summary:
  
  <p>If the configuration of the device (as defined by the
  <code><a href="../../../reference/android/content/res/Configuration.html">Resources.Configuration</a></code> class) changes,
- then anything displaying a user interface will need to update to match that
+ then anything displaying a 用户界面 will need to update to match that
  configuration.  Because Activity is the primary mechanism for interacting
  with the user, it includes special support for handling configuration
  changes.</p>
@@ -1748,8 +1748,8 @@ Summary:
  }
  </pre>
  
- <a name="Permissions"></a>
- <h3>Permissions</h3>
+ <a name="权限体系"></a>
+ <h3>权限体系</h3>
  
  <p>The ability to start a particular Activity can be enforced when it is
  declared in its
@@ -1767,7 +1767,7 @@ Summary:
  <code><a href="../../../reference/android/app/Activity.html#onNewIntent(android.content.Intent)">onNewIntent(Intent)</a></code>, any newly granted URI permissions will be added
  to the existing ones it holds.
 
- <p>See the <a href="../../../guide/topics/security/security.html">Security and Permissions</a>
+ <p>See the <a href="../../../guide/topics/security/security.html">Security and 权限体系</a>
  document for more information on permissions and security in general.
  
  <a name="ProcessLifecycle"></a>
@@ -2090,7 +2090,7 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/Context.html#CONNECTIVITY_SERVICE">CONNECTIVITY_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Use with <code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">getSystemService(String)</a></code> to retrieve a <code><a href="../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> for handling management of
+        <td class="jd-descrcol" width="100%">Use with <code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">getSystemService(String)</a></code> to retrieve a <code><a href="../../../reference/android/net/链接Manager.html">链接Manager</a></code> for handling management of
  network connections.</td>
     </tr>
     
@@ -2498,7 +2498,7 @@ Summary:
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_UI_HIDDEN">TRIM_MEMORY_UI_HIDDEN</a></td>
         <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process had been showing
- a user interface, and is no longer doing so.</td>
+ a 用户界面, and is no longer doing so.</td>
     </tr>
     
     
@@ -12715,7 +12715,7 @@ From interface
   <dd> A <code><a href="../../../reference/android/os/Vibrator.html">Vibrator</a></code> for interacting with the vibrator
   hardware.
   <dt> <code><a href="../../../reference/android/content/Context.html#CONNECTIVITY_SERVICE">CONNECTIVITY_SERVICE</a></code> ("connection")
-  <dd> A <code><a href="../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> for
+  <dd> A <code><a href="../../../reference/android/net/链接Manager.html">链接Manager</a></code> for
   handling management of network connections.
   <dt> <code><a href="../../../reference/android/content/Context.html#WIFI_SERVICE">WIFI_SERVICE</a></code> ("wifi")
   <dd> A <code><a href="../../../reference/android/net/wifi/WifiManager.html">WifiManager</a></code> for management of
@@ -14910,7 +14910,7 @@ From interface
  should override the method <code><a href="../../../reference/android/app/Activity.html#onPrepareNavigateUpTaskStack(android.app.TaskStackBuilder)">onPrepareNavigateUpTaskStack(TaskStackBuilder)</a></code>
  to supply those arguments.</p>
 
- <p>See <a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">Tasks and Back Stack</a>
+ <p>See <a href="../../../guide/topics/fundamentals/tasks-and-back-stack.html">任务和后退栈</a>
  from the developer guide and <a href="../../../design/patterns/navigation.html">Navigation</a>
  from the design guide for more information about navigating within your app.</p>
 
@@ -19789,8 +19789,8 @@ From interface
  comes back some time in the future it can restore its state.  For example,
  if activity B is launched in front of activity A, and at some point activity
  A is killed to reclaim resources, activity A will have a chance to save the
- current state of its user interface via this method so that when the user
- returns to activity A, the state of the user interface can be restored
+ current state of its 用户界面 via this method so that when the user
+ returns to activity A, the state of the 用户界面 can be restored
  via <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate(Bundle)</a></code> or <code><a href="../../../reference/android/app/Activity.html#onRestoreInstanceState(android.os.Bundle)">onRestoreInstanceState(Bundle)</a></code>.
 
  <p>Do not confuse this method with activity lifecycle callbacks such as
@@ -19803,7 +19803,7 @@ From interface
  system avoids calling it.  An example when <code><a href="../../../reference/android/app/Activity.html#onPause()">onPause()</a></code> is called and
  not <code><a href="../../../reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState(Bundle)</a></code> is when activity B is launched in front of activity A:
  the system may avoid calling <code><a href="../../../reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState(Bundle)</a></code> on activity A if it isn't
- killed during the lifetime of B since the state of the user interface of
+ killed during the lifetime of B since the state of the 用户界面 of
  A will stay intact.
 
  <p>The default implementation takes care of most of the UI per-instance

@@ -75,7 +75,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
-<title>Camera.Parameters - Android SDK | Android Developers</title>
+<title>相机.Parameters - Android SDK | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -734,14 +734,14 @@ SDK</a></li></ul>
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.AutoFocusCallback.html">Camera.AutoFocusCallback</a></li>
-          <li class="api apilevel-16"><a href="../../../reference/android/hardware/Camera.AutoFocusMoveCallback.html">Camera.AutoFocusMoveCallback</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.ErrorCallback.html">Camera.ErrorCallback</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></li>
-          <li class="api apilevel-8"><a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html">Camera.OnZoomChangeListener</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.AutoFocusCallback.html">相机.AutoFocusCallback</a></li>
+          <li class="api apilevel-16"><a href="../../../reference/android/hardware/相机.AutoFocusMoveCallback.html">相机.AutoFocusMoveCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.ErrorCallback.html">相机.ErrorCallback</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/hardware/相机.OnZoomChangeListener.html">相机.OnZoomChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></li>
       </ul>
@@ -749,12 +749,12 @@ SDK</a></li></ul>
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.html">Camera</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a></li>
-          <li class="api apilevel-9"><a href="../../../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.Face.html">Camera.Face</a></li>
-          <li class="selected api apilevel-1"><a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.html">相机</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/hardware/相机.相机Info.html">相机.相机Info</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/相机.Face.html">相机.Face</a></li>
+          <li class="selected api apilevel-1"><a href="../../../reference/android/hardware/相机.Parameters.html">相机.Parameters</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/hardware/GeomagneticField.html">GeomagneticField</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></li>
@@ -872,7 +872,7 @@ Summary:
      
     
     class
-<h1 itemprop="name">Camera.Parameters</h1>
+<h1 itemprop="name">相机.Parameters</h1>
 
 
 
@@ -905,7 +905,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">android.hardware.Camera.Parameters</td>
+        <td colspan="1" class="jd-inheritance-class-cell">android.hardware.相机.Parameters</td>
     </tr>
     
 
@@ -920,22 +920,22 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
-<p itemprop="articleBody">Camera service settings.
+<h2>Class 概览</h2>
+<p itemprop="articleBody">相机 service settings.
 
  <p>To make camera parameters take effect, applications have to call
- <code><a href="../../../reference/android/hardware/Camera.html#setParameters(android.hardware.Camera.Parameters)">setParameters(Camera.Parameters)</a></code>. For example, after
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance(String)</a></code> is called, white balance is not
- actually changed until <code><a href="../../../reference/android/hardware/Camera.html#setParameters(android.hardware.Camera.Parameters)">setParameters(Camera.Parameters)</a></code>
+ <code><a href="../../../reference/android/hardware/相机.html#setParameters(android.hardware.相机.Parameters)">setParameters(相机.Parameters)</a></code>. For example, after
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance(String)</a></code> is called, white balance is not
+ actually changed until <code><a href="../../../reference/android/hardware/相机.html#setParameters(android.hardware.相机.Parameters)">setParameters(相机.Parameters)</a></code>
  is called with the changed parameters object.
 
  <p>Different devices may have different camera capabilities, such as
  picture size or flash modes. The application should query the camera
  capabilities before setting parameters. For example, the application
- should call <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects()</a></code> before
- calling <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setColorEffect(java.lang.String)">setColorEffect(String)</a></code>. If the
+ should call <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects()</a></code> before
+ calling <code><a href="../../../reference/android/hardware/相机.Parameters.html#setColorEffect(java.lang.String)">setColorEffect(String)</a></code>. If the
  camera does not support color effects,
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects()</a></code> will return null.
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects()</a></code> will return null.
 </p>
 
 
@@ -983,388 +983,388 @@ Summary:
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_50HZ">ANTIBANDING_50HZ</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#ANTIBANDING_50HZ">ANTIBANDING_50HZ</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_60HZ">ANTIBANDING_60HZ</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#ANTIBANDING_60HZ">ANTIBANDING_60HZ</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_AUTO">ANTIBANDING_AUTO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#ANTIBANDING_AUTO">ANTIBANDING_AUTO</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_OFF">ANTIBANDING_OFF</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#ANTIBANDING_OFF">ANTIBANDING_OFF</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_AQUA">EFFECT_AQUA</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_AQUA">EFFECT_AQUA</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_BLACKBOARD">EFFECT_BLACKBOARD</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_BLACKBOARD">EFFECT_BLACKBOARD</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_MONO">EFFECT_MONO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_MONO">EFFECT_MONO</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_NEGATIVE">EFFECT_NEGATIVE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_NEGATIVE">EFFECT_NEGATIVE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_NONE">EFFECT_NONE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_NONE">EFFECT_NONE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_POSTERIZE">EFFECT_POSTERIZE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_POSTERIZE">EFFECT_POSTERIZE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_SEPIA">EFFECT_SEPIA</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_SEPIA">EFFECT_SEPIA</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_SOLARIZE">EFFECT_SOLARIZE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_SOLARIZE">EFFECT_SOLARIZE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_WHITEBOARD">EFFECT_WHITEBOARD</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_WHITEBOARD">EFFECT_WHITEBOARD</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_AUTO">FLASH_MODE_AUTO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_AUTO">FLASH_MODE_AUTO</a></td>
         <td class="jd-descrcol" width="100%">Flash will be fired automatically when required.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_OFF">FLASH_MODE_OFF</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_OFF">FLASH_MODE_OFF</a></td>
         <td class="jd-descrcol" width="100%">Flash will not be fired.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_ON">FLASH_MODE_ON</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_ON">FLASH_MODE_ON</a></td>
         <td class="jd-descrcol" width="100%">Flash will always be fired during snapshot.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_RED_EYE">FLASH_MODE_RED_EYE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_RED_EYE">FLASH_MODE_RED_EYE</a></td>
         <td class="jd-descrcol" width="100%">Flash will be fired in red-eye reduction mode.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_TORCH">FLASH_MODE_TORCH</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_TORCH">FLASH_MODE_TORCH</a></td>
         <td class="jd-descrcol" width="100%">Constant emission of light during preview, auto-focus and snapshot.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_FAR_INDEX">FOCUS_DISTANCE_FAR_INDEX</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_DISTANCE_FAR_INDEX">FOCUS_DISTANCE_FAR_INDEX</a></td>
         <td class="jd-descrcol" width="100%">The array index of far focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_NEAR_INDEX">FOCUS_DISTANCE_NEAR_INDEX</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_DISTANCE_NEAR_INDEX">FOCUS_DISTANCE_NEAR_INDEX</a></td>
         <td class="jd-descrcol" width="100%">The array index of near focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_OPTIMAL_INDEX">FOCUS_DISTANCE_OPTIMAL_INDEX</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_DISTANCE_OPTIMAL_INDEX">FOCUS_DISTANCE_OPTIMAL_INDEX</a></td>
         <td class="jd-descrcol" width="100%">The array index of optimal focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_AUTO">FOCUS_MODE_AUTO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_AUTO">FOCUS_MODE_AUTO</a></td>
         <td class="jd-descrcol" width="100%">Auto-focus mode.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-14" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></td>
         <td class="jd-descrcol" width="100%">Continuous auto focus mode intended for taking pictures.</td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></td>
         <td class="jd-descrcol" width="100%">Continuous auto focus mode intended for video recording.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_EDOF">FOCUS_MODE_EDOF</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_EDOF">FOCUS_MODE_EDOF</a></td>
         <td class="jd-descrcol" width="100%">Extended depth of field (EDOF).</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_FIXED">FOCUS_MODE_FIXED</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_FIXED">FOCUS_MODE_FIXED</a></td>
         <td class="jd-descrcol" width="100%">Focus is fixed.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_INFINITY">FOCUS_MODE_INFINITY</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_INFINITY">FOCUS_MODE_INFINITY</a></td>
         <td class="jd-descrcol" width="100%">Focus is set at infinity.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_MACRO">FOCUS_MODE_MACRO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_MACRO">FOCUS_MODE_MACRO</a></td>
         <td class="jd-descrcol" width="100%">Macro (close-up) focus mode.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-9" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#PREVIEW_FPS_MAX_INDEX">PREVIEW_FPS_MAX_INDEX</a></td>
-        <td class="jd-descrcol" width="100%">The array index of maximum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#PREVIEW_FPS_MAX_INDEX">PREVIEW_FPS_MAX_INDEX</a></td>
+        <td class="jd-descrcol" width="100%">The array index of maximum preview fps for use with <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</td>
     </tr>
     
     
     <tr class=" api apilevel-9" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#PREVIEW_FPS_MIN_INDEX">PREVIEW_FPS_MIN_INDEX</a></td>
-        <td class="jd-descrcol" width="100%">The array index of minimum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#PREVIEW_FPS_MIN_INDEX">PREVIEW_FPS_MIN_INDEX</a></td>
+        <td class="jd-descrcol" width="100%">The array index of minimum preview fps for use with <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_ACTION">SCENE_MODE_ACTION</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_ACTION">SCENE_MODE_ACTION</a></td>
         <td class="jd-descrcol" width="100%">Take photos of fast moving objects.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_AUTO">SCENE_MODE_AUTO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_AUTO">SCENE_MODE_AUTO</a></td>
         <td class="jd-descrcol" width="100%">Scene mode is off.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-8" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_BARCODE">SCENE_MODE_BARCODE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_BARCODE">SCENE_MODE_BARCODE</a></td>
         <td class="jd-descrcol" width="100%">Applications are looking for a barcode.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_BEACH">SCENE_MODE_BEACH</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_BEACH">SCENE_MODE_BEACH</a></td>
         <td class="jd-descrcol" width="100%">Take pictures on the beach.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_CANDLELIGHT">SCENE_MODE_CANDLELIGHT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_CANDLELIGHT">SCENE_MODE_CANDLELIGHT</a></td>
         <td class="jd-descrcol" width="100%">Capture the naturally warm color of scenes lit by candles.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_FIREWORKS">SCENE_MODE_FIREWORKS</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_FIREWORKS">SCENE_MODE_FIREWORKS</a></td>
         <td class="jd-descrcol" width="100%">For shooting firework displays.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-17" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_HDR">SCENE_MODE_HDR</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_HDR">SCENE_MODE_HDR</a></td>
         <td class="jd-descrcol" width="100%">Capture a scene using high dynamic range imaging techniques.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_LANDSCAPE">SCENE_MODE_LANDSCAPE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_LANDSCAPE">SCENE_MODE_LANDSCAPE</a></td>
         <td class="jd-descrcol" width="100%">Take pictures on distant objects.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_NIGHT">SCENE_MODE_NIGHT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_NIGHT">SCENE_MODE_NIGHT</a></td>
         <td class="jd-descrcol" width="100%">Take photos at night.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_NIGHT_PORTRAIT">SCENE_MODE_NIGHT_PORTRAIT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_NIGHT_PORTRAIT">SCENE_MODE_NIGHT_PORTRAIT</a></td>
         <td class="jd-descrcol" width="100%">Take people pictures at night.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_PARTY">SCENE_MODE_PARTY</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_PARTY">SCENE_MODE_PARTY</a></td>
         <td class="jd-descrcol" width="100%">Take indoor low-light shot.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_PORTRAIT">SCENE_MODE_PORTRAIT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_PORTRAIT">SCENE_MODE_PORTRAIT</a></td>
         <td class="jd-descrcol" width="100%">Take people pictures.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SNOW">SCENE_MODE_SNOW</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_SNOW">SCENE_MODE_SNOW</a></td>
         <td class="jd-descrcol" width="100%">Take pictures on the snow.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SPORTS">SCENE_MODE_SPORTS</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_SPORTS">SCENE_MODE_SPORTS</a></td>
         <td class="jd-descrcol" width="100%">Take photos of fast moving objects.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_STEADYPHOTO">SCENE_MODE_STEADYPHOTO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_STEADYPHOTO">SCENE_MODE_STEADYPHOTO</a></td>
         <td class="jd-descrcol" width="100%">Avoid blurry pictures (for example, due to hand shake).</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SUNSET">SCENE_MODE_SUNSET</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_SUNSET">SCENE_MODE_SUNSET</a></td>
         <td class="jd-descrcol" width="100%">Take sunset photos.</td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_THEATRE">SCENE_MODE_THEATRE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_THEATRE">SCENE_MODE_THEATRE</a></td>
         <td class="jd-descrcol" width="100%">Take photos in a theater.</td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_AUTO">WHITE_BALANCE_AUTO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_AUTO">WHITE_BALANCE_AUTO</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_CLOUDY_DAYLIGHT">WHITE_BALANCE_CLOUDY_DAYLIGHT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_CLOUDY_DAYLIGHT">WHITE_BALANCE_CLOUDY_DAYLIGHT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_DAYLIGHT">WHITE_BALANCE_DAYLIGHT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_DAYLIGHT">WHITE_BALANCE_DAYLIGHT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_FLUORESCENT">WHITE_BALANCE_FLUORESCENT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_FLUORESCENT">WHITE_BALANCE_FLUORESCENT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_INCANDESCENT">WHITE_BALANCE_INCANDESCENT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_INCANDESCENT">WHITE_BALANCE_INCANDESCENT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_SHADE">WHITE_BALANCE_SHADE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_SHADE">WHITE_BALANCE_SHADE</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class=" api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_TWILIGHT">WHITE_BALANCE_TWILIGHT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_TWILIGHT">WHITE_BALANCE_TWILIGHT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
     
     <tr class="alt-color api apilevel-5" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_WARM_FLUORESCENT">WHITE_BALANCE_WARM_FLUORESCENT</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_WARM_FLUORESCENT">WHITE_BALANCE_WARM_FLUORESCENT</a></td>
         <td class="jd-descrcol" width="100%"></td>
     </tr>
     
@@ -1403,7 +1403,7 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#flatten()">flatten</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#flatten()">flatten</a></span>()</nobr>
         
         <div class="jd-descrdiv">Creates a single string with all the parameters set in
  this Parameters object.</div>
@@ -1422,7 +1422,7 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#get(java.lang.String)">get</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#get(java.lang.String)">get</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
         
         <div class="jd-descrdiv">Returns the value of a String parameter.</div>
   
@@ -1440,7 +1440,7 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getAntibanding()">getAntibanding</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getAntibanding()">getAntibanding</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the current antibanding setting.</div>
   
@@ -1458,7 +1458,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getAutoExposureLock()">getAutoExposureLock</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getAutoExposureLock()">getAutoExposureLock</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the state of the auto-exposure lock.</div>
   
@@ -1476,7 +1476,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getAutoWhiteBalanceLock()">getAutoWhiteBalanceLock</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getAutoWhiteBalanceLock()">getAutoWhiteBalanceLock</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the state of the auto-white balance lock.</div>
   
@@ -1494,7 +1494,7 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getColorEffect()">getColorEffect</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getColorEffect()">getColorEffect</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the current color effect setting.</div>
   
@@ -1512,7 +1512,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getExposureCompensation()">getExposureCompensation</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getExposureCompensation()">getExposureCompensation</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the current exposure compensation index.</div>
   
@@ -1530,7 +1530,7 @@ Summary:
             float</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getExposureCompensationStep()">getExposureCompensationStep</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getExposureCompensationStep()">getExposureCompensationStep</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the exposure compensation step.</div>
   
@@ -1548,7 +1548,7 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFlashMode()">getFlashMode</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getFlashMode()">getFlashMode</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the current flash mode setting.</div>
   
@@ -1566,7 +1566,7 @@ Summary:
             float</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocalLength()">getFocalLength</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getFocalLength()">getFocalLength</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the focal length (in millimeter) of the camera.</div>
   
@@ -1581,10 +1581,10 @@ Summary:
             
             
             
-            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt;</nobr>
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusAreas()">getFocusAreas</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusAreas()">getFocusAreas</a></span>()</nobr>
         
         <div class="jd-descrdiv"><p>Gets the current focus areas.</div>
   
@@ -1602,7 +1602,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances</a></span>(float[] output)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusDistances(float[])">getFocusDistances</a></span>(float[] output)</nobr>
         
         <div class="jd-descrdiv"><p>Gets the distances from the camera to where an object appears to be
  in focus.</div>
@@ -1621,7 +1621,7 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusMode()">getFocusMode</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusMode()">getFocusMode</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the current focus mode setting.</div>
   
@@ -1639,7 +1639,7 @@ Summary:
             float</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getHorizontalViewAngle()">getHorizontalViewAngle</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getHorizontalViewAngle()">getHorizontalViewAngle</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the horizontal angle of view in degrees.</div>
   
@@ -1657,7 +1657,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getInt(java.lang.String)">getInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getInt(java.lang.String)">getInt</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
         
         <div class="jd-descrdiv">Returns the value of an integer parameter.</div>
   
@@ -1675,7 +1675,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getJpegQuality()">getJpegQuality</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getJpegQuality()">getJpegQuality</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the quality setting for the JPEG picture.</div>
   
@@ -1693,7 +1693,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getJpegThumbnailQuality()">getJpegThumbnailQuality</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getJpegThumbnailQuality()">getJpegThumbnailQuality</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the quality setting for the EXIF thumbnail in Jpeg picture.</div>
   
@@ -1708,10 +1708,10 @@ Summary:
             
             
             
-            <a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a></nobr>
+            <a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getJpegThumbnailSize()">getJpegThumbnailSize</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getJpegThumbnailSize()">getJpegThumbnailSize</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the dimensions for EXIF thumbnail in Jpeg picture.</div>
   
@@ -1729,7 +1729,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the maximum exposure compensation index.</div>
   
@@ -1747,7 +1747,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the maximum number of detected faces supported.</div>
   
@@ -1765,7 +1765,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumFocusAreas()">getMaxNumFocusAreas</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxNumFocusAreas()">getMaxNumFocusAreas</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the maximum number of focus areas supported.</div>
   
@@ -1783,7 +1783,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumMeteringAreas()">getMaxNumMeteringAreas</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxNumMeteringAreas()">getMaxNumMeteringAreas</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the maximum number of metering areas supported.</div>
   
@@ -1801,7 +1801,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxZoom()">getMaxZoom</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxZoom()">getMaxZoom</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the maximum zoom value allowed for snapshot.</div>
   
@@ -1816,10 +1816,10 @@ Summary:
             
             
             
-            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt;</nobr>
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMeteringAreas()">getMeteringAreas</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getMeteringAreas()">getMeteringAreas</a></span>()</nobr>
         
         <div class="jd-descrdiv"><p>Gets the current metering areas.</div>
   
@@ -1837,7 +1837,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the minimum exposure compensation index.</div>
   
@@ -1855,7 +1855,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPictureFormat()">getPictureFormat</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getPictureFormat()">getPictureFormat</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the image format for pictures.</div>
   
@@ -1870,10 +1870,10 @@ Summary:
             
             
             
-            <a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a></nobr>
+            <a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPictureSize()">getPictureSize</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getPictureSize()">getPictureSize</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the dimension setting for pictures.</div>
   
@@ -1888,10 +1888,10 @@ Summary:
             
             
             
-            <a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a></nobr>
+            <a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreferredPreviewSizeForVideo()">getPreferredPreviewSizeForVideo</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getPreferredPreviewSizeForVideo()">getPreferredPreviewSizeForVideo</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the preferred or recommended preview size (width and height)
  in pixels for video recording.</div>
@@ -1910,10 +1910,10 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFormat()">getPreviewFormat</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFormat()">getPreviewFormat</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the image format for preview frames got from
- <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></code>.</div>
+ <code><a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a></code>.</div>
   
   </td></tr>
 
@@ -1929,7 +1929,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange</a></span>(int[] range)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange</a></span>(int[] range)</nobr>
         
         <div class="jd-descrdiv">Returns the current minimum and maximum preview fps.</div>
   
@@ -1947,12 +1947,12 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFrameRate()">getPreviewFrameRate</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFrameRate()">getPreviewFrameRate</a></span>()</nobr>
         
         <div class="jd-descrdiv">
       <em>This method was deprecated
       in API level 9.
-      replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code>
+      replaced by <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code>
 </em></div>
   
   </td></tr>
@@ -1966,10 +1966,10 @@ Summary:
             
             
             
-            <a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a></nobr>
+            <a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewSize()">getPreviewSize</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewSize()">getPreviewSize</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the dimensions setting for preview pictures.</div>
   
@@ -1987,7 +1987,7 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSceneMode()">getSceneMode</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSceneMode()">getSceneMode</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the current scene mode setting.</div>
   
@@ -2005,7 +2005,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedAntibanding()">getSupportedAntibanding</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedAntibanding()">getSupportedAntibanding</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported antibanding values.</div>
   
@@ -2023,7 +2023,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedColorEffects()">getSupportedColorEffects</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported color effects.</div>
   
@@ -2041,7 +2041,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedFlashModes()">getSupportedFlashModes</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedFlashModes()">getSupportedFlashModes</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported flash modes.</div>
   
@@ -2059,7 +2059,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedFocusModes()">getSupportedFocusModes</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedFocusModes()">getSupportedFocusModes</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported focus modes.</div>
   
@@ -2074,10 +2074,10 @@ Summary:
             
             
             
-            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>&gt;</nobr>
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedJpegThumbnailSizes()">getSupportedJpegThumbnailSizes</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedJpegThumbnailSizes()">getSupportedJpegThumbnailSizes</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported jpeg thumbnail sizes.</div>
   
@@ -2095,7 +2095,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/Integer.html">Integer</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPictureFormats()">getSupportedPictureFormats</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPictureFormats()">getSupportedPictureFormats</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported picture formats.</div>
   
@@ -2110,10 +2110,10 @@ Summary:
             
             
             
-            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>&gt;</nobr>
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPictureSizes()">getSupportedPictureSizes</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPictureSizes()">getSupportedPictureSizes</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported picture sizes.</div>
   
@@ -2131,7 +2131,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/Integer.html">Integer</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported preview formats.</div>
   
@@ -2149,7 +2149,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;int[]&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported preview fps (frame-per-second) ranges.</div>
   
@@ -2167,12 +2167,12 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/Integer.html">Integer</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFrameRates()">getSupportedPreviewFrameRates</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFrameRates()">getSupportedPreviewFrameRates</a></span>()</nobr>
         
         <div class="jd-descrdiv">
       <em>This method was deprecated
       in API level 9.
-      replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>
+      replaced by <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>
 </em></div>
   
   </td></tr>
@@ -2186,10 +2186,10 @@ Summary:
             
             
             
-            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>&gt;</nobr>
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewSizes()">getSupportedPreviewSizes</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewSizes()">getSupportedPreviewSizes</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported preview sizes.</div>
   
@@ -2207,7 +2207,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedSceneModes()">getSupportedSceneModes</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedSceneModes()">getSupportedSceneModes</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported scene modes.</div>
   
@@ -2222,10 +2222,10 @@ Summary:
             
             
             
-            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>&gt;</nobr>
+            <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedVideoSizes()">getSupportedVideoSizes</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedVideoSizes()">getSupportedVideoSizes</a></span>()</nobr>
         
         <div class="jd-descrdiv"><p>Gets the supported video frame sizes that can be used by
  MediaRecorder.</div>
@@ -2244,7 +2244,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/String.html">String</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedWhiteBalance()">getSupportedWhiteBalance</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedWhiteBalance()">getSupportedWhiteBalance</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the supported white balance.</div>
   
@@ -2262,7 +2262,7 @@ Summary:
             float</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getVerticalViewAngle()">getVerticalViewAngle</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getVerticalViewAngle()">getVerticalViewAngle</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the vertical angle of view in degrees.</div>
   
@@ -2280,7 +2280,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getVideoStabilization()">getVideoStabilization</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getVideoStabilization()">getVideoStabilization</a></span>()</nobr>
         
         <div class="jd-descrdiv">Get the current state of video stabilization.</div>
   
@@ -2298,7 +2298,7 @@ Summary:
             <a href="../../../reference/java/lang/String.html">String</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getWhiteBalance()">getWhiteBalance</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getWhiteBalance()">getWhiteBalance</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the current white balance setting.</div>
   
@@ -2316,7 +2316,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getZoom()">getZoom</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getZoom()">getZoom</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets current zoom value.</div>
   
@@ -2334,7 +2334,7 @@ Summary:
             <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/java/lang/Integer.html">Integer</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#getZoomRatios()">getZoomRatios</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#getZoomRatios()">getZoomRatios</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the zoom ratios of all zoom values.</div>
   
@@ -2352,7 +2352,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns true if auto-exposure locking is supported.</div>
   
@@ -2370,7 +2370,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns true if auto-white balance locking is supported.</div>
   
@@ -2388,7 +2388,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isSmoothZoomSupported()">isSmoothZoomSupported</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#isSmoothZoomSupported()">isSmoothZoomSupported</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns true if smooth zoom is supported.</div>
   
@@ -2406,7 +2406,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isVideoSnapshotSupported()">isVideoSnapshotSupported</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#isVideoSnapshotSupported()">isVideoSnapshotSupported</a></span>()</nobr>
         
         <div class="jd-descrdiv"><p>Returns true if video snapshot is supported.</div>
   
@@ -2424,7 +2424,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns true if video stabilization is supported.</div>
   
@@ -2442,7 +2442,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#isZoomSupported()">isZoomSupported</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns true if zoom is supported.</div>
   
@@ -2460,7 +2460,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#remove(java.lang.String)">remove</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#remove(java.lang.String)">remove</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key)</nobr>
         
   </td></tr>
 
@@ -2476,7 +2476,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#removeGpsData()">removeGpsData</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#removeGpsData()">removeGpsData</a></span>()</nobr>
         
         <div class="jd-descrdiv">Removes GPS latitude, longitude, altitude, and timestamp from the
  parameters.</div>
@@ -2495,7 +2495,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#set(java.lang.String, java.lang.String)">set</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#set(java.lang.String, java.lang.String)">set</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, <a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
         <div class="jd-descrdiv">Sets a String parameter.</div>
   
@@ -2513,7 +2513,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#set(java.lang.String, int)">set</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, int value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#set(java.lang.String, int)">set</a></span>(<a href="../../../reference/java/lang/String.html">String</a> key, int value)</nobr>
         
         <div class="jd-descrdiv">Sets an integer parameter.</div>
   
@@ -2531,7 +2531,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setAntibanding(java.lang.String)">setAntibanding</a></span>(<a href="../../../reference/java/lang/String.html">String</a> antibanding)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setAntibanding(java.lang.String)">setAntibanding</a></span>(<a href="../../../reference/java/lang/String.html">String</a> antibanding)</nobr>
         
         <div class="jd-descrdiv">Sets the antibanding.</div>
   
@@ -2549,7 +2549,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock</a></span>(boolean toggle)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock</a></span>(boolean toggle)</nobr>
         
         <div class="jd-descrdiv"><p>Sets the auto-exposure lock state.</div>
   
@@ -2567,7 +2567,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock</a></span>(boolean toggle)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock</a></span>(boolean toggle)</nobr>
         
         <div class="jd-descrdiv"><p>Sets the auto-white balance lock state.</div>
   
@@ -2585,7 +2585,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setColorEffect(java.lang.String)">setColorEffect</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setColorEffect(java.lang.String)">setColorEffect</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
         <div class="jd-descrdiv">Sets the current color effect setting.</div>
   
@@ -2603,7 +2603,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setExposureCompensation(int)">setExposureCompensation</a></span>(int value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setExposureCompensation(int)">setExposureCompensation</a></span>(int value)</nobr>
         
         <div class="jd-descrdiv">Sets the exposure compensation index.</div>
   
@@ -2621,7 +2621,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setFlashMode(java.lang.String)">setFlashMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setFlashMode(java.lang.String)">setFlashMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
         <div class="jd-descrdiv">Sets the flash mode.</div>
   
@@ -2639,7 +2639,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setFocusAreas(java.util.List<android.hardware.Camera.Area>)">setFocusAreas</a></span>(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt; focusAreas)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setFocusAreas(java.util.List<android.hardware.相机.Area>)">setFocusAreas</a></span>(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a>&gt; focusAreas)</nobr>
         
         <div class="jd-descrdiv">Sets focus areas.</div>
   
@@ -2657,7 +2657,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setFocusMode(java.lang.String)">setFocusMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setFocusMode(java.lang.String)">setFocusMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
         <div class="jd-descrdiv">Sets the focus mode.</div>
   
@@ -2675,7 +2675,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsAltitude(double)">setGpsAltitude</a></span>(double altitude)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setGpsAltitude(double)">setGpsAltitude</a></span>(double altitude)</nobr>
         
         <div class="jd-descrdiv">Sets GPS altitude.</div>
   
@@ -2693,7 +2693,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsLatitude(double)">setGpsLatitude</a></span>(double latitude)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setGpsLatitude(double)">setGpsLatitude</a></span>(double latitude)</nobr>
         
         <div class="jd-descrdiv">Sets GPS latitude coordinate.</div>
   
@@ -2711,7 +2711,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsLongitude(double)">setGpsLongitude</a></span>(double longitude)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setGpsLongitude(double)">setGpsLongitude</a></span>(double longitude)</nobr>
         
         <div class="jd-descrdiv">Sets GPS longitude coordinate.</div>
   
@@ -2729,7 +2729,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsProcessingMethod(java.lang.String)">setGpsProcessingMethod</a></span>(<a href="../../../reference/java/lang/String.html">String</a> processing_method)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setGpsProcessingMethod(java.lang.String)">setGpsProcessingMethod</a></span>(<a href="../../../reference/java/lang/String.html">String</a> processing_method)</nobr>
         
         <div class="jd-descrdiv">Sets GPS processing method.</div>
   
@@ -2747,7 +2747,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setGpsTimestamp(long)">setGpsTimestamp</a></span>(long timestamp)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setGpsTimestamp(long)">setGpsTimestamp</a></span>(long timestamp)</nobr>
         
         <div class="jd-descrdiv">Sets GPS timestamp.</div>
   
@@ -2765,7 +2765,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setJpegQuality(int)">setJpegQuality</a></span>(int quality)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setJpegQuality(int)">setJpegQuality</a></span>(int quality)</nobr>
         
         <div class="jd-descrdiv">Sets Jpeg quality of captured picture.</div>
   
@@ -2783,7 +2783,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setJpegThumbnailQuality(int)">setJpegThumbnailQuality</a></span>(int quality)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setJpegThumbnailQuality(int)">setJpegThumbnailQuality</a></span>(int quality)</nobr>
         
         <div class="jd-descrdiv">Sets the quality of the EXIF thumbnail in Jpeg picture.</div>
   
@@ -2801,7 +2801,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setJpegThumbnailSize(int, int)">setJpegThumbnailSize</a></span>(int width, int height)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setJpegThumbnailSize(int, int)">setJpegThumbnailSize</a></span>(int width, int height)</nobr>
         
         <div class="jd-descrdiv"><p>Sets the dimensions for EXIF thumbnail in Jpeg picture.</div>
   
@@ -2819,7 +2819,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setMeteringAreas(java.util.List<android.hardware.Camera.Area>)">setMeteringAreas</a></span>(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt; meteringAreas)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setMeteringAreas(java.util.List<android.hardware.相机.Area>)">setMeteringAreas</a></span>(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a>&gt; meteringAreas)</nobr>
         
         <div class="jd-descrdiv">Sets metering areas.</div>
   
@@ -2837,7 +2837,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPictureFormat(int)">setPictureFormat</a></span>(int pixel_format)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setPictureFormat(int)">setPictureFormat</a></span>(int pixel_format)</nobr>
         
         <div class="jd-descrdiv">Sets the image format for pictures.</div>
   
@@ -2855,7 +2855,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPictureSize(int, int)">setPictureSize</a></span>(int width, int height)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setPictureSize(int, int)">setPictureSize</a></span>(int width, int height)</nobr>
         
         <div class="jd-descrdiv"><p>Sets the dimensions for pictures.</div>
   
@@ -2873,7 +2873,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFormat(int)">setPreviewFormat</a></span>(int pixel_format)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewFormat(int)">setPreviewFormat</a></span>(int pixel_format)</nobr>
         
         <div class="jd-descrdiv">Sets the image format for preview pictures.</div>
   
@@ -2891,7 +2891,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange</a></span>(int min, int max)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange</a></span>(int min, int max)</nobr>
         
         <div class="jd-descrdiv">Sets the maximum and maximum preview fps.</div>
   
@@ -2909,12 +2909,12 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFrameRate(int)">setPreviewFrameRate</a></span>(int fps)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewFrameRate(int)">setPreviewFrameRate</a></span>(int fps)</nobr>
         
         <div class="jd-descrdiv">
       <em>This method was deprecated
       in API level 9.
-      replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange(int, int)</a></code>
+      replaced by <code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange(int, int)</a></code>
 </em></div>
   
   </td></tr>
@@ -2931,7 +2931,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewSize(int, int)">setPreviewSize</a></span>(int width, int height)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewSize(int, int)">setPreviewSize</a></span>(int width, int height)</nobr>
         
         <div class="jd-descrdiv">Sets the dimensions for preview pictures.</div>
   
@@ -2949,7 +2949,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setRecordingHint(boolean)">setRecordingHint</a></span>(boolean hint)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setRecordingHint(boolean)">setRecordingHint</a></span>(boolean hint)</nobr>
         
         <div class="jd-descrdiv">Sets recording mode hint.</div>
   
@@ -2967,7 +2967,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setRotation(int)">setRotation</a></span>(int rotation)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setRotation(int)">setRotation</a></span>(int rotation)</nobr>
         
         <div class="jd-descrdiv">Sets the clockwise rotation angle in degrees relative to the
  orientation of the camera.</div>
@@ -2986,7 +2986,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setSceneMode(java.lang.String)">setSceneMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setSceneMode(java.lang.String)">setSceneMode</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
         <div class="jd-descrdiv">Sets the scene mode.</div>
   
@@ -3004,7 +3004,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization</a></span>(boolean toggle)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization</a></span>(boolean toggle)</nobr>
         
         <div class="jd-descrdiv"><p>Enables and disables video stabilization.</div>
   
@@ -3022,7 +3022,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance</a></span>(<a href="../../../reference/java/lang/String.html">String</a> value)</nobr>
         
         <div class="jd-descrdiv">Sets the white balance.</div>
   
@@ -3040,7 +3040,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#setZoom(int)">setZoom</a></span>(int value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#setZoom(int)">setZoom</a></span>(int value)</nobr>
         
         <div class="jd-descrdiv">Sets current zoom value.</div>
   
@@ -3058,7 +3058,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.Parameters.html#unflatten(java.lang.String)">unflatten</a></span>(<a href="../../../reference/java/lang/String.html">String</a> flattened)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.Parameters.html#unflatten(java.lang.String)">unflatten</a></span>(<a href="../../../reference/java/lang/String.html">String</a> flattened)</nobr>
         
         <div class="jd-descrdiv">Takes a flattened string of parameters and adds each one to
  this Parameters object.</div>
@@ -4054,7 +4054,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>The array index of far focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
 </p></div>
 
     
@@ -4095,7 +4095,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>The array index of near focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
 </p></div>
 
     
@@ -4136,7 +4136,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>The array index of optimal focus distance for use with
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusDistances(float[])">getFocusDistances(float[])</a></code>.
 </p></div>
 
     
@@ -4176,7 +4176,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Auto-focus mode. Applications should call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> to start the focus in this mode.
+  <div class="jd-tagdata jd-tagdescr"><p>Auto-focus mode. Applications should call <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> to start the focus in this mode.
 </p></div>
 
     
@@ -4217,10 +4217,10 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Continuous auto focus mode intended for taking pictures. The camera
  continuously tries to focus. The speed of focus change is more
- aggressive than <code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code>. Auto focus
+ aggressive than <code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code>. Auto focus
  starts when the parameter is set.
 
- <p>Applications can call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in
+ <p>Applications can call <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in
  this mode. If the autofocus is in the middle of scanning, the focus
  callback will return when it completes. If the autofocus is not
  scanning, the focus callback will immediately return with a boolean
@@ -4234,7 +4234,7 @@ From class
  other modes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code></li>
       </ul>
   </div>
 
@@ -4277,11 +4277,11 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Continuous auto focus mode intended for video recording. The camera
  continuously tries to focus. This is the best choice for video
  recording because the focus changes smoothly . Applications still can
- call <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code> in this mode but the
+ call <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code> in this mode but the
  subject may not be in focus. Auto focus starts when the parameter is
  set.
 
- <p>Since API level 14, applications can call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode. The focus callback will
+ <p>Since API level 14, applications can call <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode. The focus callback will
  immediately return with a boolean that indicates whether the focus is
  sharp or not. The focus position is locked after autoFocus call. If
  applications want to resume the continuous focus, cancelAutoFocus
@@ -4290,7 +4290,7 @@ From class
  focus mode to other modes.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></code></li>
       </ul>
   </div>
 
@@ -4331,7 +4331,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Extended depth of field (EDOF). Focusing is done digitally and
- continuously. Applications should not call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode.
+ continuously. Applications should not call <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode.
 </p></div>
 
     
@@ -4373,7 +4373,7 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Focus is fixed. The camera is always in this mode if the focus is not
  adjustable. If the camera has auto-focus, this mode can fix the
  focus, which is usually at hyperfocal distance. Applications should
- not call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode.
+ not call <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode.
 </p></div>
 
     
@@ -4413,7 +4413,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Focus is set at infinity. Applications should not call
- <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode.
+ <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> in this mode.
 </p></div>
 
     
@@ -4453,7 +4453,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Macro (close-up) focus mode. Applications should call
- <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> to start the focus in this
+ <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> to start the focus in this
  mode.
 </p></div>
 
@@ -4493,7 +4493,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>The array index of maximum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>The array index of maximum preview fps for use with <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.
 </p></div>
 
     
@@ -4533,7 +4533,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>The array index of minimum preview fps for use with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>The array index of minimum preview fps for use with <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code> or <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.
 </p></div>
 
     
@@ -4573,7 +4573,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Take photos of fast moving objects. Same as <code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SPORTS">SCENE_MODE_SPORTS</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Take photos of fast moving objects. Same as <code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_SPORTS">SCENE_MODE_SPORTS</a></code>.
 </p></div>
 
     
@@ -4651,7 +4651,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Applications are looking for a barcode. Camera driver will be
+  <div class="jd-tagdata jd-tagdescr"><p>Applications are looking for a barcode. 相机 driver will be
  optimized for barcode reading.
 </p></div>
 
@@ -5084,7 +5084,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Take photos of fast moving objects. Same as <code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_ACTION">SCENE_MODE_ACTION</a></code>.
+  <div class="jd-tagdata jd-tagdescr"><p>Take photos of fast moving objects. Same as <code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_ACTION">SCENE_MODE_ACTION</a></code>.
 </p></div>
 
     
@@ -5569,7 +5569,7 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Creates a single string with all the parameters set in
  this Parameters object.
- <p>The <code><a href="../../../reference/android/hardware/Camera.Parameters.html#unflatten(java.lang.String)">unflatten(String)</a></code> method does the reverse.</p></p></div>
+ <p>The <code><a href="../../../reference/android/hardware/相机.Parameters.html#unflatten(java.lang.String)">unflatten(String)</a></code> method does the reverse.</p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>a String with all values from this Parameters object, in
@@ -5657,7 +5657,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_AUTO">ANTIBANDING_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_50HZ">ANTIBANDING_50HZ</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_60HZ">ANTIBANDING_60HZ</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#ANTIBANDING_OFF">ANTIBANDING_OFF</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#ANTIBANDING_AUTO">ANTIBANDING_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#ANTIBANDING_50HZ">ANTIBANDING_50HZ</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#ANTIBANDING_60HZ">ANTIBANDING_60HZ</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#ANTIBANDING_OFF">ANTIBANDING_OFF</a></code></li>
       </ul>
   </div>
 
@@ -5690,8 +5690,8 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the state of the auto-exposure lock. Applications should check
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported()</a></code> before using this method. See
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code> for details about the lock.</p></div>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported()</a></code> before using this method. See
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code> for details about the lock.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>State of the auto-exposure lock. Returns true if
@@ -5699,7 +5699,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code></li>
       </ul>
   </div>
 
@@ -5732,8 +5732,8 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the state of the auto-white balance lock. Applications should
- check <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported()</a></code> before using this
- method. See <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code> for details about the
+ check <code><a href="../../../reference/android/hardware/相机.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported()</a></code> before using this
+ method. See <code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code> for details about the
  lock.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
@@ -5743,7 +5743,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code></li>
       </ul>
   </div>
 
@@ -5783,7 +5783,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_NONE">EFFECT_NONE</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_MONO">EFFECT_MONO</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_NEGATIVE">EFFECT_NEGATIVE</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_SOLARIZE">EFFECT_SOLARIZE</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_SEPIA">EFFECT_SEPIA</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_POSTERIZE">EFFECT_POSTERIZE</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_WHITEBOARD">EFFECT_WHITEBOARD</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_BLACKBOARD">EFFECT_BLACKBOARD</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#EFFECT_AQUA">EFFECT_AQUA</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_NONE">EFFECT_NONE</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_MONO">EFFECT_MONO</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_NEGATIVE">EFFECT_NEGATIVE</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_SOLARIZE">EFFECT_SOLARIZE</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_SEPIA">EFFECT_SEPIA</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_POSTERIZE">EFFECT_POSTERIZE</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_WHITEBOARD">EFFECT_WHITEBOARD</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_BLACKBOARD">EFFECT_BLACKBOARD</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#EFFECT_AQUA">EFFECT_AQUA</a></code></li>
       </ul>
   </div>
 
@@ -5818,7 +5818,7 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Gets the current exposure compensation index.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>current exposure compensation index. The range is <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation()</a></code> to <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation()</a></code>. 0 means exposure is not
+      <ul class="nolist"><li>current exposure compensation index. The range is <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation()</a></code> to <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation()</a></code>. 0 means exposure is not
          adjusted.
 </li></ul>
   </div>
@@ -5897,7 +5897,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_OFF">FLASH_MODE_OFF</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_AUTO">FLASH_MODE_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_ON">FLASH_MODE_ON</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_RED_EYE">FLASH_MODE_RED_EYE</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_TORCH">FLASH_MODE_TORCH</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_OFF">FLASH_MODE_OFF</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_AUTO">FLASH_MODE_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_ON">FLASH_MODE_ON</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_RED_EYE">FLASH_MODE_RED_EYE</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_TORCH">FLASH_MODE_TORCH</a></code></li>
       </ul>
   </div>
 
@@ -5951,7 +5951,7 @@ From class
          
          
          
-        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt;
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a>&gt;
       </span>
       <span class="sympad">getFocusAreas</span>
       <span class="normal">()</span>
@@ -5965,17 +5965,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p><p>Gets the current focus areas. Camera driver uses the areas to decide
+  <div class="jd-tagdata jd-tagdescr"><p><p>Gets the current focus areas. 相机 driver uses the areas to decide
  focus.</p>
 
- <p>Before using this API or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setFocusAreas(java.util.List<android.hardware.Camera.Area>)">setFocusAreas(List)</a></code>, apps should
- call <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumFocusAreas()">getMaxNumFocusAreas()</a></code> to know the maximum number of
+ <p>Before using this API or <code><a href="../../../reference/android/hardware/相机.Parameters.html#setFocusAreas(java.util.List<android.hardware.相机.Area>)">setFocusAreas(List)</a></code>, apps should
+ call <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxNumFocusAreas()">getMaxNumFocusAreas()</a></code> to know the maximum number of
  focus areas first. If the value is 0, focus area is not supported.</p>
 
  <p>Each focus area is a rectangle with specified weight. The direction
  is relative to the sensor orientation, that is, what the sensor sees.
  The direction is not affected by the rotation or mirroring of
- <code><a href="../../../reference/android/hardware/Camera.html#setDisplayOrientation(int)">setDisplayOrientation(int)</a></code>. Coordinates of the rectangle
+ <code><a href="../../../reference/android/hardware/相机.html#setDisplayOrientation(int)">setDisplayOrientation(int)</a></code>. Coordinates of the rectangle
  range from -1000 to 1000. (-1000, -1000) is the upper left point.
  (1000, 1000) is the lower right point. The width and height of focus
  areas cannot be 0 or negative.</p>
@@ -5994,15 +5994,15 @@ From class
  want the driver to completely control focusing.</p>
 
  <p>Focus areas are relative to the current field of view
- (<code><a href="../../../reference/android/hardware/Camera.Parameters.html#getZoom()">getZoom()</a></code>). No matter what the zoom level is, (-1000,-1000)
+ (<code><a href="../../../reference/android/hardware/相机.Parameters.html#getZoom()">getZoom()</a></code>). No matter what the zoom level is, (-1000,-1000)
  represents the top of the currently visible camera frame. The focus
  area cannot be set to be outside the current field of view, even
  when using zoom.</p>
 
  <p>Focus area only has effect if the current focus mode is
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_AUTO">FOCUS_MODE_AUTO</a></code>, <code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_MACRO">FOCUS_MODE_MACRO</a></code>,
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code>, or
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></code>.</p></p></div>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_AUTO">FOCUS_MODE_AUTO</a></code>, <code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_MACRO">FOCUS_MODE_MACRO</a></code>,
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code>, or
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_PICTURE">FOCUS_MODE_CONTINUOUS_PICTURE</a></code>.</p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>a list of current focus areas
@@ -6041,7 +6041,7 @@ From class
  in focus. The object is sharpest at the optimal focus distance. The
  depth of field is the far focus distance minus near focus distance.</p>
 
- <p>Focus distances may change after calling <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code>, <code><a href="../../../reference/android/hardware/Camera.html#cancelAutoFocus()">cancelAutoFocus()</a></code>, or <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code>. Applications can call <code><a href="../../../reference/android/hardware/Camera.html#getParameters()">getParameters()</a></code>
+ <p>Focus distances may change after calling <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code>, <code><a href="../../../reference/android/hardware/相机.html#cancelAutoFocus()">cancelAutoFocus()</a></code>, or <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code>. Applications can call <code><a href="../../../reference/android/hardware/相机.html#getParameters()">getParameters()</a></code>
  and this method anytime to get the latest focus distances. If the
  focus mode is FOCUS_MODE_CONTINUOUS_VIDEO, focus distances may change
  from time to time.</p>
@@ -6068,7 +6068,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_NEAR_INDEX">FOCUS_DISTANCE_NEAR_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_OPTIMAL_INDEX">FOCUS_DISTANCE_OPTIMAL_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_DISTANCE_FAR_INDEX">FOCUS_DISTANCE_FAR_INDEX</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_DISTANCE_NEAR_INDEX">FOCUS_DISTANCE_NEAR_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_DISTANCE_OPTIMAL_INDEX">FOCUS_DISTANCE_OPTIMAL_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_DISTANCE_FAR_INDEX">FOCUS_DISTANCE_FAR_INDEX</a></code></li>
       </ul>
   </div>
 
@@ -6104,12 +6104,12 @@ From class
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>current focus mode. This method will always return a non-null
-         value. Applications should call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> to start the focus if focus
+         value. Applications should call <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code> to start the focus if focus
          mode is FOCUS_MODE_AUTO or FOCUS_MODE_MACRO.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_AUTO">FOCUS_MODE_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_INFINITY">FOCUS_MODE_INFINITY</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_MACRO">FOCUS_MODE_MACRO</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_FIXED">FOCUS_MODE_FIXED</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_EDOF">FOCUS_MODE_EDOF</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_AUTO">FOCUS_MODE_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_INFINITY">FOCUS_MODE_INFINITY</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_MACRO">FOCUS_MODE_MACRO</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_FIXED">FOCUS_MODE_FIXED</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_EDOF">FOCUS_MODE_EDOF</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#FOCUS_MODE_CONTINUOUS_VIDEO">FOCUS_MODE_CONTINUOUS_VIDEO</a></code></li>
       </ul>
   </div>
 
@@ -6277,7 +6277,7 @@ From class
          
          
          
-        <a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>
+        <a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>
       </span>
       <span class="sympad">getJpegThumbnailSize</span>
       <span class="normal">()</span>
@@ -6331,7 +6331,7 @@ From class
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>maximum exposure compensation index (>=0). If both this
-         method and <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation()</a></code> return 0,
+         method and <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation()</a></code> return 0,
          exposure compensation is not supported.
 </li></ul>
   </div>
@@ -6365,7 +6365,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum number of detected faces supported. This is the
- maximum length of the list returned from <code><a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></code>.
+ maximum length of the list returned from <code><a href="../../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a></code>.
  If the return value is 0, face detection of the specified type is not
  supported.</p></div>
   <div class="jd-tagdata">
@@ -6374,7 +6374,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#startFaceDetection()">startFaceDetection()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#startFaceDetection()">startFaceDetection()</a></code></li>
       </ul>
   </div>
 
@@ -6407,15 +6407,15 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum number of focus areas supported. This is the maximum
- length of the list in <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setFocusAreas(java.util.List<android.hardware.Camera.Area>)">setFocusAreas(List)</a></code> and
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusAreas()">getFocusAreas()</a></code>.</p></div>
+ length of the list in <code><a href="../../../reference/android/hardware/相机.Parameters.html#setFocusAreas(java.util.List<android.hardware.相机.Area>)">setFocusAreas(List)</a></code> and
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusAreas()">getFocusAreas()</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the maximum number of focus areas supported by the camera.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusAreas()">getFocusAreas()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusAreas()">getFocusAreas()</a></code></li>
       </ul>
   </div>
 
@@ -6448,15 +6448,15 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum number of metering areas supported. This is the
- maximum length of the list in <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setMeteringAreas(java.util.List<android.hardware.Camera.Area>)">setMeteringAreas(List)</a></code> and
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code>.</p></div>
+ maximum length of the list in <code><a href="../../../reference/android/hardware/相机.Parameters.html#setMeteringAreas(java.util.List<android.hardware.相机.Area>)">setMeteringAreas(List)</a></code> and
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the maximum number of metering areas supported by the camera.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code></li>
       </ul>
   </div>
 
@@ -6489,8 +6489,8 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the maximum zoom value allowed for snapshot. This is the maximum
- value that applications can set to <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setZoom(int)">setZoom(int)</a></code>.
- Applications should call <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before using this
+ value that applications can set to <code><a href="../../../reference/android/hardware/相机.Parameters.html#setZoom(int)">setZoom(int)</a></code>.
+ Applications should call <code><a href="../../../reference/android/hardware/相机.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before using this
  method. This value may change in different preview size. Applications
  should call this again after setting preview size.</p></div>
   <div class="jd-tagdata">
@@ -6513,7 +6513,7 @@ From class
          
          
          
-        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt;
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a>&gt;
       </span>
       <span class="sympad">getMeteringAreas</span>
       <span class="normal">()</span>
@@ -6527,18 +6527,18 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p><p>Gets the current metering areas. Camera driver uses these areas to
+  <div class="jd-tagdata jd-tagdescr"><p><p>Gets the current metering areas. 相机 driver uses these areas to
  decide exposure.</p>
 
- <p>Before using this API or <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setMeteringAreas(java.util.List<android.hardware.Camera.Area>)">setMeteringAreas(List)</a></code>, apps should
- call <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumMeteringAreas()">getMaxNumMeteringAreas()</a></code> to know the maximum number of
+ <p>Before using this API or <code><a href="../../../reference/android/hardware/相机.Parameters.html#setMeteringAreas(java.util.List<android.hardware.相机.Area>)">setMeteringAreas(List)</a></code>, apps should
+ call <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxNumMeteringAreas()">getMaxNumMeteringAreas()</a></code> to know the maximum number of
  metering areas first. If the value is 0, metering area is not
  supported.</p>
 
  <p>Each metering area is a rectangle with specified weight. The
  direction is relative to the sensor orientation, that is, what the
  sensor sees. The direction is not affected by the rotation or
- mirroring of <code><a href="../../../reference/android/hardware/Camera.html#setDisplayOrientation(int)">setDisplayOrientation(int)</a></code>. Coordinates of the
+ mirroring of <code><a href="../../../reference/android/hardware/相机.html#setDisplayOrientation(int)">setDisplayOrientation(int)</a></code>. Coordinates of the
  rectangle range from -1000 to 1000. (-1000, -1000) is the upper left
  point. (1000, 1000) is the lower right point. The width and height of
  metering areas cannot be 0 or negative.</p>
@@ -6556,13 +6556,13 @@ From class
  driver to completely control metering.</p>
 
  <p>Metering areas are relative to the current field of view
- (<code><a href="../../../reference/android/hardware/Camera.Parameters.html#getZoom()">getZoom()</a></code>). No matter what the zoom level is, (-1000,-1000)
+ (<code><a href="../../../reference/android/hardware/相机.Parameters.html#getZoom()">getZoom()</a></code>). No matter what the zoom level is, (-1000,-1000)
  represents the top of the currently visible camera frame. The
  metering area cannot be set to be outside the current field of view,
  even when using zoom.</p>
 
  <p>No matter what metering areas are, the final exposure are compensated
- by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setExposureCompensation(int)">setExposureCompensation(int)</a></code>.</p></p></div>
+ by <code><a href="../../../reference/android/hardware/相机.Parameters.html#setExposureCompensation(int)">setExposureCompensation(int)</a></code>.</p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>a list of current metering areas
@@ -6601,7 +6601,7 @@ From class
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>minimum exposure compensation index (<=0). If both this
-         method and <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation()</a></code> return 0,
+         method and <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation()</a></code> return 0,
          exposure compensation is not supported.
 </li></ul>
   </div>
@@ -6659,7 +6659,7 @@ From class
          
          
          
-        <a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>
+        <a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>
       </span>
       <span class="sympad">getPictureSize</span>
       <span class="normal">()</span>
@@ -6695,7 +6695,7 @@ From class
          
          
          
-        <a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>
+        <a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>
       </span>
       <span class="sympad">getPreferredPreviewSizeForVideo</span>
       <span class="normal">()</span>
@@ -6725,7 +6725,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedVideoSizes()">getSupportedVideoSizes()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedVideoSizes()">getSupportedVideoSizes()</a></code></li>
       </ul>
   </div>
 
@@ -6758,14 +6758,14 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the image format for preview frames got from
- <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></code>.</p></div>
+ <code><a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the preview format.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/graphics/ImageFormat.html">ImageFormat</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFormat(int)">setPreviewFormat(int)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/graphics/ImageFormat.html">ImageFormat</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewFormat(int)">setPreviewFormat(int)</a></code></li>
       </ul>
   </div>
 
@@ -6798,14 +6798,14 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the current minimum and maximum preview fps. The values are
- one of the elements returned by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</p></div>
+ one of the elements returned by <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>range the minimum and maximum preview fps (scaled by 1000).</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#PREVIEW_FPS_MIN_INDEX">PREVIEW_FPS_MIN_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#PREVIEW_FPS_MAX_INDEX">PREVIEW_FPS_MAX_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#PREVIEW_FPS_MIN_INDEX">PREVIEW_FPS_MIN_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#PREVIEW_FPS_MAX_INDEX">PREVIEW_FPS_MAX_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code></li>
       </ul>
   </div>
 
@@ -6839,7 +6839,7 @@ From class
       <p>
   <p class="caution">
       <strong>This method was deprecated
-      in API level 9</strong>.<br/> replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code>
+      in API level 9</strong>.<br/> replaced by <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code>
 
   </p>
   <div class="jd-tagdata jd-tagdescr"><p>Returns the setting for the rate at which preview frames are
@@ -6864,7 +6864,7 @@ From class
          
          
          
-        <a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>
+        <a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>
       </span>
       <span class="sympad">getPreviewSize</span>
       <span class="normal">()</span>
@@ -6922,7 +6922,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_AUTO">SCENE_MODE_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_ACTION">SCENE_MODE_ACTION</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_PORTRAIT">SCENE_MODE_PORTRAIT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_LANDSCAPE">SCENE_MODE_LANDSCAPE</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_NIGHT">SCENE_MODE_NIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_NIGHT_PORTRAIT">SCENE_MODE_NIGHT_PORTRAIT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_THEATRE">SCENE_MODE_THEATRE</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_BEACH">SCENE_MODE_BEACH</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SNOW">SCENE_MODE_SNOW</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SUNSET">SCENE_MODE_SUNSET</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_STEADYPHOTO">SCENE_MODE_STEADYPHOTO</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_FIREWORKS">SCENE_MODE_FIREWORKS</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_SPORTS">SCENE_MODE_SPORTS</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_PARTY">SCENE_MODE_PARTY</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_CANDLELIGHT">SCENE_MODE_CANDLELIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#SCENE_MODE_BARCODE">SCENE_MODE_BARCODE</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_AUTO">SCENE_MODE_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_ACTION">SCENE_MODE_ACTION</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_PORTRAIT">SCENE_MODE_PORTRAIT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_LANDSCAPE">SCENE_MODE_LANDSCAPE</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_NIGHT">SCENE_MODE_NIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_NIGHT_PORTRAIT">SCENE_MODE_NIGHT_PORTRAIT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_THEATRE">SCENE_MODE_THEATRE</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_BEACH">SCENE_MODE_BEACH</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_SNOW">SCENE_MODE_SNOW</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_SUNSET">SCENE_MODE_SUNSET</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_STEADYPHOTO">SCENE_MODE_STEADYPHOTO</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_FIREWORKS">SCENE_MODE_FIREWORKS</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_SPORTS">SCENE_MODE_SPORTS</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_PARTY">SCENE_MODE_PARTY</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_CANDLELIGHT">SCENE_MODE_CANDLELIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#SCENE_MODE_BARCODE">SCENE_MODE_BARCODE</a></code></li>
       </ul>
   </div>
 
@@ -6962,7 +6962,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getAntibanding()">getAntibanding()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getAntibanding()">getAntibanding()</a></code></li>
       </ul>
   </div>
 
@@ -7002,7 +7002,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getColorEffect()">getColorEffect()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getColorEffect()">getColorEffect()</a></code></li>
       </ul>
   </div>
 
@@ -7042,7 +7042,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFlashMode()">getFlashMode()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getFlashMode()">getFlashMode()</a></code></li>
       </ul>
   </div>
 
@@ -7082,7 +7082,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusMode()">getFocusMode()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusMode()">getFocusMode()</a></code></li>
       </ul>
   </div>
 
@@ -7100,7 +7100,7 @@ From class
          
          
          
-        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>&gt;
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>&gt;
       </span>
       <span class="sympad">getSupportedJpegThumbnailSizes</span>
       <span class="normal">()</span>
@@ -7177,7 +7177,7 @@ From class
          
          
          
-        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>&gt;
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>&gt;
       </span>
       <span class="sympad">getSupportedPictureSizes</span>
       <span class="normal">()</span>
@@ -7237,7 +7237,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/graphics/ImageFormat.html">ImageFormat</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFormat(int)">setPreviewFormat(int)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/graphics/ImageFormat.html">ImageFormat</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewFormat(int)">setPreviewFormat(int)</a></code></li>
       </ul>
   </div>
 
@@ -7286,7 +7286,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#PREVIEW_FPS_MIN_INDEX">PREVIEW_FPS_MIN_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#PREVIEW_FPS_MAX_INDEX">PREVIEW_FPS_MAX_INDEX</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#PREVIEW_FPS_MIN_INDEX">PREVIEW_FPS_MIN_INDEX</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#PREVIEW_FPS_MAX_INDEX">PREVIEW_FPS_MAX_INDEX</a></code></li>
       </ul>
   </div>
 
@@ -7320,7 +7320,7 @@ From class
       <p>
   <p class="caution">
       <strong>This method was deprecated
-      in API level 9</strong>.<br/> replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>
+      in API level 9</strong>.<br/> replaced by <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>
 
   </p>
   <div class="jd-tagdata jd-tagdescr"><p>Gets the supported preview frame rates.</p></div>
@@ -7344,7 +7344,7 @@ From class
          
          
          
-        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>&gt;
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>&gt;
       </span>
       <span class="sympad">getSupportedPreviewSizes</span>
       <span class="normal">()</span>
@@ -7402,7 +7402,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSceneMode()">getSceneMode()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getSceneMode()">getSceneMode()</a></code></li>
       </ul>
   </div>
 
@@ -7420,7 +7420,7 @@ From class
          
          
          
-        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a>&gt;
+        <a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a>&gt;
       </span>
       <span class="sympad">getSupportedVideoSizes</span>
       <span class="normal">()</span>
@@ -7450,7 +7450,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreferredPreviewSizeForVideo()">getPreferredPreviewSizeForVideo()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreferredPreviewSizeForVideo()">getPreferredPreviewSizeForVideo()</a></code></li>
       </ul>
   </div>
 
@@ -7490,7 +7490,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getWhiteBalance()">getWhiteBalance()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getWhiteBalance()">getWhiteBalance()</a></code></li>
       </ul>
   </div>
 
@@ -7559,14 +7559,14 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Get the current state of video stabilization. See
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code> for details of video stabilization.</p></div>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code> for details of video stabilization.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>true if video stabilization is enabled</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code></li>
       </ul>
   </div>
 
@@ -7606,7 +7606,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_AUTO">WHITE_BALANCE_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_INCANDESCENT">WHITE_BALANCE_INCANDESCENT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_FLUORESCENT">WHITE_BALANCE_FLUORESCENT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_WARM_FLUORESCENT">WHITE_BALANCE_WARM_FLUORESCENT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_DAYLIGHT">WHITE_BALANCE_DAYLIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_CLOUDY_DAYLIGHT">WHITE_BALANCE_CLOUDY_DAYLIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_TWILIGHT">WHITE_BALANCE_TWILIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#WHITE_BALANCE_SHADE">WHITE_BALANCE_SHADE</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_AUTO">WHITE_BALANCE_AUTO</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_INCANDESCENT">WHITE_BALANCE_INCANDESCENT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_FLUORESCENT">WHITE_BALANCE_FLUORESCENT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_WARM_FLUORESCENT">WHITE_BALANCE_WARM_FLUORESCENT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_DAYLIGHT">WHITE_BALANCE_DAYLIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_CLOUDY_DAYLIGHT">WHITE_BALANCE_CLOUDY_DAYLIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_TWILIGHT">WHITE_BALANCE_TWILIGHT</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#WHITE_BALANCE_SHADE">WHITE_BALANCE_SHADE</a></code></li>
       </ul>
   </div>
 
@@ -7639,11 +7639,11 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets current zoom value. This also works when smooth zoom is in
- progress. Applications should check <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before
+ progress. Applications should check <code><a href="../../../reference/android/hardware/相机.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before
  using this method.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the current zoom value. The range is 0 to <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxZoom()">getMaxZoom()</a></code>. 0 means the camera is not zoomed.
+      <ul class="nolist"><li>the current zoom value. The range is 0 to <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxZoom()">getMaxZoom()</a></code>. 0 means the camera is not zoomed.
 </li></ul>
   </div>
 
@@ -7676,11 +7676,11 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Gets the zoom ratios of all zoom values. Applications should check
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before using this method.</p></div>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#isZoomSupported()">isZoomSupported()</a></code> before using this method.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the zoom ratios in 1/100 increments. Ex: a zoom of 3.2x is
-         returned as 320. The number of elements is <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxZoom()">getMaxZoom()</a></code> + 1. The list is sorted from small to large. The
+         returned as 320. The number of elements is <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxZoom()">getMaxZoom()</a></code> + 1. The list is sorted from small to large. The
          first element is always 100. The last element is the zoom
          ratio of the maximum zoom value.
 </li></ul>
@@ -7716,14 +7716,14 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if auto-exposure locking is supported. Applications
  should call this before trying to lock auto-exposure. See
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code> for details about the lock.</p></div>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code> for details about the lock.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>true if auto-exposure lock is supported.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code></li>
       </ul>
   </div>
 
@@ -7757,14 +7757,14 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if auto-white balance locking is supported. Applications
  should call this before trying to lock auto-white balance. See
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code> for details about the lock.</p></div>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code> for details about the lock.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>true if auto-white balance lock is supported.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code></li>
       </ul>
   </div>
 
@@ -7833,15 +7833,15 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Returns true if video snapshot is supported. That is, applications
- can call <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code> during recording. Applications do not need
- to call <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code> after taking a picture. The preview
+ can call <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code> during recording. Applications do not need
+ to call <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code> after taking a picture. The preview
  will be still active. Other than that, taking a picture during
  recording is identical to taking a picture normally. All settings and
  methods related to takePicture work identically. Ex:
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPictureSize()">getPictureSize()</a></code>, <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPictureSizes()">getSupportedPictureSizes()</a></code>,
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setJpegQuality(int)">setJpegQuality(int)</a></code>, <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setRotation(int)">setRotation(int)</a></code>, and etc. The
- picture will have an EXIF header. <code><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_AUTO">FLASH_MODE_AUTO</a></code> and
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_ON">FLASH_MODE_ON</a></code> also still work, but the video will record the
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPictureSize()">getPictureSize()</a></code>, <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPictureSizes()">getSupportedPictureSizes()</a></code>,
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setJpegQuality(int)">setJpegQuality(int)</a></code>, <code><a href="../../../reference/android/hardware/相机.Parameters.html#setRotation(int)">setRotation(int)</a></code>, and etc. The
+ picture will have an EXIF header. <code><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_AUTO">FLASH_MODE_AUTO</a></code> and
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_ON">FLASH_MODE_ON</a></code> also still work, but the video will record the
  flash.</p>
 
  <p>Applications can set shutter callback as null to avoid the shutter
@@ -7888,14 +7888,14 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns true if video stabilization is supported. See
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code> for details of video stabilization.</p></div>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code> for details of video stabilization.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>true if video stabilization is supported</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getVideoStabilization()">getVideoStabilization()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setVideoStabilization(boolean)">setVideoStabilization(boolean)</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getVideoStabilization()">getVideoStabilization()</a></code></li>
       </ul>
   </div>
 
@@ -8125,7 +8125,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getAntibanding()">getAntibanding()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getAntibanding()">getAntibanding()</a></code></li>
       </ul>
   </div>
 
@@ -8158,7 +8158,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Sets the auto-exposure lock state. Applications should check
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported()</a></code> before using this method.</p>
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#isAutoExposureLockSupported()">isAutoExposureLockSupported()</a></code> before using this method.</p>
 
  <p>If set to true, the camera auto-exposure routine will immediately
  pause until the lock is set to false. Exposure compensation settings
@@ -8167,8 +8167,8 @@ From class
  <p>If auto-exposure is already locked, setting this to true again has
  no effect (the driver will not recalculate exposure values).</p>
 
- <p>Stopping preview with <code><a href="../../../reference/android/hardware/Camera.html#stopPreview()">stopPreview()</a></code>, or triggering still
- image capture with <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code>, will not change the
+ <p>Stopping preview with <code><a href="../../../reference/android/hardware/相机.html#stopPreview()">stopPreview()</a></code>, or triggering still
+ image capture with <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code>, will not change the
  lock.</p>
 
  <p>Exposure compensation, auto-exposure lock, and auto-white balance
@@ -8176,9 +8176,9 @@ From class
  for example.</p>
 
  <p>Auto-exposure state, including the lock state, will not be
- maintained after camera <code><a href="../../../reference/android/hardware/Camera.html#release()">release()</a></code> is called.  Locking
- auto-exposure after <code><a href="../../../reference/android/hardware/Camera.html#open()">open()</a></code> but before the first call to
- <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code> will not allow the auto-exposure routine to
+ maintained after camera <code><a href="../../../reference/android/hardware/相机.html#release()">release()</a></code> is called.  Locking
+ auto-exposure after <code><a href="../../../reference/android/hardware/相机.html#open()">open()</a></code> but before the first call to
+ <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code> will not allow the auto-exposure routine to
  run at all, and may result in severely over- or under-exposed
  images.</p></p></div>
   <div class="jd-tagdata">
@@ -8194,7 +8194,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getAutoExposureLock()">getAutoExposureLock()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getAutoExposureLock()">getAutoExposureLock()</a></code></li>
       </ul>
   </div>
 
@@ -8227,7 +8227,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Sets the auto-white balance lock state. Applications should check
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported()</a></code> before using this
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#isAutoWhiteBalanceLockSupported()">isAutoWhiteBalanceLockSupported()</a></code> before using this
  method.</p>
 
  <p>If set to true, the camera auto-white balance routine will
@@ -8237,19 +8237,19 @@ From class
  again has no effect (the driver will not recalculate white balance
  values).</p>
 
- <p>Stopping preview with <code><a href="../../../reference/android/hardware/Camera.html#stopPreview()">stopPreview()</a></code>, or triggering still
- image capture with <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code>, will not change the
+ <p>Stopping preview with <code><a href="../../../reference/android/hardware/相机.html#stopPreview()">stopPreview()</a></code>, or triggering still
+ image capture with <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code>, will not change the
  the lock.</p>
 
- <p> Changing the white balance mode with <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance(String)</a></code>
+ <p> Changing the white balance mode with <code><a href="../../../reference/android/hardware/相机.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance(String)</a></code>
  will release the auto-white balance lock if it is set.</p>
 
  <p>Exposure compensation, AE lock, and AWB lock can be used to
  capture an exposure-bracketed burst of images, for example.
  Auto-white balance state, including the lock state, will not be
- maintained after camera <code><a href="../../../reference/android/hardware/Camera.html#release()">release()</a></code> is called.  Locking
- auto-white balance after <code><a href="../../../reference/android/hardware/Camera.html#open()">open()</a></code> but before the first call to
- <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code> will not allow the auto-white balance routine
+ maintained after camera <code><a href="../../../reference/android/hardware/相机.html#release()">release()</a></code> is called.  Locking
+ auto-white balance after <code><a href="../../../reference/android/hardware/相机.html#open()">open()</a></code> but before the first call to
+ <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code> will not allow the auto-white balance routine
  to run at all, and may result in severely incorrect color in captured
  images.</p></p></div>
   <div class="jd-tagdata">
@@ -8265,7 +8265,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getAutoWhiteBalanceLock()">getAutoWhiteBalanceLock()</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance(String)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getAutoWhiteBalanceLock()">getAutoWhiteBalanceLock()</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance(String)</a></code></li>
       </ul>
   </div>
 
@@ -8309,7 +8309,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getColorEffect()">getColorEffect()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getColorEffect()">getColorEffect()</a></code></li>
       </ul>
   </div>
 
@@ -8348,7 +8348,7 @@ From class
         <tr>
           <th>value</td>
           <td>exposure compensation index. The valid value range is
-        from <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation()</a></code> (inclusive) to <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation()</a></code> (inclusive). 0 means exposure is
+        from <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMinExposureCompensation()">getMinExposureCompensation()</a></code> (inclusive) to <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxExposureCompensation()">getMaxExposureCompensation()</a></code> (inclusive). 0 means exposure is
         not adjusted. Application should call
         getMinExposureCompensation and getMaxExposureCompensation to
         know if exposure compensation is supported.
@@ -8397,7 +8397,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFlashMode()">getFlashMode()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getFlashMode()">getFlashMode()</a></code></li>
       </ul>
   </div>
 
@@ -8405,7 +8405,7 @@ From class
 </div>
 
 
-<A NAME="setFocusAreas(java.util.List<android.hardware.Camera.Area>)"></A>
+<A NAME="setFocusAreas(java.util.List<android.hardware.相机.Area>)"></A>
 
 <div class="jd-details api apilevel-14"> 
     <h4 class="jd-details-title">
@@ -8418,7 +8418,7 @@ From class
         void
       </span>
       <span class="sympad">setFocusAreas</span>
-      <span class="normal">(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt; focusAreas)</span>
+      <span class="normal">(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a>&gt; focusAreas)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8429,7 +8429,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets focus areas. See <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusAreas()">getFocusAreas()</a></code> for documentation.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets focus areas. See <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusAreas()">getFocusAreas()</a></code> for documentation.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -8441,7 +8441,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusAreas()">getFocusAreas()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusAreas()">getFocusAreas()</a></code></li>
       </ul>
   </div>
 
@@ -8485,7 +8485,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusMode()">getFocusMode()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusMode()">getFocusMode()</a></code></li>
       </ul>
   </div>
 
@@ -8807,7 +8807,7 @@ From class
  applications set both width and height to 0, EXIF will not contain
  thumbnail.</p>
 
- <p>Applications need to consider the display orientation. See <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewSize(int, int)">setPreviewSize(int, int)</a></code> for reference.</p></p></div>
+ <p>Applications need to consider the display orientation. See <code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewSize(int, int)">setPreviewSize(int, int)</a></code> for reference.</p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -8823,7 +8823,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewSize(int, int)">setPreviewSize(int, int)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewSize(int, int)">setPreviewSize(int, int)</a></code></li>
       </ul>
   </div>
 
@@ -8831,7 +8831,7 @@ From class
 </div>
 
 
-<A NAME="setMeteringAreas(java.util.List<android.hardware.Camera.Area>)"></A>
+<A NAME="setMeteringAreas(java.util.List<android.hardware.相机.Area>)"></A>
 
 <div class="jd-details api apilevel-14"> 
     <h4 class="jd-details-title">
@@ -8844,7 +8844,7 @@ From class
         void
       </span>
       <span class="sympad">setMeteringAreas</span>
-      <span class="normal">(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a>&gt; meteringAreas)</span>
+      <span class="normal">(<a href="../../../reference/java/util/List.html">List</a>&lt;<a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a>&gt; meteringAreas)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -8855,7 +8855,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets metering areas. See <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code> for
+  <div class="jd-tagdata jd-tagdescr"><p>Sets metering areas. See <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code> for
  documentation.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -8868,7 +8868,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getMeteringAreas()">getMeteringAreas()</a></code></li>
       </ul>
   </div>
 
@@ -8949,7 +8949,7 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Sets the dimensions for pictures.</p>
 
- <p>Applications need to consider the display orientation. See <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewSize(int, int)">setPreviewSize(int, int)</a></code> for reference.</p></p></div>
+ <p>Applications need to consider the display orientation. See <code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewSize(int, int)">setPreviewSize(int, int)</a></code> for reference.</p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -8965,7 +8965,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewSize(int, int)">setPreviewSize(int, int)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewSize(int, int)">setPreviewSize(int, int)</a></code></li>
       </ul>
   </div>
 
@@ -9002,7 +9002,7 @@ From class
  <code><a href="../../../reference/android/graphics/ImageFormat.html#NV21">NV21</a></code>, which
  uses the NV21 encoding format.</p>
 
- <p>Use <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code> to get a list of
+ <p>Use <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code> to get a list of
  the available preview formats.
 
  <p>It is strongly recommended that either
@@ -9045,7 +9045,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/graphics/ImageFormat.html">ImageFormat</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/graphics/ImageFormat.html">ImageFormat</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFormats()">getSupportedPreviewFormats()</a></code></li>
       </ul>
   </div>
 
@@ -9078,8 +9078,8 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the maximum and maximum preview fps. This controls the rate of
- preview frames received in <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></code>. The minimum and
- maximum preview fps must be one of the elements from <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</p></div>
+ preview frames received in <code><a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a></code>. The minimum and
+ maximum preview fps must be one of the elements from <code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -9104,7 +9104,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallbackWithBuffer(android.hardware.Camera.PreviewCallback)">setPreviewCallbackWithBuffer(Camera.PreviewCallback)</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#setPreviewCallbackWithBuffer(android.hardware.相机.PreviewCallback)">setPreviewCallbackWithBuffer(相机.PreviewCallback)</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getSupportedPreviewFpsRange()">getSupportedPreviewFpsRange()</a></code></li>
       </ul>
   </div>
 
@@ -9138,7 +9138,7 @@ From class
       <p>
   <p class="caution">
       <strong>This method was deprecated
-      in API level 9</strong>.<br/> replaced by <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange(int, int)</a></code>
+      in API level 9</strong>.<br/> replaced by <code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewFpsRange(int, int)">setPreviewFpsRange(int, int)</a></code>
 
   </p>
   <div class="jd-tagdata jd-tagdescr"><p>Sets the rate at which preview frames are received. This is the
@@ -9210,7 +9210,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#setDisplayOrientation(int)">setDisplayOrientation(int)</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.html#getCameraInfo(int, android.hardware.Camera.CameraInfo)">getCameraInfo(int, CameraInfo)</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPictureSize(int, int)">setPictureSize(int, int)</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setJpegThumbnailSize(int, int)">setJpegThumbnailSize(int, int)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#setDisplayOrientation(int)">setDisplayOrientation(int)</a></code></li><li><code><a href="../../../reference/android/hardware/相机.html#get相机Info(int, android.hardware.相机.相机Info)">get相机Info(int, 相机Info)</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setPictureSize(int, int)">setPictureSize(int, int)</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setJpegThumbnailSize(int, int)">setJpegThumbnailSize(int, int)</a></code></li>
       </ul>
   </div>
 
@@ -9244,7 +9244,7 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets recording mode hint. This tells the camera that the intent of
  the application is to record videos <code><a href="../../../reference/android/media/MediaRecorder.html#start()">start()</a></code>, not to take still pictures
- <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code>. Using this hint can
+ <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code>. Using this hint can
  allow MediaRecorder.start() to start faster or with fewer glitches on
  output. This should be called before starting preview for the best
  result, but can be changed while the preview is active. The default
@@ -9295,16 +9295,16 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets the clockwise rotation angle in degrees relative to the
  orientation of the camera. This affects the pictures returned from
- JPEG <code><a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a></code>. The camera driver may set orientation
+ JPEG <code><a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a></code>. The camera driver may set orientation
  in the EXIF header without rotating the picture. Or the driver may
  rotate the picture and the EXIF thumbnail. If the Jpeg picture is
  rotated, the orientation in the EXIF header will be missing or 1
  (row #0 is top and column #0 is left side).
 
  <p>If applications want to rotate the picture to match the orientation
- of what users see, apps should use <code><a href="../../../reference/android/view/OrientationEventListener.html">OrientationEventListener</a></code> and <code><a href="../../../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a></code>.
+ of what users see, apps should use <code><a href="../../../reference/android/view/OrientationEventListener.html">OrientationEventListener</a></code> and <code><a href="../../../reference/android/hardware/相机.相机Info.html">相机.相机Info</a></code>.
  The value from OrientationEventListener is relative to the natural
- orientation of the device. CameraInfo.orientation is the angle
+ orientation of the device. 相机Info.orientation is the angle
  between camera orientation and natural device orientation. The sum
  of the two is the rotation angle for back-facing camera. The
  difference of the two is the rotation angle for front-facing camera.
@@ -9323,12 +9323,12 @@ From class
  <pre>
  public void onOrientationChanged(int orientation) {
      if (orientation == ORIENTATION_UNKNOWN) return;
-     android.hardware.Camera.CameraInfo info =
-            new android.hardware.Camera.CameraInfo();
-     android.hardware.Camera.getCameraInfo(cameraId, info);
+     android.hardware.相机.相机Info info =
+            new android.hardware.相机.相机Info();
+     android.hardware.相机.get相机Info(cameraId, info);
      orientation = (orientation + 45) / 90 * 90;
      int rotation = 0;
-     if (info.facing == CameraInfo.CAMERA_FACING_FRONT) {
+     if (info.facing == 相机Info.CAMERA_FACING_FRONT) {
          rotation = (info.orientation - orientation + 360) % 360;
      } else {  // back-facing camera
          rotation = (info.orientation + orientation) % 360;
@@ -9358,7 +9358,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/view/OrientationEventListener.html">OrientationEventListener</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.html#getCameraInfo(int, android.hardware.Camera.CameraInfo)">getCameraInfo(int, CameraInfo)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/view/OrientationEventListener.html">OrientationEventListener</a></code></li><li><code><a href="../../../reference/android/hardware/相机.html#get相机Info(int, android.hardware.相机.相机Info)">get相机Info(int, 相机Info)</a></code></li>
       </ul>
   </div>
 
@@ -9408,7 +9408,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getSceneMode()">getSceneMode()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getSceneMode()">getSceneMode()</a></code></li>
       </ul>
   </div>
 
@@ -9441,14 +9441,14 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Enables and disables video stabilization. Use
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code> to determine if calling this
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code> to determine if calling this
  method is valid.</p>
 
  <p>Video stabilization reduces the shaking due to the motion of the
  camera in both the preview stream and in recorded videos, including
  data received from the preview callback. It does not reduce motion
  blur in images captured with
- <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture</a></code>.</p>
+ <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture</a></code>.</p>
 
  <p>Video stabilization can be enabled and disabled while preview or
  recording is active, but toggling it may cause a jump in the video
@@ -9465,7 +9465,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getVideoStabilization()">getVideoStabilization()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#isVideoStabilizationSupported()">isVideoStabilizationSupported()</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getVideoStabilization()">getVideoStabilization()</a></code></li>
       </ul>
   </div>
 
@@ -9511,7 +9511,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getWhiteBalance()">getWhiteBalance()</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getWhiteBalance()">getWhiteBalance()</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code></li>
       </ul>
   </div>
 
@@ -9546,15 +9546,15 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Sets current zoom value. If the camera is zoomed (value > 0), the
  actual picture size may be smaller than picture size setting.
  Applications can check the actual picture size after picture is
- returned from <code><a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a></code>. The preview size remains the
- same in zoom. Applications should check <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isZoomSupported()">isZoomSupported()</a></code>
+ returned from <code><a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a></code>. The preview size remains the
+ same in zoom. Applications should check <code><a href="../../../reference/android/hardware/相机.Parameters.html#isZoomSupported()">isZoomSupported()</a></code>
  before using this method.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>value</td>
-          <td>zoom value. The valid range is 0 to <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxZoom()">getMaxZoom()</a></code>.
+          <td>zoom value. The valid range is 0 to <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxZoom()">getMaxZoom()</a></code>.
 </td>
         </tr>
       </table>
@@ -9590,7 +9590,7 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Takes a flattened string of parameters and adds each one to
  this Parameters object.
- <p>The <code><a href="../../../reference/android/hardware/Camera.Parameters.html#flatten()">flatten()</a></code> method does the reverse.</p></p></div>
+ <p>The <code><a href="../../../reference/android/hardware/相机.Parameters.html#flatten()">flatten()</a></code> method does the reverse.</p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

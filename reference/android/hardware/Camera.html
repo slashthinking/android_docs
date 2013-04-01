@@ -75,7 +75,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
-<title>Camera - Android SDK | Android Developers</title>
+<title>相机 - Android SDK | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -734,14 +734,14 @@ SDK</a></li></ul>
               
     <li><h2>Interfaces</h2>
       <ul>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.AutoFocusCallback.html">Camera.AutoFocusCallback</a></li>
-          <li class="api apilevel-16"><a href="../../../reference/android/hardware/Camera.AutoFocusMoveCallback.html">Camera.AutoFocusMoveCallback</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.ErrorCallback.html">Camera.ErrorCallback</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></li>
-          <li class="api apilevel-8"><a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html">Camera.OnZoomChangeListener</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.AutoFocusCallback.html">相机.AutoFocusCallback</a></li>
+          <li class="api apilevel-16"><a href="../../../reference/android/hardware/相机.AutoFocusMoveCallback.html">相机.AutoFocusMoveCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.ErrorCallback.html">相机.ErrorCallback</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/hardware/相机.OnZoomChangeListener.html">相机.OnZoomChangeListener</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/hardware/SensorEventListener.html">SensorEventListener</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/hardware/SensorListener.html">SensorListener</a></li>
       </ul>
@@ -749,12 +749,12 @@ SDK</a></li></ul>
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="selected api apilevel-1"><a href="../../../reference/android/hardware/Camera.html">Camera</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a></li>
-          <li class="api apilevel-9"><a href="../../../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a></li>
-          <li class="api apilevel-14"><a href="../../../reference/android/hardware/Camera.Face.html">Camera.Face</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a></li>
-          <li class="api apilevel-1"><a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a></li>
+          <li class="selected api apilevel-1"><a href="../../../reference/android/hardware/相机.html">相机</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a></li>
+          <li class="api apilevel-9"><a href="../../../reference/android/hardware/相机.相机Info.html">相机.相机Info</a></li>
+          <li class="api apilevel-14"><a href="../../../reference/android/hardware/相机.Face.html">相机.Face</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.Parameters.html">相机.Parameters</a></li>
+          <li class="api apilevel-1"><a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/hardware/GeomagneticField.html">GeomagneticField</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/hardware/Sensor.html">Sensor</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/hardware/SensorEvent.html">SensorEvent</a></li>
@@ -878,7 +878,7 @@ Summary:
      
     
     class
-<h1 itemprop="name">Camera</h1>
+<h1 itemprop="name">相机</h1>
 
 
 
@@ -911,7 +911,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
          	
-        <td colspan="1" class="jd-inheritance-class-cell">android.hardware.Camera</td>
+        <td colspan="1" class="jd-inheritance-class-cell">android.hardware.相机</td>
     </tr>
     
 
@@ -926,10 +926,10 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
-<p itemprop="articleBody">The Camera class is used to set image capture settings, start/stop preview,
+<h2>Class 概览</h2>
+<p itemprop="articleBody">The 相机 class is used to set image capture settings, start/stop preview,
  snap pictures, and retrieve frames for encoding for video.  This class is a
- client for the Camera service, which manages the actual camera hardware.
+ client for the 相机 service, which manages the actual camera hardware.
 
  <p>To access the device camera, you must declare the
  <code><a href="../../../reference/android/Manifest.permission.html#CAMERA">CAMERA</a></code> permission in your Android
@@ -945,58 +945,58 @@ Summary:
  <p>To take pictures with this class, use the following steps:</p>
 
  <ol>
- <li>Obtain an instance of Camera from <code><a href="../../../reference/android/hardware/Camera.html#open(int)">open(int)</a></code>.
+ <li>Obtain an instance of 相机 from <code><a href="../../../reference/android/hardware/相机.html#open(int)">open(int)</a></code>.
 
- <li>Get existing (default) settings with <code><a href="../../../reference/android/hardware/Camera.html#getParameters()">getParameters()</a></code>.
+ <li>Get existing (default) settings with <code><a href="../../../reference/android/hardware/相机.html#getParameters()">getParameters()</a></code>.
 
- <li>If necessary, modify the returned <code><a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a></code> object and call
- <code><a href="../../../reference/android/hardware/Camera.html#setParameters(android.hardware.Camera.Parameters)">setParameters(Camera.Parameters)</a></code>.
+ <li>If necessary, modify the returned <code><a href="../../../reference/android/hardware/相机.Parameters.html">相机.Parameters</a></code> object and call
+ <code><a href="../../../reference/android/hardware/相机.html#setParameters(android.hardware.相机.Parameters)">setParameters(相机.Parameters)</a></code>.
 
- <li>If desired, call <code><a href="../../../reference/android/hardware/Camera.html#setDisplayOrientation(int)">setDisplayOrientation(int)</a></code>.
+ <li>If desired, call <code><a href="../../../reference/android/hardware/相机.html#setDisplayOrientation(int)">setDisplayOrientation(int)</a></code>.
 
  <li><b>Important</b>: Pass a fully initialized <code><a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a></code> to
- <code><a href="../../../reference/android/hardware/Camera.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(SurfaceHolder)</a></code>.  Without a surface, the camera
+ <code><a href="../../../reference/android/hardware/相机.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(SurfaceHolder)</a></code>.  Without a surface, the camera
  will be unable to start the preview.
 
- <li><b>Important</b>: Call <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code> to start updating the
+ <li><b>Important</b>: Call <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code> to start updating the
  preview surface.  Preview must be started before you can take a picture.
 
- <li>When you want, call <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code> to
+ <li>When you want, call <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code> to
  capture a photo.  Wait for the callbacks to provide the actual image data.
 
  <li>After taking a picture, preview display will have stopped.  To take more
- photos, call <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code> again first.
+ photos, call <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code> again first.
 
- <li>Call <code><a href="../../../reference/android/hardware/Camera.html#stopPreview()">stopPreview()</a></code> to stop updating the preview surface.
+ <li>Call <code><a href="../../../reference/android/hardware/相机.html#stopPreview()">stopPreview()</a></code> to stop updating the preview surface.
 
- <li><b>Important:</b> Call <code><a href="../../../reference/android/hardware/Camera.html#release()">release()</a></code> to release the camera for
+ <li><b>Important:</b> Call <code><a href="../../../reference/android/hardware/相机.html#release()">release()</a></code> to release the camera for
  use by other applications.  Applications should release the camera
- immediately in <code><a href="../../../reference/android/app/Activity.html#onPause()">onPause()</a></code> (and re-<code><a href="../../../reference/android/hardware/Camera.html#open()">open()</a></code>
+ immediately in <code><a href="../../../reference/android/app/Activity.html#onPause()">onPause()</a></code> (and re-<code><a href="../../../reference/android/hardware/相机.html#open()">open()</a></code>
  it in <code><a href="../../../reference/android/app/Activity.html#onResume()">onResume()</a></code>).
  </ol>
 
  <p>To quickly switch to video recording mode, use these steps:</p>
 
  <ol>
- <li>Obtain and initialize a Camera and start preview as described above.
+ <li>Obtain and initialize a 相机 and start preview as described above.
 
- <li>Call <code><a href="../../../reference/android/hardware/Camera.html#unlock()">unlock()</a></code> to allow the media process to access the camera.
+ <li>Call <code><a href="../../../reference/android/hardware/相机.html#unlock()">unlock()</a></code> to allow the media process to access the camera.
 
- <li>Pass the camera to <code><a href="../../../reference/android/media/MediaRecorder.html#setCamera(android.hardware.Camera)">setCamera(Camera)</a></code>.
+ <li>Pass the camera to <code><a href="../../../reference/android/media/MediaRecorder.html#set相机(android.hardware.相机)">set相机(相机)</a></code>.
  See <code><a href="../../../reference/android/media/MediaRecorder.html">MediaRecorder</a></code> information about video recording.
 
- <li>When finished recording, call <code><a href="../../../reference/android/hardware/Camera.html#reconnect()">reconnect()</a></code> to re-acquire
+ <li>When finished recording, call <code><a href="../../../reference/android/hardware/相机.html#reconnect()">reconnect()</a></code> to re-acquire
  and re-lock the camera.
 
  <li>If desired, restart preview and take more photos or videos.
 
- <li>Call <code><a href="../../../reference/android/hardware/Camera.html#stopPreview()">stopPreview()</a></code> and <code><a href="../../../reference/android/hardware/Camera.html#release()">release()</a></code> as described above.
+ <li>Call <code><a href="../../../reference/android/hardware/相机.html#stopPreview()">stopPreview()</a></code> and <code><a href="../../../reference/android/hardware/相机.html#release()">release()</a></code> as described above.
  </ol>
 
  <p>This class is not thread-safe, and is meant for use from one event thread.
  Most long-running operations (preview, focus, photo capture, etc) happen
  asynchronously and invoke callbacks as necessary.  Callbacks will be invoked
- on the event thread <code><a href="../../../reference/android/hardware/Camera.html#open(int)">open(int)</a></code> was called from.  This class's methods
+ on the event thread <code><a href="../../../reference/android/hardware/相机.html#open(int)">open(int)</a></code> was called from.  This class's methods
  must never be called from multiple threads at once.</p>
 
  <p class="caution"><strong>Caution:</strong> Different Android-powered devices
@@ -1008,7 +1008,7 @@ Summary:
  <div class="special reference">
  <h3>Developer Guides</h3>
  <p>For more information about using cameras, read the
- <a href="../../../guide/topics/media/camera.html">Camera</a> developer guide.</p>
+ <a href="../../../guide/topics/media/camera.html">相机</a> developer guide.</p>
  </div>
 </p>
 
@@ -1052,7 +1052,7 @@ Summary:
          
         
         class</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Area.html">Camera.Area</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Area.html">相机.Area</a></td>
       <td class="jd-descrcol" width="100%"><p>The Area class is used for choosing specific metering and focus areas for
  the camera to use when calculating auto-exposure, auto-white balance, and
  auto-focus.&nbsp;</td>
@@ -1066,7 +1066,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.AutoFocusCallback.html">Camera.AutoFocusCallback</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.AutoFocusCallback.html">相机.AutoFocusCallback</a></td>
       <td class="jd-descrcol" width="100%">Callback interface used to notify on completion of camera auto focus.&nbsp;</td>
     </tr>
     
@@ -1078,7 +1078,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.AutoFocusMoveCallback.html">Camera.AutoFocusMoveCallback</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.AutoFocusMoveCallback.html">相机.AutoFocusMoveCallback</a></td>
       <td class="jd-descrcol" width="100%">Callback interface used to notify on auto focus start and stop.&nbsp;</td>
     </tr>
     
@@ -1090,7 +1090,7 @@ Summary:
          
         
         class</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.相机Info.html">相机.相机Info</a></td>
       <td class="jd-descrcol" width="100%">Information about a camera
 &nbsp;</td>
     </tr>
@@ -1103,7 +1103,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.ErrorCallback.html">Camera.ErrorCallback</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.ErrorCallback.html">相机.ErrorCallback</a></td>
       <td class="jd-descrcol" width="100%">Callback interface for camera error notification.&nbsp;</td>
     </tr>
     
@@ -1115,7 +1115,7 @@ Summary:
          
         
         class</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Face.html">Camera.Face</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Face.html">相机.Face</a></td>
       <td class="jd-descrcol" width="100%">Information about a face identified through camera face detection.&nbsp;</td>
     </tr>
     
@@ -1127,7 +1127,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a></td>
       <td class="jd-descrcol" width="100%">Callback interface for face detected in the preview frame.&nbsp;</td>
     </tr>
     
@@ -1139,7 +1139,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html">Camera.OnZoomChangeListener</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.OnZoomChangeListener.html">相机.OnZoomChangeListener</a></td>
       <td class="jd-descrcol" width="100%">Callback interface for zoom changes during a smooth zoom operation.&nbsp;</td>
     </tr>
     
@@ -1151,8 +1151,8 @@ Summary:
          
         
         class</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a></td>
-      <td class="jd-descrcol" width="100%">Camera service settings.&nbsp;</td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Parameters.html">相机.Parameters</a></td>
+      <td class="jd-descrcol" width="100%">相机 service settings.&nbsp;</td>
     </tr>
     
     
@@ -1163,7 +1163,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a></td>
       <td class="jd-descrcol" width="100%">Callback interface used to supply image data from a photo capture.&nbsp;</td>
     </tr>
     
@@ -1175,7 +1175,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a></td>
       <td class="jd-descrcol" width="100%">Callback interface used to deliver copies of preview frames as
  they are displayed.&nbsp;</td>
     </tr>
@@ -1188,7 +1188,7 @@ Summary:
          
         
         interface</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a></td>
       <td class="jd-descrcol" width="100%">Callback interface used to signal the moment of actual image capture.&nbsp;</td>
     </tr>
     
@@ -1200,7 +1200,7 @@ Summary:
          
         
         class</nobr></td>
-      <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.Size.html">Camera.Size</a></td>
+      <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.Size.html">相机.Size</a></td>
       <td class="jd-descrcol" width="100%">Image size (width and height dimensions).&nbsp;</td>
     </tr>
     
@@ -1225,7 +1225,7 @@ Summary:
     
     <tr class="alt-color api apilevel-14" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.html#ACTION_NEW_PICTURE">ACTION_NEW_PICTURE</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.html#ACTION_NEW_PICTURE">ACTION_NEW_PICTURE</a></td>
         <td class="jd-descrcol" width="100%">Broadcast Action:  A new picture is taken by the camera, and the entry of
  the picture has been added to the media store.</td>
     </tr>
@@ -1233,7 +1233,7 @@ Summary:
     
     <tr class=" api apilevel-14" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.html#ACTION_NEW_VIDEO">ACTION_NEW_VIDEO</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.html#ACTION_NEW_VIDEO">ACTION_NEW_VIDEO</a></td>
         <td class="jd-descrcol" width="100%">Broadcast Action:  A new video is recorded by the camera, and the entry
  of the video has been added to the media store.</td>
     </tr>
@@ -1241,14 +1241,14 @@ Summary:
     
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.html#CAMERA_ERROR_SERVER_DIED">CAMERA_ERROR_SERVER_DIED</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.html#CAMERA_ERROR_SERVER_DIED">CAMERA_ERROR_SERVER_DIED</a></td>
         <td class="jd-descrcol" width="100%">Media server died.</td>
     </tr>
     
     
     <tr class=" api apilevel-1" >
         <td class="jd-typecol">int</td>
-        <td class="jd-linkcol"><a href="../../../reference/android/hardware/Camera.html#CAMERA_ERROR_UNKNOWN">CAMERA_ERROR_UNKNOWN</a></td>
+        <td class="jd-linkcol"><a href="../../../reference/android/hardware/相机.html#CAMERA_ERROR_UNKNOWN">CAMERA_ERROR_UNKNOWN</a></td>
         <td class="jd-descrcol" width="100%">Unspecified camera error.</td>
     </tr>
     
@@ -1287,7 +1287,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#addCallbackBuffer(byte[])">addCallbackBuffer</a></span>(byte[] callbackBuffer)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#addCallbackBuffer(byte[])">addCallbackBuffer</a></span>(byte[] callbackBuffer)</nobr>
         
         <div class="jd-descrdiv">Adds a pre-allocated buffer to the preview callback buffer queue.</div>
   
@@ -1305,7 +1305,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus</a></span>(<a href="../../../reference/android/hardware/Camera.AutoFocusCallback.html">Camera.AutoFocusCallback</a> cb)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus</a></span>(<a href="../../../reference/android/hardware/相机.AutoFocusCallback.html">相机.AutoFocusCallback</a> cb)</nobr>
         
         <div class="jd-descrdiv">Starts camera auto-focus and registers a callback function to run when
  the camera is focused.</div>
@@ -1324,7 +1324,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#cancelAutoFocus()">cancelAutoFocus</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#cancelAutoFocus()">cancelAutoFocus</a></span>()</nobr>
         
         <div class="jd-descrdiv">Cancels any auto-focus function in progress.</div>
   
@@ -1342,7 +1342,7 @@ Summary:
             boolean</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#enableShutterSound(boolean)">enableShutterSound</a></span>(boolean enabled)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#enableShutterSound(boolean)">enableShutterSound</a></span>(boolean enabled)</nobr>
         
         <div class="jd-descrdiv"><p>Enable or disable the default shutter sound when taking a picture.</div>
   
@@ -1360,7 +1360,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#getCameraInfo(int, android.hardware.Camera.CameraInfo)">getCameraInfo</a></span>(int cameraId, <a href="../../../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a> cameraInfo)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#get相机Info(int, android.hardware.相机.相机Info)">get相机Info</a></span>(int cameraId, <a href="../../../reference/android/hardware/相机.相机Info.html">相机.相机Info</a> cameraInfo)</nobr>
         
         <div class="jd-descrdiv">Returns the information about a particular camera.</div>
   
@@ -1378,7 +1378,7 @@ Summary:
             int</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#getNumberOfCameras()">getNumberOfCameras</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#getNumberOf相机s()">getNumberOf相机s</a></span>()</nobr>
         
         <div class="jd-descrdiv">Returns the number of physical cameras available on this device.</div>
   
@@ -1393,12 +1393,12 @@ Summary:
             
             
             
-            <a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a></nobr>
+            <a href="../../../reference/android/hardware/相机.Parameters.html">相机.Parameters</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#getParameters()">getParameters</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#getParameters()">getParameters</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Returns the current settings for this Camera service.</div>
+        <div class="jd-descrdiv">Returns the current settings for this 相机 service.</div>
   
   </td></tr>
 
@@ -1414,7 +1414,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#lock()">lock</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#lock()">lock</a></span>()</nobr>
         
         <div class="jd-descrdiv">Re-locks the camera to prevent other processes from accessing it.</div>
   
@@ -1429,12 +1429,12 @@ Summary:
             
             static
             
-            <a href="../../../reference/android/hardware/Camera.html">Camera</a></nobr>
+            <a href="../../../reference/android/hardware/相机.html">相机</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#open(int)">open</a></span>(int cameraId)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#open(int)">open</a></span>(int cameraId)</nobr>
         
-        <div class="jd-descrdiv">Creates a new Camera object to access a particular hardware camera.</div>
+        <div class="jd-descrdiv">Creates a new 相机 object to access a particular hardware camera.</div>
   
   </td></tr>
 
@@ -1447,12 +1447,12 @@ Summary:
             
             static
             
-            <a href="../../../reference/android/hardware/Camera.html">Camera</a></nobr>
+            <a href="../../../reference/android/hardware/相机.html">相机</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#open()">open</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#open()">open</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Creates a new Camera object to access the first back-facing camera on the
+        <div class="jd-descrdiv">Creates a new 相机 object to access the first back-facing camera on the
  device.</div>
   
   </td></tr>
@@ -1469,7 +1469,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#reconnect()">reconnect</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#reconnect()">reconnect</a></span>()</nobr>
         
         <div class="jd-descrdiv">Reconnects to the camera service after another process used it.</div>
   
@@ -1487,9 +1487,9 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#release()">release</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#release()">release</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Disconnects and releases the Camera object resources.</div>
+        <div class="jd-descrdiv">Disconnects and releases the 相机 object resources.</div>
   
   </td></tr>
 
@@ -1505,7 +1505,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setAutoFocusMoveCallback(android.hardware.Camera.AutoFocusMoveCallback)">setAutoFocusMoveCallback</a></span>(<a href="../../../reference/android/hardware/Camera.AutoFocusMoveCallback.html">Camera.AutoFocusMoveCallback</a> cb)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setAutoFocusMoveCallback(android.hardware.相机.AutoFocusMoveCallback)">setAutoFocusMoveCallback</a></span>(<a href="../../../reference/android/hardware/相机.AutoFocusMoveCallback.html">相机.AutoFocusMoveCallback</a> cb)</nobr>
         
         <div class="jd-descrdiv">Sets camera auto-focus move callback.</div>
   
@@ -1523,7 +1523,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setDisplayOrientation(int)">setDisplayOrientation</a></span>(int degrees)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setDisplayOrientation(int)">setDisplayOrientation</a></span>(int degrees)</nobr>
         
         <div class="jd-descrdiv">Set the clockwise rotation of preview display in degrees.</div>
   
@@ -1541,7 +1541,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setErrorCallback(android.hardware.Camera.ErrorCallback)">setErrorCallback</a></span>(<a href="../../../reference/android/hardware/Camera.ErrorCallback.html">Camera.ErrorCallback</a> cb)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setErrorCallback(android.hardware.相机.ErrorCallback)">setErrorCallback</a></span>(<a href="../../../reference/android/hardware/相机.ErrorCallback.html">相机.ErrorCallback</a> cb)</nobr>
         
         <div class="jd-descrdiv">Registers a callback to be invoked when an error occurs.</div>
   
@@ -1559,7 +1559,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setFaceDetectionListener(android.hardware.Camera.FaceDetectionListener)">setFaceDetectionListener</a></span>(<a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a> listener)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setFaceDetectionListener(android.hardware.相机.FaceDetectionListener)">setFaceDetectionListener</a></span>(<a href="../../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a> listener)</nobr>
         
         <div class="jd-descrdiv">Registers a listener to be notified about the faces detected in the
  preview frame.</div>
@@ -1578,7 +1578,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setOneShotPreviewCallback(android.hardware.Camera.PreviewCallback)">setOneShotPreviewCallback</a></span>(<a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a> cb)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setOneShotPreviewCallback(android.hardware.相机.PreviewCallback)">setOneShotPreviewCallback</a></span>(<a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a> cb)</nobr>
         
         <div class="jd-descrdiv"><p>Installs a callback to be invoked for the next preview frame in
  addition to displaying it on the screen.</div>
@@ -1597,9 +1597,9 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setParameters(android.hardware.Camera.Parameters)">setParameters</a></span>(<a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a> params)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setParameters(android.hardware.相机.Parameters)">setParameters</a></span>(<a href="../../../reference/android/hardware/相机.Parameters.html">相机.Parameters</a> params)</nobr>
         
-        <div class="jd-descrdiv">Changes the settings for this Camera service.</div>
+        <div class="jd-descrdiv">Changes the settings for this 相机 service.</div>
   
   </td></tr>
 
@@ -1615,7 +1615,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setPreviewCallback(android.hardware.Camera.PreviewCallback)">setPreviewCallback</a></span>(<a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a> cb)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setPreviewCallback(android.hardware.相机.PreviewCallback)">setPreviewCallback</a></span>(<a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a> cb)</nobr>
         
         <div class="jd-descrdiv"><p>Installs a callback to be invoked for every preview frame in addition
  to displaying them on the screen.</div>
@@ -1634,10 +1634,10 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setPreviewCallbackWithBuffer(android.hardware.Camera.PreviewCallback)">setPreviewCallbackWithBuffer</a></span>(<a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a> cb)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setPreviewCallbackWithBuffer(android.hardware.相机.PreviewCallback)">setPreviewCallbackWithBuffer</a></span>(<a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a> cb)</nobr>
         
         <div class="jd-descrdiv"><p>Installs a callback to be invoked for every preview frame, using
- buffers supplied with <code><a href="../../../reference/android/hardware/Camera.html#addCallbackBuffer(byte[])">addCallbackBuffer(byte[])</a></code>, in addition to
+ buffers supplied with <code><a href="../../../reference/android/hardware/相机.html#addCallbackBuffer(byte[])">addCallbackBuffer(byte[])</a></code>, in addition to
  displaying them on the screen.</div>
   
   </td></tr>
@@ -1654,7 +1654,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay</a></span>(<a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a> holder)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay</a></span>(<a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a> holder)</nobr>
         
         <div class="jd-descrdiv">Sets the <code><a href="../../../reference/android/view/Surface.html">Surface</a></code> to be used for live preview.</div>
   
@@ -1672,7 +1672,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setPreviewTexture(android.graphics.SurfaceTexture)">setPreviewTexture</a></span>(<a href="../../../reference/android/graphics/SurfaceTexture.html">SurfaceTexture</a> surfaceTexture)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setPreviewTexture(android.graphics.SurfaceTexture)">setPreviewTexture</a></span>(<a href="../../../reference/android/graphics/SurfaceTexture.html">SurfaceTexture</a> surfaceTexture)</nobr>
         
         <div class="jd-descrdiv">Sets the <code><a href="../../../reference/android/graphics/SurfaceTexture.html">SurfaceTexture</a></code> to be used for live preview.</div>
   
@@ -1690,7 +1690,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#setZoomChangeListener(android.hardware.Camera.OnZoomChangeListener)">setZoomChangeListener</a></span>(<a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html">Camera.OnZoomChangeListener</a> listener)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#setZoomChangeListener(android.hardware.相机.OnZoomChangeListener)">setZoomChangeListener</a></span>(<a href="../../../reference/android/hardware/相机.OnZoomChangeListener.html">相机.OnZoomChangeListener</a> listener)</nobr>
         
         <div class="jd-descrdiv">Registers a listener to be notified when the zoom value is updated by the
  camera driver during smooth zoom.</div>
@@ -1709,7 +1709,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#startFaceDetection()">startFaceDetection</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#startFaceDetection()">startFaceDetection</a></span>()</nobr>
         
         <div class="jd-descrdiv">Starts the face detection.</div>
   
@@ -1727,7 +1727,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview</a></span>()</nobr>
         
         <div class="jd-descrdiv">Starts capturing and drawing preview frames to the screen.</div>
   
@@ -1745,7 +1745,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#startSmoothZoom(int)">startSmoothZoom</a></span>(int value)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#startSmoothZoom(int)">startSmoothZoom</a></span>(int value)</nobr>
         
         <div class="jd-descrdiv">Zooms to the requested value smoothly.</div>
   
@@ -1763,7 +1763,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#stopFaceDetection()">stopFaceDetection</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#stopFaceDetection()">stopFaceDetection</a></span>()</nobr>
         
         <div class="jd-descrdiv">Stops the face detection.</div>
   
@@ -1781,10 +1781,10 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#stopPreview()">stopPreview</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#stopPreview()">stopPreview</a></span>()</nobr>
         
         <div class="jd-descrdiv">Stops capturing and drawing preview frames to the surface, and
- resets the camera for a future call to <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code>.</div>
+ resets the camera for a future call to <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code>.</div>
   
   </td></tr>
 
@@ -1800,7 +1800,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#stopSmoothZoom()">stopSmoothZoom</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#stopSmoothZoom()">stopSmoothZoom</a></span>()</nobr>
         
         <div class="jd-descrdiv">Stops the smooth zoom.</div>
   
@@ -1818,7 +1818,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture</a></span>(<a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a> shutter, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> raw, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> jpeg)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture</a></span>(<a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a> shutter, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> raw, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> jpeg)</nobr>
         
         <div class="jd-descrdiv">Equivalent to takePicture(shutter, raw, null, jpeg).</div>
   
@@ -1836,7 +1836,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture</a></span>(<a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a> shutter, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> raw, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> postview, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> jpeg)</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture</a></span>(<a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a> shutter, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> raw, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> postview, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> jpeg)</nobr>
         
         <div class="jd-descrdiv">Triggers an asynchronous image capture.</div>
   
@@ -1854,7 +1854,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#unlock()">unlock</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#unlock()">unlock</a></span>()</nobr>
         
         <div class="jd-descrdiv">Unlocks the camera to allow another process to access it.</div>
   
@@ -1883,7 +1883,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/hardware/Camera.html#finalize()">finalize</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/hardware/相机.html#finalize()">finalize</a></span>()</nobr>
         
         <div class="jd-descrdiv">Invoked when the garbage collector has detected that this instance is no longer reachable.</div>
   
@@ -2266,10 +2266,10 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Media server died. In this case, the application must release the
- Camera object and instantiate a new one.</p></div>
+ 相机 object and instantiate a new one.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.ErrorCallback.html">Camera.ErrorCallback</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.ErrorCallback.html">相机.ErrorCallback</a></code></li>
       </ul>
   </div>
 
@@ -2313,7 +2313,7 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Unspecified camera error.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.ErrorCallback.html">Camera.ErrorCallback</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.ErrorCallback.html">相机.ErrorCallback</a></code></li>
       </ul>
   </div>
 
@@ -2388,19 +2388,19 @@ From class
  <p>For formats besides YV12, the size of the buffer is determined by
  multiplying the preview image width, height, and bytes per pixel. The
  width and height can be read from
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewSize()">getPreviewSize()</a></code>. Bytes per pixel can be
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewSize()">getPreviewSize()</a></code>. Bytes per pixel can be
  computed from <code><a href="../../../reference/android/graphics/ImageFormat.html#getBitsPerPixel(int)">getBitsPerPixel(int)</a></code> /
  8, using the image format from
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFormat()">getPreviewFormat()</a></code>.
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFormat()">getPreviewFormat()</a></code>.
 
  <p>If using the <code><a href="../../../reference/android/graphics/ImageFormat.html#YV12">YV12</a></code> format, the
  size can be calculated using the equations listed in
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setPreviewFormat(int)">setPreviewFormat(int)</a></code>.
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setPreviewFormat(int)">setPreviewFormat(int)</a></code>.
 
  <p>This method is only necessary when
- <code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallbackWithBuffer(android.hardware.Camera.PreviewCallback)">setPreviewCallbackWithBuffer(PreviewCallback)</a></code> is used. When
- <code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallback(android.hardware.Camera.PreviewCallback)">setPreviewCallback(PreviewCallback)</a></code> or
- <code><a href="../../../reference/android/hardware/Camera.html#setOneShotPreviewCallback(android.hardware.Camera.PreviewCallback)">setOneShotPreviewCallback(PreviewCallback)</a></code> are used, buffers
+ <code><a href="../../../reference/android/hardware/相机.html#setPreviewCallbackWithBuffer(android.hardware.相机.PreviewCallback)">setPreviewCallbackWithBuffer(PreviewCallback)</a></code> is used. When
+ <code><a href="../../../reference/android/hardware/相机.html#setPreviewCallback(android.hardware.相机.PreviewCallback)">setPreviewCallback(PreviewCallback)</a></code> or
+ <code><a href="../../../reference/android/hardware/相机.html#setOneShotPreviewCallback(android.hardware.相机.PreviewCallback)">setOneShotPreviewCallback(PreviewCallback)</a></code> are used, buffers
  are automatically allocated. When a supplied buffer is too small to
  hold the preview frame data, preview callback will return null and
  the buffer will be removed from the buffer queue.</p></div>
@@ -2416,7 +2416,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallbackWithBuffer(android.hardware.Camera.PreviewCallback)">setPreviewCallbackWithBuffer(PreviewCallback)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#setPreviewCallbackWithBuffer(android.hardware.相机.PreviewCallback)">setPreviewCallbackWithBuffer(PreviewCallback)</a></code></li>
       </ul>
   </div>
 
@@ -2424,7 +2424,7 @@ From class
 </div>
 
 
-<A NAME="autoFocus(android.hardware.Camera.AutoFocusCallback)"></A>
+<A NAME="autoFocus(android.hardware.相机.AutoFocusCallback)"></A>
 
 <div class="jd-details api apilevel-1"> 
     <h4 class="jd-details-title">
@@ -2437,7 +2437,7 @@ From class
         void
       </span>
       <span class="sympad">autoFocus</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.AutoFocusCallback.html">Camera.AutoFocusCallback</a> cb)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.AutoFocusCallback.html">相机.AutoFocusCallback</a> cb)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2450,12 +2450,12 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Starts camera auto-focus and registers a callback function to run when
  the camera is focused.  This method is only valid when preview is active
- (between <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code> and before <code><a href="../../../reference/android/hardware/Camera.html#stopPreview()">stopPreview()</a></code>).
+ (between <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code> and before <code><a href="../../../reference/android/hardware/相机.html#stopPreview()">stopPreview()</a></code>).
 
  <p>Callers should check
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getFocusMode()">getFocusMode()</a></code> to determine if
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getFocusMode()">getFocusMode()</a></code> to determine if
  this method should be called. If the camera does not support auto-focus,
- it is a no-op and <code><a href="../../../reference/android/hardware/Camera.AutoFocusCallback.html#onAutoFocus(boolean, android.hardware.Camera)">onAutoFocus(boolean, Camera)</a></code>
+ it is a no-op and <code><a href="../../../reference/android/hardware/相机.AutoFocusCallback.html#onAutoFocus(boolean, android.hardware.相机)">onAutoFocus(boolean, 相机)</a></code>
  callback will be called immediately.
 
  <p>If your application should not be installed
@@ -2465,16 +2465,16 @@ From class
  manifest element.</p>
 
  <p>If the current flash mode is not
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#FLASH_MODE_OFF">FLASH_MODE_OFF</a></code>, flash may be
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#FLASH_MODE_OFF">FLASH_MODE_OFF</a></code>, flash may be
  fired during auto-focus, depending on the driver and camera hardware.<p>
 
- <p>Auto-exposure lock <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getAutoExposureLock()">getAutoExposureLock()</a></code>
- and auto-white balance locks <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getAutoWhiteBalanceLock()">getAutoWhiteBalanceLock()</a></code>
+ <p>Auto-exposure lock <code><a href="../../../reference/android/hardware/相机.Parameters.html#getAutoExposureLock()">getAutoExposureLock()</a></code>
+ and auto-white balance locks <code><a href="../../../reference/android/hardware/相机.Parameters.html#getAutoWhiteBalanceLock()">getAutoWhiteBalanceLock()</a></code>
  do not change during and after autofocus. But auto-focus routine may stop
  auto-exposure and auto-white balance transiently during focusing.
 
- <p>Stopping preview with <code><a href="../../../reference/android/hardware/Camera.html#stopPreview()">stopPreview()</a></code>, or triggering still
- image capture with <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code>, will not change the
+ <p>Stopping preview with <code><a href="../../../reference/android/hardware/相机.html#stopPreview()">stopPreview()</a></code>, or triggering still
+ image capture with <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code>, will not change the
  the focus position. Applications must call cancelAutoFocus to reset the
  focus.</p>
 
@@ -2492,7 +2492,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#cancelAutoFocus()">cancelAutoFocus()</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html">MediaActionSound</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#cancelAutoFocus()">cancelAutoFocus()</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoExposureLock(boolean)">setAutoExposureLock(boolean)</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#setAutoWhiteBalanceLock(boolean)">setAutoWhiteBalanceLock(boolean)</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html">MediaActionSound</a></code></li>
       </ul>
   </div>
 
@@ -2530,7 +2530,7 @@ From class
  If the camera does not support auto-focus, this is a no-op.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(Camera.AutoFocusCallback)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(相机.AutoFocusCallback)</a></code></li>
       </ul>
   </div>
 
@@ -2565,14 +2565,14 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p><p>Enable or disable the default shutter sound when taking a picture.</p>
 
  <p>By default, the camera plays the system-defined camera shutter sound
- when <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code> is called. Using this method, the shutter sound
+ when <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code> is called. Using this method, the shutter sound
  can be disabled. It is strongly recommended that an alternative shutter
- sound is played in the <code><a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a></code> when the system shutter
+ sound is played in the <code><a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a></code> when the system shutter
  sound is disabled.</p>
 
  <p>Note that devices may not always allow disabling the camera shutter
  sound. If the shutter sound state cannot be set to the desired value,
- this method will return false. <code><a href="../../../reference/android/hardware/Camera.CameraInfo.html#canDisableShutterSound">canDisableShutterSound</a></code>
+ this method will return false. <code><a href="../../../reference/android/hardware/相机.相机Info.html#canDisableShutterSound">canDisableShutterSound</a></code>
  can be used to determine whether the device will allow the shutter sound
  to be disabled.</p></p></div>
   <div class="jd-tagdata">
@@ -2581,7 +2581,7 @@ From class
         <tr>
           <th>enabled</td>
           <td>whether the camera should play the system shutter sound
-                when <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture</a></code> is called.</td>
+                when <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture</a></code> is called.</td>
         </tr>
       </table>
   </div>
@@ -2594,7 +2594,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.CameraInfo.html#canDisableShutterSound">canDisableShutterSound</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code></li><li><code><a href="../../../reference/android/hardware/相机.相机Info.html#canDisableShutterSound">canDisableShutterSound</a></code></li><li><code><a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a></code></li>
       </ul>
   </div>
 
@@ -2602,7 +2602,7 @@ From class
 </div>
 
 
-<A NAME="getCameraInfo(int, android.hardware.Camera.CameraInfo)"></A>
+<A NAME="get相机Info(int, android.hardware.相机.相机Info)"></A>
 
 <div class="jd-details api apilevel-9"> 
     <h4 class="jd-details-title">
@@ -2614,8 +2614,8 @@ From class
          
         void
       </span>
-      <span class="sympad">getCameraInfo</span>
-      <span class="normal">(int cameraId, <a href="../../../reference/android/hardware/Camera.CameraInfo.html">Camera.CameraInfo</a> cameraInfo)</span>
+      <span class="sympad">get相机Info</span>
+      <span class="normal">(int cameraId, <a href="../../../reference/android/hardware/相机.相机Info.html">相机.相机Info</a> cameraInfo)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2627,14 +2627,14 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Returns the information about a particular camera.
- If <code><a href="../../../reference/android/hardware/Camera.html#getNumberOfCameras()">getNumberOfCameras()</a></code> returns N, the valid id is 0 to N-1.
+ If <code><a href="../../../reference/android/hardware/相机.html#getNumberOf相机s()">getNumberOf相机s()</a></code> returns N, the valid id is 0 to N-1.
 </p></div>
 
     </div>
 </div>
 
 
-<A NAME="getNumberOfCameras()"></A>
+<A NAME="getNumberOf相机s()"></A>
 
 <div class="jd-details api apilevel-9"> 
     <h4 class="jd-details-title">
@@ -2646,7 +2646,7 @@ From class
          
         int
       </span>
-      <span class="sympad">getNumberOfCameras</span>
+      <span class="sympad">getNumberOf相机s</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2675,7 +2675,7 @@ From class
          
          
          
-        <a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a>
+        <a href="../../../reference/android/hardware/相机.Parameters.html">相机.Parameters</a>
       </span>
       <span class="sympad">getParameters</span>
       <span class="normal">()</span>
@@ -2689,12 +2689,12 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Returns the current settings for this Camera service.
+  <div class="jd-tagdata jd-tagdescr"><p>Returns the current settings for this 相机 service.
  If modifications are made to the returned Parameters, they must be passed
- to <code><a href="../../../reference/android/hardware/Camera.html#setParameters(android.hardware.Camera.Parameters)">setParameters(Camera.Parameters)</a></code> to take effect.</p></div>
+ to <code><a href="../../../reference/android/hardware/相机.html#setParameters(android.hardware.相机.Parameters)">setParameters(相机.Parameters)</a></code> to take effect.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#setParameters(android.hardware.Camera.Parameters)">setParameters(Camera.Parameters)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#setParameters(android.hardware.相机.Parameters)">setParameters(相机.Parameters)</a></code></li>
       </ul>
   </div>
 
@@ -2727,8 +2727,8 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Re-locks the camera to prevent other processes from accessing it.
- Camera objects are locked by default unless <code><a href="../../../reference/android/hardware/Camera.html#unlock()">unlock()</a></code> is
- called.  Normally <code><a href="../../../reference/android/hardware/Camera.html#reconnect()">reconnect()</a></code> is used instead.
+ 相机 objects are locked by default unless <code><a href="../../../reference/android/hardware/相机.html#unlock()">unlock()</a></code> is
+ called.  Normally <code><a href="../../../reference/android/hardware/相机.html#reconnect()">reconnect()</a></code> is used instead.
 
  <p>Since API level 14, camera is automatically locked for applications in
  <code><a href="../../../reference/android/media/MediaRecorder.html#start()">start()</a></code>. Applications can use the
@@ -2762,7 +2762,7 @@ From class
          
          
          
-        <a href="../../../reference/android/hardware/Camera.html">Camera</a>
+        <a href="../../../reference/android/hardware/相机.html">相机</a>
       </span>
       <span class="sympad">open</span>
       <span class="normal">(int cameraId)</span>
@@ -2776,14 +2776,14 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a new Camera object to access a particular hardware camera. If
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new 相机 object to access a particular hardware camera. If
  the same camera is opened by other applications, this will throw a
  RuntimeException.
 
- <p>You must call <code><a href="../../../reference/android/hardware/Camera.html#release()">release()</a></code> when you are done using the camera,
+ <p>You must call <code><a href="../../../reference/android/hardware/相机.html#release()">release()</a></code> when you are done using the camera,
  otherwise it will remain locked and be unavailable to other applications.
 
- <p>Your application should only have one Camera object active at a time
+ <p>Your application should only have one 相机 object active at a time
  for a particular hardware camera.
 
  <p>Callbacks from other methods are delivered to the event loop of the
@@ -2801,13 +2801,13 @@ From class
         <tr>
           <th>cameraId</td>
           <td>the hardware camera to access, between 0 and
-     <code><a href="../../../reference/android/hardware/Camera.html#getNumberOfCameras()">getNumberOfCameras()</a></code>-1.</td>
+     <code><a href="../../../reference/android/hardware/相机.html#getNumberOf相机s()">getNumberOf相机s()</a></code>-1.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a new Camera object, connected, locked and ready for use.</li></ul>
+      <ul class="nolist"><li>a new 相机 object, connected, locked and ready for use.</li></ul>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -2822,7 +2822,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#getCameraDisabled(android.content.ComponentName)">getCameraDisabled(android.content.ComponentName)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/app/admin/DevicePolicyManager.html#get相机Disabled(android.content.ComponentName)">get相机Disabled(android.content.ComponentName)</a></code></li>
       </ul>
   </div>
 
@@ -2840,7 +2840,7 @@ From class
          
          
          
-        <a href="../../../reference/android/hardware/Camera.html">Camera</a>
+        <a href="../../../reference/android/hardware/相机.html">相机</a>
       </span>
       <span class="sympad">open</span>
       <span class="normal">()</span>
@@ -2854,12 +2854,12 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a new Camera object to access the first back-facing camera on the
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new 相机 object to access the first back-facing camera on the
  device. If the device does not have a back-facing camera, this returns
  null.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#open(int)">open(int)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#open(int)">open(int)</a></code></li>
       </ul>
   </div>
 
@@ -2892,7 +2892,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Reconnects to the camera service after another process used it.
- After <code><a href="../../../reference/android/hardware/Camera.html#unlock()">unlock()</a></code> is called, another process may use the
+ After <code><a href="../../../reference/android/hardware/相机.html#unlock()">unlock()</a></code> is called, another process may use the
  camera; when the process is done, you must reconnect to the camera,
  which will re-acquire the lock and allow you to continue using the
  camera.
@@ -2943,16 +2943,16 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Disconnects and releases the Camera object resources.
+  <div class="jd-tagdata jd-tagdescr"><p>Disconnects and releases the 相机 object resources.
 
- <p>You must call this as soon as you're done with the Camera object.</p>
+ <p>You must call this as soon as you're done with the 相机 object.</p>
 </p></div>
 
     </div>
 </div>
 
 
-<A NAME="setAutoFocusMoveCallback(android.hardware.Camera.AutoFocusMoveCallback)"></A>
+<A NAME="setAutoFocusMoveCallback(android.hardware.相机.AutoFocusMoveCallback)"></A>
 
 <div class="jd-details api apilevel-16"> 
     <h4 class="jd-details-title">
@@ -2965,7 +2965,7 @@ From class
         void
       </span>
       <span class="sympad">setAutoFocusMoveCallback</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.AutoFocusMoveCallback.html">Camera.AutoFocusMoveCallback</a> cb)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.AutoFocusMoveCallback.html">相机.AutoFocusMoveCallback</a> cb)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3023,17 +3023,17 @@ From class
  is, the image is reflected along the central vertical axis of the camera
  sensor. So the users can see themselves as looking into a mirror.
 
- <p>This does not affect the order of byte array passed in <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html#onPreviewFrame(byte[], android.hardware.Camera)">onPreviewFrame(byte[], Camera)</a></code>, JPEG pictures, or recorded videos. This
+ <p>This does not affect the order of byte array passed in <code><a href="../../../reference/android/hardware/相机.PreviewCallback.html#onPreviewFrame(byte[], android.hardware.相机)">onPreviewFrame(byte[], 相机)</a></code>, JPEG pictures, or recorded videos. This
  method is not allowed to be called during preview.
 
  <p>If you want to make the camera image show in the same orientation as
  the display, you can use the following code.
  <pre>
- public static void setCameraDisplayOrientation(Activity activity,
-         int cameraId, android.hardware.Camera camera) {
-     android.hardware.Camera.CameraInfo info =
-             new android.hardware.Camera.CameraInfo();
-     android.hardware.Camera.getCameraInfo(cameraId, info);
+ public static void set相机DisplayOrientation(Activity activity,
+         int cameraId, android.hardware.相机 camera) {
+     android.hardware.相机.相机Info info =
+             new android.hardware.相机.相机Info();
+     android.hardware.相机.get相机Info(cameraId, info);
      int rotation = activity.getWindowManager().getDefaultDisplay()
              .getRotation();
      int degrees = 0;
@@ -3045,7 +3045,7 @@ From class
      }
 
      int result;
-     if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+     if (info.facing == 相机.相机Info.CAMERA_FACING_FRONT) {
          result = (info.orientation + degrees) % 360;
          result = (360 - result) % 360;  // compensate the mirror
      } else {  // back-facing
@@ -3070,7 +3070,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(SurfaceHolder)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(SurfaceHolder)</a></code></li>
       </ul>
   </div>
 
@@ -3078,7 +3078,7 @@ From class
 </div>
 
 
-<A NAME="setErrorCallback(android.hardware.Camera.ErrorCallback)"></A>
+<A NAME="setErrorCallback(android.hardware.相机.ErrorCallback)"></A>
 
 <div class="jd-details api apilevel-1"> 
     <h4 class="jd-details-title">
@@ -3091,7 +3091,7 @@ From class
         void
       </span>
       <span class="sympad">setErrorCallback</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.ErrorCallback.html">Camera.ErrorCallback</a> cb)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.ErrorCallback.html">相机.ErrorCallback</a> cb)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3118,7 +3118,7 @@ From class
 </div>
 
 
-<A NAME="setFaceDetectionListener(android.hardware.Camera.FaceDetectionListener)"></A>
+<A NAME="setFaceDetectionListener(android.hardware.相机.FaceDetectionListener)"></A>
 
 <div class="jd-details api apilevel-14"> 
     <h4 class="jd-details-title">
@@ -3131,7 +3131,7 @@ From class
         void
       </span>
       <span class="sympad">setFaceDetectionListener</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a> listener)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a> listener)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3155,7 +3155,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#startFaceDetection()">startFaceDetection()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#startFaceDetection()">startFaceDetection()</a></code></li>
       </ul>
   </div>
 
@@ -3163,7 +3163,7 @@ From class
 </div>
 
 
-<A NAME="setOneShotPreviewCallback(android.hardware.Camera.PreviewCallback)"></A>
+<A NAME="setOneShotPreviewCallback(android.hardware.相机.PreviewCallback)"></A>
 
 <div class="jd-details api apilevel-3"> 
     <h4 class="jd-details-title">
@@ -3176,7 +3176,7 @@ From class
         void
       </span>
       <span class="sympad">setOneShotPreviewCallback</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a> cb)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a> cb)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3215,7 +3215,7 @@ From class
 </div>
 
 
-<A NAME="setParameters(android.hardware.Camera.Parameters)"></A>
+<A NAME="setParameters(android.hardware.相机.Parameters)"></A>
 
 <div class="jd-details api apilevel-1"> 
     <h4 class="jd-details-title">
@@ -3228,7 +3228,7 @@ From class
         void
       </span>
       <span class="sympad">setParameters</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.Parameters.html">Camera.Parameters</a> params)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.Parameters.html">相机.Parameters</a> params)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3239,13 +3239,13 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Changes the settings for this Camera service.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Changes the settings for this 相机 service.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>params</td>
-          <td>the Parameters to use for this Camera service</td>
+          <td>the Parameters to use for this 相机 service</td>
         </tr>
       </table>
   </div>
@@ -3260,7 +3260,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#getParameters()">getParameters()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#getParameters()">getParameters()</a></code></li>
       </ul>
   </div>
 
@@ -3268,7 +3268,7 @@ From class
 </div>
 
 
-<A NAME="setPreviewCallback(android.hardware.Camera.PreviewCallback)"></A>
+<A NAME="setPreviewCallback(android.hardware.相机.PreviewCallback)"></A>
 
 <div class="jd-details api apilevel-1"> 
     <h4 class="jd-details-title">
@@ -3281,7 +3281,7 @@ From class
         void
       </span>
       <span class="sympad">setPreviewCallback</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a> cb)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a> cb)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3321,7 +3321,7 @@ From class
 </div>
 
 
-<A NAME="setPreviewCallbackWithBuffer(android.hardware.Camera.PreviewCallback)"></A>
+<A NAME="setPreviewCallbackWithBuffer(android.hardware.相机.PreviewCallback)"></A>
 
 <div class="jd-details api apilevel-8"> 
     <h4 class="jd-details-title">
@@ -3334,7 +3334,7 @@ From class
         void
       </span>
       <span class="sympad">setPreviewCallbackWithBuffer</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.PreviewCallback.html">Camera.PreviewCallback</a> cb)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.PreviewCallback.html">相机.PreviewCallback</a> cb)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3346,19 +3346,19 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p><p>Installs a callback to be invoked for every preview frame, using
- buffers supplied with <code><a href="../../../reference/android/hardware/Camera.html#addCallbackBuffer(byte[])">addCallbackBuffer(byte[])</a></code>, in addition to
+ buffers supplied with <code><a href="../../../reference/android/hardware/相机.html#addCallbackBuffer(byte[])">addCallbackBuffer(byte[])</a></code>, in addition to
  displaying them on the screen.  The callback will be repeatedly called
  for as long as preview is active and buffers are available.  Any other
  preview callbacks are overridden.</p>
 
  <p>The purpose of this method is to improve preview efficiency and frame
  rate by allowing preview frame memory reuse.  You must call
- <code><a href="../../../reference/android/hardware/Camera.html#addCallbackBuffer(byte[])">addCallbackBuffer(byte[])</a></code> at some point -- before or after
+ <code><a href="../../../reference/android/hardware/相机.html#addCallbackBuffer(byte[])">addCallbackBuffer(byte[])</a></code> at some point -- before or after
  calling this method -- or no callbacks will received.</p>
 
  <p>The buffer queue will be cleared if this method is called with a null
- callback, <code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallback(android.hardware.Camera.PreviewCallback)">setPreviewCallback(Camera.PreviewCallback)</a></code> is called,
- or <code><a href="../../../reference/android/hardware/Camera.html#setOneShotPreviewCallback(android.hardware.Camera.PreviewCallback)">setOneShotPreviewCallback(Camera.PreviewCallback)</a></code> is
+ callback, <code><a href="../../../reference/android/hardware/相机.html#setPreviewCallback(android.hardware.相机.PreviewCallback)">setPreviewCallback(相机.PreviewCallback)</a></code> is called,
+ or <code><a href="../../../reference/android/hardware/相机.html#setOneShotPreviewCallback(android.hardware.相机.PreviewCallback)">setOneShotPreviewCallback(相机.PreviewCallback)</a></code> is
  called.</p>
 
  <p>If you are using the preview data to create video or still images,
@@ -3376,7 +3376,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#addCallbackBuffer(byte[])">addCallbackBuffer(byte[])</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html">MediaActionSound</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#addCallbackBuffer(byte[])">addCallbackBuffer(byte[])</a></code></li><li><code><a href="../../../reference/android/media/MediaActionSound.html">MediaActionSound</a></code></li>
       </ul>
   </div>
 
@@ -3412,7 +3412,7 @@ From class
  Either a surface or surface texture is necessary for preview, and
  preview is necessary to take pictures.  The same surface can be re-set
  without harm.  Setting a preview surface will un-set any preview surface
- texture that was set via <code><a href="../../../reference/android/hardware/Camera.html#setPreviewTexture(android.graphics.SurfaceTexture)">setPreviewTexture(SurfaceTexture)</a></code>.
+ texture that was set via <code><a href="../../../reference/android/hardware/相机.html#setPreviewTexture(android.graphics.SurfaceTexture)">setPreviewTexture(SurfaceTexture)</a></code>.
 
  <p>The <code><a href="../../../reference/android/view/SurfaceHolder.html">SurfaceHolder</a></code> must already contain a surface when this
  method is called.  If you are using <code><a href="../../../reference/android/view/SurfaceView.html">SurfaceView</a></code>,
@@ -3421,7 +3421,7 @@ From class
  <code><a href="../../../reference/android/view/SurfaceHolder.Callback.html#surfaceCreated(android.view.SurfaceHolder)">surfaceCreated(SurfaceHolder)</a></code> before
  calling setPreviewDisplay() or starting preview.
 
- <p>This method must be called before <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code>.  The
+ <p>This method must be called before <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code>.  The
  one exception is that if the preview surface is not set (or set to null)
  before startPreview() is called, then this method may be called once
  with a non-null parameter to set the preview surface.  (This allows
@@ -3481,9 +3481,9 @@ From class
  Either a surface or surface texture is necessary for preview, and
  preview is necessary to take pictures.  The same surface texture can be
  re-set without harm.  Setting a preview surface texture will un-set any
- preview surface that was set via <code><a href="../../../reference/android/hardware/Camera.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(SurfaceHolder)</a></code>.
+ preview surface that was set via <code><a href="../../../reference/android/hardware/相机.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(SurfaceHolder)</a></code>.
 
- <p>This method must be called before <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code>.  The
+ <p>This method must be called before <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code>.  The
  one exception is that if the preview surface texture is not set (or set
  to null) before startPreview() is called, then this method may be called
  once with a non-null parameter to set the preview surface.  (This allows
@@ -3532,7 +3532,7 @@ From class
 </div>
 
 
-<A NAME="setZoomChangeListener(android.hardware.Camera.OnZoomChangeListener)"></A>
+<A NAME="setZoomChangeListener(android.hardware.相机.OnZoomChangeListener)"></A>
 
 <div class="jd-details api apilevel-8"> 
     <h4 class="jd-details-title">
@@ -3545,7 +3545,7 @@ From class
         void
       </span>
       <span class="sympad">setZoomChangeListener</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html">Camera.OnZoomChangeListener</a> listener)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.OnZoomChangeListener.html">相机.OnZoomChangeListener</a> listener)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3569,7 +3569,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#startSmoothZoom(int)">startSmoothZoom(int)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#startSmoothZoom(int)">startSmoothZoom(int)</a></code></li>
       </ul>
   </div>
 
@@ -3602,24 +3602,24 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Starts the face detection. This should be called after preview is started.
- The camera will notify <code><a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></code> of the detected
+ The camera will notify <code><a href="../../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a></code> of the detected
  faces in the preview frame. The detected faces may be the same as the
- previous ones. Applications should call <code><a href="../../../reference/android/hardware/Camera.html#stopFaceDetection()">stopFaceDetection()</a></code> to
- stop the face detection. This method is supported if <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces()</a></code> returns a number larger than 0.
+ previous ones. Applications should call <code><a href="../../../reference/android/hardware/相机.html#stopFaceDetection()">stopFaceDetection()</a></code> to
+ stop the face detection. This method is supported if <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces()</a></code> returns a number larger than 0.
  If the face detection has started, apps should not call this again.
 
- <p>When the face detection is running, <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance(String)</a></code>,
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setFocusAreas(java.util.List<android.hardware.Camera.Area>)">setFocusAreas(List)</a></code>, and <code><a href="../../../reference/android/hardware/Camera.Parameters.html#setMeteringAreas(java.util.List<android.hardware.Camera.Area>)">setMeteringAreas(List)</a></code>
+ <p>When the face detection is running, <code><a href="../../../reference/android/hardware/相机.Parameters.html#setWhiteBalance(java.lang.String)">setWhiteBalance(String)</a></code>,
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#setFocusAreas(java.util.List<android.hardware.相机.Area>)">setFocusAreas(List)</a></code>, and <code><a href="../../../reference/android/hardware/相机.Parameters.html#setMeteringAreas(java.util.List<android.hardware.相机.Area>)">setMeteringAreas(List)</a></code>
  have no effect. The camera uses the detected faces to do auto-white balance,
  auto exposure, and autofocus.
 
- <p>If the apps call <code><a href="../../../reference/android/hardware/Camera.html#autoFocus(android.hardware.Camera.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code>, the camera
+ <p>If the apps call <code><a href="../../../reference/android/hardware/相机.html#autoFocus(android.hardware.相机.AutoFocusCallback)">autoFocus(AutoFocusCallback)</a></code>, the camera
  will stop sending face callbacks. The last face callback indicates the
  areas used to do autofocus. After focus completes, face detection will
- resume sending face callbacks. If the apps call <code><a href="../../../reference/android/hardware/Camera.html#cancelAutoFocus()">cancelAutoFocus()</a></code>, the face callbacks will also resume.</p>
+ resume sending face callbacks. If the apps call <code><a href="../../../reference/android/hardware/相机.html#cancelAutoFocus()">cancelAutoFocus()</a></code>, the face callbacks will also resume.</p>
 
- <p>After calling <code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(Camera.ShutterCallback, Camera.PictureCallback, Camera.PictureCallback)</a></code> or <code><a href="../../../reference/android/hardware/Camera.html#stopPreview()">stopPreview()</a></code>, and then resuming
- preview with <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code>, the apps should call this method
+ <p>After calling <code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(相机.ShutterCallback, 相机.PictureCallback, 相机.PictureCallback)</a></code> or <code><a href="../../../reference/android/hardware/相机.html#stopPreview()">stopPreview()</a></code>, and then resuming
+ preview with <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code>, the apps should call this method
  again to resume face detection.</p></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
@@ -3637,7 +3637,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.FaceDetectionListener.html">Camera.FaceDetectionListener</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.html#stopFaceDetection()">stopFaceDetection()</a></code></li><li><code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.FaceDetectionListener.html">相机.FaceDetectionListener</a></code></li><li><code><a href="../../../reference/android/hardware/相机.html#stopFaceDetection()">stopFaceDetection()</a></code></li><li><code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxNumDetectedFaces()">getMaxNumDetectedFaces()</a></code></li>
       </ul>
   </div>
 
@@ -3671,13 +3671,13 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Starts capturing and drawing preview frames to the screen.
  Preview will not actually start until a surface is supplied
- with <code><a href="../../../reference/android/hardware/Camera.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(SurfaceHolder)</a></code> or
- <code><a href="../../../reference/android/hardware/Camera.html#setPreviewTexture(android.graphics.SurfaceTexture)">setPreviewTexture(SurfaceTexture)</a></code>.
+ with <code><a href="../../../reference/android/hardware/相机.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(SurfaceHolder)</a></code> or
+ <code><a href="../../../reference/android/hardware/相机.html#setPreviewTexture(android.graphics.SurfaceTexture)">setPreviewTexture(SurfaceTexture)</a></code>.
 
- <p>If <code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallback(android.hardware.Camera.PreviewCallback)">setPreviewCallback(Camera.PreviewCallback)</a></code>,
- <code><a href="../../../reference/android/hardware/Camera.html#setOneShotPreviewCallback(android.hardware.Camera.PreviewCallback)">setOneShotPreviewCallback(Camera.PreviewCallback)</a></code>, or
- <code><a href="../../../reference/android/hardware/Camera.html#setPreviewCallbackWithBuffer(android.hardware.Camera.PreviewCallback)">setPreviewCallbackWithBuffer(Camera.PreviewCallback)</a></code> were
- called, <code><a href="../../../reference/android/hardware/Camera.PreviewCallback.html#onPreviewFrame(byte[], android.hardware.Camera)">onPreviewFrame(byte[], Camera)</a></code>
+ <p>If <code><a href="../../../reference/android/hardware/相机.html#setPreviewCallback(android.hardware.相机.PreviewCallback)">setPreviewCallback(相机.PreviewCallback)</a></code>,
+ <code><a href="../../../reference/android/hardware/相机.html#setOneShotPreviewCallback(android.hardware.相机.PreviewCallback)">setOneShotPreviewCallback(相机.PreviewCallback)</a></code>, or
+ <code><a href="../../../reference/android/hardware/相机.html#setPreviewCallbackWithBuffer(android.hardware.相机.PreviewCallback)">setPreviewCallbackWithBuffer(相机.PreviewCallback)</a></code> were
+ called, <code><a href="../../../reference/android/hardware/相机.PreviewCallback.html#onPreviewFrame(byte[], android.hardware.相机)">onPreviewFrame(byte[], 相机)</a></code>
  will be called when preview data becomes available.
 </p></div>
 
@@ -3709,23 +3709,23 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Zooms to the requested value smoothly. The driver will notify <code><a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html">Camera.OnZoomChangeListener</a></code> of the zoom value and whether zoom is stopped at
+  <div class="jd-tagdata jd-tagdescr"><p>Zooms to the requested value smoothly. The driver will notify <code><a href="../../../reference/android/hardware/相机.OnZoomChangeListener.html">相机.OnZoomChangeListener</a></code> of the zoom value and whether zoom is stopped at
  the time. For example, suppose the current zoom is 0 and startSmoothZoom
  is called with value 3. The
- <code><a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html#onZoomChange(int, boolean, android.hardware.Camera)">onZoomChange(int, boolean, Camera)</a></code>
+ <code><a href="../../../reference/android/hardware/相机.OnZoomChangeListener.html#onZoomChange(int, boolean, android.hardware.相机)">onZoomChange(int, boolean, 相机)</a></code>
  method will be called three times with zoom values 1, 2, and 3.
- Applications can call <code><a href="../../../reference/android/hardware/Camera.html#stopSmoothZoom()">stopSmoothZoom()</a></code> to stop the zoom earlier.
+ Applications can call <code><a href="../../../reference/android/hardware/相机.html#stopSmoothZoom()">stopSmoothZoom()</a></code> to stop the zoom earlier.
  Applications should not call startSmoothZoom again or change the zoom
  value before zoom stops. If the supplied zoom value equals to the current
  zoom value, no zoom callback will be generated. This method is supported
- if <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isSmoothZoomSupported()">isSmoothZoomSupported()</a></code>
+ if <code><a href="../../../reference/android/hardware/相机.Parameters.html#isSmoothZoomSupported()">isSmoothZoomSupported()</a></code>
  returns true.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>value</td>
-          <td>zoom value. The valid range is 0 to <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getMaxZoom()">getMaxZoom()</a></code>.</td>
+          <td>zoom value. The valid range is 0 to <code><a href="../../../reference/android/hardware/相机.Parameters.html#getMaxZoom()">getMaxZoom()</a></code>.</td>
         </tr>
       </table>
   </div>
@@ -3744,7 +3744,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#setZoomChangeListener(android.hardware.Camera.OnZoomChangeListener)">setZoomChangeListener(OnZoomChangeListener)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#setZoomChangeListener(android.hardware.相机.OnZoomChangeListener)">setZoomChangeListener(OnZoomChangeListener)</a></code></li>
       </ul>
   </div>
 
@@ -3779,7 +3779,7 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Stops the face detection.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#startFaceDetection()">startFaceDetection()</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#startFaceDetection()">startFaceDetection()</a></code></li>
       </ul>
   </div>
 
@@ -3812,7 +3812,7 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Stops capturing and drawing preview frames to the surface, and
- resets the camera for a future call to <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code>.
+ resets the camera for a future call to <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code>.
 </p></div>
 
     </div>
@@ -3843,8 +3843,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Stops the smooth zoom. Applications should wait for the <code><a href="../../../reference/android/hardware/Camera.OnZoomChangeListener.html">Camera.OnZoomChangeListener</a></code> to know when the zoom is actually stopped. This
- method is supported if <code><a href="../../../reference/android/hardware/Camera.Parameters.html#isSmoothZoomSupported()">isSmoothZoomSupported()</a></code> is true.</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Stops the smooth zoom. Applications should wait for the <code><a href="../../../reference/android/hardware/相机.OnZoomChangeListener.html">相机.OnZoomChangeListener</a></code> to know when the zoom is actually stopped. This
+ method is supported if <code><a href="../../../reference/android/hardware/相机.Parameters.html#isSmoothZoomSupported()">isSmoothZoomSupported()</a></code> is true.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
@@ -3860,7 +3860,7 @@ From class
 </div>
 
 
-<A NAME="takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)"></A>
+<A NAME="takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)"></A>
 
 <div class="jd-details api apilevel-1"> 
     <h4 class="jd-details-title">
@@ -3873,7 +3873,7 @@ From class
         void
       </span>
       <span class="sympad">takePicture</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a> shutter, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> raw, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> jpeg)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a> shutter, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> raw, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> jpeg)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3887,7 +3887,7 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Equivalent to takePicture(shutter, raw, null, jpeg).</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)">takePicture(ShutterCallback, PictureCallback, PictureCallback, PictureCallback)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)">takePicture(ShutterCallback, PictureCallback, PictureCallback, PictureCallback)</a></code></li>
       </ul>
   </div>
 
@@ -3895,7 +3895,7 @@ From class
 </div>
 
 
-<A NAME="takePicture(android.hardware.Camera.ShutterCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback, android.hardware.Camera.PictureCallback)"></A>
+<A NAME="takePicture(android.hardware.相机.ShutterCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback, android.hardware.相机.PictureCallback)"></A>
 
 <div class="jd-details api apilevel-5"> 
     <h4 class="jd-details-title">
@@ -3908,7 +3908,7 @@ From class
         void
       </span>
       <span class="sympad">takePicture</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.ShutterCallback.html">Camera.ShutterCallback</a> shutter, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> raw, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> postview, <a href="../../../reference/android/hardware/Camera.PictureCallback.html">Camera.PictureCallback</a> jpeg)</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.ShutterCallback.html">相机.ShutterCallback</a> shutter, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> raw, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> postview, <a href="../../../reference/android/hardware/相机.PictureCallback.html">相机.PictureCallback</a> jpeg)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -3933,13 +3933,13 @@ From class
  instead of a callback method.
 
  <p>This method is only valid when preview is active (after
- <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code>).  Preview will be stopped after the image is
- taken; callers must call <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code> again if they want to
+ <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code>).  Preview will be stopped after the image is
+ taken; callers must call <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code> again if they want to
  re-start preview or take more pictures. This should not be called between
  <code><a href="../../../reference/android/media/MediaRecorder.html#start()">start()</a></code> and
  <code><a href="../../../reference/android/media/MediaRecorder.html#stop()">stop()</a></code>.
 
- <p>After calling this method, you must not call <code><a href="../../../reference/android/hardware/Camera.html#startPreview()">startPreview()</a></code>
+ <p>After calling this method, you must not call <code><a href="../../../reference/android/hardware/相机.html#startPreview()">startPreview()</a></code>
  or take another picture until the JPEG callback has returned.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
@@ -3993,14 +3993,14 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Unlocks the camera to allow another process to access it.
- Normally, the camera is locked to the process with an active Camera
- object until <code><a href="../../../reference/android/hardware/Camera.html#release()">release()</a></code> is called.  To allow rapid handoff
+ Normally, the camera is locked to the process with an active 相机
+ object until <code><a href="../../../reference/android/hardware/相机.html#release()">release()</a></code> is called.  To allow rapid handoff
  between processes, you can call this method to release the camera
  temporarily for another process to use; once the other process is done
- you can call <code><a href="../../../reference/android/hardware/Camera.html#reconnect()">reconnect()</a></code> to reclaim the camera.
+ you can call <code><a href="../../../reference/android/hardware/相机.html#reconnect()">reconnect()</a></code> to reclaim the camera.
 
  <p>This must be done before calling
- <code><a href="../../../reference/android/media/MediaRecorder.html#setCamera(android.hardware.Camera)">setCamera(Camera)</a></code>. This cannot be
+ <code><a href="../../../reference/android/media/MediaRecorder.html#set相机(android.hardware.相机)">set相机(相机)</a></code>. This cannot be
  called after recording starts.
 
  <p>If you are not recording video, you probably do not need this method.</p></div>

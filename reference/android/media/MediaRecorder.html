@@ -762,7 +762,7 @@ SDK</a></li></ul>
           <li class="api apilevel-3"><a href="../../../reference/android/media/AudioRecord.html">AudioRecord</a></li>
           <li class="api apilevel-3"><a href="../../../reference/android/media/AudioTrack.html">AudioTrack</a></li>
           <li class="api apilevel-8"><a href="../../../reference/android/media/CamcorderProfile.html">CamcorderProfile</a></li>
-          <li class="api apilevel-8"><a href="../../../reference/android/media/CameraProfile.html">CameraProfile</a></li>
+          <li class="api apilevel-8"><a href="../../../reference/android/media/相机Profile.html">相机Profile</a></li>
           <li class="api apilevel-5"><a href="../../../reference/android/media/ExifInterface.html">ExifInterface</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/media/FaceDetector.html">FaceDetector</a></li>
           <li class="api apilevel-1"><a href="../../../reference/android/media/FaceDetector.Face.html">FaceDetector.Face</a></li>
@@ -981,7 +981,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody">Used to record audio and video. The recording control is based on a
  simple state machine (see below).
 
@@ -1018,9 +1018,9 @@ Summary:
  <div class="special reference">
  <h3>Developer Guides</h3>
  <p>For more information about how to use MediaRecorder for recording video, read the
- <a href="../../../guide/topics/media/camera.html#capture-video">Camera</a> developer guide.
+ <a href="../../../guide/topics/media/camera.html#capture-video">相机</a> developer guide.
  For more information about how to use MediaRecorder for recording sound, read the
- <a href="../../../guide/topics/media/audio-capture.html">Audio Capture</a> developer guide.</p>
+ <a href="../../../guide/topics/media/audio-capture.html">捕获音频</a> developer guide.</p>
  </div>
 </p>
 
@@ -1438,9 +1438,9 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/media/MediaRecorder.html#setCamera(android.hardware.Camera)">setCamera</a></span>(<a href="../../../reference/android/hardware/Camera.html">Camera</a> c)</nobr>
+        <span class="sympad"><a href="../../../reference/android/media/MediaRecorder.html#set相机(android.hardware.相机)">set相机</a></span>(<a href="../../../reference/android/hardware/相机.html">相机</a> c)</nobr>
         
-        <div class="jd-descrdiv">Sets a Camera to use for recording.</div>
+        <div class="jd-descrdiv">Sets a 相机 to use for recording.</div>
   
   </td></tr>
 
@@ -2824,7 +2824,7 @@ From class
 </div>
 
 
-<A NAME="setCamera(android.hardware.Camera)"></A>
+<A NAME="set相机(android.hardware.相机)"></A>
 
 <div class="jd-details api apilevel-3"> 
     <h4 class="jd-details-title">
@@ -2836,8 +2836,8 @@ From class
          
         void
       </span>
-      <span class="sympad">setCamera</span>
-      <span class="normal">(<a href="../../../reference/android/hardware/Camera.html">Camera</a> c)</span>
+      <span class="sympad">set相机</span>
+      <span class="normal">(<a href="../../../reference/android/hardware/相机.html">相机</a> c)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2848,16 +2848,16 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets a Camera to use for recording. Use this function to switch
+  <div class="jd-tagdata jd-tagdescr"><p>Sets a 相机 to use for recording. Use this function to switch
  quickly between preview and capture mode without a teardown of
- the camera object. <code><a href="../../../reference/android/hardware/Camera.html#unlock()">unlock()</a></code> should be
+ the camera object. <code><a href="../../../reference/android/hardware/相机.html#unlock()">unlock()</a></code> should be
  called before this. Must call before prepare().</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
           <th>c</td>
-          <td>the Camera to use for recording
+          <td>the 相机 to use for recording
 </td>
         </tr>
       </table>
@@ -2904,7 +2904,7 @@ From class
           <td>Rate at which frames should be captured in frames per second.
  The fps can go as low as desired. However the fastest fps will be limited by the hardware.
  For resolutions that can be captured by the video camera, the fastest fps can be computed using
- <code><a href="../../../reference/android/hardware/Camera.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code>. For higher
+ <code><a href="../../../reference/android/hardware/相机.Parameters.html#getPreviewFpsRange(int[])">getPreviewFpsRange(int[])</a></code>. For higher
  resolutions the fastest fps may be more restrictive.
  Note that the recorder cannot guarantee that frames will be captured at the
  given rate due to camera/encoder limitations. However it tries to be as close as
@@ -3421,7 +3421,7 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets a Surface to show a preview of recorded media (video). Calls this
  before prepare() to make sure that the desirable preview display is
- set. If <code><a href="../../../reference/android/media/MediaRecorder.html#setCamera(android.hardware.Camera)">setCamera(Camera)</a></code> is used and the surface has been
+ set. If <code><a href="../../../reference/android/media/MediaRecorder.html#set相机(android.hardware.相机)">set相机(相机)</a></code> is used and the surface has been
  already set to the camera, application do not need to call this. If
  this is called with non-null surface, the preview surface of the camera
  will be replaced by the new surface. If this method is called with null
@@ -3438,7 +3438,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/Camera.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(android.view.SurfaceHolder)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../reference/android/hardware/相机.html#setPreviewDisplay(android.view.SurfaceHolder)">setPreviewDisplay(android.view.SurfaceHolder)</a></code></li>
       </ul>
   </div>
 
@@ -3789,7 +3789,7 @@ From class
  setOutputFile(). Call this after prepare().
 
  <p>Since API level 13, if applications set a camera via
- <code><a href="../../../reference/android/media/MediaRecorder.html#setCamera(android.hardware.Camera)">setCamera(Camera)</a></code>, the apps can use the camera after this method
+ <code><a href="../../../reference/android/media/MediaRecorder.html#set相机(android.hardware.相机)">set相机(相机)</a></code>, the apps can use the camera after this method
  call. The apps do not need to lock the camera again. However, if this
  method fails, the apps should still lock the camera back. The apps should
  not start another recording session during recording.</p></div>

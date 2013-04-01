@@ -896,7 +896,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody">The <i>Access Control List</i> (<b>ACL</b>) interface definition.
  <p>
  An ACL is a set of <code><a href="../../../../reference/java/security/acl/AclEntry.html">AclEntry</a></code> objects.
@@ -917,7 +917,7 @@ Summary:
  specific <code>Principal</code> grant and deny the same <code>Permission</code> to that
  <code>Principal</code>, then that <code>Permission</code> is treated as
  neither granted nor denied to that <code>Principal</code>.</li>
- <li>Permissions associated with an individual <code>Principal</code> always
+ <li>权限体系 associated with an individual <code>Principal</code> always
  override permissions of the group(s) to which the individual belongs.</li>
  <li>If there is no <code>AclEntry</code> associated with a specific <code>Principal</code>, then it is interpreted as an empty list of permissions.</li>
  </ul>
@@ -1065,7 +1065,7 @@ Summary:
             <a href="../../../../reference/java/util/Enumeration.html">Enumeration</a>&lt;<a href="../../../../reference/java/security/acl/Permission.html">Permission</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../reference/java/security/acl/Acl.html#getPermissions(java.security.Principal)">getPermissions</a></span>(<a href="../../../../reference/java/security/Principal.html">Principal</a> user)</nobr>
+        <span class="sympad"><a href="../../../../reference/java/security/acl/Acl.html#get权限体系(java.security.Principal)">get权限体系</a></span>(<a href="../../../../reference/java/security/Principal.html">Principal</a> user)</nobr>
         
         <div class="jd-descrdiv">Returns the set of allowed permissions for the specified <code>Principal</code>.</div>
   
@@ -1352,7 +1352,7 @@ From interface
  permission.
  <p>
  The list of granted permissions is determined according to the rules
- specified by <code>getPermissions</code>.</p></div>
+ specified by <code>get权限体系</code>.</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -1373,7 +1373,7 @@ From interface
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">See Also</h5>
-      <ul class="nolist"><li><code><a href="../../../../reference/java/security/acl/Acl.html#getPermissions(java.security.Principal)">getPermissions(Principal)</a></code></li>
+      <ul class="nolist"><li><code><a href="../../../../reference/java/security/acl/Acl.html#get权限体系(java.security.Principal)">get权限体系(Principal)</a></code></li>
       </ul>
   </div>
 
@@ -1453,7 +1453,7 @@ From interface
 </div>
 
 
-<A NAME="getPermissions(java.security.Principal)"></A>
+<A NAME="get权限体系(java.security.Principal)"></A>
 
 <div class="jd-details api apilevel-1"> 
     <h4 class="jd-details-title">
@@ -1465,7 +1465,7 @@ From interface
          
         <a href="../../../../reference/java/util/Enumeration.html">Enumeration</a>&lt;<a href="../../../../reference/java/security/acl/Permission.html">Permission</a>&gt;
       </span>
-      <span class="sympad">getPermissions</span>
+      <span class="sympad">get权限体系</span>
       <span class="normal">(<a href="../../../../reference/java/security/Principal.html">Principal</a> user)</span>
     </h4>
       <div class="api-level">

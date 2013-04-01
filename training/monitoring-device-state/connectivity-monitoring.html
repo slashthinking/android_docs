@@ -75,7 +75,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-<title>Determining and Monitoring the Connectivity Status | Android Developers</title>
+<title>Determining and Monitoring the 链接 Status | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -1111,7 +1111,7 @@ SDK</a></li></ul>
   
   <div class="layout-content-row content-header ">
     <div class="layout-content-col span-7">
-      <h1 itemprop="name">Determining and Monitoring the Connectivity Status</h1>
+      <h1 itemprop="name">Determining and Monitoring the 链接 Status</h1>
       
     </div>
     
@@ -1166,13 +1166,13 @@ SDK</a></li></ul>
 <ol>
   <li><a href="#DetermineConnection">Determine if you Have an Internet Connection</a></li>
   <li><a href="#DetermineType">Determine the Type of your Internet Connection</a></li>
-  <li><a href="#MonitorChanges">Monitor for Changes in Connectivity</a></li>
+  <li><a href="#MonitorChanges">Monitor for Changes in 链接</a></li>
 </ol>
 
 
 <h2>你需要同时阅读</h2>
 <ul>
-  <li><a href="../../guide/components/intents-filters.html">Intents and Intent Filters</a>
+  <li><a href="../../guide/components/intents-filters.html">Intents和Intent过滤器</a>
 </ul>
 
 </div> 
@@ -1183,18 +1183,18 @@ updates of application data from Internet resources, cache data, or execute long
 But if you aren't connected to the Internet, or the connection is too slow to complete your
 download, why both waking the device to schedule the update at all?</p>
 
-<p>You can use the <code><a href="../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> to check that you're actually
+<p>You can use the <code><a href="../../reference/android/net/链接Manager.html">链接Manager</a></code> to check that you're actually
 connected to the Internet, and if so, what type of connection is in place.</p>
 
 
 <h2 id="DetermineConnection">Determine if You Have an Internet Connection</h2> 
  
 <p>There's no need to schedule an update based on an Internet resource if you aren't connected to
-the Internet. The following snippet shows how to use the <code><a href="../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> 
+the Internet. The following snippet shows how to use the <code><a href="../../reference/android/net/链接Manager.html">链接Manager</a></code> 
 to query the active network and determine if it has Internet connectivity.</p>
 
-<pre>ConnectivityManager cm =
-        (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+<pre>链接Manager cm =
+        (链接Manager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
  
 NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 boolean isConnected = activeNetwork.isConnectedOrConnecting();</pre>
@@ -1208,7 +1208,7 @@ boolean isConnected = activeNetwork.isConnectedOrConnecting();</pre>
 querying the type of the active network, as shown below, you can alter your refresh rate based on
 the bandwidth available.</p>
 
-<pre>boolean isWiFi = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;</pre>
+<pre>boolean isWiFi = activeNetwork.getType() == 链接Manager.TYPE_WIFI;</pre>
 
 <p>Mobile data costs tend to be significantly higher than Wi-Fi, so in most cases, your app's update
 rate should be lower when on mobile connections. Similarly, downloads of significant size should be
@@ -1218,9 +1218,9 @@ suspended until you have a Wi-Fi connection.</p>
 to resume them once an Internet connection has been established.</p>
 
 
-<h2 id="MonitorChanges">Monitor for Changes in Connectivity</h2> 
+<h2 id="MonitorChanges">Monitor for Changes in 链接</h2> 
 
-<p>The <code><a href="../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> broadcasts the <code><a href="../../reference/android/net/ConnectivityManager.html#CONNECTIVITY_ACTION">CONNECTIVITY_ACTION</a></code> (<code>"android.net.conn.CONNECTIVITY_CHANGE"</code>) action whenever the connectivity details have changed. You
+<p>The <code><a href="../../reference/android/net/链接Manager.html">链接Manager</a></code> broadcasts the <code><a href="../../reference/android/net/链接Manager.html#CONNECTIVITY_ACTION">CONNECTIVITY_ACTION</a></code> (<code>"android.net.conn.CONNECTIVITY_CHANGE"</code>) action whenever the connectivity details have changed. You
 can register a broadcast receiver in your manifest to listen for these changes and resume (or
 suspend) your background updates accordingly.</p>
 

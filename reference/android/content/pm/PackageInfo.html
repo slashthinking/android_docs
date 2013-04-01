@@ -945,7 +945,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody">Overall information about the contents of a package.  This corresponds
  to all of the information collected from AndroidManifest.xml.
 </p>
@@ -996,7 +996,7 @@ Summary:
     <tr class="alt-color api apilevel-16" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../reference/android/content/pm/PackageInfo.html#REQUESTED_PERMISSION_GRANTED">REQUESTED_PERMISSION_GRANTED</a></td>
-        <td class="jd-descrcol" width="100%">Flag for <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requestedPermissionsFlags">requestedPermissionsFlags</a></code>: the requested permission
+        <td class="jd-descrcol" width="100%">Flag for <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requested权限体系Flags">requested权限体系Flags</a></code>: the requested permission
  is currently granted to the application.</td>
     </tr>
     
@@ -1004,7 +1004,7 @@ Summary:
     <tr class=" api apilevel-16" >
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../../reference/android/content/pm/PackageInfo.html#REQUESTED_PERMISSION_REQUIRED">REQUESTED_PERMISSION_REQUIRED</a></td>
-        <td class="jd-descrcol" width="100%">Flag for <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requestedPermissionsFlags">requestedPermissionsFlags</a></code>: the requested permission
+        <td class="jd-descrcol" width="100%">Flag for <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requested权限体系Flags">requested权限体系Flags</a></code>: the requested permission
  is required for the application to run; the user can not optionally
  disable it.</td>
     </tr>
@@ -1235,7 +1235,7 @@ Summary:
           
           
           <a href="../../../../reference/java/lang/String.html">String[]</a></nobr></td>
-          <td class="jd-linkcol"><a href="../../../../reference/android/content/pm/PackageInfo.html#requestedPermissions">requestedPermissions</a></td>
+          <td class="jd-linkcol"><a href="../../../../reference/android/content/pm/PackageInfo.html#requested权限体系">requested权限体系</a></td>
           <td class="jd-descrcol" width="100%">Array of all <code><a href="../../../../reference/android/R.styleable.html#AndroidManifestUsesPermission">&lt;uses-permission&gt;</a></code> tags included under &lt;manifest&gt;,
  or null if there were none.</td>
       </tr>
@@ -1247,7 +1247,7 @@ Summary:
           
           
           int[]</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../reference/android/content/pm/PackageInfo.html#requestedPermissionsFlags">requestedPermissionsFlags</a></td>
+          <td class="jd-linkcol"><a href="../../../../reference/android/content/pm/PackageInfo.html#requested权限体系Flags">requested权限体系Flags</a></td>
           <td class="jd-descrcol" width="100%">Array of flags of all <code><a href="../../../../reference/android/R.styleable.html#AndroidManifestUsesPermission">&lt;uses-permission&gt;</a></code> tags included under &lt;manifest&gt;,
  or null if there were none.</td>
       </tr>
@@ -1785,7 +1785,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Flag for <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requestedPermissionsFlags">requestedPermissionsFlags</a></code>: the requested permission
+  <div class="jd-tagdata jd-tagdescr"><p>Flag for <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requested权限体系Flags">requested权限体系Flags</a></code>: the requested permission
  is currently granted to the application.
 </p></div>
 
@@ -1826,7 +1826,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Flag for <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requestedPermissionsFlags">requestedPermissionsFlags</a></code>: the requested permission
+  <div class="jd-tagdata jd-tagdescr"><p>Flag for <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requested权限体系Flags">requested权限体系Flags</a></code>: the requested permission
  is required for the application to run; the user can not optionally
  disable it.  Currently all permissions are required.
 </p></div>
@@ -2264,7 +2264,7 @@ From interface
 
 
 
-<A NAME="requestedPermissions"></A>
+<A NAME="requested权限体系"></A>
 
 <div class="jd-details api apilevel-1"> 
     <h4 class="jd-details-title">
@@ -2274,7 +2274,7 @@ From interface
          
         <a href="../../../../reference/java/lang/String.html">String[]</a>
       </span>
-        requestedPermissions
+        requested权限体系
     </h4>
       <div class="api-level">
         
@@ -2298,7 +2298,7 @@ From interface
 
 
 
-<A NAME="requestedPermissionsFlags"></A>
+<A NAME="requested权限体系Flags"></A>
 
 <div class="jd-details api apilevel-16"> 
     <h4 class="jd-details-title">
@@ -2308,7 +2308,7 @@ From interface
          
         int[]
       </span>
-        requestedPermissionsFlags
+        requested权限体系Flags
     </h4>
       <div class="api-level">
         
@@ -2322,7 +2322,7 @@ From interface
   <div class="jd-tagdata jd-tagdescr"><p>Array of flags of all <code><a href="../../../../reference/android/R.styleable.html#AndroidManifestUsesPermission">&lt;uses-permission&gt;</a></code> tags included under &lt;manifest&gt;,
  or null if there were none.  This is only filled in if the flag
  <code><a href="../../../../reference/android/content/pm/PackageManager.html#GET_PERMISSIONS">GET_PERMISSIONS</a></code> was set.  Each value matches
- the corresponding entry in <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requestedPermissions">requestedPermissions</a></code>, and will have
+ the corresponding entry in <code><a href="../../../../reference/android/content/pm/PackageInfo.html#requested权限体系">requested权限体系</a></code>, and will have
  the flags <code><a href="../../../../reference/android/content/pm/PackageInfo.html#REQUESTED_PERMISSION_REQUIRED">REQUESTED_PERMISSION_REQUIRED</a></code> and
  <code><a href="../../../../reference/android/content/pm/PackageInfo.html#REQUESTED_PERMISSION_GRANTED">REQUESTED_PERMISSION_GRANTED</a></code> set as appropriate.
 </p></div>

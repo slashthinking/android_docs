@@ -1114,7 +1114,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody"><p>A TextureView can be used to display a content stream. Such a content
  stream can for instance be a video or an OpenGL scene. The content stream
  can come from the application's process as well as a remote process.</p>
@@ -1134,8 +1134,8 @@ Summary:
  camera preview into a TextureView:</p>
  
  <pre>
-  public class LiveCameraActivity extends Activity implements TextureView.SurfaceTextureListener {
-      private Camera mCamera;
+  public class Live相机Activity extends Activity implements TextureView.SurfaceTextureListener {
+      private 相机 m相机;
       private TextureView mTextureView;
 
       protected void onCreate(Bundle savedInstanceState) {
@@ -1148,28 +1148,28 @@ Summary:
       }
 
       public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
-          mCamera = Camera.open();
+          m相机 = 相机.open();
 
           try {
-              mCamera.setPreviewTexture(surface);
-              mCamera.startPreview();
+              m相机.setPreviewTexture(surface);
+              m相机.startPreview();
           } catch (IOException ioe) {
               // Something bad happened
           }
       }
 
       public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
-          // Ignored, Camera does all the work for us
+          // Ignored, 相机 does all the work for us
       }
 
       public boolean onSurfaceTextureDestroyed(SurfaceTexture surface) {
-          mCamera.stopPreview();
-          mCamera.release();
+          m相机.stopPreview();
+          m相机.release();
           return true;
       }
 
       public void onSurfaceTextureUpdated(SurfaceTexture surface) {
-          // Invoked every time there's a new Camera preview frame
+          // Invoked every time there's a new 相机 preview frame
       }
   }
  </pre>
@@ -5019,7 +5019,7 @@ From class
             float</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/view/View.html#getCameraDistance()">getCameraDistance</a></span>()</nobr>
+        <span class="sympad"><a href="../../../reference/android/view/View.html#get相机Distance()">get相机Distance</a></span>()</nobr>
         
         <div class="jd-descrdiv">Gets the distance along the Z axis from the camera to this view.</div>
   
@@ -9618,7 +9618,7 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../reference/android/view/View.html#setCameraDistance(float)">setCameraDistance</a></span>(float distance)</nobr>
+        <span class="sympad"><a href="../../../reference/android/view/View.html#set相机Distance(float)">set相机Distance</a></span>(float distance)</nobr>
         
         <div class="jd-descrdiv"><p>Sets the distance along the Z axis (orthogonal to the X/Y plane on which
  views are drawn) from the camera to this view.</div>

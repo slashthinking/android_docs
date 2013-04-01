@@ -1187,7 +1187,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody">A Service is an application component representing either an application's desire
  to perform a longer-running operation while not interacting with the user
  or to supply functionality for other applications to use.  Each service
@@ -1212,7 +1212,7 @@ Summary:
  <ol>
  <li><a href="#WhatIsAService">What is a Service?</a>
  <li><a href="#ServiceLifecycle">Service Lifecycle</a>
- <li><a href="#Permissions">Permissions</a>
+ <li><a href="#权限体系">权限体系</a>
  <li><a href="#ProcessLifecycle">Process Lifecycle</a>
  <li><a href="#LocalServiceSample">Local Service Sample</a>
  <li><a href="#RemoteMessengerServiceSample">Remote Messenger Service Sample</a>
@@ -1311,8 +1311,8 @@ Summary:
  and the service is effectively terminated.  All cleanup (stopping threads,
  unregistering receivers) should be complete upon returning from onDestroy().
  
- <a name="Permissions"></a>
- <h3>Permissions</h3>
+ <a name="权限体系"></a>
+ <h3>权限体系</h3>
  
  <p>Global access to a service can be enforced when it is declared in its
  manifest's <code><a href="../../../reference/android/R.styleable.html#AndroidManifestService">&lt;service&gt;</a></code>
@@ -1336,7 +1336,7 @@ Summary:
  <code><a href="../../../reference/android/content/ContextWrapper.html#checkCallingPermission(java.lang.String)">checkCallingPermission(String)</a></code>
  method before executing the implementation of that call.
  
- <p>See the <a href="../../../guide/topics/security/security.html">Security and Permissions</a>
+ <p>See the <a href="../../../guide/topics/security/security.html">Security and 权限体系</a>
  document for more information on permissions and security in general.
  
  <a name="ProcessLifecycle"></a>
@@ -2059,7 +2059,7 @@ void doUnbindService() {
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/Context.html#CONNECTIVITY_SERVICE">CONNECTIVITY_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Use with <code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">getSystemService(String)</a></code> to retrieve a <code><a href="../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> for handling management of
+        <td class="jd-descrcol" width="100%">Use with <code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">getSystemService(String)</a></code> to retrieve a <code><a href="../../../reference/android/net/链接Manager.html">链接Manager</a></code> for handling management of
  network connections.</td>
     </tr>
     
@@ -2467,7 +2467,7 @@ void doUnbindService() {
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_UI_HIDDEN">TRIM_MEMORY_UI_HIDDEN</a></td>
         <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process had been showing
- a user interface, and is no longer doing so.</td>
+ a 用户界面, and is no longer doing so.</td>
     </tr>
     
     

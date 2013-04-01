@@ -1174,7 +1174,7 @@ SDK</a></li></ul>
 <ul>
   <li><a href="../../../training/monitoring-device-state/index.html">优化电池寿命</a></li>
   <li><a href="../../../training/efficient-downloads/index.html">传输数据而不耗尽电池</a></li>
-  <li><a href="../../../guide/webapps/index.html">Web Apps Overview</a></li>
+  <li><a href="../../../guide/webapps/index.html">网页应用 概览</a></li>
 </ul>
 
 <h2>Try it out</h2>
@@ -1207,7 +1207,7 @@ and <a href="../../../training/efficient-downloads/index.html">传输数据而�
 
 <p>A device can have various types of network connections. This lesson  
 focuses on using either a Wi-Fi or a mobile network connection. For the full 
-list of possible network types, see <code><a href="../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code>.<p>
+list of possible network types, see <code><a href="../../../reference/android/net/链接Manager.html">链接Manager</a></code>.<p>
 
 <p>Wi-Fi is typically faster. Also, mobile data is often metered, which can get
 expensive. 
@@ -1222,7 +1222,7 @@ the following classes:</p>
 
 <ul>
 
-  <li><code><a href="../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code>: Answers queries about the state
+  <li><code><a href="../../../reference/android/net/链接Manager.html">链接Manager</a></code>: Answers queries about the state
 of network connectivity. It also  notifies applications when network
 connectivity changes. </li>
   
@@ -1243,11 +1243,11 @@ data): </p>
 <pre>
 private static final String DEBUG_TAG = &quot;NetworkStatusExample&quot;;
 ...      
-ConnectivityManager connMgr = (ConnectivityManager) 
+链接Manager connMgr = (链接Manager) 
         getSystemService(Context.CONNECTIVITY_SERVICE);
-NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI); 
+NetworkInfo networkInfo = connMgr.getNetworkInfo(链接Manager.TYPE_WIFI); 
 boolean isWifiConn = networkInfo.isConnected();
-networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+networkInfo = connMgr.getNetworkInfo(链接Manager.TYPE_MOBILE);
 boolean isMobileConn = networkInfo.isConnected();
 Log.d(DEBUG_TAG, "Wifi connected: " + isWifiConn);
 Log.d(DEBUG_TAG, "Mobile connected: " + isMobileConn);
@@ -1260,7 +1260,7 @@ handles  cases like flaky mobile networks, airplane mode, and restricted
 background data.</p>
 
 <p>A more concise way of checking whether a network interface is available is as
-follows. The method <code><a href="../../../reference/android/net/ConnectivityManager.html#getActiveNetworkInfo()">getActiveNetworkInfo()</a></code>
+follows. The method <code><a href="../../../reference/android/net/链接Manager.html#getActiveNetworkInfo()">getActiveNetworkInfo()</a></code>
 returns a <code><a href="../../../reference/android/net/NetworkInfo.html">NetworkInfo</a></code> instance representing the first
 connected network interface it can find, or <code>null</code> if none of the
 interfaces is connected (meaning that an
@@ -1268,7 +1268,7 @@ internet connection is not available):</p>
 
 <pre>
 public boolean isOnline() {
-    ConnectivityManager connMgr = (ConnectivityManager) 
+    链接Manager connMgr = (链接Manager) 
             getSystemService(Context.CONNECTIVITY_SERVICE);
     NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
     return (networkInfo != null && networkInfo.isConnected());
@@ -1454,7 +1454,7 @@ public class NetworkActivity extends Activity {
         super.onCreate(savedInstanceState);
         
         // Registers BroadcastReceiver to track network connection changes.
-        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        IntentFilter filter = new IntentFilter(链接Manager.CONNECTIVITY_ACTION);
         receiver = new NetworkReceiver();
         this.registerReceiver(receiver, filter);
     }
@@ -1492,13 +1492,13 @@ public class NetworkActivity extends Activity {
     // Checks the network connection and sets the wifiConnected and mobileConnected
     // variables accordingly. 
     public void updateConnectedFlags() {
-        ConnectivityManager connMgr = (ConnectivityManager) 
+        链接Manager connMgr = (链接Manager) 
                 getSystemService(Context.CONNECTIVITY_SERVICE);
         
         NetworkInfo activeInfo = connMgr.getActiveNetworkInfo();
         if (activeInfo != null && activeInfo.isConnected()) {
-            wifiConnected = activeInfo.getType() == ConnectivityManager.TYPE_WIFI;
-            mobileConnected = activeInfo.getType() == ConnectivityManager.TYPE_MOBILE;
+            wifiConnected = activeInfo.getType() == 链接Manager.TYPE_WIFI;
+            mobileConnected = activeInfo.getType() == 链接Manager.TYPE_MOBILE;
         } else {
             wifiConnected = false;
             mobileConnected = false;
@@ -1523,7 +1523,7 @@ public class NetworkActivity extends Activity {
 
 <p>The final piece of the puzzle is the <code><a href="../../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> subclass, <code>NetworkReceiver</code>. When
 the device's network connection changes, <code>NetworkReceiver</code> intercepts
-the  action <code><a href="../../../reference/android/net/ConnectivityManager.html#CONNECTIVITY_ACTION">CONNECTIVITY_ACTION</a></code>,
+the  action <code><a href="../../../reference/android/net/链接Manager.html#CONNECTIVITY_ACTION">CONNECTIVITY_ACTION</a></code>,
 determines what the  network connection status is, and sets the flags
 <code>wifiConnected</code> and <code>mobileConnected</code> to true/false
 accordingly. The upshot is that the next time the user returns to the app, the
@@ -1553,14 +1553,14 @@ to enable and disable it as appropriate.</p>
       
 &#64;Override
 public void onReceive(Context context, Intent intent) {
-    ConnectivityManager conn =  (ConnectivityManager)
+    链接Manager conn =  (链接Manager)
         context.getSystemService(Context.CONNECTIVITY_SERVICE);
     NetworkInfo networkInfo = conn.getActiveNetworkInfo();
        
     // Checks the user prefs and the network connection. Based on the result, decides whether
     // to refresh the display or keep the current display.
     // If the userpref is Wi-Fi only, checks to see if the device has a Wi-Fi connection.
-    if (WIFI.equals(sPref) && networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+    if (WIFI.equals(sPref) && networkInfo != null && networkInfo.getType() == 链接Manager.TYPE_WIFI) {
         // If device has its Wi-Fi connection, sets refreshDisplay
         // to true. This causes the display to be refreshed when the user
         // returns to the app.

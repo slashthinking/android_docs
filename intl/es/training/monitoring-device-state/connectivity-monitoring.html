@@ -1180,15 +1180,15 @@ SDK</a></li></ul>
 
 <p>Algunos de los usos más comunes para las alarmas con repetición y los servicios en segundo plano es programar actualizaciones regulares de los datos de aplicaciones a partir de recursos de Internet, almacenar datos en la memoria caché o ejecutar descargas a largo plazo. Sin embargo, si no estás conectado a Internet o la conexión es demasiado débil para completar la descarga, ¿para qué activar el dispositivo y programar la actualización?</p>
 
-<p>Puedes utilizar <code><a href="../../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> para comprobar si estás conectado a Internet y, en ese caso, el tipo de conexión que estás utilizando.</p>
+<p>Puedes utilizar <code><a href="../../../../reference/android/net/链接Manager.html">链接Manager</a></code> para comprobar si estás conectado a Internet y, en ese caso, el tipo de conexión que estás utilizando.</p>
 
 
 <h2 id="DetermineConnection">Cómo determinar si tienes conexión a Internet</h2> 
  
-<p>No es necesario programar una actualización basada en un recurso de Internet si no estás conectado. En el fragmento que aparece a continuación, se muestra cómo utilizar <code><a href="../../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> para consultar la red activa y determinar si hay conexión a Internet.</p>
+<p>No es necesario programar una actualización basada en un recurso de Internet si no estás conectado. En el fragmento que aparece a continuación, se muestra cómo utilizar <code><a href="../../../../reference/android/net/链接Manager.html">链接Manager</a></code> para consultar la red activa y determinar si hay conexión a Internet.</p>
 
-<pre>ConnectivityManager cm =
-        (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+<pre>链接Manager cm =
+        (链接Manager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
  
 NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 boolean isConnected = activeNetwork.isConnectedOrConnecting();</pre>
@@ -1200,7 +1200,7 @@ boolean isConnected = activeNetwork.isConnectedOrConnecting();</pre>
 
 <p>El dispositivo se puede conectar a Internet a través de conexiones Ethernet, Wi-Fi, WiMAX y de datos móviles. Al consultar el tipo de red activa, como se muestra a continuación, puedes modificar la frecuencia de actualización en función del ancho de banda disponible.</p>
 
-<pre>boolean isWiFi = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;</pre>
+<pre>boolean isWiFi = activeNetwork.getType() == 链接Manager.TYPE_WIFI;</pre>
 
 <p>El coste de las conexiones de datos móviles suele ser superior al de las conexiones Wi-Fi, por lo que en la mayoría de los casos, la frecuencia de actualización de tu aplicación debería ser menor si utilizas conexiones móviles. Del mismo modo, las descargas grandes deberían cancelarse hasta que estés conectado a una red Wi-Fi.</p>
 
@@ -1209,7 +1209,7 @@ boolean isConnected = activeNetwork.isConnectedOrConnecting();</pre>
 
 <h2 id="MonitorChanges">Cómo supervisar los cambios en la conectividad</h2> 
 
-<p><code><a href="../../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> emite la acción <code><a href="../../../../reference/android/net/ConnectivityManager.html#CONNECTIVITY_ACTION">CONNECTIVITY_ACTION</a></code> (<code>"android.net.conn.CONNECTIVITY_CHANGE"</code>) cuando se han modificado los detalles de la conectividad. Puedes registrar un receptor de emisión en el archivo de manifiesto para detectar estos cambios y reanudar (o cancelar) las actualizaciones en segundo plano según corresponda.</p>
+<p><code><a href="../../../../reference/android/net/链接Manager.html">链接Manager</a></code> emite la acción <code><a href="../../../../reference/android/net/链接Manager.html#CONNECTIVITY_ACTION">CONNECTIVITY_ACTION</a></code> (<code>"android.net.conn.CONNECTIVITY_CHANGE"</code>) cuando se han modificado los detalles de la conectividad. Puedes registrar un receptor de emisión en el archivo de manifiesto para detectar estos cambios y reanudar (o cancelar) las actualizaciones en segundo plano según corresponda.</p>
 
 <pre>&lt;action android:name="android.net.conn.CONNECTIVITY_CHANGE"/></pre>
 

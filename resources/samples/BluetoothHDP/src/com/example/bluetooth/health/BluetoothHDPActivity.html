@@ -76,7 +76,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../../favicon.ico" />
-<title>BluetoothHDPActivity.java | Android Developers</title>
+<title>蓝牙HDPActivity.java | Android Developers</title>
 
 <!-- STYLESHEETS -->
 <link rel="stylesheet"
@@ -378,7 +378,7 @@ SDK</a></li></ul>
 <div class="g-unit" id="doc-content">
  <div id="jd-header" class="guide-header">
   <span class="crumb">&nbsp;</span>
-  <h1>BluetoothHDPActivity.java</h1>
+  <h1>蓝牙HDPActivity.java</h1>
  </div>
 
 <div id="jd-content">
@@ -409,8 +409,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
+import android.bluetooth.蓝牙Adapter;
+import android.bluetooth.蓝牙Device;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -433,15 +433,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Main user interface for the Sample application.  All Bluetooth health-related
- * operations happen in {@link BluetoothHDPService}.  This activity passes messages to and from
+ * Main 用户界面 for the Sample application.  All 蓝牙 health-related
+ * operations happen in {@link 蓝牙HDPService}.  This activity passes messages to and from
  * the service.
  */
-public class BluetoothHDPActivity extends Activity {
-    private static final String TAG = "BluetoothHealthActivity";
+public class 蓝牙HDPActivity extends Activity {
+    private static final String TAG = "蓝牙HealthActivity";
 
     // Use the appropriate IEEE 11073 data types based on the devices used.
-    // Below are some examples.  Refer to relevant Bluetooth HDP specifications for detail.
+    // Below are some examples.  Refer to relevant 蓝牙 HDP specifications for detail.
     //     0x1007 - blood pressure meter
     //     0x1008 - body thermometer
     //     0x100F - body weight scale
@@ -453,9 +453,9 @@ public class BluetoothHDPActivity extends Activity {
     private ImageView mDataIndicator;
     private TextView mStatusMessage;
 
-    private BluetoothAdapter mBluetoothAdapter;
-    private BluetoothDevice[] mAllBondedDevices;
-    private BluetoothDevice mDevice;
+    private 蓝牙Adapter m蓝牙Adapter;
+    private 蓝牙Device[] mAllBondedDevices;
+    private 蓝牙Device mDevice;
     private int mDeviceIndex = 0;
     private Resources mRes;
     private Messenger mHealthService;
@@ -467,30 +467,30 @@ public class BluetoothHDPActivity extends Activity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 // Application registration complete.
-                case BluetoothHDPService.STATUS_HEALTH_APP_REG:
+                case 蓝牙HDPService.STATUS_HEALTH_APP_REG:
                     mStatusMessage.setText(
                             String.format(mRes.getString(R.string.status_reg),
                             msg.arg1));
                     break;
                 // Application unregistration complete.
-                case BluetoothHDPService.STATUS_HEALTH_APP_UNREG:
+                case 蓝牙HDPService.STATUS_HEALTH_APP_UNREG:
                     mStatusMessage.setText(
                             String.format(mRes.getString(R.string.status_unreg),
                             msg.arg1));
                     break;
                 // Reading data from HDP device.
-                case BluetoothHDPService.STATUS_READ_DATA:
+                case 蓝牙HDPService.STATUS_READ_DATA:
                     mStatusMessage.setText(mRes.getString(R.string.read_data));
                     mDataIndicator.setImageLevel(1);
                     break;
                 // Finish reading data from HDP device.
-                case BluetoothHDPService.STATUS_READ_DATA_DONE:
+                case 蓝牙HDPService.STATUS_READ_DATA_DONE:
                     mStatusMessage.setText(mRes.getString(R.string.read_data_done));
                     mDataIndicator.setImageLevel(0);
                     break;
                 // Channel creation complete.  Some devices will automatically establish
                 // connection.
-                case BluetoothHDPService.STATUS_CREATE_CHANNEL:
+                case 蓝牙HDPService.STATUS_CREATE_CHANNEL:
                     mStatusMessage.setText(
                             String.format(mRes.getString(R.string.status_create_channel),
                             msg.arg1));
@@ -498,7 +498,7 @@ public class BluetoothHDPActivity extends Activity {
                     break;
                 // Channel destroy complete.  This happens when either the device disconnects or
                 // there is extended inactivity.
-                case BluetoothHDPService.STATUS_DESTROY_CHANNEL:
+                case 蓝牙HDPService.STATUS_DESTROY_CHANNEL:
                     mStatusMessage.setText(
                             String.format(mRes.getString(R.string.status_destroy_channel),
                             msg.arg1));
@@ -516,9 +516,9 @@ public class BluetoothHDPActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Check for Bluetooth availability on the Android platform.
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if (mBluetoothAdapter == null) {
+        // Check for 蓝牙 availability on the Android platform.
+        m蓝牙Adapter = 蓝牙Adapter.getDefaultAdapter();
+        if (m蓝牙Adapter == null) {
             Toast.makeText(this, R.string.bluetooth_not_available, Toast.LENGTH_LONG);
             finish();
             return;
@@ -530,24 +530,24 @@ public class BluetoothHDPActivity extends Activity {
         mRes = getResources();
         mHealthServiceBound = false;
 
-        // Initiates application registration through {@link BluetoothHDPService}.
+        // Initiates application registration through {@link 蓝牙HDPService}.
         Button registerAppButton = (Button) findViewById(R.id.button_register_app);
         registerAppButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sendMessage(BluetoothHDPService.MSG_REG_HEALTH_APP,
+                sendMessage(蓝牙HDPService.MSG_REG_HEALTH_APP,
                         HEALTH_PROFILE_SOURCE_DATA_TYPE);
             }
         });
 
-        // Initiates application unregistration through {@link BluetoothHDPService}.
+        // Initiates application unregistration through {@link 蓝牙HDPService}.
         Button unregisterAppButton = (Button) findViewById(R.id.button_unregister_app);
         unregisterAppButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                sendMessage(BluetoothHDPService.MSG_UNREG_HEALTH_APP, 0);
+                sendMessage(蓝牙HDPService.MSG_UNREG_HEALTH_APP, 0);
             }
         });
 
-        // Initiates channel creation through {@link BluetoothHDPService}.  Some devices will
+        // Initiates channel creation through {@link 蓝牙HDPService}.  Some devices will
         // initiate the channel connection, in which case, it is not necessary to do this in the
         // application.  When pressed, the user is asked to select from one of the bonded devices
         // to connect to.
@@ -555,8 +555,8 @@ public class BluetoothHDPActivity extends Activity {
         connectButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mAllBondedDevices =
-                        (BluetoothDevice[]) mBluetoothAdapter.getBondedDevices().toArray(
-                                new BluetoothDevice[0]);
+                        (蓝牙Device[]) m蓝牙Adapter.getBondedDevices().toArray(
+                                new 蓝牙Device[0]);
 
                 if (mAllBondedDevices.length &gt; 0) {
                     int deviceCount = mAllBondedDevices.length;
@@ -567,7 +567,7 @@ public class BluetoothHDPActivity extends Activity {
                     }
                     String[] deviceNames = new String[deviceCount];
                     int i = 0;
-                    for (BluetoothDevice device : mAllBondedDevices) {
+                    for (蓝牙Device device : mAllBondedDevices) {
                         deviceNames[i++] = device.getName();
                     }
                     SelectDeviceDialogFragment deviceDialog =
@@ -577,7 +577,7 @@ public class BluetoothHDPActivity extends Activity {
             }
         });
 
-        // Initiates channel disconnect through {@link BluetoothHDPService}.
+        // Initiates channel disconnect through {@link 蓝牙HDPService}.
         Button disconnectButton = (Button) findViewById(R.id.button_disconnect_channel);
         disconnectButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -587,11 +587,11 @@ public class BluetoothHDPActivity extends Activity {
         registerReceiver(mReceiver, initIntentFilter());
     }
 
-    // Sets up communication with {@link BluetoothHDPService}.
+    // Sets up communication with {@link 蓝牙HDPService}.
     private ServiceConnection mConnection = new ServiceConnection() {
         public void onServiceConnected(ComponentName name, IBinder service) {
             mHealthServiceBound = true;
-            Message msg = Message.obtain(null, BluetoothHDPService.MSG_REG_CLIENT);
+            Message msg = Message.obtain(null, 蓝牙HDPService.MSG_REG_CLIENT);
             msg.replyTo = mMessenger;
             mHealthService = new Messenger(service);
             try {
@@ -618,9 +618,9 @@ public class BluetoothHDPActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
-        // If Bluetooth is not on, request that it be enabled.
-        if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+        // If 蓝牙 is not on, request that it be enabled.
+        if (!m蓝牙Adapter.isEnabled()) {
+            Intent enableIntent = new Intent(蓝牙Adapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
         } else {
             initialize();
@@ -628,7 +628,7 @@ public class BluetoothHDPActivity extends Activity {
     }
 
     /**
-     * Ensures user has turned on Bluetooth on the Android device.
+     * Ensures user has turned on 蓝牙 on the Android device.
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -644,10 +644,10 @@ public class BluetoothHDPActivity extends Activity {
     }
 
     /**
-     * Used by {@link SelectDeviceDialogFragment} to record the bonded Bluetooth device selected
+     * Used by {@link SelectDeviceDialogFragment} to record the bonded 蓝牙 device selected
      * by the user.
      *
-     * @param position Position of the bonded Bluetooth device in the array.
+     * @param position Position of the bonded 蓝牙 device in the array.
      */
     public void setDevice(int position) {
         mDevice = this.mAllBondedDevices[position];
@@ -655,24 +655,24 @@ public class BluetoothHDPActivity extends Activity {
     }
 
     private void connectChannel() {
-        sendMessageWithDevice(BluetoothHDPService.MSG_CONNECT_CHANNEL);
+        sendMessageWithDevice(蓝牙HDPService.MSG_CONNECT_CHANNEL);
     }
 
     private void disconnectChannel() {
-        sendMessageWithDevice(BluetoothHDPService.MSG_DISCONNECT_CHANNEL);
+        sendMessageWithDevice(蓝牙HDPService.MSG_DISCONNECT_CHANNEL);
     }
 
     private void initialize() {
         // Starts health service.
-        Intent intent = new Intent(this, BluetoothHDPService.class);
+        Intent intent = new Intent(this, 蓝牙HDPService.class);
         startService(intent);
         bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
     }
 
-    // Intent filter and broadcast receive to handle Bluetooth on event.
+    // Intent filter and broadcast receive to handle 蓝牙 on event.
     private IntentFilter initIntentFilter() {
         IntentFilter filter = new IntentFilter();
-        filter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+        filter.addAction(蓝牙Adapter.ACTION_STATE_CHANGED);
         return filter;
     }
 
@@ -680,16 +680,16 @@ public class BluetoothHDPActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
-                if (intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR) ==
-                    BluetoothAdapter.STATE_ON) {
+            if (蓝牙Adapter.ACTION_STATE_CHANGED.equals(action)) {
+                if (intent.getIntExtra(蓝牙Adapter.EXTRA_STATE, 蓝牙Adapter.ERROR) ==
+                    蓝牙Adapter.STATE_ON) {
                     initialize();
                 }
             }
         }
     };
 
-    // Sends a message to {@link BluetoothHDPService}.
+    // Sends a message to {@link 蓝牙HDPService}.
     private void sendMessage(int what, int value) {
         if (mHealthService == null) {
             Log.d(TAG, "Health Service not connected.");
@@ -704,8 +704,8 @@ public class BluetoothHDPActivity extends Activity {
         }
     }
 
-    // Sends an update message, along with an HDP BluetoothDevice object, to
-    // {@link BluetoothHDPService}.  The BluetoothDevice object is needed by the channel creation
+    // Sends an update message, along with an HDP 蓝牙Device object, to
+    // {@link 蓝牙HDPService}.  The 蓝牙Device object is needed by the channel creation
     // method.
     private void sendMessageWithDevice(int what) {
         if (mHealthService == null) {
@@ -722,7 +722,7 @@ public class BluetoothHDPActivity extends Activity {
     }
 
     /**
-     * Dialog to display a list of bonded Bluetooth devices for user to select from.  This is
+     * Dialog to display a list of bonded 蓝牙 devices for user to select from.  This is
      * needed only for channel connection initiated from the application.
      */
     public static class SelectDeviceDialogFragment extends DialogFragment {
@@ -746,13 +746,13 @@ public class BluetoothHDPActivity extends Activity {
                     .setPositiveButton(R.string.ok,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                ((BluetoothHDPActivity) getActivity()).connectChannel();
+                                ((蓝牙HDPActivity) getActivity()).connectChannel();
                             }
                         })
                     .setSingleChoiceItems(deviceNames, position,
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                ((BluetoothHDPActivity) getActivity()).setDevice(which);
+                                ((蓝牙HDPActivity) getActivity()).setDevice(which);
                             }
                         }
                     )

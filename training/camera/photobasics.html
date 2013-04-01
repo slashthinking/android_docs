@@ -1164,8 +1164,8 @@ SDK</a></li></ul>
 
     <h2>这堂课可以教会你</h2>
     <ol>
-      <li><a href="#TaskManifest">Request Camera Permission</a></li>
-      <li><a href="#TaskCaptureIntent">Take a Photo with the Camera App</a></li>
+      <li><a href="#TaskManifest">Request 相机 Permission</a></li>
+      <li><a href="#TaskCaptureIntent">Take a Photo with the 相机 App</a></li>
       <li><a href="#TaskPhotoView">View the Photo</a></li>
       <li><a href="#TaskPath">Save the Photo</a></li>
       <li><a href="#TaskGallery">Add the Photo to a Gallery</a></li>
@@ -1174,7 +1174,7 @@ SDK</a></li></ul>
 
     <h2>你需要同时阅读</h2>
     <ul>
-      <li><a href="../../guide/topics/media/camera.html">Camera</a></li>
+      <li><a href="../../guide/topics/media/camera.html">相机</a></li>
       <li><a href="../../guide/components/intents-filters.html">Intents and Intent 
       Filters</a></li>
     </ul>
@@ -1202,7 +1202,7 @@ application installed. In this lesson, you learn how to make it take a picture
 for you.</p>
 
 
-<h2 id="TaskManifest">Request Camera Permission</h2>
+<h2 id="TaskManifest">Request 相机 Permission</h2>
 
 <p>If an essential function of your application is taking pictures, then restrict
 its visibility on Google Play to devices that have a camera.  To advertise
@@ -1222,7 +1222,7 @@ of the camera at runtime by calling <code><a href="../../reference/android/conte
 If a camera is not available, you should then disable your camera features.</p>
 
 
-<h2 id="TaskCaptureIntent">Take a Photo with the Camera App</h2> 
+<h2 id="TaskCaptureIntent">Take a Photo with the 相机 App</h2> 
 
 <p>The Android way of delegating actions to other applications is to invoke an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> that describes what you want done. This process involves three pieces: The
 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> itself, a call to start the external <code><a href="../../reference/android/app/Activity.html">Activity</a></code>,
@@ -1260,12 +1260,12 @@ public static boolean isIntentAvailable(Context context, String action) {
 ambition, then you probably want to get the image back from the camera
 application and do something with it.</p>
 
-<p>The Android Camera application encodes the photo in the return <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
+<p>The Android 相机 application encodes the photo in the return <code><a href="../../reference/android/content/Intent.html">Intent</a></code>
 delivered to <code><a href="../../reference/android/app/Activity.html#onActivityResult(int, int, android.content.Intent)">onActivityResult()</a></code> as a small <code><a href="../../reference/android/graphics/Bitmap.html">Bitmap</a></code> in the extras, under the key <code>"data"</code>. The following code retrieves
 this image and displays it in an <code><a href="../../reference/android/widget/ImageView.html">ImageView</a></code>.</p>
 
 <pre>
-private void handleSmallCameraPhoto(Intent intent) {
+private void handleSmall相机Photo(Intent intent) {
     Bundle extras = intent.getExtras();
     mImageBitmap = (Bitmap) extras.get("data");
     mImageView.setImageBitmap(mImageBitmap);
@@ -1279,7 +1279,7 @@ work.</p>
 
 <h2 id="TaskPath">Save the Photo</h2> 
 
-<p>The Android Camera application saves a full-size photo if you give it a file to
+<p>The Android 相机 application saves a full-size photo if you give it a file to
 save into. You must provide a path that includes the storage volume,
 folder, and file name.</p>
 

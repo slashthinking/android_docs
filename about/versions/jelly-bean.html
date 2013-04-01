@@ -488,7 +488,7 @@ like those shown in the examples above to display rich content and actions.</p>
 <img src="../../images/jb-appwidgets.png" width="280" height="548">
 </div>
 <p class="image-caption" style="padding:.5em"><span
-style="font-weight:500;">App Widgets</span> can resize automatically to fit the home screen and load different content as their sizes change.</p>
+style="font-weight:500;">应用小部件</span> can resize automatically to fit the home screen and load different content as their sizes change.</p>
 </div>
 
 <div style="padding-top:1px;clear:right;">
@@ -496,7 +496,7 @@ style="font-weight:500;">App Widgets</span> can resize automatically to fit the 
 
 <h3>Resizable app widgets</h3>
 
-<p>Android 4.1 introduces improved App Widgets that can <strong>automatically resize</strong>, based on where the user drops them on the home screen, the size to which the user expands them, and the amount of room available on the home screen. New App Widget APIs let you take advantage of this to <strong>optimize your app widget content</strong> as the size of widgets changes.</p>
+<p>Android 4.1 introduces improved 应用小部件 that can <strong>automatically resize</strong>, based on where the user drops them on the home screen, the size to which the user expands them, and the amount of room available on the home screen. New App Widget APIs let you take advantage of this to <strong>optimize your app widget content</strong> as the size of widgets changes.</p>
 
 <p>When a widget changes size, the system notifies the host app’s widget provider, which can reload the content in the widget as needed. For example, a widget could display larger, richer graphics or additional functionality or options. Developers can still maintain control over maximum and minimum sizes and can update other widget options whenever needed. </p>
 
@@ -539,7 +539,7 @@ style="font-weight:500;">App Widgets</span> can resize automatically to fit the 
 
 <h3>Find out about devices being added and removed</h3>
 
-<p>Apps can <strong>register to be notified</strong> when any new input devices are attached, by USB, Bluetooth, or any other connection type. They can use this information to change state or capabilities as needed. For example, a game could receive notification that a new keyboard or joystick is attached, indicating the presence of a new player.</p>
+<p>Apps can <strong>register to be notified</strong> when any new input devices are attached, by USB, 蓝牙, or any other connection type. They can use this information to change state or capabilities as needed. For example, a game could receive notification that a new keyboard or joystick is attached, indicating the presence of a new player.</p>
 
 <h3>Query the capabilities of input devices</h3>
 
@@ -552,7 +552,7 @@ style="font-weight:500;">App Widgets</span> can resize automatically to fit the 
 <p>Among other capabilities, apps can now make use of any <strong>vibrator service</strong> associated with an attached input device, such as for <strong>Rumble Pak</strong> controllers.</p>
 
 
-<h2 id="graphics">Animation and Graphics</h2>
+<h2 id="graphics">动画和图形</h2>
 
 <h3>Vsync for apps</h3>
 
@@ -571,13 +571,13 @@ style="font-weight:500;">App Widgets</span> can resize automatically to fit the 
 <p>A new transition type in LayoutTransition enables you to automate animations in response to all layout changes in a ViewGroup.</p>
 
 
-<h2 id="connectivity">New Types of Connectivity</h2>
+<h2 id="connectivity">New Types of 链接</h2>
 
 <h3>Android Beam</h3>
 
 <p>Android Beam is a popular NFC-based technology that lets users instantly share, just by touching two NFC-enabled phones together.</p>
 
-<p>In Android 4.1, Android Beam makes it easier to share images, videos, or other payloads by <strong>leveraging Bluetooth for the data transfer</strong>. When the user triggers a transfer, Android Beam hands over from NFC to Bluetooth, making it really easy to manage the transfer of a file from one device to another.</p>
+<p>In Android 4.1, Android Beam makes it easier to share images, videos, or other payloads by <strong>leveraging 蓝牙 for the data transfer</strong>. When the user triggers a transfer, Android Beam hands over from NFC to 蓝牙, making it really easy to manage the transfer of a file from one device to another.</p>
 
 <h3>Wi-Fi Network Service Discovery</h3>
 
@@ -636,7 +636,7 @@ style="font-weight:500;">App Widgets</span> can resize automatically to fit the 
 
 <p>The new APIs MediaRouter, MediaRouteActionProvider, and MediaRouteButton provide standard mechanisms and UI for <strong>choosing where to play media</strong>. Support is built-in for wired headsets and a2dp bluetooth headsets and speakers, and you can add your own routing options within your own app.</p>
 
-<h2 id="renderscript">Renderscript Computation</h2>
+<h2 id="renderscript">Renderscript 计算</h2>
 
 <p>Android 4.1 extends Renderscript computation to give you more flexibility. You can now <strong>sample textures</strong> in your Renderscript compute scripts, and <strong>new pragmas</strong> are available to define the floating point precision required by your scripts. This lets you enable <strong>NEON instructions</strong> such as fast vector math operations on the CPU path, that wouldn’t otherwise be possible with the full IEEE 754-2008 standard.</p>
 

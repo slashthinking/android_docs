@@ -1132,7 +1132,7 @@ Summary:
 <div class="jd-descr">
 
 
-<h2>Class Overview</h2>
+<h2>Class 概览</h2>
 <p itemprop="articleBody">This is the base class for an activity to show a hierarchy of preferences
  to the user.  Prior to <code><a href="../../../reference/android/os/Build.VERSION_CODES.html#HONEYCOMB">HONEYCOMB</a></code>
  this class only allowed the display of a single set of preference; this
@@ -1733,7 +1733,7 @@ Summary:
     <tr class="alt-color api apilevel-1" >
         <td class="jd-typecol"><a href="../../../reference/java/lang/String.html">String</a></td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/Context.html#CONNECTIVITY_SERVICE">CONNECTIVITY_SERVICE</a></td>
-        <td class="jd-descrcol" width="100%">Use with <code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">getSystemService(String)</a></code> to retrieve a <code><a href="../../../reference/android/net/ConnectivityManager.html">ConnectivityManager</a></code> for handling management of
+        <td class="jd-descrcol" width="100%">Use with <code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">getSystemService(String)</a></code> to retrieve a <code><a href="../../../reference/android/net/链接Manager.html">链接Manager</a></code> for handling management of
  network connections.</td>
     </tr>
     
@@ -2141,7 +2141,7 @@ Summary:
         <td class="jd-typecol">int</td>
         <td class="jd-linkcol"><a href="../../../reference/android/content/ComponentCallbacks2.html#TRIM_MEMORY_UI_HIDDEN">TRIM_MEMORY_UI_HIDDEN</a></td>
         <td class="jd-descrcol" width="100%">Level for <code><a href="../../../reference/android/content/ComponentCallbacks2.html#onTrimMemory(int)">onTrimMemory(int)</a></code>: the process had been showing
- a user interface, and is no longer doing so.</td>
+ a 用户界面, and is no longer doing so.</td>
     </tr>
     
     
@@ -13351,8 +13351,8 @@ From interface
  comes back some time in the future it can restore its state.  For example,
  if activity B is launched in front of activity A, and at some point activity
  A is killed to reclaim resources, activity A will have a chance to save the
- current state of its user interface via this method so that when the user
- returns to activity A, the state of the user interface can be restored
+ current state of its 用户界面 via this method so that when the user
+ returns to activity A, the state of the 用户界面 can be restored
  via <code><a href="../../../reference/android/app/Activity.html#onCreate(android.os.Bundle)">onCreate(Bundle)</a></code> or <code><a href="../../../reference/android/app/Activity.html#onRestoreInstanceState(android.os.Bundle)">onRestoreInstanceState(Bundle)</a></code>.
 
  <p>Do not confuse this method with activity lifecycle callbacks such as
@@ -13365,7 +13365,7 @@ From interface
  system avoids calling it.  An example when <code><a href="../../../reference/android/app/Activity.html#onPause()">onPause()</a></code> is called and
  not <code><a href="../../../reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState(Bundle)</a></code> is when activity B is launched in front of activity A:
  the system may avoid calling <code><a href="../../../reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState(Bundle)</a></code> on activity A if it isn't
- killed during the lifetime of B since the state of the user interface of
+ killed during the lifetime of B since the state of the 用户界面 of
  A will stay intact.
 
  <p>The default implementation takes care of most of the UI per-instance
