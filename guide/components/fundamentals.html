@@ -1068,7 +1068,7 @@ application.</p>
 <!--
 <p>Once installed on a device, each Android application lives in its own security sandbox: </p>
 -->
-<p>一旦安装在设备尚，每一个Android程序会存活在它自己的安全沙箱中: </p>
+<p>一旦安装在设备上，每一个Android程序会存活在它自己的安全沙箱中: </p>
 
 <ul>
   <li>Android操作系统是一个多用户Linux系统，每一个应用都会使用一个不同的用户来运行。</li>
@@ -1077,7 +1077,7 @@ application.</p>
  <li>The Android operating system is a multi-user Linux system in which each application is a
 different user.</li>-->
 
-<li>默认情况，系统分配每个应用一个唯一的Linux用户ID(ID被只用在系统中，程序并不知道这个应用ID)。系统给程序中的所有文件设置了
+<li>默认情况，系统分配每个应用一个唯一的Linux用户ID(ID只被用在系统中，程序并不知道这个应用ID)。系统给程序中的所有文件设置了
   权限，只有分配给程序的用户ID才可以访问到这些文件。 </li>
 <!--
 <li>By default, the system assigns each application a unique Linux user ID (the ID is used only by
@@ -1100,23 +1100,27 @@ of the application's components need to be executed, then shuts down the process
 needed or when the system must recover memory for other applications.</li>
 </ul>-->
 
+<!--
 <p>In this way, the Android system implements the <em>principle of least privilege</em>. That is,
 each application, by default, has access only to the components that it requires to do its work and
 no more. This creates a very secure environment in which an application cannot access parts of
 the system for which it is not given permission.</p>
+-->
+<p>在这种情况下，Android系统应用的是最小权限原则。即，每个应用默认只能访问保证其能正常运行所必需的组件。这个原则保证应用不能去访问它未
+得到授权的Android系统组件。</p>
 
 <!--
 <p>However, there are ways for an application to share data with other applications and for an
 application to access system services:</p>
 -->
 
-<p>尽管如此，有一些方法可以让应用之间互相共享数据，或访问系统服务:</p>
+<p>尽管如此，还是有一些方法可以让应用与其他应用共享数据，或访问系统服务:</p>
 
 <ul>
-  <li>可以共享相同的Linux userID给两个应用是可能的，这样，他们可以互相访问各自的文件。为了保护系统资源，程序使用相同
-    User ID可以运行再相同的Linux进程中，并且共享相同的VM(应用必须被使用相同的证书进行签名)。</li> 
-  <li>一个程序可以要求权限来获得设备数据，比如用户的通讯录、SMS信息、挂载的存储(SD卡)，相机，蓝牙等。所有软件权限必须
-  在安装的时候由用户授权。 
+  <li>可以安排两个应用共享相同的Linux userID，这样，他们可以互相访问各自的文件。为了保护系统资源，使用相同
+    User ID的应用同样可以运行在相同的Linux进程中，并且共享相同的VM(应用必须使用相同的证书进行签名)。</li> 
+  <li>应用可以请求权限以访问设备数据，如用户的通讯录、SMS信息、可挂载的存储(SD卡)，相机，蓝牙等。应用的所有权限必须
+  在安装的时候就由用户授权。 
   </li>
 </ul>
  
@@ -1127,13 +1131,24 @@ they are able to access each other's files.  To conserve system resources, appli
 same user ID can also arrange to run in the same Linux process and share the same VM (the
 applications must also be signed with the same certificate).</li>
   <li>An application can request permission to access device data such as the user's
-contacts, SMS messages, the mountable storage (SD card), camera, 蓝牙, and more. All
+contacts, SMS messages, the mountable storage (SD card), camera, Bluetooth, and more. All
 application permissions must be granted by the user at install time.</li>
 </ul>
 -->
 
+<p>
+上面介绍了关于一个Android应用如何运行在系统中的一些基础知识。接下来我们会为你介绍：
+</p>
+<!--
 <p>That covers the basics regarding how an Android application exists within the system. The rest of
 this document introduces you to:</p>
+-->
+<ul>
+    <li>用以定义Andorid应用的核心框架组件。</li>
+    <li>用以申明应用的组件及所需设备特征的资源配置文件（manifest）。</li>
+    <li>用以使应用可更加优雅地适配各种不同设备配置的资源文件，这些资源与应用的代码是隔离的。</li>
+</ul>
+<!--
 <ul>
   <li>The core framework components that define your application.</li>
   <li>The manifest file in which you declare components and required device features for your
@@ -1141,15 +1156,26 @@ application.</li>
   <li>Resources that are separate from the application code and allow your application to
 gracefully optimize its behavior for a variety of device configurations.</li>
 </ul>
+-->
 
-<!--
+
 <p class="note"><strong>Tip:</strong> If you're new to Android development, we suggest that you
 follow the Beginner's Path link at the bottom of this page. For each document in the Application
 Fundamentals, the Beginner's Path points you to the document we suggest you read next, in order
 to get up to speed on the core Android concepts.</p>
--->
 
-
+<h2 id="Components">应用组件</h2>
+<p>
+应用组件是一个Andriod应用不可或缺的基础。每个组件都是一个系统可进入你的应用的入口点。虽然并非所有的组件都是一个
+用户进入应用的实际入口点，但每个组件都有着特定的作用，都是一个唯一的基础元件，帮助定义应用的整个行为。
+</p>
+<p>
+总共有四种不同的应用组件。每种都有其特定的功能及特定的生命周期（创建及销毁的时机）。
+</p>
+<p>
+下面就是这四种应用组件：
+</p>
+<!--
 <h2 id="Components">Application Components</h2>
 
 <p>Application components are the essential building blocks of an Android application. Each
@@ -1162,12 +1188,25 @@ helps define your application's overall behavior.</p>
 and has a distinct lifecycle that defines how the component is created and destroyed.</p>
 
 <p>Here are the four types of application components:</p>
+-->
+
+
 
 <dl>
 
+<dt><b>活动（Activities）</b></dt>
+
+<dd>一个 <i>活动</i> 代表用户界面的一屏。 例如，一个邮件应用可能包含：一个活动/动作用以显示新邮件列表，一个活动/动作用以写新邮件，另外一个活动用以
+读取邮件。尽量应用中的这些所有活动一起运行，为用户提供了一个紧凑、完整的用户体验，但活动相互之间是独立的。就此而言，任意其他的应用只要得到该邮件应用
+的授权就可以启动这些活动中的任意一个。例如：一个相机应用可以启动邮件应用中的发新邮件活动，以便用户通过邮件分享照片。
+
+<p>活动都是 <code><a href="../../reference/android/app/Activity.html">Activity</a></code> 的子类实现，你可通过 <a href="../../guide/components/activities.html">Activities</a>了解更多帮助内容。</p>
+</dd>
+
+<!--
 <dt><b>Activities</b></dt>
 
-<dd>An <i>activity</i> represents a single screen with a 用户界面. For example,
+<dd>An <i>activity</i> represents a single screen with a user interface. For example,
 an email application might have one activity that shows a list of new
 emails, another activity to compose an email, and another activity for reading emails. Although
 the activities work together to form a cohesive user experience in the email application, each one
@@ -1179,13 +1218,22 @@ activity in the email application that composes new mail, in order for the user 
 about it in the <a href="../../guide/components/activities.html">Activities</a>
 developer guide.</p>
 </dd>
+-->
 
+<dt><b>服务（Services）</b></dt>
 
+<dd><i>服务</i> 是运行于后台的组件，用以运行需长期运行的操作或远程进程，且不提供用户界面。例如，一个服务可能用以当用户在其他应用时播放背景音乐，或者用户
+在执行其他操作（activity）时从网络获取数据。其他的组件，如活动组件，可以启动一个服务使其运行或绑定一个服务以与其交互。
+
+<p>服务都是 <code><a href="../../reference/android/app/Service.html">Service</a></code> 的子类实现，你可通过 <a href="../../guide/components/services.html">Services</a> 了解更多帮助内容。</p>
+</dd>
+
+<!--
 <dt><b>Services</b></dt>
 
 <dd>A <i>service</i> is a component that runs in the background to perform long-running
 operations or to perform work for remote processes. A service
-does not provide a 用户界面. For example, a service might play music in the background while
+does not provide a user interface. For example, a service might play music in the background while
 the user is in a different application, or it might fetch data over the network without
 blocking user interaction with an activity. Another component, such as an activity, can start the
 service and let it run or bind to it in order to interact with it.
@@ -1194,8 +1242,24 @@ service and let it run or bind to it in order to interact with it.
 about it in the <a href="../../guide/components/services.html">Services</a> developer
 guide.</p>
 </dd>
+-->
 
 
+<dt><b>内容提供程序</b></dt>
+
+<dd><i>内容提供程序</i> 用以管理应用数据的一个共享集合。 你可将数据存储于文件系统，SQLite数据库，web上或其他应用可访问的持久化存储上。通过内容提供
+程序，其他应用可以查询甚至修改数据（如果内容提供程序允许）。例如，Android系统提供一个内容提供程序用以管理用户的联系人信息。这样的话，任何有合适权限的应用
+都可查询内容提供程序的一部分(如 <code><a href="../../reference/android/provider/ContactsContract.Data.html">ContactsContract.Data</a></code>) 以读取、写入关于特定联系人的信息。
+
+<p>内容提供程序同样可用于读取、写入一些应用私有的、非共享的数据。 例如， <a
+href="../../resources/samples/NotePad/index.html">记事本</a> 使用内容提供程序来保存笔记信息。</p>
+
+<p>内容提供程序是 <code><a href="../../reference/android/content/ContentProvider.html">ContentProvider</a></code>的子类实现，
+而且必须实现一套标准API集合以使其他应用可与其交互。更多信息，请查看
+ <a href="../../guide/topics/providers/content-providers.html">内容提供器</a> 开发帮助文档。</p>
+</dd>
+
+<!--
 <dt><b>Content providers</b></dt>
 
 <dd>A <i>content provider</i> manages a shared set of application data. You can store the data in
@@ -1213,35 +1277,30 @@ content provider to save notes.</p>
 <p>A content provider is implemented as a subclass of <code><a href="../../reference/android/content/ContentProvider.html">ContentProvider</a></code>
 and must implement a standard set of APIs that enable other applications to perform
 transactions. For more information, see the <a
-href="../../guide/topics/providers/content-providers.html">内容提供器</a> developer
+href="../../guide/topics/providers/content-providers.html">Content provider</a> developer
 guide.</p>
 </dd>
+-->
 
 
-<dt><b>Broadcast receivers</b></dt>
+<dt><b>广播接收器（Broadcast receivers）</b></dt>
 
-<dd>A <i>广播接收器</i> 是一个用于反映系统级广播通知的组件 is a component that responds to system-wide broadcast
-announcements.  Many broadcasts originate from the system&mdash;for example, a broadcast announcing
-that the screen has turned off, the battery is low, or a picture was captured.
-Applications can also initiate broadcasts&mdash;for example, to let other applications know that
-some data has been downloaded to the device and is available for them to use. Although broadcast
-receivers don't display a 用户界面, they may <a
-href="../../guide/topics/ui/notifiers/notifications.html">create a status bar notification</a>
-to alert the user when a broadcast event occurs. More commonly, though, a broadcast receiver is
-just a "gateway" to other components and is intended to do a very minimal amount of work. For
-instance, it might initiate a service to perform some work based on the event.
+<dd>A <i>广播接收器</i> 是一个用于响应系统范围广播通知的组件。许多广播信息都源自于系统 —— 例如，广播告知屏幕关闭了，电池量低或一张图片被捕获到。 
+应用也可以发起一个广播 —— 例如，通知其他应用一些数据已下载到设备中了，可供它们使用。尽管广播接收器并不会显示一个用户界面，但它可在广播事件发生时
+<a href="../../guide/topics/ui/notifiers/notifications.html">创建一个通知状态条</a>
+来提醒用户。在更多的情况下，广播接收器仅仅是一个其他组件的“网关”，并只被用以做很少的一些工作。例如，它可能用以触发一个基于其通知事件的服务。
 
-<p>A broadcast receiver is implemented as a subclass of <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code>
-and each broadcast is delivered as an <code><a href="../../reference/android/content/Intent.html">Intent</a></code> object. For more information,
-see the <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> class.</p>
+<p>广播接收器都是 <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> 的子类实现，
+并且每个广播信息都以 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 对象进行传送。更多帮助信息请见 <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> 类。</p>
 </dd>
 
+<!--
 <dd>A <i>broadcast receiver</i> is a component that responds to system-wide broadcast
 announcements.  Many broadcasts originate from the system&mdash;for example, a broadcast announcing
 that the screen has turned off, the battery is low, or a picture was captured.
 Applications can also initiate broadcasts&mdash;for example, to let other applications know that
 some data has been downloaded to the device and is available for them to use. Although broadcast
-receivers don't display a 用户界面, they may <a
+receivers don't display a user interface, they may <a
 href="../../guide/topics/ui/notifiers/notifications.html">create a status bar notification</a>
 to alert the user when a broadcast event occurs. More commonly, though, a broadcast receiver is
 just a "gateway" to other components and is intended to do a very minimal amount of work. For
@@ -1253,9 +1312,23 @@ see the <code><a href="../../reference/android/content/BroadcastReceiver.html">B
 </dd>
 
 </dl>
+-->
 
+<p>
+Android系统设计上的一个独特方面在于，任何应用都可以启动其他应用的组件。例如，如果你希望用户利用设备摄像头拍照，可能已经有一个其他应用
+可以做到，你的应用只需直接使用该应用的功能即可，而无需额外开发。为此，你无需要将你的代码和拍照应用的代码整合在一起，甚至无需链接到拍照应用，
+只需简单地启动照相应用拍照的活动（activity），完成后，照片自动返回给你的应用。从用户角度来看，拍照功能就是你的应用中的一部分。
+</p>
+<p>
+当系统启动一个组件，它会启动其所属应用的进程（如果进程尚未运行）并实例化改组件运行所需的类。例如，如果你的应用启动相机应用中的拍照活动（activity），
+拍照活动组件将运行在相机应用的进程中，而非你的应用进程中。因此，与大部分其他系统中应用不同，Android应用没有一个入口点（例如，没有<code>main()</code>函数）。
+</p>
+<p>
+由于Andorid系统中，每个应用都运行在相互独立的进程中，由于文件权限的限制，你的应用不能直接激活其他应用的组件。你只能通过发送一个信息给Android系统，
+消息中指明你希望<em>intent</em>启动的组件。Andorid系统会替你激活相应的组件。
+</p>
 
-
+<!--
 <p>A unique aspect of the Android system design is that any application can start another
 application’s component. For example, if you want the user to capture a
 photo with the device camera, there's probably another application that does that and your
@@ -1277,8 +1350,29 @@ restrict access to other applications, your application cannot directly activate
 another application. The Android system, however, can. So, to activate a component in
 another application, you must deliver a message to the system that specifies your <em>intent</em> to
 start a particular component. The system then activates the component for you.</p>
+-->
+<h3 id="ActivatingComponents">激活组件</h3>
+<p>
+四种组件类型中的三种：活动（activity）、服务（service）和广播接收器（broadcast receiver）都是通过一个称为<em>intent</em>的异步消息来激活的。
+intent在运行时将组件相互绑定（你可将intent看作一个从其他组件请求一个操作的信使），不管这个组件属于你的应用还是其他应用。
+</p>
 
+<p>
+intent通过一个<code><a href="../../reference/android/content/Intent.html">Intent</a></code>对象来进行创建，定义一条用以激活指定组件或
+指定类型组件（intent可以是显式的，也可以是隐式的）的消息。
+</p>
 
+<p>
+对于活动（activiyt）和服务（service）而言，一条intent消息定义了需要执行的操作（如查看或发送某些事务），也可能指定一个需要操作数据的URI（除了组件启动时
+就需要获取的数据之外）。例如，一条intent消息可能为activity传递一个显示一张图片或打开一个web页面的请求。在一些情况下，你可启动一个activity以接受一个结果
+，activity也会以一个<code><a href="../../reference/android/content/Intent.html">Intent</a></code>对象的方式返回结果。例如，你可以发布一条intent消息让用户选择一个联系人，并将其也通过一条intent消息返回给你 —— 返回的intent消息包含指向所选联系人的URI。
+</p>
+
+<p>
+对于广播接收器而言，intent消息只是简单定义需要被广播的通知（例如，一条提示电池量不足的广播仅仅包含一条“battery is low”的字符串）。
+</p>
+
+<!--
 <h3 id="ActivatingComponents">Activating Components</h3>
 
 <p>Three of the four component types&mdash;activities, services, and
@@ -1303,13 +1397,35 @@ URI pointing to the chosen contact).</p>
 <p>For broadcast receivers, the intent simply defines the
 announcement being broadcast (for example, a broadcast to indicate the device battery is low
 includes only a known action string that indicates "battery is low").</p>
+-->
 
+<p>
+其他的组件类型 —— 内容提供器，不是北intents消息所激活，而是在得到一个  <code><a href="../../reference/android/content/ContentResolver.html">ContentResolver</a></code> 请求后被激活。
+content resolver处理所有与内容提供器直接交互的事件。所以，与内容提供器进行交互的其他组件无需intent消息，而是通过调用<code><a href="../../reference/android/content/ContentResolver.html">ContentResolver</a></code>对象的方法来进行交互。这样也使得内容提供器和请求信息的组件之间有一个抽象层（出于安全的考虑）。
+</p>
+
+<!--
 <p>The other component type, content provider, is not activated by intents. Rather, it is
 activated when targeted by a request from a <code><a href="../../reference/android/content/ContentResolver.html">ContentResolver</a></code>. The content
 resolver handles all direct transactions with the content provider so that the component that's
 performing transactions with the provider doesn't need to and instead calls methods on the <code><a href="../../reference/android/content/ContentResolver.html">ContentResolver</a></code> object. This leaves a layer of abstraction between the content
 provider and the component requesting information (for security).</p>
+-->
 
+<p>
+分别有以下几个方法用以激活每种类型的组件：
+</p>
+<ul>
+  <li>可通过传输一条 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息给 <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code> 或通过 <code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code>
+(当你希望activity返回一个结果) 来启动一个activity或希望它做一下其他事情。</li>
+  <li>可通过传输一条 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息给 <code><a href="../../reference/android/content/Context.html#startService(android.content.Intent)">startService()</a></code>来启动一个service（或给运行中的service指定一些新的操作命令）。也可通过传输一条 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息给
+<code><a href="../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>来绑定一个service。</li>
+  <li>可通过传输一条 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息给诸如
+<code><a href="../../reference/android/content/Context.html#sendBroadcast(android.content.Intent)">sendBroadcast()</a></code>, <code><a href="../../reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">sendOrderedBroadcast()</a></code>, 或 <code><a href="../../reference/android/content/Context.html#sendStickyBroadcast(android.content.Intent)">sendStickyBroadcast()</a></code>这样的方法来初始化一条广播消息。</li>
+  <li>可通过调用<code><a href="../../reference/android/content/ContentResolver.html">ContentResolver</a></code> 的 <code><a href="../../reference/android/content/ContentProvider.html#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)">query()</a></code> 方法向内容提供器执行一条查询。</li>
+</ul>
+
+<!--
 <p>There are separate methods for activating each type of component:</p>
 <ul>
   <li>You can start an activity (or give it something new to do) by
@@ -1322,16 +1438,43 @@ passing an <code><a href="../../reference/android/content/Intent.html">Intent</a
 <code><a href="../../reference/android/content/Context.html#sendBroadcast(android.content.Intent)">sendBroadcast()</a></code>, <code><a href="../../reference/android/content/Context.html#sendOrderedBroadcast(android.content.Intent, java.lang.String)">sendOrderedBroadcast()</a></code>, or <code><a href="../../reference/android/content/Context.html#sendStickyBroadcast(android.content.Intent)">sendStickyBroadcast()</a></code>.</li>
   <li>You can perform a query to a content provider by calling <code><a href="../../reference/android/content/ContentProvider.html#query(android.net.Uri, java.lang.String[], java.lang.String, java.lang.String[], java.lang.String)">query()</a></code> on a <code><a href="../../reference/android/content/ContentResolver.html">ContentResolver</a></code>.</li>
 </ul>
+-->
 
-<p>For more information about using intents, see the <a
+<p>
+更多关于intent消息的内容请见 <a
 href="../../guide/components/intents-filters.html">Intents and
 Intent Filters</a> document. More information about activating specific components is also provided
 in the following documents: <a
 href="../../guide/components/activities.html">Activities</a>, <a
 href="../../guide/components/services.html">Services</a>, <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> and <a
-href="../../guide/topics/providers/content-providers.html">内容提供器</a>.</p>
+href="../../guide/topics/providers/content-providers.html">content provider</a>.
+</p>
 
+<p>For more information about using intents, see the <a
+href="../../guide/components/intents-filters.html">Intents and
+Intent Filters</a> 文档。更多关于激活指定类型组件的内容请见以下文档： <a
+href="../../guide/components/activities.html">Activities</a>, <a
+href="../../guide/components/services.html">Services</a>, <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> 和 <a
+href="../../guide/topics/providers/content-providers.html">Content Providers</a>。</p>
 
+<h2 id="Manifest">资源配置文件</h2>
+<p>
+在Android系统启动一个应用组件前，系统需要通过读取应用的<code>AndroidManifest.xml</code>文件来了解改应用所包含的组件。
+应用必须在这个文件中申明其所有的组件，而且文件也必须位于应用工程目录的根目录下。
+</p>
+<p>
+除了申明应用的所有组件外，manifest文件还会做以下一些事情：
+</p>
+<ul>
+  <li>说明应用所需的所有用户权限，如网络访问权限或读取用户联系人信息的权限。</li>
+  <li>说明应用所使用API中的最低 <a href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API 层次。</a></li>
+  <li>说明应用所使用或所需要的软、硬件特性，如摄像头、蓝牙或多点触摸屏。</li>
+  <li>应用需要链接到的API库（除Android框架API之外），如 <a
+href="http://code.google.com/android/add-ons/google-apis/maps-overview.html">Google 地图API库</a>。</li>
+  <li>其他</li>
+</ul>
+
+<!--
 <h2 id="Manifest">The Manifest File</h2>
 
 <p>Before the Android system can start an application component, the system must know that the
@@ -1354,12 +1497,19 @@ href="http://code.google.com/android/add-ons/google-apis/maps-overview.html">Goo
 library</a>.</li>
   <li>And more</li>
 </ul>
+-->
 
+<h3 id="DeclaringComponents">申明组件</h3>
+<p>
+manifest文件的主要任务是告知系统应用的所有组件。例如，一个manifest文件可以按如下形式申明一个activity：
+</p>
 
+<!--
 <h3 id="DeclaringComponents">Declaring components</h3>
 
 <p>The primary task of the manifest is to inform the system about the application's components. For
 example, a manifest file can declare an activity as follows: </p>
+-->
 
 <pre>
 &lt;?xml version="1.0" encoding="utf-8"?&gt;
@@ -1372,6 +1522,28 @@ example, a manifest file can declare an activity as follows: </p>
     &lt;/application&gt;
 &lt;/manifest&gt;</pre>
 
+<p>在<code><a
+href="../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code>
+元素中， <code>android:icon</code> 属性指向标识应用的图标资源。</p>
+
+<p>在<code><a
+href="../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></code> 元素中，
+<code>android:name</code> 属性指定 <code><a href="../../reference/android/app/Activity.html">Activity</a></code> 子类的权限定类名， <code>android:label</code> 属性指定一个用以作为用户可见的activity标签的字符串。</p>
+
+<p>你必须以下面的方式申明所有的应用组件：</p>
+<ul>
+  <li><code><a
+href="../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></code> 活动的详情</li>
+  <li><code><a
+href="../../guide/topics/manifest/service-element.html">&lt;service&gt;</a></code> 服务的详情</li>
+  <li><code><a
+href="../../guide/topics/manifest/receiver-element.html">&lt;receiver&gt;</a></code> 广播接收器的详情</li>
+  <li><code><a
+href="../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></code> 内容提供器的详情</li>
+</ul>
+
+
+<!--
 <p>In the <code><a
 href="../../guide/topics/manifest/application-element.html">&lt;application&gt;</a></code>
 element, the <code>android:icon</code> attribute points to resources for an icon that identifies the
@@ -1398,6 +1570,18 @@ href="../../guide/topics/manifest/provider-element.html">&lt;provider&gt;</a></c
 for content providers</li>
 </ul>
 
+-->
+
+<p>
+如果你的源码中包含的活动、服务和内容提供器未在manifest中申明，那么它们对系统是不可见的，所以也永远不会执行。但是，广播接收器既可以在manifest文件中定义，
+也可以在代码中动态创建（如<code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code>对象）并调用
+<code><a href="../../reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)">registerReceiver()</a></code>注册到系统中。
+</p>
+
+<p>更多关于如何为你的应用构建manifest文件的信息请见 <a
+href="../../guide/topics/manifest/manifest-intro.html">The AndroidManifest.xml File</a>。</p>
+
+<!--
 <p>Activities, services, and content providers that you include in your source but do not declare
 in the manifest are not visible to the system and, consequently, can never run.  However,
 broadcast
@@ -1408,9 +1592,30 @@ receivers can be either declared in the manifest or created dynamically in code 
 <p>For more about how to structure the manifest file for your application, see the <a
 href="../../guide/topics/manifest/manifest-intro.html">The AndroidManifest.xml File</a>
 documentation. </p>
+-->
 
+<h3 id="DeclaringComponentCapabilities">申明组件功能</h3>
 
+<p>如上所述，<a href="#ActivatingComponents">Activating Components</a>, 你可使用一条
+<code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息来启动活动、服务和广播接收器，通过在intent消息中显式指定目标组件的方式（使用组件类名）。但是，intent消息更大的作用在于其action的概念。通过intent消息的action，你只需简单地描述你希望执行的操作类型（你也可加上你所希望操作的数据）并允许系统依此在设备中查找得到一个可以执行改action的组件并启动它。如果有多个组件可执行该action，用户可从中选择一个执行。
+</p>
 
+<p>
+系统判别组件是否可以影响一个intent消息的方法在于：将接收到的intent消息和manifest文件中申明的<i>intent filters</i>进行比较。 </p>
+
+<p>
+当你在应用的manifest文件中申明一个组件时，可将intent过滤器（intent filters）—— 用以申明改组件的功能包括在内，如此，便可对其他应用发送的intent消息进行响应。你可通过添加一个组件申明元素的子元素<a href="../../guide/topics/manifest/intent-filter-element.html"><code>&lt;intent-filter&gt;</code></a>
+来申明一个intent消息过滤器。
+</p>
+
+<p>例如，一个邮件应用中，创建新邮件的活动可能在应用的manifest文件中申明intent过滤器以响应发送intent消息（为了发送邮件）。
+这样，应用的其他活动可创建一个包含“发送”操作的intent消息，(<code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code>), 当你通过<code><a href="../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity()</a></code>调用这个intent时，系统会匹配到邮件应用的“发送”活动并启动它。</p>
+
+<p>更多关于intent过滤器的内容，请见 <a
+href="../../guide/components/intents-filters.html">Intents和Intent filter</a> 。
+</p>
+
+<!--
 <h3 id="DeclaringComponentCapabilities">Declaring component capabilities</h3>
 
 <p>As discussed above, in <a href="#ActivatingComponents">Activating Components</a>, you can use an
@@ -1437,13 +1642,16 @@ activity in your application can then create an intent with the “send” actio
 activity and launches it when you invoke the intent with <code><a href="../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity()</a></code>.</p>
 
 <p>For more about creating intent filters, see the <a
-href="../../guide/components/intents-filters.html">Intents和Intent过滤器</a> document.
+href="../../guide/components/intents-filters.html">Intents和Intent filter</a> document.
 </p>
+-->
 
-
-
+<h3 id="DeclaringRequirements">声明应用需求</h3>
+<!--
 <h3 id="DeclaringRequirements">Declaring application requirements</h3>
+-->
 
+<!--
 <p>There are a variety of devices powered by Android and not all of them provide the
 same features and capabilities. In order to prevent your application from being installed on devices
 that lack features needed by your application, it's important that you clearly define a profile for
@@ -1451,20 +1659,51 @@ the types of devices your application supports by declaring device and software 
 manifest file. Most of these declarations are informational only and the system does not read
 them, but external services such as Google Play do read them in order to provide filtering
 for users when they search for applications from their device.</p>
+-->
 
+<p>
+现在市场上有大量装有Android系统的设备，但它们并非都提供一样的特性和功能。为了避免你的应用被安装在缺乏某些应用必需特性的设备上，在manifest文件中明确
+声明设备及软件需求很重要。这些声明大部分都是提示性的，系统并不会读取它们，但一些其他服务如Google Play会读取这些信息，以便当人们在他们设备上搜索应用时，可以提供一个筛选。
+</p>
+
+<!--
 <p>For example, if your application requires a camera and uses APIs introduced in Android 2.1 (<a
 href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API Level</a> 7), you should declare these as
 requirements in your manifest file. That way, devices that do <em>not</em> have a camera and have an
 Android version <em>lower</em> than 2.1 cannot install your application from Google Play.</p>
+-->
 
+<p>
+例如，如果你的应用需要摄像头并且使用Android 2.1提供的API(<a href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API Level</a> 7)，那么你就需要在manifest文件中将其定义为必需项。如此，没有摄像头或Android版本低于2.1的设备将不能通过Google Play来安装应用。
+</p>
+
+<!--
 <p>However, you can also declare that your application uses the camera, but does not
 <em>require</em> it. In that case, your application must perform a check at runtime to determine
 if the device has a camera and disable any features that use the camera if one is not available.</p>
+-->
 
+<p>
+当然，你也可以声明你的应用需要使用摄像头，但不是必须的。这种情况下，你的应用必须在运行时检测设备是否包含摄像头，如果没有的话，则需要禁用所有相关的应用特性。
+</p>
+
+<!--
 <p>Here are some of the important device characteristics that you should consider as you design and
 develop your application:</p>
+-->
+<p>
+下面是一些在设计开发你的应用时需要注意考虑的设备特性：
+</p>
 
 <dl>
+<dt>屏幕大小及像素密度</dt>
+  <dd>
+为了通过屏幕类型来区分设备，Android为每个设备定义了两个特性：屏幕大小（屏幕的物理尺寸）屏幕像素密度（屏幕像素的物理密度，单位为dpi —— 每英寸的点数）。
+为了简化不同类型的屏幕配置描述，Android系统将其可选的组：
+<p>屏幕大小包括：小、正常、大和超大。<br/>
+屏幕像素密度包括：低分辨率、中分辨率、高分辨率和超高分辨率。
+</p>
+<!--
   <dt>Screen size and density</dt>
   <dd>In order to categorize devices by their screen type, Android defines two characteristics for
 each device: screen size (the physical dimensions of the screen) and screen density (the physical
@@ -1473,7 +1712,17 @@ types of screen configurations, the Android system generalizes them into select 
 them easier to target.
 <p>The screen sizes are: small, normal, large, and extra large.<br/>
 The screen densities are: low density, medium density, high density, and extra high density.</p>
+-->
 
+<p>
+默认地，应用会兼容所有的屏幕大小和像素密度，因为Android系统会根据你的UI布局和图片资源做相应的调整。但是，你应该为特定的屏幕尺寸创建特定的布局，并为特定
+的像素密度提供特定的图片，使用可切换的布局资源，在manifest文件中通过<a
+href="../../guide/topics/manifest/supports-screens-element.html"><code>&lt;supports-screens&gt;</code></a>元素明确声明你的应用所支持的屏幕尺寸。
+<p>更多信息，请见 <a
+href="../../guide/practices/screens_support.html">Supporting Multiple Screens。</a>
+</p></dd>
+
+<!--
 <p>By default, your application is compatible with all screen sizes and densities,
 because the Android system makes the appropriate adjustments to your UI layout and image
 resources. However, you should create specialized layouts for certain screen sizes and provide
@@ -1483,14 +1732,30 @@ href="../../guide/topics/manifest/supports-screens-element.html"><code>&lt;suppo
 <p>For more information, see the <a
 href="../../guide/practices/screens_support.html">Supporting Multiple Screens</a>
 document.</p></dd>
+-->
 
+<dt>输入配置</dt>
+  <dd>
+许多设备提供不同类型的用户输入装置，如硬件硬盘、轨迹球或five-way导航pad。如果你的应用需要一个特定的输入硬件，你则应该在manifest文件中通过
+<a href="../../guide/topics/manifest/uses-configuration-element.html"><code>&lt;uses-configuration&gt;</code></a>元素进行声明。但是，这种情况很少见。
+</dd>
+<!--
   <dt>Input configurations</dt>
   <dd>Many devices provide a different type of user input mechanism, such as a hardware keyboard, a
 trackball, or a five-way navigation pad. If your application requires a particular kind of input
 hardware, then you should declare it in your manifest with the <a
 href="../../guide/topics/manifest/uses-configuration-element.html"><code>&lt;uses-configuration&gt;</code></a> element. However, it is rare that an application should require
 a certain input configuration.</dd>
+-->
 
+<dt>设备特性</dt>
+  <dd>
+在一个Android设备上，有很多硬件和软件特性存在或不存在，如摄像头、光敏器件、蓝牙、特定版本的OpenGL或触屏的精度。你应该通过
+<a href="../../guide/topics/manifest/uses-feature-element.html"><code>&lt;uses-feature&gt;</code></a>元素声明应用所使用的任何特性，因为任何特性
+不会在任何Android设备上都有效。
+</dd>
+
+<!--
   <dt>Device features</dt>
   <dd>There are many hardware and software features that may or may not exist on a given
 Android-powered device, such as a camera, a light sensor, bluetooth, a certain
@@ -1499,7 +1764,17 @@ feature is available on all Android-powered devices (other than the availability
 Android library), so you should declare any features used by your application with the <a
 href="../../guide/topics/manifest/uses-feature-element.html"><code>&lt;uses-feature&gt;</code></a>
 element.</dd>
+-->
 
+  <dt>平台版本</dt>
+  <dd>不同的Android设备通常运行着不同的Android操作系统版本，如Android 1.6或Android 2.3。 每个后续版本通常包含之前版本不可用的API。为了标识
+哪个API集是可用的，每个平台版本指定一个 <a
+href="../../guide/topics/manifest/uses-sdk-element.html#ApiLevels">API Level</a>（如，Android 1.0 是API层次1，Android 2.3则是API层次9）。
+如果你使用任何在1.0版本后增加到平台中的API，那么你应该通过<a href="../../guide/topics/manifest/uses-sdk-element.html"><code>&lt;uses-sdk&gt;</code></a>元素声明最小API级别。
+</dd>
+</dl>
+
+<!--
   <dt>Platform Version</dt>
   <dd>Different Android-powered devices often run different versions of the Android platform,
 such as Android 1.6 or Android 2.3. Each successive version often includes additional APIs not
@@ -1511,7 +1786,18 @@ version 1.0, you should declare the minimum API Level in which those APIs were i
 <a href="../../guide/topics/manifest/uses-sdk-element.html"><code>&lt;uses-sdk&gt;</code></a>
 element.</dd>
 </dl>
+-->
 
+<p>
+声明你的应用的所有这些需求非常重要，因为，当你将应用发布到Google Play中，Google Play将使用这些声明作为应用是否在某台设备可用的依据。
+就此而言，你的应用只会对满足其所有需求的设备可用。
+</p>
+
+<p>
+更多关于Google Play如何基于这些需求来过滤应用的信息，请见<a href="../../guide/google/play/filters.html">Filters on Google Play</a>。
+</p>
+
+<!--
 <p>It's important that you declare all such requirements for your application, because, when you
 distribute your application on Google Play, the store uses these declarations to filter which
 applications are available on each device. As such, your application should be available only to
@@ -1520,24 +1806,37 @@ devices that meet all your application requirements.</p>
 <p>For more information about how Google Play filters applications based on these (and other)
 requirements, see the <a href="../../guide/google/play/filters.html">Filters on Google Play</a>
 document.</p>
+-->
 
+<h2 id="Resources">应用资源</h2>
+<p>
+一个Android应用不仅仅由代码构成，也需要一些和源码无关的资源，如图片，音频文件以及任何与应用可视化展现相关的资源。
+例如，你应该通过XML文件定义动画、菜单、样式、颜色和活动的用户界面布局。通过提供可选资源的集合 —— 可优化你的应用在不同设备下（如不同的屏幕尺寸和语言设置）的表现，并使得更新应用的各种特性变得简单，且不用修改代码。
+</p>
 
-
+<!--
 <h2 id="Resources">Application Resources</h2>
 
 <p>An Android application is composed of more than just code&mdash;it requires resources that are
 separate from the source code, such as images, audio files, and anything relating to the visual
-presentation of the application. For example, you should define animations, menus, styles, colors,
-and the layout of activity 用户界面s with XML files. Using application resources makes it easy
+presentation of the application. 
+
+For example, you should define animations, menus, styles, colors,
+and the layout of activity user interfaces with XML files. Using application resources makes it easy
 to update various characteristics of your application without modifying code and&mdash;by providing
 sets of alternative resources&mdash;enables you to optimize your application for a  variety of
 device configurations (such as different languages and screen sizes).</p>
+-->
 
 <p>For every resource that you include in your Android project, the SDK build tools define a unique
 integer ID, which you can use to reference the resource from your application code or from
 other resources defined in XML. For example, if your application contains an image file named <code>logo.png</code> (saved in the <code>res/drawable/</code> directory), the SDK tools generate a resource ID
 named <code>R.drawable.logo</code>, which you can use to reference the image and insert it in your
-用户界面.</p>
+user interface.</p>
+
+<p>
+对于你的Android项目所包含的每个资源，Android SDK编译工具会定义一个唯一的整数ID。通过这个ID，你可从你的应用代码或其他XML定义的资源中引用改ID定义应的资源。
+</p>
 
 <p>One of the most important aspects of providing resources separate from your source code
 is the ability for you to provide alternative resources for different device
