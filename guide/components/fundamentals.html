@@ -1026,6 +1026,16 @@ SDK</a></li></ul>
     <div id="qv-wrapper">
 <div id="qv">
 
+<h2>快速预览</h2>
+<ul>
+  <li>一个Android应用由一个或多个应用组件（活动、服务、内容提供器和广播接收器）所组成。</li>
+  <li>每个组件在整个应用的行为中扮演着不同的角色，每个组件都可被单独地激活（甚至被其他应用激活）。</li>
+  <li>资源清单文件（manifest）应该声明应用中的所有组件及应用需求（如所需Android系统的最低版本和任何需要的硬件配置）。</li>
+  <li>应用的非代码资源（图片、字符串、布局文件等）应该为不同配置的设备准备一个可切换的备份（如为不同语言设置的设备准备不同的字符串，为不同屏幕尺寸
+的设备准备不同的布局）。</li>
+</ul>
+
+<!--
 <h2>Quickview</h2>
 <ul>
   <li>Android applications are composed of one or more application components (activities,
@@ -1039,8 +1049,27 @@ configurations required</li>
 alternatives for different device configurations (such as different strings for different
 languages and different layouts for different screen sizes)</li>
 </ul>
+-->
 
+<h2>本文档包括</h2>
+<ol>
+<li><a href="#Components">应用的组件</a>
+  <ol>
+    <li><a href="#ActivatingComponents">激活组件</a></li>
+  </ol>
+</li>
+<li><a href="#Manifest">清单文件（manifest）</a>
+  <ol>
+    <li><a href="#DeclaringComponents">声明组件</a></li>
+    <li><a href="#DeclaringRequirements">声明应用需求</a></li>
+  </ol>
+</li>
+<li><a href="#Resources">应用资源</a></li>
+</ol>
+</div>
+</div>
 
+<!--
 <h2>In this document</h2>
 <ol>
 <li><a href="#Components">Application Components</a>
@@ -1058,12 +1087,18 @@ languages and different layouts for different screen sizes)</li>
 </ol>
 </div>
 </div>
+-->
 
+<!--
 <p>Android applications are written in the Java programming language. The Android SDK tools compile
 the code&mdash;along with any data and resource files&mdash;into an <i>Android package</i>, an
 archive file with an <code>.apk</code> suffix. All the code in a single <code>.apk</code> file is considered
 to be one application and is the file that Android-powered devices use to install the
 application.</p>
+-->
+
+<p>Android应用以Java作为开发语言。Android SDK工具会把代码及附带的所有数据及资源文件编译进一个<i>Android 包</i>中，这个包是一个
+以 <code>.apk</code>为扩展名的压缩文件。<code>.apk</code>文件是Android设备用来安装应用的文件，其内的所有代码都是属于同一个应用。</p>
 
 <!--
 <p>Once installed on a device, each Android application lives in its own security sandbox: </p>
@@ -1089,7 +1124,7 @@ application so that only the user ID assigned to that application can access the
 <li>Each process has its own virtual machine (VM), so an application's code runs in isolation from
 other applications.</li>-->
 
-<li>默认，每一个程序在它的Linux进程中运行。当程序的任意组件需要执行Android会启动进程，然后关闭这个进程，当它不再被需要或当系统必须
+<li>默认地，每一个程序在它的Linux进程中运行。当程序的任意组件需要执行Android会启动进程，然后关闭这个进程，当它不再被需要或当系统必须
   恢复内存用于其他应用。</li>
 </ul>
 
@@ -1107,7 +1142,7 @@ no more. This creates a very secure environment in which an application cannot a
 the system for which it is not given permission.</p>
 -->
 <p>在这种情况下，Android系统应用的是最小权限原则。即，每个应用默认只能访问保证其能正常运行所必需的组件。这个原则保证应用不能去访问它未
-得到授权的Android系统组件。</p>
+得到授权的其他系统组件，提供了一个安全的系统环境。</p>
 
 <!--
 <p>However, there are ways for an application to share data with other applications and for an
@@ -1117,7 +1152,7 @@ application to access system services:</p>
 <p>尽管如此，还是有一些方法可以让应用与其他应用共享数据，或访问系统服务:</p>
 
 <ul>
-  <li>可以安排两个应用共享相同的Linux userID，这样，他们可以互相访问各自的文件。为了保护系统资源，使用相同
+  <li>可以安排两个应用共享相同的Linux user ID，这样，他们可以互相访问各自的文件。为了保护系统资源，使用相同
     User ID的应用同样可以运行在相同的Linux进程中，并且共享相同的VM(应用必须使用相同的证书进行签名)。</li> 
   <li>应用可以请求权限以访问设备数据，如用户的通讯录、SMS信息、可挂载的存储(SD卡)，相机，蓝牙等。应用的所有权限必须
   在安装的时候就由用户授权。 
@@ -1145,8 +1180,8 @@ this document introduces you to:</p>
 -->
 <ul>
     <li>用以定义Andorid应用的核心框架组件。</li>
-    <li>用以申明应用的组件及所需设备特征的资源配置文件（manifest）。</li>
-    <li>用以使应用可更加优雅地适配各种不同设备配置的资源文件，这些资源与应用的代码是隔离的。</li>
+    <li>用以声明应用的组件及所需设备特征的资源清单文件（manifest）。</li>
+    <li>用以使应用可更加优雅地适配各种不同配置设备的资源文件，这些资源与应用的代码是隔离的。</li>
 </ul>
 <!--
 <ul>
@@ -1157,17 +1192,22 @@ application.</li>
 gracefully optimize its behavior for a variety of device configurations.</li>
 </ul>
 -->
+<!--
+<p class="note"><strong>提示：</strong>如果你是Android开发的新手，我们建议你按照网页底部的Beginner's Path链接的内容来学习。
 
-
+</p>
+-->
+<!--
 <p class="note"><strong>Tip:</strong> If you're new to Android development, we suggest that you
 follow the Beginner's Path link at the bottom of this page. For each document in the Application
 Fundamentals, the Beginner's Path points you to the document we suggest you read next, in order
 to get up to speed on the core Android concepts.</p>
+-->
+
 
 <h2 id="Components">应用组件</h2>
 <p>
-应用组件是一个Andriod应用不可或缺的基础。每个组件都是一个系统可进入你的应用的入口点。虽然并非所有的组件都是一个
-用户进入应用的实际入口点，但每个组件都有着特定的作用，都是一个唯一的基础元件，帮助定义应用的整个行为。
+应用组件是一个Andriod应用不可或缺的基础。每个组件是一个不同的入点，系统可以从这些点进入到你的应用。对于用户来说，并不是每个组件都是实际的入点，但它们之间有一些依赖。每个组件都有着特定的作用，都是一个唯一的基础元件，帮助定义应用的整体行为。
 </p>
 <p>
 总共有四种不同的应用组件。每种都有其特定的功能及特定的生命周期（创建及销毁的时机）。
@@ -1196,7 +1236,7 @@ and has a distinct lifecycle that defines how the component is created and destr
 
 <dt><b>活动（Activities）</b></dt>
 
-<dd>一个 <i>活动</i> 代表用户界面的一屏。 例如，一个邮件应用可能包含：一个活动/动作用以显示新邮件列表，一个活动/动作用以写新邮件，另外一个活动用以
+<dd>一个 <i>活动</i> 代表用户界面的一屏。 例如，一个邮件应用可能包含：一个活动用以显示新邮件列表，一个活动用以写新邮件，另外一个活动用以
 读取邮件。尽量应用中的这些所有活动一起运行，为用户提供了一个紧凑、完整的用户体验，但活动相互之间是独立的。就此而言，任意其他的应用只要得到该邮件应用
 的授权就可以启动这些活动中的任意一个。例如：一个相机应用可以启动邮件应用中的发新邮件活动，以便用户通过邮件分享照片。
 
@@ -1245,16 +1285,16 @@ guide.</p>
 -->
 
 
-<dt><b>内容提供程序</b></dt>
+<dt><b>内容提供器</b></dt>
 
-<dd><i>内容提供程序</i> 用以管理应用数据的一个共享集合。 你可将数据存储于文件系统，SQLite数据库，web上或其他应用可访问的持久化存储上。通过内容提供
-程序，其他应用可以查询甚至修改数据（如果内容提供程序允许）。例如，Android系统提供一个内容提供程序用以管理用户的联系人信息。这样的话，任何有合适权限的应用
-都可查询内容提供程序的一部分(如 <code><a href="../../reference/android/provider/ContactsContract.Data.html">ContactsContract.Data</a></code>) 以读取、写入关于特定联系人的信息。
+<dd><i>内容提供器</i> 用以管理应用数据的一个共享集合。 你可将数据存储于文件系统，SQLite数据库，web上或其他应用可访问的持久化存储上。通过内容提供
+程序，其他应用可以查询甚至修改数据（如果内容提供器允许）。例如，Android系统提供一个内容提供器用以管理用户的联系人信息。这样的话，任何有合适权限的应用
+都可查询内容提供器的一部分(如 <code><a href="../../reference/android/provider/ContactsContract.Data.html">ContactsContract.Data</a></code>) 以读取、写入关于特定联系人的信息。
 
-<p>内容提供程序同样可用于读取、写入一些应用私有的、非共享的数据。 例如， <a
-href="../../resources/samples/NotePad/index.html">记事本</a> 使用内容提供程序来保存笔记信息。</p>
+<p>内容提供器同样可用于读取、写入一些应用私有的、非共享的数据。 例如， <a
+href="../../resources/samples/NotePad/index.html">记事本</a> 使用内容提供器来保存笔记信息。</p>
 
-<p>内容提供程序是 <code><a href="../../reference/android/content/ContentProvider.html">ContentProvider</a></code>的子类实现，
+<p>内容提供器是 <code><a href="../../reference/android/content/ContentProvider.html">ContentProvider</a></code>的子类实现，
 而且必须实现一套标准API集合以使其他应用可与其交互。更多信息，请查看
  <a href="../../guide/topics/providers/content-providers.html">内容提供器</a> 开发帮助文档。</p>
 </dd>
@@ -1285,7 +1325,7 @@ guide.</p>
 
 <dt><b>广播接收器（Broadcast receivers）</b></dt>
 
-<dd>A <i>广播接收器</i> 是一个用于响应系统范围广播通知的组件。许多广播信息都源自于系统 —— 例如，广播告知屏幕关闭了，电池量低或一张图片被捕获到。 
+<dd><i>广播接收器</i> 是一个用于响应系统范围广播通知的组件。许多广播信息都源自于系统 —— 例如，广播告知屏幕关闭了，电池量低或一张图片被捕获到。 
 应用也可以发起一个广播 —— 例如，通知其他应用一些数据已下载到设备中了，可供它们使用。尽管广播接收器并不会显示一个用户界面，但它可在广播事件发生时
 <a href="../../guide/topics/ui/notifiers/notifications.html">创建一个通知状态条</a>
 来提醒用户。在更多的情况下，广播接收器仅仅是一个其他组件的“网关”，并只被用以做很少的一些工作。例如，它可能用以触发一个基于其通知事件的服务。
@@ -1353,7 +1393,7 @@ start a particular component. The system then activates the component for you.</
 -->
 <h3 id="ActivatingComponents">激活组件</h3>
 <p>
-四种组件类型中的三种：活动（activity）、服务（service）和广播接收器（broadcast receiver）都是通过一个称为<em>intent</em>的异步消息来激活的。
+四种组件类型中的三种：活动（activity）、服务（service）和广播接收器（broadcast receiver）都是通过一个称为<em>intent（意图）</em>的异步消息来激活的。
 intent在运行时将组件相互绑定（你可将intent看作一个从其他组件请求一个操作的信使），不管这个组件属于你的应用还是其他应用。
 </p>
 
@@ -1364,8 +1404,8 @@ intent通过一个<code><a href="../../reference/android/content/Intent.html">In
 
 <p>
 对于活动（activiyt）和服务（service）而言，一条intent消息定义了需要执行的操作（如查看或发送某些事务），也可能指定一个需要操作数据的URI（除了组件启动时
-就需要获取的数据之外）。例如，一条intent消息可能为activity传递一个显示一张图片或打开一个web页面的请求。在一些情况下，你可启动一个activity以接受一个结果
-，activity也会以一个<code><a href="../../reference/android/content/Intent.html">Intent</a></code>对象的方式返回结果。例如，你可以发布一条intent消息让用户选择一个联系人，并将其也通过一条intent消息返回给你 —— 返回的intent消息包含指向所选联系人的URI。
+就需要获取的数据之外）。例如，一条intent消息可能为活动（activity）传递一个显示一张图片或打开一个web页面的请求。在一些情况下，你可启动一个活动（activity）以接受一个结果
+，活动（activity）也会以一个<code><a href="../../reference/android/content/Intent.html">Intent</a></code>对象的方式返回结果。例如，你可以发布一条intent消息让用户选择一个联系人，并将其也通过一条intent消息返回给你 —— 返回的intent消息包含指向所选联系人的URI。
 </p>
 
 <p>
@@ -1417,7 +1457,7 @@ provider and the component requesting information (for security).</p>
 </p>
 <ul>
   <li>可通过传输一条 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息给 <code><a href="../../reference/android/content/Context.html#startActivity(android.content.Intent)">startActivity()</a></code> 或通过 <code><a href="../../reference/android/app/Activity.html#startActivityForResult(android.content.Intent, int)">startActivityForResult()</a></code>
-(当你希望activity返回一个结果) 来启动一个activity或希望它做一下其他事情。</li>
+(当你希望activity返回一个结果) 来启动一个活动（activity）或希望它做一下其他事情。</li>
   <li>可通过传输一条 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息给 <code><a href="../../reference/android/content/Context.html#startService(android.content.Intent)">startService()</a></code>来启动一个service（或给运行中的service指定一些新的操作命令）。也可通过传输一条 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息给
 <code><a href="../../reference/android/content/Context.html#bindService(android.content.Intent, android.content.ServiceConnection, int)">bindService()</a></code>来绑定一个service。</li>
   <li>可通过传输一条 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息给诸如
@@ -1457,13 +1497,13 @@ href="../../guide/components/activities.html">Activities</a>, <a
 href="../../guide/components/services.html">Services</a>, <code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code> 和 <a
 href="../../guide/topics/providers/content-providers.html">Content Providers</a>。</p>
 
-<h2 id="Manifest">资源配置文件</h2>
+<h2 id="Manifest">资源清单文件</h2>
 <p>
 在Android系统启动一个应用组件前，系统需要通过读取应用的<code>AndroidManifest.xml</code>文件来了解改应用所包含的组件。
-应用必须在这个文件中申明其所有的组件，而且文件也必须位于应用工程目录的根目录下。
+应用必须在这个文件中声明其所有的组件，而且文件也必须位于应用工程目录的根目录下。
 </p>
 <p>
-除了申明应用的所有组件外，manifest文件还会做以下一些事情：
+除了声明应用的所有组件外，manifest文件还会做以下一些事情：
 </p>
 <ul>
   <li>说明应用所需的所有用户权限，如网络访问权限或读取用户联系人信息的权限。</li>
@@ -1499,9 +1539,9 @@ library</a>.</li>
 </ul>
 -->
 
-<h3 id="DeclaringComponents">申明组件</h3>
+<h3 id="DeclaringComponents">声明组件</h3>
 <p>
-manifest文件的主要任务是告知系统应用的所有组件。例如，一个manifest文件可以按如下形式申明一个activity：
+manifest文件的主要任务是告知系统应用的所有组件。例如，一个manifest文件可以按如下形式声明一个活动（activity）：
 </p>
 
 <!--
@@ -1530,7 +1570,7 @@ href="../../guide/topics/manifest/application-element.html">&lt;application&gt;<
 href="../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></code> 元素中，
 <code>android:name</code> 属性指定 <code><a href="../../reference/android/app/Activity.html">Activity</a></code> 子类的权限定类名， <code>android:label</code> 属性指定一个用以作为用户可见的activity标签的字符串。</p>
 
-<p>你必须以下面的方式申明所有的应用组件：</p>
+<p>你必须以下面的方式声明所有的应用组件：</p>
 <ul>
   <li><code><a
 href="../../guide/topics/manifest/activity-element.html">&lt;activity&gt;</a></code> 活动的详情</li>
@@ -1573,7 +1613,7 @@ for content providers</li>
 -->
 
 <p>
-如果你的源码中包含的活动、服务和内容提供器未在manifest中申明，那么它们对系统是不可见的，所以也永远不会执行。但是，广播接收器既可以在manifest文件中定义，
+如果你的源码中包含的活动、服务和内容提供器未在manifest中声明，那么它们对系统是不可见的，所以也永远不会执行。但是，广播接收器既可以在manifest文件中定义，
 也可以在代码中动态创建（如<code><a href="../../reference/android/content/BroadcastReceiver.html">BroadcastReceiver</a></code>对象）并调用
 <code><a href="../../reference/android/content/Context.html#registerReceiver(android.content.BroadcastReceiver, android.content.IntentFilter)">registerReceiver()</a></code>注册到系统中。
 </p>
@@ -1594,21 +1634,21 @@ href="../../guide/topics/manifest/manifest-intro.html">The AndroidManifest.xml F
 documentation. </p>
 -->
 
-<h3 id="DeclaringComponentCapabilities">申明组件功能</h3>
+<h3 id="DeclaringComponentCapabilities">声明组件功能</h3>
 
 <p>如上所述，<a href="#ActivatingComponents">Activating Components</a>, 你可使用一条
 <code><a href="../../reference/android/content/Intent.html">Intent</a></code> 消息来启动活动、服务和广播接收器，通过在intent消息中显式指定目标组件的方式（使用组件类名）。但是，intent消息更大的作用在于其action的概念。通过intent消息的action，你只需简单地描述你希望执行的操作类型（你也可加上你所希望操作的数据）并允许系统依此在设备中查找得到一个可以执行改action的组件并启动它。如果有多个组件可执行该action，用户可从中选择一个执行。
 </p>
 
 <p>
-系统判别组件是否可以影响一个intent消息的方法在于：将接收到的intent消息和manifest文件中申明的<i>intent filters</i>进行比较。 </p>
+系统判别组件是否可以影响一个intent消息的方法在于：将接收到的intent消息和manifest文件中声明的<i>intent filters</i>进行比较。 </p>
 
 <p>
-当你在应用的manifest文件中申明一个组件时，可将intent过滤器（intent filters）—— 用以申明改组件的功能包括在内，如此，便可对其他应用发送的intent消息进行响应。你可通过添加一个组件申明元素的子元素<a href="../../guide/topics/manifest/intent-filter-element.html"><code>&lt;intent-filter&gt;</code></a>
-来申明一个intent消息过滤器。
+当你在应用的manifest文件中声明一个组件时，可将intent过滤器（intent filters）—— 用以声明改组件的功能包括在内，如此，便可对其他应用发送的intent消息进行响应。你可通过添加一个组件声明元素的子元素<a href="../../guide/topics/manifest/intent-filter-element.html"><code>&lt;intent-filter&gt;</code></a>
+来声明一个intent消息过滤器。
 </p>
 
-<p>例如，一个邮件应用中，创建新邮件的活动可能在应用的manifest文件中申明intent过滤器以响应发送intent消息（为了发送邮件）。
+<p>例如，一个邮件应用中，创建新邮件的活动可能在应用的manifest文件中声明intent过滤器以响应发送intent消息（为了发送邮件）。
 这样，应用的其他活动可创建一个包含“发送”操作的intent消息，(<code><a href="../../reference/android/content/Intent.html#ACTION_SEND">ACTION_SEND</a></code>), 当你通过<code><a href="../../reference/android/app/Activity.html#startActivity(android.content.Intent)">startActivity()</a></code>调用这个intent时，系统会匹配到邮件应用的“发送”活动并启动它。</p>
 
 <p>更多关于intent过滤器的内容，请见 <a
@@ -1827,17 +1867,20 @@ to update various characteristics of your application without modifying code and
 sets of alternative resources&mdash;enables you to optimize your application for a  variety of
 device configurations (such as different languages and screen sizes).</p>
 -->
-
+<!--
 <p>For every resource that you include in your Android project, the SDK build tools define a unique
 integer ID, which you can use to reference the resource from your application code or from
 other resources defined in XML. For example, if your application contains an image file named <code>logo.png</code> (saved in the <code>res/drawable/</code> directory), the SDK tools generate a resource ID
 named <code>R.drawable.logo</code>, which you can use to reference the image and insert it in your
 user interface.</p>
+-->
 
 <p>
-对于你的Android项目所包含的每个资源，Android SDK编译工具会定义一个唯一的整数ID。通过这个ID，你可从你的应用代码或其他XML定义的资源中引用改ID定义应的资源。
+对于Android项目所包含的每个资源，Android SDK编译工具会定义一个唯一的整数ID。通过这个ID，你可从你的应用代码或其他XML定义的资源中引用改ID定义应的资源。
+例如，如果你的应用中包含一个名为<code>logo.png</code>的图片（存放在<code>res/drawable/</code>目录），SDK工具将会生成一个名为<code>R.drawable.logo</code>的资源ID，通过该ID你可以引用改图片并应用在你的用户界面中。
 </p>
 
+<!--
 <p>One of the most important aspects of providing resources separate from your source code
 is the ability for you to provide alternative resources for different device
 configurations. For example, by defining UI strings in XML, you can translate the strings into other
@@ -1845,21 +1888,47 @@ languages and save those strings in separate files. Then, based on a language <e
 that you append to the resource directory's name (such as <code>res/values-fr/</code> for French string
 values) and the user's language setting, the Android system applies the appropriate language strings
 to your UI.</p>
+-->
 
+<p>
+将应用资源与源码隔离的最关键的原因在于，你可以因此为不同的设备配置提供可切换的资源文件。例如，通过在XML中定义UI字符串，你可将这些字符串翻译为其他的语言并
+保存在不同的文件中。然后，基于资源目录的语言<em>限定名</em>（如法语为<code>res/values-fr/</code>）和用户的语言设置，Android系统会为UI应用合适语言的资源。
+</p>
+
+<!--
 <p>Android supports many different <em>qualifiers</em> for your alternative resources. The
 qualifier is a short string that you include in the name of your resource directories in order to
 define the device configuration for which those resources should be used. As another
 example, you should often create different layouts for your activities, depending on the
-device's screen orientation and size. For example, when the device screen is in portrait
+device's screen orientation and size. 
+
+For example, when the device screen is in portrait
 orientation (tall), you might want a layout with buttons to be vertical, but when the screen is in
-landscape orientation (wide), the buttons should be aligned horizontally. To change the layout
+landscape orientation (wide), the buttons should be aligned horizontally. 
+
+To change the layout
 depending on the orientation, you can define two different layouts and apply the appropriate
 qualifier to each layout's directory name. Then, the system automatically applies the appropriate
 layout depending on the current device orientation.</p>
+-->
 
+<p>
+Android系统支持多种<em>限定名</em>的可切花资源。限定名是一个资源目录名称中短的字符串，用以定义哪些资源应该应用在该配置的设备上。
+再比如，你应该基于设备屏幕的方向和尺寸，为你的应用activity创建不同的布局。如果设备屏幕是竖着的，你通常希望布局中的按钮都是垂直对齐的；但如果设备
+屏幕是横向的，布局中的按钮应该是水平对齐的。为了适应屏幕的不同朝向，你可以定义两套不同的布局，并在布局目录名中加上相应的限定名。这样，系统会根据当前
+设备的朝向自动选择合适的布局。
+</p>
+
+<!--
 <p>For more about the different kinds of resources you can include in your application and how
 to create alternative resources for various device configurations, see the <a
 href="../../guide/topics/resources/index.html">Application Resources</a> developer guide.</p>
+-->
+
+<p>
+更多关于应用所能包含的各种资源及如何为各种配置的设备创建可切换资源的信息，请见<a
+href="../../guide/topics/resources/index.html">Application Resources</a> 开发者指导。
+</p>
 
 
 <!--
