@@ -1096,7 +1096,7 @@ SDK</a></li></ul>
     <div class="jd-descr" itemprop="articleBody">
     <div id="qv-wrapper">
 <div id="qv">
-
+<!--
   <h2>Quickview</h2>
   <ul>
     <li>Android provides a location framework that your application can use to determine the
@@ -1115,13 +1115,35 @@ device's location and bearing and register for updates</li>
 href="http://code.google.com/android/add-ons/google-apis/maps-overview.html">Google
 Maps External Library &raquo;</a></li>
   </ol>
-</div>
-</div>
+  
+--!>
 
+  <h2>纵览</h2>
+  <ul>
+    <li>安卓系统提供了定位服务框架，你的应用程序可以利用它获得设备的方位并注册更新。</li>
+    <li>谷歌地图扩展库可以显示和管理地图数据。</li>
+  </ul>
+
+  <h2>主题</h2>
+  <ol>
+    <li><a href="../../../guide/topics/location/strategies.html">定位策略</a></li>
+  </ol>
+  
+  <h2>参阅</h2>
+  <ol>
+    <li><a
+href="http://code.google.com/android/add-ons/google-apis/maps-overview.html">谷歌地图扩展库 &raquo;</a></li>
+  </ol>
+</div>
+</div>
+<!--
 <p>Location and maps-based applications are compelling for mobile device users. You
 can build these capabilities into your applications using the classes of the <code><a href="../../../reference/android/location/package-summary.html">android.location</a></code> package and the Google Maps external library. The sections below provide details.
 </p>
-
+--!>
+<p>基于位置和地图的应用对移动设备用户而言是不可或缺的。凭借<code><a href="../../../reference/android/location/package-summary.html">android.location</a></code>包和谷歌地图扩展库中的类，你的应用就可以获得这样的能力。细节如下所示。
+</p>
+<!--
 <h2 id="location">Location Services</h2>
 
 <p>Android gives your applications access to the location services supported by
@@ -1148,8 +1170,27 @@ comes within a given proximity (specified by radius in meters) of a given lat/lo
 
 <p>For more information, read the guide to <a
 href="../../../guide/topics/location/strategies.html">Location Strategies</a>.</p>
+--!>
 
+<h2 id="location">定位服务</h2>
 
+<p>通过<code>android.location</code>包中的类，安卓使你的程序获得设备所支持的定位服务。定位服务框架的核心组件是系统服务
+<code><a href="../../../reference/android/location/LocationManager.html">位置管理器</a></code>，它提供的API可以获得底层设备的方位（如果可以获得）。</p>
+
+<p>正如其他系统服务一样，你并不直接实例化<code><a href="../../../reference/android/location/LocationManager.html">位置管理器</a></code>，
+而是调用<code><a href="../../../reference/android/content/Context.html#getSystemService(java.lang.String)">getSystemService(Context.LOCATION_SERVICE)</a></code>
+从系统获得实例。此方法返回一个新的<code><a href="../../../reference/android/location/LocationManager.html">位置管理器</a></code>实例的句柄。
+<p>当你的应用获得了<code><a href="../../../reference/android/location/LocationManager.html">位置管理器</a></code>之后，可以做三件事：</p>
+
+<ul>
+    <li>查询所有<code><a href="../../../reference/android/location/LocationProvider.html">位置提供者</a></code>类表获取用户最后已知位置。</li>
+    <li>从某个位置提供者处（根据名称或条件）注册／注销用户当前位置的定期更新。</li>
+    <li>如果设备处于给定经纬度的给定范围之内（由半径决定，以米为单位），注册／注销触发给定的<code><a href="../../../reference/android/content/Intent.html">Intent</a></code>。
+</ul>
+
+<p>请参阅<a href="../../../guide/topics/location/strategies.html">定位策略</a>以获得更多信息</p>
+
+<!--
 <h2 id="maps">Google Maps External Library</h2>
 
 <p>To make it easier for you to add powerful mapping capabilities to your
@@ -1161,6 +1202,49 @@ well as a variety of display options and controls. </p>
 <p>The key class in the Maps package is
 <code>com.google.android.maps.MapView</code>, a subclass of 
 <code><a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a></code>. A MapView displays a map with data obtained
+from the Google Maps service. When the MapView has focus, it will capture
+keypresses and touch gestures to pan and zoom the map automatically, including
+handling network requests for additional maps tiles. It also provides all of the
+UI elements necessary for users to control the map. Your application can also
+use MapView class methods to control the MapView programmatically and draw a
+number of Overlay types on top of the map. </p>
+
+<p>In general, the MapView class provides a wrapper around the Google Maps API
+that lets your application manipulate Google Maps data through class methods,
+and it lets you work with Maps data as you would other types of Views.</p>
+
+<p>The Maps external library is not part of the standard Android library, so it
+may not be present on some compliant Android-powered devices. Similarly, the
+Maps external library is not included in the standard Android library provided
+in the SDK. So that you can develop using the classes of the
+com.google.android.maps package, the Maps external library is made available to
+you as part of the Google APIs add-on for the Android SDK. </p>
+
+<p>To learn more about the Maps external library and how to download and use the
+Google APIs add-on, visit</p>
+
+<p style="margin-left:2em;"><a
+href="http://code.google.com/android/add-ons/google-apis">http://code.google.com/android/add-ons/google-apis</a></p>
+
+<p>For your convenience, the Google APIs add-on is also available as a downloadable component from
+the Android SDK Manager (see <a href="../../../sdk/exploring.html">Exploring the
+SDK</a>).</p>
+
+<p class="note"><strong>Note:</strong> In order to display Google Maps data in a
+MapView, you must register with the Google Maps service and obtain a Maps API
+Key. For information about how to get a Maps API Key, see <a
+href="http://code.google.com/android/add-ons/google-apis/mapkey.html">Obtaining
+a Maps API Key</a>.</p>
+--!>
+
+<h2 id="maps">谷歌地图扩展库</h2>
+
+<p>为了使你的程序更加轻松地获得强大的地图功能，谷歌提供了地图扩展库，包括了 com.google.android.maps 包.
+com.google.android.maps 包的类内置提供了地图块文件的下载、渲染、缓存并且为显示提供多种选项与控制。</p>
+
+<p>地图包的关键类是<code>com.google.android.maps.MapView</code>，它是
+<code><a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a></code>的子类。
+A MapView displays a map with data obtained
 from the Google Maps service. When the MapView has focus, it will capture
 keypresses and touch gestures to pan and zoom the map automatically, including
 handling network requests for additional maps tiles. It also provides all of the
