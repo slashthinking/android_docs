@@ -1084,7 +1084,8 @@ SDK</a></li></ul>
 
   
     
-      <h1 itemprop="name">Location Strategies</h1>
+<!--       <h1 itemprop="name">Location Strategies</h1> -->
+      <h1 itemprop="name">定位策略</h1>
     
   
 
@@ -1096,41 +1097,33 @@ SDK</a></li></ul>
     <div class="jd-descr" itemprop="articleBody">
     <div id="qv-wrapper">
 <div id="qv">
-<!--
-  <h2>Quickview</h2>
+
+<h2>快速预览</h2>
   <ul>
-    <li>The Network Location Provider provides good location data without using GPS</li>
-    <li>Obtaining user location can consume a lot of battery, so be careful how
-long you listen for updates</li>
+    <li>不使用GPS时，可通过网络定位服务来提供较好的定位数据</li>
+    <li>获取用户位置很费电，所以千万注意获取用户位置的耗时</li>
   </ul>
---!>
-  <h2>纵览</h2>
-  <ul>
-    <li>The Network Location Provider在不依赖GPS的条件下，提供了精确位置数据。</li>
-    <li>获得用户位置信息很费电，所以要特别关注监听位置更新的持续时间。</li>
-  </ul>
-  
-  <h2>这篇文档讨论了</h2>
+  <h2>本文档包含以下内容</h2>
   <ol>
-    <li><a href="#Challenges">确定用户位置的难点</a></li>
-    <li><a href="#Updates">请求位置更新</a>
+    <li><a href="#Challenges">获取用户位置信息所存在的挑战</a></li>
+    <li><a href="#Updates">位置更新请求</a>
       <ol>
-        <li><a href="#Permission">Requesting User 权限体系</a></li>
+        <li><a href="#Permission">用户权限请求</a></li>
       </ol>
     </li>
-    <li><a href="#BestPerformance">确定最佳性能的模型</a>
+	<li><a href="#BestPerformance">定义最佳性能模型</a>
       <ol>
-        <li><a href="#Flow">Flow for obtaining user location</a></li>
-        <li><a href="#StartListening">Deciding when to start listening for updates</a></li>
+        <li><a href="#Flow">获取用户位置的流程</a></li>
+        <li><a href="#StartListening">确定何时开始监听用户位置更新</a></li>
         <li><a href="#FastFix">Getting a fast fix with the last known location</a></li>
-        <li><a href="#StopListening">Deciding when to stop listening for updates</a></li>
-        <li><a href="#BestEstimate">Maintaining a current best estimate</a></li>
-        <li><a href="#Adjusting">Adjusting the model to save battery and data exchange</a></li>
+        <li><a href="#StopListening">确定何时结束监听用户位置更新</a></li>
+        <li><a href="#BestEstimate">维持一个当前最佳的估计</a></li>
+        <li><a href="#Adjusting">调整模型以节省电量和减少</a></li>
       </ol>
     </li>
-    <li><a href="#MockData">Providing Mock Location Data</a></li>
+    <li><a href="#MockData">提供模拟定位数据</a></li>
   </ol>
-  <h2>Key classes</h2>
+  <h2>主要的类</h2>
   <ol>
     <li><code><a href="../../../reference/android/location/LocationManager.html">LocationManager</a></code></li>
     <li><code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code></li>
@@ -1148,23 +1141,34 @@ works indoors and outdoors, responds faster, and uses less battery power. To obt
 location in your application, you can use both GPS and the Network Location Provider, or just
 one.</p>
 
-
+<h2 id="Challenges">获取用户位置信息所存在的挑战</h2>
+<!--
 <h2 id="Challenges">Challenges in Determining User Location</h2>
+-->
 
+<p>从一个移动设备获取用户位置信息比较复杂。读取位置（不管从什么源头）可能包含错误或不精确信息。用户位置源头错误包括：</p>
+<!--
 <p>Obtaining user location from a mobile device can be complicated. There are several reasons
 why a location reading (regardless of the source) can contain errors and be inaccurate.
 Some sources of error in the user location include:</p>
+-->
 
 <ul>
-  <li><b>Multitude of location sources</b>
+  <li><b>多个位置源</b>
+<!-- <b>Multitude of location sources</b> -->
     <p>GPS, Cell-ID, and Wi-Fi can each provide a clue to users location. Determining which to use
 and trust is a matter of trade-offs in accuracy, speed, and battery-efficiency.</p>
   </li>
-  <li><b>User movement</b>
-    <p>Because the user location changes, you must account for movement by re-estimating user
+  <li><b>用户移动位置</b>
+<!-- <b>User movement</b> -->
+    <p>由于用户位置的改变，你为此需要频繁重新估算用户的位置。</p>
+<!--
+<p>Because the user location changes, you must account for movement by re-estimating user
 location every so often.</p>
+-->
   </li>
-  <li><b>Varying accuracy</b>
+  <li><b>多种精度的抉择</b>
+<!-- <b>Varying accuracy</b> -->
     <p>Location estimates coming from each location source are not consistent in their
 accuracy. A location obtained 10 seconds ago from one source might be more accurate than the newest
 location from another or same source.</p>
@@ -1176,8 +1180,10 @@ document provides information to help you meet these challenges to obtain a reli
 reading. It also provides ideas that you can use in your
 application to provide the user with an accurate and responsive geo-location experience.</p>
 
-
+<!--
 <h2 id="Updates">Requesting Location Updates</h2>
+-->
+<h2 id="Updates">请求位置更新信息</h2>
 
   <p>Before addressing some of the location errors described above, here is an introduction to
 how you can obtain user location on Android.</p>
@@ -1228,8 +1234,10 @@ substitute <code>GPS_PROVIDER</code> for <code>NETWORK_PROVIDER</code>. You can 
 location updates from both the GPS and the Network Location Provider by calling <code><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.app.PendingIntent)">requestLocationUpdates()</a></code> twice&mdash;once
 for <code>NETWORK_PROVIDER</code> and once for <code>GPS_PROVIDER</code>.</p>
 
-
-<h3 id="Permission">Requesting User 权限体系</h3>
+<!--
+<h3 id="Permission">Requesting User Permission</h3>
+-->
+<h3 id="Permission">请求用户权限</h3>
 
 <p>In order to receive location updates from <code>NETWORK_PROVIDER</code> or
 <code>GPS_PROVIDER</code>, you must request user permission by declaring either the <code>ACCESS_COARSE_LOCATION</code> or <code>ACCESS_FINE_LOCATION</code> permission, respectively, in your Android
@@ -1250,7 +1258,8 @@ location updates.</p>
 permission, because it includes permission for both providers. (Permission for <code>ACCESS_COARSE_LOCATION</code> includes permission only for <code>NETWORK_PROVIDER</code>.)</p>
 
 
-<h2 id="BestPerformance">Defining a Model for the Best Performance</h2>
+<!-- <h2 id="BestPerformance">Defining a Model for the Best Performance</h2> -->
+<h2 id="BestPerformance">定义一个最佳性能的模型</h2>
 
   <p>Location-based applications are now commonplace, but due to the less than optimal
 accuracy, user movement, the multitude of methods to obtain the location, and the desire to conserve
@@ -1259,11 +1268,26 @@ location while preserving battery power, you must define a consistent model that
 application obtains the user location. This model includes when you start and stop listening for
 updates and when to use cached location data.</p>
 
-
+<!--
   <h3 id="Flow">Flow for obtaining user location</h3>
+-->
+  <h3 id="Flow">获取用户位置的流程</h3>
 
+<!--
   <p>Here's the typical flow of procedures for obtaining the user location:</p>
+-->
 
+<p>下面是一个获取用户位置的典型工作流程：</p>
+<!--
+  <ol>
+    <li>启动应用。</li>
+    <li>Sometime later, start listening for updates from desired location providers.</li>
+    <li>Maintain a "current best estimate" of location by filtering out new, but less accurate
+fixes.</li>
+    <li>Stop listening for location updates.</li>
+    <li>Take advantage of the last best location estimate.</li>
+  </ol>
+-->
   <ol>
     <li>Start application.</li>
     <li>Sometime later, start listening for updates from desired location providers.</li>
@@ -1272,6 +1296,7 @@ fixes.</li>
     <li>Stop listening for location updates.</li>
     <li>Take advantage of the last best location estimate.</li>
   </ol>
+
 
   <p>Figure 1 demonstrates this model in a timeline that visualizes the period in which an
 application is listening for location updates and the events that occur during that time.</p>
@@ -1283,8 +1308,10 @@ application listens for location updates.</p>
   <p>This model of a window&mdash;during which location updates are received&mdash;frames many of
 the decisions you need to make when adding location-based services to your application.</p>
 
-
+<!--
   <h3 id="StartListening">Deciding when to start listening for updates</h3>
+-->
+  <h3 id="StartListening">确定何时开始监听更新</h3>
 
   <p>You might want to start listening for location updates as soon as your application starts, or
 only after users activate a certain feature. Be aware that long windows of listening for location
@@ -1314,8 +1341,10 @@ LocationProvider locationProvider = LocationManager.NETWORK_PROVIDER;
 Location lastKnownLocation = locationManager.getLastKnownLocation(locationProvider);
 </pre>
 
-
+<!--
   <h3 id="StopListening">Deciding when to stop listening for updates</h3>
+-->
+<h3 id="StopListening">确定何时停止监听更新</h3>
   
   <p>The logic of deciding when new fixes are no longer necessary might range from very simple to
 very complex depending on your application. A short gap between when the location is acquired and
@@ -1328,8 +1357,10 @@ listening for updates by calling <code><a href="../../../reference/android/locat
 locationManager.removeUpdates(locationListener);
 </pre>
 
-
+<!--
   <h3 id="BestEstimate">Maintaining a current best estimate</h3>
+-->
+<h3 id="BestEstimate">维持一个当前最佳评估</h3>
 
   <p>You might expect that the most recent location fix is the most accurate.
 However, because the accuracy of a location fix varies, the most recent fix is not always the best.
@@ -1405,7 +1436,8 @@ private boolean isSameProvider(String provider1, String provider2) {
 </pre>
 
 
-  <h3 id="Adjusting">Adjusting the model to save battery and data exchange</h3>
+<!--   <h3 id="Adjusting">Adjusting the model to save battery and data exchange</h3> -->
+  <h3 id="Adjusting">调整模型以减少耗电及数据交互</h3>
 
   <p>As you test your application, you might find that your model for providing good location and
 good performance needs some adjustment. Here are some things you might change to find a good
@@ -1480,7 +1512,8 @@ dynamic set of data is updated each time the user location updates.</p>
 
 
 
-<h2 id="MockData">Providing Mock Location Data</h2>
+<!-- <h2 id="MockData">Providing Mock Location Data</h2> -->
+<h2 id="MockData">提供模拟位置数据</h2>
 
 <p>As you develop your application, you'll certainly need to test how well your model for obtaining
 user location works. This is most easily done using a real Android-powered device. If, however, you

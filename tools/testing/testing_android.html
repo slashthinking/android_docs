@@ -1,76 +1,4 @@
-<!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<html>
+<!DOCTYPE html><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -693,15 +621,25 @@ class="en">USB Drivers</span></a>
       </ol>
   </div>
 </div>
-<p>
+<!--  <p>
     The Android testing framework, an integral part of the development environment,
     provides an architecture and powerful tools that help you test every aspect of your application
     at every level from unit to framework.
 </p>
 <p>
     The testing framework has these key features:
+</p>-->
+
+
+<p>
+     Android测试框架是开发环境的一个重要部分。它提供了你从单元测试再到框架测试每个级别的每个方面的架构和工具。
 </p>
-<ul>
+<p>
+	 测试框架有下面关键特性：
+</p>
+
+
+<!-- <ul>
     <li>
         Android test suites are based on JUnit. You can use plain JUnit to test a class that doesn't
         call the Android API, or Android's JUnit extensions to test Android components. If you're
@@ -729,7 +667,33 @@ class="en">USB Drivers</span></a>
         href="../../tools/help/monkey.html">UI/Application Exerciser Monkey</a>,
         a command-line tool for stress-testing UIs by sending pseudo-random events to a device.
     </li>
+</ul> -->
+
+<ul>
+    <li>
+        Android测试套件基于JUnit。你可以使用简单的JUnit来测试一个类而无需调用Android API，或者使用JUnit的Android扩展来测试Android组件。
+        如果你第一次接触Android测试，你可以从通用的test case类开始学习，例如 <code>
+        <a href="../../reference/android/test/AndroidTestCase.html">AndroidTestCase</a></code>
+        然后再使用更加复杂的类。
+    </li>
+    <li>
+       Android的Junit扩展可以提供你特殊组件的测试用例类。这些类提供了一些helper方法来创建mock对象和方法，可以帮助你控制组件的生命周期。
+    </li>
+    <li>
+        测试套件和主程序包一样被包含在测试包中，这样你不需要为了设计和运行测试而去学习一些新的工具和技术。 
+    </li>
+    <li>
+        安装ADT的Eclipse中有用于运行和测试的SDK工具，在其他IDE中也可以通过命令行使用。这些工具在测试中从应用项目中获得信息。
+        并且使用这些信息自动创建用于构建的文件，manifest文件和测试包的目录结构。
+    </li>
+    <li>
+        SDK同时提供了一个使用Python程序进行测试的API 
+  <a href="../../tools/help/monkeyrunner_concepts.html">monkeyrunner</a>，和一个可以发送随机假事件到设备中，用于UI压力测试的命令行工具：<a
+        href="../../tools/help/monkey.html">UI/Application Exerciser Monkey</a>  。 </li>
 </ul>
+
+
+<!--  
 <p>
     This document describes the fundamentals of the Android testing framework, including the
     structure of tests, the APIs that you use to develop tests, and the tools that you use to run
@@ -749,7 +713,28 @@ class="en">USB Drivers</span></a>
 <p>
     Android's build and test tools assume that test projects are organized into a standard
     structure of tests, test case classes, test packages, and test projects.
+</p>-->
+
+<p>
+    本篇文档描述了Android测试框架的基础。其中包括测试的结构、帮助你开发的API、和用于运行测试和查看结果的工具。
+    本篇文档假设你有Android编程基本经验和JUnit测试的方法。</p
+<p>
+    下图概括说明了测试框架：
 </p>
+<div style="width: 70%; margin-left:auto; margin-right:auto;">
+<a href="../../images/testing/test_framework.png">
+    <img src="../../images/testing/test_framework.png"
+        alt="The Android testing framework"/>
+</a>
+</div>
+<h2 id="TestStructure">测试结构</h2>
+<p>Android的运行和测试工具假设测试项目被组织成标准的测试、测试用例类、测试包和测试项目。
+</p>
+
+
+
+<!-- 
+
 <p>
     Android testing is based on JUnit. In general, a JUnit test is a method whose
     statements test a part of the application under test. You organize test methods into classes
@@ -764,6 +749,19 @@ class="en">USB Drivers</span></a>
     use test tools to load the test package and the application under test, and the tools then
     execute an Android-specific test runner.
 </p>
+ -->
+<p> 
+     Android测试基于Junit。通常，一个Junit的测试可以测试应用的一些部分。你可以将多个测试方法加入到一个称为test case(或者测试套件)的类中。
+     在测试中，每个测试都是为了用于独立的模块。每个类是一个相对测试方法的容器，虽然它经常提供帮助方法。
+</p>
+<p> 
+    使用JUnit，你构造一个或者多个测试源文件到一个class文件。同样的，在Android你使用SDK的构建工具来构建一个或者多个测试源文件到class文件
+    在一个Android测试包中。在JUnit中，你使用一个测试运行器来执行测试类。在Android测试中，你使用测试工具来加载测试包和程序，然后使用工具
+    来执行一个Android特有的测试运行器。
+</p>
+
+
+<!-- 
 <h2 id="TestProjects">Test Projects</h2>
 <p>
     Tests, like Android applications, are organized into projects.
@@ -774,10 +772,23 @@ class="en">USB Drivers</span></a>
     and for the command line that create and update test projects for you. The tools create the
     directories you use for source code and resources and the manifest file for the test package.
     The command-line tools also create the Ant build files you need.
+</p> -->
+
+<h2 id="TestProjects">测试工程</h2>
+<p>
+    和Android程序测试一样也被组织成项目。
 </p>
+<p> 
+    一个测试项目是一个目录或者Eclipse项目，你创建源码、manifest文件和其他文件的地方。Android SDK包含工具用作Eclipse使用ADT
+    和使用命令行来创建和更新测试项目。这些工具创建目录，你可以使用它们放置源码和资源和用于测试包的manifest文件。
+   命令行也会创建用于构建的Ant文件。
+</p>
+
+<!--  -->
+
 <p>
     You should always use Android tools to create a test project. Among other benefits,
-    the tools:
+    the tools: 
 </p>
     <ul>
         <li>
