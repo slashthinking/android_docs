@@ -1244,40 +1244,27 @@ com.google.android.maps 包的类内置提供了地图块文件的下载、渲�
 
 <p>地图包的关键类是<code>com.google.android.maps.MapView</code>，它是
 <code><a href="../../../reference/android/view/ViewGroup.html">ViewGroup</a></code>的子类。
-A MapView displays a map with data obtained
-from the Google Maps service. When the MapView has focus, it will capture
-keypresses and touch gestures to pan and zoom the map automatically, including
-handling network requests for additional maps tiles. It also provides all of the
-UI elements necessary for users to control the map. Your application can also
-use MapView class methods to control the MapView programmatically and draw a
-number of Overlay types on top of the map. </p>
+一个MapView回显示一张从谷歌地图服务得到的含数据地图。当MapView聚焦后，它会捕捉按键和触摸手势，自动放缩和平移地图，
+也会处理网络请求以获得额外的地图块。它也提供了所有用户控制地图所必需的UI元素。你的应用程序也可以使用MapView类的方法
+程序化地控制MapView，在地图上绘制一些覆盖类型。</p>
 
-<p>In general, the MapView class provides a wrapper around the Google Maps API
-that lets your application manipulate Google Maps data through class methods,
-and it lets you work with Maps data as you would other types of Views.</p>
+<p>一般地，MapView类提供了谷歌地图API的封装，这使得你的应用可以使用类方法操作谷歌地图数据，并且可以像使用其他Views类型一样地使用地图数据。</p>
 
-<p>The Maps external library is not part of the standard Android library, so it
-may not be present on some compliant Android-powered devices. Similarly, the
-Maps external library is not included in the standard Android library provided
-in the SDK. So that you can develop using the classes of the
-com.google.android.maps package, the Maps external library is made available to
-you as part of the Google APIs add-on for the Android SDK. </p>
+<p>地图扩展库并不是标准安卓库的一部分，所以在一些兼容安卓的设备中不会出现。同样地，在SDK提供的标准安卓库中也不包括地图扩展库。
+所以你可以使用com.google.android.maps中的类开发，而将地图扩展库作为安卓SDK的谷歌API附加组件的一部分。</p>
 
-<p>To learn more about the Maps external library and how to download and use the
-Google APIs add-on, visit</p>
+<p>若需要了解地图扩展库的更多信息或下载和使用谷歌API附加组件的方法，请访问</p>
 
 <p style="margin-left:2em;"><a
 href="http://code.google.com/android/add-ons/google-apis">http://code.google.com/android/add-ons/google-apis</a></p>
 
-<p>For your convenience, the Google APIs add-on is also available as a downloadable component from
-the Android SDK Manager (see <a href="../../../sdk/exploring.html">Exploring the
-SDK</a>).</p>
+<p>方便起见，谷歌API附加组件也可以作为可下载部件从安卓SDK管理器获得（参见 <a href="../../../sdk/exploring.html">Exploring the
+SDK</a>）.</p>
 
-<p class="note"><strong>Note:</strong> In order to display Google Maps data in a
-MapView, you must register with the Google Maps service and obtain a Maps API
-Key. For information about how to get a Maps API Key, see <a
+<p class="note"><strong>注意：</strong>为在MapView中显示谷歌地图数据，你必须注册谷歌地图服务并获得一个地图API的Key。
+参见<a
 href="http://code.google.com/android/add-ons/google-apis/mapkey.html">Obtaining
-a Maps API Key</a>.</p>
+a Maps API Key</a>了解如何获得谷歌地图API的Key。</p>
 
 
     </div>
