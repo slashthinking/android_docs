@@ -613,240 +613,337 @@ class="en">USB Drivers</span></a>
     <div class="jd-descr" itemprop="articleBody">
     <div id="qv-wrapper">
 <div id="qv">
-  <h2>ADB quickview</h2>
+  <h2>ADB <!--quickview-->概览</h2>
   <ul>
-<li>Manage the state of an emulator or device</li>
-<li>Run shell commands on a device</li>
-<li>Manage port forwarding on an emulator or device</li>
-<li>Copy files to/from an emulator or device</li>
+<li><!--Manage the state of an emulator or device-->管理模拟器或者设备的状态</li>
+<li><!--Run shell commands on a device-->设备上运行shell命令</li>
+<li><!--Manage port forwarding on an emulator or device-->管理模拟器或设备上的端口转发</li>
+<li><!--Copy files to/from an emulator or device-->从模拟器/设备中拷入或拷出文件</li>
   </ul>
 
-  <h2>In this document</h2>
+  <h2><!--In this document-->内容包含</h2>
   <ol>
-<li><a href="#issuingcommands">Issuing ADB Commands</a></li>
-<li><a href="#devicestatus">Querying for Emulator/Device Instances</a></li>
-<li><a href="#directingcommands">Directing Commands to a Specific Emulator/Device Instance</a></li>
-<li><a href="#move">Installing an Application</a></li>
-<li><a href="#forwardports">Forwarding Ports</a></li>
-<li><a href="#copyfiles">Copying Files to or from an Emulator/Device Instance</a></li>
-<li><a href="#commandsummary">Listing of adb Commands </a></li>
-<li><a href="#shellcommands">Issuing Shell Commands</a></li>
-<li><a href="#logcat">Enabling Logcat Logging</a></li>
-<li><a href="#stopping">Stopping the adb Server</a></li>
+<li><a href="#issuingcommands"><!--Issuing ADB Commands-->发出ADB命令</a></li>
+<li><a href="#devicestatus"><!--Querying for Emulator/Device Instances-->查询模拟器/设备实例</a></li>
+<li><a href="#directingcommands"><!--Directing Commands to a Specific Emulator/Device Instance-->指派命令到指定的模拟器/设备</a></li>
+<li><a href="#move"><!--Installing an Application-->安装应用</a></li>
+<li><a href="#forwardports"><!--Forwarding Ports-->转发端口</a></li>
+<li><a href="#copyfiles"><!--Copying Files to or from an Emulator/Device Instance-->从模拟器/设备中拷入或拷出文件</a></li>
+<li><a href="#commandsummary"><!--Listing of adb Commands-->adb命令列表</a></li>
+<li><a href="#shellcommands"><!--Issuing Shell Commands-->发出shell命令</a></li>
+<li><a href="#logcat"><!--Enabling Logcat Logging-->开启Logcat日志</a></li>
+<li><a href="#stopping"><!--Stopping the adb Server-->关闭adb服务</a></li>
   </ol>
 
   <h2>同时查看</h2>
   <ol>
-    <li><a href="emulator.html">Emulator</a></li>
+    <li><a href="emulator.html"><!--Emulator-->模拟器</a></li>
   </ol>
 
 </div>
 </div>
 
-<p>Android Debug Bridge (adb) is a versatile command line tool that lets you communicate with an
+<p><!--Android Debug Bridge (adb) is a versatile command line tool that lets you communicate with an
 emulator instance or connected Android-powered device. It is a client-server program that includes
-three components: </p>
+three components: -->
+Android Debug Bridge (adb)是一个多功能的命令行工具，能让你与一个模拟器或者已连接的android设备交互。它是一个client-server程序，包含三个组件：
+</p>
 
 <ul>
-  <li>A client, which runs on your development machine. You can invoke a client from a shell by issuing an adb command. Other Android tools such as the ADT plugin and DDMS also create adb clients. </li>
-  <li>A server, which runs as a background process on your development machine. The server manages communication between the client and the adb daemon running on an emulator or device. </li>
-  <li>A daemon, which runs as a background process on each emulator or device instance. </li>
+  <li><!--A client, which runs on your development machine. You can invoke a client from a shell by issuing an adb command. Other Android tools such as the ADT plugin and DDMS also create adb clients. --> client，运行在你的开发机上。你可以通过发出adb的shell命令来调用一个客户端。其他的android工具，诸如ADT插件和DDMS同样可以创建adb客户端。
+  </li>
+  <li><!--A server, which runs as a background process on your development machine. The server manages communication between the client and the adb daemon running on an emulator or device. -->
+  server，作为后台进程运行在你的开发机上。它管理客户端与运行在模拟器或设备上的adb daemon之间的通信。
+  </li>
+  <li><!--A daemon, which runs as a background process on each emulator or device instance.-->
+  daemon，作为后台进程运行在每一个模拟器或设备实例上。
+  </li>
 </ul>
 
-<p>You can find the <code>adb</code> tool in <code>&lt;sdk&gt;/platform-tools/</code>.</p>
+<p><!--You can find the <code>adb</code> tool in <code>&lt;sdk&gt;/platform-tools/</code>.-->
+你可以查找<code>adb</code>工具在<code>&lt;sdk&gt;/platform-tools/</code>.
+</p>
 
-<p>When you start an adb client, the client first checks whether there is an adb server process already running. If there isn't, it starts the server process. When the server starts, it binds to local TCP port 5037 and listens for commands sent from adb clients&mdash;all adb clients use port 5037 to communicate with the adb server. </p>
+<p><!--When you start an adb client, the client first checks whether there is an adb server process already running. If there isn't, it starts the server process. When the server starts, it binds to local TCP port 5037 and listens for commands sent from adb clients&mdash;all adb clients use port 5037 to communicate with the adb server. -->
+当你开启一个adb client时，客户端首先检查是否有一个已经运行的adb server进程。如果没有，将开启server进程。当服务器启动时，将绑定本地5037TCP端口，监听从adb client发送的命令&mdash;所有adb client使用5037端口与adb server通信。
+</p>
 
-<p>The server then sets up connections to all running emulator/device instances. It locates emulator/device instances by scanning odd-numbered ports in the range 5555 to 5585, the range used by emulators/devices. Where the server finds an adb daemon, it sets up a connection to that port. Note that each emulator/device instance acquires a pair of sequential ports &mdash; an even-numbered port for console connections and an odd-numbered port for adb connections. For example: </p>
+<p><!--The server then sets up connections to all running emulator/device instances. It locates emulator/device instances by scanning odd-numbered ports in the range 5555 to 5585, the range used by emulators/devices. Where the server finds an adb daemon, it sets up a connection to that port. Note that each emulator/device instance acquires a pair of sequential ports &mdash; an even-numbered port for console connections and an odd-numbered port for adb connections. For example: -->
+然后，server与所有正在运行的模拟器/设备实例建立连接。通过扫描在5555到5585范围内的奇数端口上的模拟器/设备实例，这个端口范围被模拟器/设备使用。server在哪个端口上查找到adb daemon，就在该端口上建立连接。注意，每一个模拟器/设备实例获得一对顺序端口&mdash;一个偶数端口的console连接和一个奇数端口的adb连接。例如：
+</p>
 
 <p style="margin-left:2em">
+<!--
 Emulator 1, console: 5554<br/>
 Emulator 1, adb: 5555<br>
 Emulator 2, console: 5556<br>
 Emulator 2, adb: 5557 ...
+-->
+模拟器 1, console: 5554<br/>
+模拟器 1, adb: 5555<br>
+模拟器 2, console: 5556<br>
+模拟器 2, adb: 5557 ...
 </p>
 
-<p>As shown, the emulator instance connected to adb on port 5555 is the same as the instance whose console listens on port 5554. </p>
+<p><!--As shown, the emulator instance connected to adb on port 5555 is the same as the instance whose console listens on port 5554.--> 
+如上所述，adb在5555端口上连接到模拟器实例，与console监听在5554上的是一个实例。
+</p>
 
-<p>Once the server has set up connections to all emulator instances, you can use adb commands to control and access those instances. Because the server manages connections to emulator/device instances and handles commands from multiple adb clients, you can control any emulator/device instance from any client (or from a script).</p>
+<p><!--Once the server has set up connections to all emulator instances, you can use adb commands to control and access those instances. Because the server manages connections to emulator/device instances and handles commands from multiple adb clients, you can control any emulator/device instance from any client (or from a script).-->
+一旦服务器与所有模拟器实例建立完了连接，你可以使用adb命令控制和访问那些设备。由于server管理连接到模拟器/设备实例和处理来自许多adb client的命令，所以你可以从任何一个client（或者一个script）来控制模拟器/设备实例。
+</p>
 
-<p>The sections below describe the commands that you can use to access adb capabilities and manage the state of an emulator/device. Note that if you are developing Android applications in Eclipse and have installed the ADT plugin, you do not need to access adb from the command line. The ADT plugin provides a transparent integration of adb into the Eclipse IDE. However, you can still use adb directly as necessary, such as for debugging.</p>
+<p><!--The sections below describe the commands that you can use to access adb capabilities and manage the state of an emulator/device. Note that if you are developing Android applications in Eclipse and have installed the ADT plugin, you do not need to access adb from the command line. The ADT plugin provides a transparent integration of adb into the Eclipse IDE. However, you can still use adb directly as necessary, such as for debugging.-->
+下面部分描述了你可以使用命令访问adb功能和管理一个模拟器/设备的状态。注意，如果你正在使用已经安装了ADT插件的Eclipse开发android应用，你不需要从命令行访问adb。ADT插件提供了一个集成到Eclipse IDE的adb，对你来说是透明的。然而，你仍然可以在必要时直接使用adb,比如debugging。
+</p>
 
 <a name="issuingcommands"></a>
 
-<h2>Issuing adb Commands</h2>
+<h2><!--Issuing adb Commands-->发出ADB命令</h2>
 
-<p>You can issue adb commands from a command line on your development machine or from a script. The usage is: </p>
+<p><!--You can issue adb commands from a command line on your development machine or from a script. The usage is: -->
+你可以从开发机上的命令行或者一个script中输入adb命令。用法如下：
+</p>
 
     <pre>adb [-d|-e|-s &lt;serialNumber&gt;] &lt;command&gt; </pre>
 
-<p>When you issue a command, the program invokes an adb client. The client is not specifically associated with any emulator instance, so if multiple emulators/devices are running, you need to use the <code>-d</code> option to specify the target instance to which the command should be directed. For more information about using this option, see <a href="#directingcommands">Directing Commands to a Specific Emulator/Device Instance</a>. </p>
+<p><!--When you issue a command, the program invokes an adb client. The client is not specifically associated with any emulator instance, so if multiple emulators/devices are running, you need to use the <code>-d</code> option to specify the target instance to which the command should be directed. For more information about using this option, see <a href="#directingcommands">Directing Commands to a Specific Emulator/Device Instance</a>. -->
+当你输入一个命令时，程序调用一个adb client。client没有与特定的模拟器实例相关联，因此如果有许多的模拟器/设备在运行，你需要使用<code>-d</code>选项来指派命令去指定的目标实例。关于使用选项的更多信息，查看<a href="#directingcommands">指派命令到指定的模拟器/设备实例</a>
+</p>
 
 <a name="devicestatus"></a>
 
-<h2>Querying for Emulator/Device Instances</h2>
+<h2><!--Querying for Emulator/Device Instances-->查询模拟器/设备实例</h2>
 
-<p>Before issuing adb commands, it is helpful to know what emulator/device instances are connected to the adb server. You can generate a list of attached emulators/devices using the <code>devices</code> command: </p>
+<p><!--Before issuing adb commands, it is helpful to know what emulator/device instances are connected to the adb server. You can generate a list of attached emulators/devices using the <code>devices</code> command: -->
+在发出adb命令之前使用，有助于了解adb server连接了哪些模拟器/设备实例。你可以使用<code>devices</code>命令生成一个模拟器/设备的列表：
+</p>
 
 	<pre>adb devices</pre>
 
-<p>In response, adb prints this status information for each instance:</p>
+<p><!--In response, adb prints this status information for each instance:-->
+在响应中，adb打印出每个实例的状态信息：
+</p>
 
 <ul>
-	<li>Serial number &mdash; A string created by adb to uniquely identify an emulator/device instance by its 
+	<li><!--Serial number &mdash; A string created by adb to uniquely identify an emulator/device instance by its 
         console port number. The format of the serial number is <code>&lt;type&gt;-&lt;consolePort&gt;</code>. 
-        Here's an example serial number: <code>emulator-5554</code></li>
-	<li>State &mdash; The connection state of the instance may be one of the following:
+        Here's an example serial number: <code>emulator-5554</code>-->
+		序列号 &mdash; adb通过使用控制端口号创建一个字符串来唯一标识一个模拟器/设备实例。Serial number的格式是 <code>&lt;type&gt;-&lt;consolePort&gt;</code>. 
+        一个serial number的例子： <code>emulator-5554</code>(译者注：实际usb连接设备的格式有所不同，例如0149A45511013013)
+	</li>
+	<li><!--State &mdash; The connection state of the instance may be one of the following:-->
+		状态 &mdash; 实例的连接状态可能如下：
 		<ul>
-		<li><code>offline</code> &mdash; the instance is not connected to adb or is not responding.</li>
-		<li><code>device</code> &mdash; the instance is now connected to the adb server. Note that this state does not 
+		<li><code>offline</code> &mdash; <!--the instance is not connected to adb or is not responding.-->实例没有被建连到adb或者没有反应（译者注：当模拟器在开启时也显示offline）。</li>
+		<li><code>device</code> &mdash; <!--the instance is now connected to the adb server. Note that this state does not 
                     imply that the Android system is fully booted and operational, since the instance connects to adb 
                     while the system is still booting. However, after boot-up, this is the normal operational state of 
-                    an emulator/device instance.</li>
-                <li><code>no device</code> &mdash; there is no emulator/device connected.
+                    an emulator/device instance.-->
+					实例与adb server正在连接中。注意，这个状态不意味android系统是完全启动和运行的，因为实例连接到adb时系统仍然在启动期间。然而，启动之后，进入模拟器/设备实例的正常运行状态。
+					</li>
+                <li><code>no device</code> &mdash; <!--there is no emulator/device connected.-->没有接入的模拟器/设备。</li>
+				<li>(译者注：<code>no permissions</code> &mdash; 设备已连接到adb，但是没有授权，具体请参考<a href="http://developer.android.com/tools/device.html">Using Hardware Devices</a>)。</li>
 		</ul>
 	</li>
 </ul>
 
-<p>The output for each instance is formatted like this: </p>
+<p><!--The output for each instance is formatted like this:--> 
+输出每个实例的格式如下：
+</p>
 
 	<pre>[serialNumber] [state]</pre>
 
-<p>Here's an example showing the <code>devices</code> command and its output:</p>
+<p><!--Here's an example showing the <code>devices</code> command and its output:-->
+下面例子显示了<code>devices</code>命令以及输出:
+</p>
 
-	<pre>$ adb devices
+<pre>$ adb devices
 List of devices attached 
 emulator-5554&nbsp;&nbsp;device
 emulator-5556&nbsp;&nbsp;device
 emulator-5558&nbsp;&nbsp;device</pre>
 
-
-
 <a name="directingcommands"></a>
 
-<h2>Directing Commands to a Specific Emulator/Device Instance</h2>
+<h2><!--Directing Commands to a Specific Emulator/Device Instance-->
+指派命令到指定的模拟器/设备
+</h2>
 
-<p>If multiple emulator/device instances are running, you need to specify a target instance when issuing adb commands. To so so, use the <code>-s</code> option in the commands. The usage for the <code>-s</code> option is:</p>
+<p><!--If multiple emulator/device instances are running, you need to specify a target instance when issuing adb commands. To so so, use the <code>-s</code> option in the commands. The usage for the <code>-s</code> option is:-->
+如果有许多的模拟器/设备正在运行，在发出adb命令时你需要指定一个目标实例。在命令行中使用<code>-s</code>选项。选项<code>-s</code>的用法如下：
+</p>
 
     <pre>adb -s &lt;serialNumber&gt; &lt;command&gt; </pre>
 	
-<p>As shown, you specify the target instance for a command using its adb-assigned serial number. You can use the <code>devices</code> command to obtain the serial numbers of running emulator/device instances. </p>
+<p><!--As shown, you specify the target instance for a command using its adb-assigned serial number. You can use the <code>devices</code> command to obtain the serial numbers of running emulator/device instances. -->
+如上所示，你通过命令中使用adb为它分配的序列号来指定目标实例。你可以使用<code>devices</code>命令获得正在运行的模拟器/设备实例的序列号。
+</p>
 
-<p>Here is an example: </p>
+<p><!--Here is an example:-->
+例子如下：
+</p>
 
 	<pre>adb -s emulator-5556 install helloWorld.apk</pre>
 
-<p>Note that, if you issue a command without specifying a target emulator/device instance using <code>-s</code>, adb generates an error. 
-
+<p><!--Note that, if you issue a command without specifying a target emulator/device instance using <code>-s</code>, adb generates an error. -->
+注意，如果你输入一个使用了<code>-s</code>的命令，但是没有指定目标模拟器/设备实例，adb会产生一个error。
+</p>
 <a name="move"></a>
 
-<h2>Installing an Application</h2>
-<p>You can use adb to copy an application from your development computer and install it on an emulator/device instance. To do so, use the <code>install</code> command. With the command, you must specify the path to the .apk file that you want to install:</p>
+<h2><!--Installing an Application-->安装应用</h2>
+<p><!--You can use adb to copy an application from your development computer and install it on an emulator/device instance. To do so, use the <code>install</code> command. With the command, you must specify the path to the .apk file that you want to install:-->
+你可以使用adb从你的开发电脑上复制一个应用，并且把它安装到一个模拟器/设备实例。可以这样做，使用<code>install</code>命令。用这个命令时，你必须指定想要安装的.apk文件的路径，如下：
+</p>
 
 <pre>adb install &lt;path_to_apk&gt;</pre>
 
-<p>For more information about how to create an .apk file that you can install on an emulator/device
-instance, see <a href="../../tools/building/index.html">Building and Running</a></p>
+<p><!--For more information about how to create an .apk file that you can install on an emulator/device
+instance, see <a href="../../tools/building/index.html">Building and Running</a>
+-->
+获得更多有关如何创建一个可以安装在一个模拟器/设备上的.apk文件的信息，可以查看<a href="../../tools/building/index.html">Building and Running</a>
+</p>
 
-<p>Note that, if you are using the Eclipse IDE and have the ADT plugin installed, you do not need to use adb (or aapt) directly to install your application on the emulator/device. Instead, the ADT plugin handles the packaging and installation of the application for you. </p>
-
+<p><!--Note that, if you are using the Eclipse IDE and have the ADT plugin installed, you do not need to use adb (or aapt) directly to install your application on the emulator/device. Instead, the ADT plugin handles the packaging and installation of the application for you. -->
+注意，如果你使用已经安装了ADT插件的Eclipse IDE，在模拟器/设备上你不必直接使用adb（或者aapt）安装你的应用。反而，使用ADT插件为你处理应用的打包和安装。
+</p>
 
 <a name="forwardports"></a>
 
-<h2>Forwarding Ports</h2>
-
+<h2><!--Forwarding Ports-->转发端口</h2>
+<!--
     <p>You can use the <code>forward</code> command to set up arbitrary port forwarding &mdash; forwarding of requests on a specific host port to a different port on an emulator/device instance. Here's how you would set up forwarding of host port 6100 to emulator/device port 7100:</p>
 <pre>adb forward tcp:6100 tcp:7100</pre>
     <p>You can also use adb to set up forwarding to named abstract UNIX domain sockets, as illustrated here:</p>
 <pre>adb forward tcp:6100 local:logd </pre>
-
+-->
+<p>你可以使用<code>forward</code>命令去设备任意端口的转发 &mdash; 将指定主机端口的请求转发到一个模拟器/设备实例的另一个端口。以下告诉你如何设置将主机6100端口的请求转发到模拟器/设备的7100端口：
+</p>
+<pre>adb forward tcp:6100 tcp:7100</pre>
+    <p>你也可以使用adb设置将请求转发到抽象的UNIX domain sockets命名，如下：</p>
+<pre>adb forward tcp:6100 local:logd </pre>
 <a name="copyfiles"></a>
 
-<h2>Copying Files to or from an Emulator/Device Instance</h2>
+<h2><!--Copying Files to or from an Emulator/Device Instance-->从模拟器/设备中拷入或拷出文件</h2>
 
-<p>You can use the adb commands <code>pull</code> and <code>push</code> to copy files to and from an emulator/device instance's data file. Unlike the <code>install</code> command, which only copies an .apk file to a specific location, the <code>pull</code> and <code>push</code> commands let you copy arbitrary directories and files to any location in an emulator/device instance. </p>
+<p><!--You can use the adb commands <code>pull</code> and <code>push</code> to copy files to and from an emulator/device instance's data file. Unlike the <code>install</code> command, which only copies an .apk file to a specific location, the <code>pull</code> and <code>push</code> commands let you copy arbitrary directories and files to any location in an emulator/device instance. -->
+你可以使用adb命令的<code>pull</code>和<code>push</code>，复制文件到模拟器/设备上，或者从模拟器/设备上复制出来数据文件。不同与<code>install</code>命令，仅仅是复制一个.apk文件到指定位置，<code>pull</code>和<code>push</code>命令让你复制任意的目录和文件到模拟器/设备实例的任何位置。
+</p>
 
-<p>To copy a file or directory (recursively) <em>from</em> the emulator or device, use</p>
+<p><!--To copy a file or directory (recursively) <em>from</em> the emulator or device, use-->
+<em>从</em>模拟器或设备上复制一个文件或者文件夹（递归），使用如下：
+</p>
 <pre>adb pull &lt;remote&gt; &lt;local&gt;</pre> 
 
-<p>To copy a file or directory (recursively) <em>to</em> the emulator or device, use</p>
+<p><!--To copy a file or directory (recursively) <em>to</em> the emulator or device, use-->
+复制一个文件或文件夹（递归）<em>到</em>模拟器或设备上，使用如下：
+</p>
     <pre>adb push &lt;local&gt; &lt;remote&gt;</pre> 
+<p><!--In the commands, <code>&lt;local&gt;</code> and <code>&lt;remote&gt;</code> refer to the paths to the target files/directory on your development machine (local) and on the emulator/device instance (remote).-->
+在命令中，<code>&lt;local&gt;</code>和<code>&lt;remote&gt;</code>指的是开发机（本地）的路径到模拟器/设备实例（远程）的目标文件/文件夹，或者模拟器/设备实例（远程）的路径到开发机（本地）目标文件/文件夹。
+</p>
 
-<p>In the commands, <code>&lt;local&gt;</code> and <code>&lt;remote&gt;</code> refer to the paths to the target files/directory on your development machine (local) and on the emulator/device instance (remote).</p>
-
-<p>Here's an example: </p>
+<p><!--Here's an example: -->例子如下：</p>
 <pre>adb push foo.txt /sdcard/foo.txt</pre>
 
 <a name="commandsummary"></a>
 
-<h2>Listing of adb Commands</h2>
+<h2><!--Listing of adb Commands-->adb命令列表</h2>
 
-<p>The table below lists all of the supported adb commands and explains their meaning and usage. </p>
+<p><!--The table below lists all of the supported adb commands and explains their meaning and usage. -->
+下表罗列了所有adb支持的命令，解释它们的含义与用法。
+</p>
 
 
 <table>
 <tr>
-	<th>Category</th>
-	<th>Command</th>
-	<th>Description</th>
-	<th>Comments</th>
+	<th><!--Category-->分类</th>
+	<th><!--Command-->命令</th>
+	<th><!--Description-->说明</th>
+	<th><!--Comments-->注释</th>
 </tr>
 
 <tr>
 <td rowspan="3">Options</td>
 <td><code>-d</code></td>
-<td>Direct an adb command to the only attached USB device.</td>
-<td>Returns an error if more than one USB device is attached.</td>
+<td><!--Direct an adb command to the only attached USB device.-->
+将adb命令用于唯一的USB连接设备上。（译者注：-d不算命令只是参数，需要配合命令使用，如adb -d push test.txt /sdcard/test.txt）
+</td>
+<td><!--Returns an error if more than one USB device is attached.-->
+当有不止一个已连接的USB设备时，将返回一个error。
+</td>
 </tr>
 
 <tr>
 <td><code>-e</code></td>
-<td>Direct an adb command to the only running emulator instance.</td>
-<td>Returns an error if more than one emulator instance is running. </td>
+<td><!--Direct an adb command to the only running emulator instance.-->
+将adb命令用于唯一运行的模拟器实例上。
+</td>
+<td><!--Returns an error if more than one emulator instance is running.--> 
+当有不止一个模拟器实例在运行的时候，将返回一个error。
+</td>
 </tr>
 
 <tr>
 <td><code>-s&nbsp;&lt;serialNumber&gt;</code></td>
-<td>Direct an adb command a specific emulator/device instance, referred to by its adb-assigned serial number (such as "emulator-5556").</td>
-<td>If not specified, adb generates an error.</td>
+<td><!--Direct an adb command a specific emulator/device instance, referred to by its adb-assigned serial number (such as "emulator-5556").-->
+将命令用于一个指定的由adb分配的序列号的模拟器/设备实例上（比如：“emulator-5556”）。
+</td>
+<td><!--If not specified, adb generates an error.-->
+如果没有指定，adb将产生一个error。
+</td>
 </tr>
 
 <tr>
 <td rowspan="3">General</td>
 <td><code>devices</code></td>
-<td>Prints a list of all attached emulator/device instances.</td>
-<td>See <a href="#devicestatus">Querying for Emulator/Device Instances</a> for more information.</td>
+<td><!--Prints a list of all attached emulator/device instances.-->
+打印出所有已连接的模拟器/设备实例的列表
+</td>
+<td>See <a href="#devicestatus">查询模拟器/设备实例</a> for more information.</td>
 </tr>
 
 <tr>
 <td><code>help</code></td>
-<td>Prints a list of supported adb commands.</td>
+<td><!--Prints a list of supported adb commands.-->
+打印出adb支持的命令列表
+</td>
 <td>&nbsp;</td>
 </tr>
 
 <tr>
 <td><code>version</code></td>
-<td>Prints the adb version number. </td>
+<td><!--Prints the adb version number.--> 
+打印出adb的版本号
+</td>
 <td>&nbsp;</td>
 </tr>
 
 <tr>
 <td rowspan="3">Debug</td>
 <td ><code>logcat&nbsp;[&lt;option&gt;] [&lt;filter-specs&gt;]</code></td>
-<td>Prints log data to the screen. </td>
+<td><!--Prints log data to the screen. -->
+打印log数据到屏幕上。
+</td>
 <td>&nbsp;</td>
 </tr>
 
 <tr>
 <td><code>bugreport</code></td>
-<td>Prints <code>dumpsys</code>, <code>dumpstate</code>, and <code>logcat</code> data to the screen, for the purposes of bug reporting. </td>
+<td><!--Prints <code>dumpsys</code>, <code>dumpstate</code>, and <code>logcat</code> data to the screen, for the purposes of bug reporting. -->
+打印bug的报告，包括<code>dumpsys</code>, <code>dumpstate</code>, <code>logcat</code>数据。
+</td>
 <td>&nbsp;</td>
 </tr>
 
 <tr>
 <td><code>jdwp</code></td>
-<td>Prints a list of available JDWP processes on a given device. </td>
-<td>You can use the <code>forward jdwp:&lt;pid&gt;</code> port-forwarding specification to connect to a specific JDWP process. For example: <br>
+<td><!--Prints a list of available JDWP processes on a given device. -->
+打印出在一个给定设备上可用的JDWP进程列表。（译者注：JDWP - Java Debug Wire Protocol JAVA调试器无线协议）
+</td>
+<td><!--You can use the <code>forward jdwp:&lt;pid&gt;</code> port-forwarding specification to connect to a specific JDWP process. For example: -->
+你可以使用<code>forward jdwp:&lt;pid&gt;</code>端口转发规范来连接到一个特定的JDWP进程。例如：
+<br>
     <code>adb forward tcp:8000 jdwp:472</code><br>
     <code>jdb -attach localhost:8000</code></p>
  </td>
@@ -855,27 +952,36 @@ instance, see <a href="../../tools/building/index.html">Building and Running</a>
 <tr>
 <td rowspan=3">Data</td>
 <td><code>install&nbsp;&lt;path-to-apk&gt;</code></td>
-<td>Pushes an Android application (specified as a full path to an .apk file) to the data file of an emulator/device. </td>
-<td>&nbsp;</td>
+<td><!--Pushes an Android application (specified as a full path to an .apk file) to the data file of an emulator/device.-->
+复制一个android应用（指定一个完成路径的.apk文件）到模拟器/设备，并安装数据文件。
+</td>
+<td></td>
 </tr>
 
 <tr>
 <td><code>pull&nbsp;&lt;remote&gt;&nbsp;&lt;local&gt;</code></td>
-<td>Copies a specified file from an emulator/device instance to your development computer. </td>
+<td><!--Copies a specified file from an emulator/device instance to your development computer.-->
+从模拟器/设备实例内复制一个指定的文件到你的开发电脑上。
+</td>
 <td>&nbsp;</td>
 </tr>
 
 <tr>
 <td><code>push&nbsp;&lt;local&gt;&nbsp;&lt;remote&gt;</code></td>
-<td>Copies a specified file from your development computer to an emulator/device instance. </td>
+<td><!--Copies a specified file from your development computer to an emulator/device instance. -->
+从你的开发电脑中复制一个指定的文件到一个模拟器/设备实例上。
+</td>
 <td>&nbsp;</td>
 </tr>
 
 <tr>
 <td rowspan="2">Ports and Networking</td>
 <td><code>forward&nbsp;&lt;local&gt;&nbsp;&lt;remote&gt;</code></td>
-<td>Forwards socket connections from a specified local port to a specified remote port on the emulator/device instance. </td>
-<td>Port specifications can use these schemes: 
+<td><!--Forwards socket connections from a specified local port to a specified remote port on the emulator/device instance.--> 
+从一个指定的本地端口转发socket连接到一个指定的模拟器/设备远程端口。
+</td>
+<td><!--Port specifications can use these schemes:-->
+端口规格可以使用以下schemes： 
 <ul><li><code>tcp:&lt;portnum&gt;</code></li>
 <li><code>local:&lt;UNIX domain socket name&gt;</code></li>
 <li><code>dev:&lt;character device name&gt;</code></li>
@@ -885,39 +991,51 @@ instance, see <a href="../../tools/building/index.html">Building and Running</a>
 
 <tr>
 <td><code>ppp&nbsp;&lt;tty&gt;&nbsp;[parm]...</code></td>
-<td>Run PPP over USB.
+<td><!--Run PPP over USB.-->用过USB运行PPP。
 <ul>
 <li><code>&lt;tty&gt;</code> &mdash; the tty for PPP stream. For example <code>dev:/dev/omap_csmi_ttyl</code>. </li>
 <li><code>[parm]... </code> &mdash; zero or more PPP/PPPD options, such as <code>defaultroute</code>, <code>local</code>, <code>notty</code>, etc.</li></ul>
 
-<p>Note that you should not automatically start a PPP connection. </p></td>
+<p><!--Note that you should not automatically start a PPP connection.--> 
+注意，你不能自动开启一个PPP连接。
+</p></td>
 <td></td>
 </tr>
 
 <tr>
 <td rowspan="3">Scripting</td>
 <td><code>get-serialno</code></td>
-<td>Prints the adb instance serial number string.</td>
+<td><!--Prints the adb instance serial number string.-->
+打印adb实例的序列号。
+</td>
 <td rowspan="2">See <a href="#devicestatus">Querying for Emulator/Device Instances</a> for more information. </td>
 </tr>
 
 <tr>
 <td><code>get-state</code></td>
-<td>Prints the adb state of an emulator/device instance.</td>
+<td><!--Prints the adb state of an emulator/device instance.-->
+打印模拟器/设备实例的adb状态。
+</td>
 </td>
 </tr>
 
 <tr>
 <td><code>wait-for-device</code></td>
-<td>Blocks execution until the device is online &mdash; that is, until the instance state is <code>device</code>.</td>
-<td>You can prepend this command to other adb commands, in which case adb will wait until the emulator/device instance is connected before issuing the other commands. Here's an example: 
+<td><!--Blocks execution until the device is online &mdash; that is, until the instance state is <code>device</code>.-->
+ 阻塞执行直到设备进入联机状态 &mdash; 意思是说，直到实例状态是<code>device</code>
+</td>
+<td><!--You can prepend this command to other adb commands, in which case adb will wait until the emulator/device instance is connected before issuing the other commands. Here's an example: -->
+你可以提前把命令暂存在adb的命令器中,在命令器中的命令在模拟器/设备连接之前是不会发出其它命令的，例如：
 <pre>adb wait-for-device shell getprop</pre>
 
-Note that this command does <em>not</em> cause adb to wait until the entire system is fully booted. For that reason, you should not prepend it to other commands that require a fully booted system. As an example, the <code>install</code> requires the Android package manager, which is available only after the system is fully booted. A command such as 
-
+<!--Note that this command does <em>not</em> cause adb to wait until the entire system is fully booted. For that reason, you should not prepend it to other commands that require a fully booted system. As an example, the <code>install</code> requires the Android package manager, which is available only after the system is fully booted. A command such as 
+-->
+需要注意的是这些命令在系统完全启动起来之前是<em>不会</em>启动adb的。 因此在系统完全启动起来之前你也不能执行其它的命令。比如：运用<code>install</code> 需要Android包管理程序，只有系统完全启动后该程序才有效。例如：
 <pre>adb wait-for-device install &lt;app&gt;.apk</pre>
 
-would issue the <code>install</code> command as soon as the emulator or device instance connected to the adb server, but before the Android system was fully booted, so it would result in an error. </td>
+<!--would issue the <code>install</code> command as soon as the emulator or device instance connected to the adb server, but before the Android system was fully booted, so it would result in an error. -->
+只有模拟器/设备连接上了adb server后发出<code>install</code>命令才会被执行，而在Android系统完全启动前执行就会有错误发生。
+</td>
 </tr>
 
 
@@ -925,13 +1043,17 @@ would issue the <code>install</code> command as soon as the emulator or device i
 <tr>
 <td rowspan="2">Server</td>
 <td><code>start-server</code></td>
-<td>Checks whether the adb server process is running and starts it, if not.</td>
+<td><!--Checks whether the adb server process is running and starts it, if not.-->
+检测adb server进程是否已运行，如果没有则开启它。
+</td>
 <td>&nbsp;</td>
 </tr>
 
 <tr>
 <td><code>kill-server</code></td>
-<td>Terminates the adb server process.</td>
+<td><!--Terminates the adb server process.-->
+终结adb server进程
+</td>
 <td>&nbsp;</td>
 </tr>
 
@@ -940,13 +1062,17 @@ would issue the <code>install</code> command as soon as the emulator or device i
 <tr>
 <td rowspan="2">Shell</td>
 <td><code>shell</code></td>
-<td>Starts a remote shell in the target emulator/device instance.</td>
+<td><!--Starts a remote shell in the target emulator/device instance.-->
+在模拟器/设备实例上开启一个远程shell。（译者注：进入远程shell终端）
+</td>
 <td rowspan="2">See <a href="#shellcommands">Issuing Shell Commands</a> for more information. </td>
 </tr>
 
 <tr>
 <td><code>shell&nbsp;[&lt;shellCommand&gt;]</code></td>
-<td>Issues a shell command in the target emulator/device instance and then exits the remote shell.</td>
+<td><!--Issues a shell command in the target emulator/device instance and then exits the remote shell.-->
+发出一个shell命令到模拟器/设备实例上，完毕后退出远程shell。
+</td>
 </tr>
 
 </table>
@@ -954,43 +1080,61 @@ would issue the <code>install</code> command as soon as the emulator or device i
 
 <a name="shellcommands"></a>
 
-<h2>Issuing Shell Commands</h2>
+<h2><!--Issuing Shell Commands-->发出Shell命令</h2>
 
-<p>Adb provides an ash shell that you can use to run a variety of commands on an emulator 
+<p><!--Adb provides an ash shell that you can use to run a variety of commands on an emulator 
 or device. The command binaries are stored in the file system of the emulator or device, 
-in this location: </p>
+in this location: -->
+adb提供了一个ash shell，你可以使用ash shell在模拟器或设备上运行多种命令。这些命令以二进制的形式保存在模拟器或设备的本地文件系统中，如下：
+</p>
 
 <pre>/system/bin/...</pre>
 
-<p>You can use the <code>shell</code> command to issue commands, with or without entering the adb remote shell on the emulator/device. </p>
+<p><!--You can use the <code>shell</code> command to issue commands, with or without entering the adb remote shell on the emulator/device. -->
+不论进没进入到模拟器/设备的adb远程shell终端，你都可以使用<code>shell</code>命令去发布命令。
+</p>
 
-<p>To issue a single command without entering a remote shell, use the <code>shell</code> command like this: </p>
+<p><!--To issue a single command without entering a remote shell, use the <code>shell</code> command like this: -->
+当没有进入远程shell终端时，发布一个简单的<code>shell</code>命令，如下：
+</p>
 
 	<pre>adb [-d|-e|-s {&lt;serialNumber&gt;}] shell &lt;shellCommand&gt;</pre>
 	
-<p>To drop into a remote shell on a emulator/device instance, use the <code>shell</code> command like this:</p>
+<p><!--To drop into a remote shell on a emulator/device instance, use the <code>shell</code> command like this:-->
+使用<code>shell</code>命令登录进一个远程的模拟器/设备的shell终端。如下：
+</p>
 
 	<pre>adb [-d|-e|-s {&lt;serialNumber&gt;}] shell</pre>
 
-<p>When you are ready to exit the remote shell, use <code>CTRL+D</code> or <code>exit</code> to end the shell session. </p>
+<p><!--When you are ready to exit the remote shell, use <code>CTRL+D</code> or <code>exit</code> to end the shell session.-->
+当你准备退出远程shell时，使用<code>CTRL+D</code>或<code>exit</code>来关闭shell会话。
+</p>
 
-<p>The sections below provide more information about shell commands that you can use.</p>
+<p><!--The sections below provide more information about shell commands that you can use.-->
+以下将告诉你更多的关于使用shell命令的知识。
+</p>
       
 <a name="sqlite" id="sqlite"></a>
 
-<h3>Examining sqlite3 Databases from a Remote Shell</h3>
+<h3><!--Examining sqlite3 Databases from a Remote Shell-->
+通过远程shell连接sqllite3数据库
+</h3>
 
-<p>From an adb remote shell, you can use the 
+<p><!--From an adb remote shell, you can use the 
 <a href="http://www.sqlite.org/sqlite.html">sqlite3</a> command-line program to 
 manage SQLite databases created by Android applications. The 
 <code>sqlite3</code> tool includes many useful commands, such as 
 <code>.dump</code> to print out the contents of a table and 
 <code>.schema</code> to print the SQL CREATE statement for an existing table. 
-The tool also gives you the ability to execute SQLite commands on the fly.</p>
+The tool also gives you the ability to execute SQLite commands on the fly.-->
+通过adb远程shell，你可以使用<a href="http://www.sqlite.org/sqlite.html">sqlite3</a>客户端程序去管理android应用中安装的SQLite数据库。<code>sqlite3</code>工具包括很多有用的命令，例如<code>.dump</code>导出一个table的内容，<code>.schema</code>导出现存table的SQL CREATE报表。Sqlite3还允许你远程执行SQLite命令。
+</p>
 
-<p>To use <code>sqlite3</code>, enter a remote shell on the emulator instance, as described above, then invoke the tool using the <code>sqlite3</code> command. Optionally, when invoking <code>sqlite3</code> you can specify the full path to the database you want to explore. Emulator/device instances store SQLite3 databases in the folder <code><span chatdir="1"><span chatindex="259474B4B070F261">/data/data/<em>&lt;package_name&gt;</em>/databases</span></span>/</code>. </p>
+<p><!--To use <code>sqlite3</code>, enter a remote shell on the emulator instance, as described above, then invoke the tool using the <code>sqlite3</code> command. Optionally, when invoking <code>sqlite3</code> you can specify the full path to the database you want to explore. Emulator/device instances store SQLite3 databases in the folder <code><span chatdir="1"><span chatindex="259474B4B070F261">/data/data/<em>&lt;package_name&gt;</em>/databases</span></span>/</code>. -->
+使用<code>sqlite3</code>，按照前面章节的介绍，进入到模拟器的远程shell终端，然后使用<code>sqlite3</code>命令启动工具。当启动<code>sqlite3</code>后，你可以指定你想查看的数据库的完整路径。模拟器/设备实例会在文件夹<code><span chatdir="1"><span chatindex="259474B4B070F261">/data/data/<em>&lt;package_name&gt;</em>/databases</span></span>/</code>中保存SQLite3数据库。
+</p>
 
-<p>Here's an example: </p>
+<p><!--Here's an example: -->示例如下：</p>
 
 <pre>$ adb -s emulator-5554 shell
 # sqlite3 /data/data/com.example.google.rss.rssexample/databases/rssitems.db
@@ -999,54 +1143,68 @@ Enter &quot;.help&quot; for instructions
 <em>.... enter commands, then quit...</em>
 sqlite&gt; .exit </pre>
 
-<p>Once you've invoked <code>sqlite3</code>, you can issue <code>sqlite3</code> commands in the shell. To exit and return to the adb remote shell, use <code>exit</code> or <code>CTRL+D</code>.
-
-
+<p><!--Once you've invoked <code>sqlite3</code>, you can issue <code>sqlite3</code> commands in the shell. To exit and return to the adb remote shell, use <code>exit</code> or <code>CTRL+D</code>.-->
+当你想要启动<code>sqlite3</code>时，你可以在shell中发布<code>sqlite3</code>命令。使用<code>exit</code>或<code>CTRL+D</code>命令可以退出和返回到adb远程shell终端。
+</p>
 <a name="monkey"></a>
 
-<h3>UI/Application Exerciser Monkey</h3>
+<h3><!--UI/Application Exerciser Monkey-->UI/Application试验程序 Monkey</h3>
 
-<p>The Monkey is a program that runs on your emulator or device and generates pseudo-random
+<p><!--The Monkey is a program that runs on your emulator or device and generates pseudo-random
 streams of user events such as clicks, touches, or gestures, as well as a number of system-level 
 events.  You can use the Monkey to stress-test applications that you are developing,
-in a random yet repeatable manner.</p>
+in a random yet repeatable manner.-->
+当Monkey程序在模拟器或设备运行的时候，如果用户产生了比如点击，触摸，手势或一些系统级别的事件的时候，它就会产生pseudo-randomstreams。你可以用Monkey采用随机重复的方式去stress-test你开发的应用程序。
+</p>
 
-<p>The simplest way to use the monkey is with the following command, which will launch your
-application and send 500 pseudo-random events to it.</p>
+<p><!--The simplest way to use the monkey is with the following command, which will launch your
+application and send 500 pseudo-random events to it.-->
+最简单的方法就是用下面的命令来使用Monkey，这个命令将会启动你的应用程序并且触发500个pseudo-random事件。
+</p>
 
 <pre>$ adb shell monkey -v -p your.package.name 500</pre>
 
-<p>For more information about command options for Monkey, see the complete 
-<a href="../../tools/help/monkey.html" title="monkey">UI/Application Exerciser Monkey</a> documentation page.</p>
+<p><!--For more information about command options for Monkey, see the complete 
+<a href="../../tools/help/monkey.html" title="monkey">UI/Application Exerciser Monkey</a> documentation page.-->
+更多的关于命令Monkey的命令的信息，可以查看<a href="../../tools/help/monkey.html" title="monkey">UI/Application Exerciser Monkey</a>文档页面。
+</p>
 
 
 <a name="othershellcommands"></a>
 
-<h3>Other Shell Commands</h3>
+<h3><!--Other Shell Commands-->其他shell命令</h3>
 
-<p>The table below lists several of the adb shell commands available. For a complete list of commands and programs, start an emulator instance and use the <code>adb -help</code> command. </p>
+<p><!--The table below lists several of the adb shell commands available. For a complete list of commands and programs, start an emulator instance and use the <code>adb -help</code> command. -->
+下表列出了一些有用的adb shell命令。如果需要全部的命令和程序，可以启动模拟器实例并且用<code>adb -help</code>命令。
+</p>
 
 <pre>adb shell ls /system/bin</pre>
 
-<p>Help is available for most of the commands. </p>
+<p><!--Help is available for most of the commands.-->
+对大部分命令来说，help都是可用的。
+</p>
 
 <table>
 <tr>
-	<th>Shell Command</th>
-	<th>Description</th>
-	<th>Comments</th>
+	<th><!--Shell Command-->Shell命令</th>
+	<th><!--Description-->描述</th>
+	<th><!--Comments-->注释</th>
 </tr>
 
 <tr>
 <td><code>dumpsys</code></td>
-<td>Dumps system data to the screen.</td>
+<td><!--Dumps system data to the screen.-->
+dump出系统信息数据。
+</td>
 <td rowspan=4">The <a href="../../tools/debugging/ddms.html">Dalvik Debug Monitor Server</a> 
 (DDMS) tool offers integrated debug environment that you may find easier to use.</td>
 </tr>
 
 <tr>
 <td><code>dumpstate</code></td>
-<td>Dumps state to a file.</td>
+<td><!--Dumps state to a file.-->
+dump出状态到文件中。
+</td>
 </tr>
 
 <tr>
@@ -1056,18 +1214,24 @@ application and send 500 pseudo-random events to it.</p>
 
 <tr>
 <td><code>dmesg</code></td>
-<td>Prints kernel debugging messages to the screen. </td>
+<td><!--Prints kernel debugging messages to the screen. -->
+输出核心的debugging信息到屏幕上
+</td>
 </tr>
 
 <tr>
 <td><code>start</code></td>
-<td>Starts (restarts) an emulator/device instance.</td>
+<td><!--Starts (restarts) an emulator/device instance.-->
+开启（重启）一个模拟器/设备实例。
+</td>
 <td>&nbsp;</td>
 </tr>
 
 <tr>
 <td><code>stop</code></td>
-<td>Stops execution of an emulator/device instance.</td>
+<td><!--Stops execution of an emulator/device instance.-->
+关闭一个模拟器/设备实例。
+</td>
 <td>&nbsp;</td>
 </tr>
 
@@ -1080,32 +1244,45 @@ application and send 500 pseudo-random events to it.</p>
 <a name="logcatoptions"></a>
 <a name="logcat"></a>
 
-<h2>Enabling logcat Logging</h2>
+<h2><!--Enabling logcat Logging-->启用logcat日志</h2>
 
-<p>The Android logging system provides a mechanism for collecting and viewing system debug output. Logs from various applications and portions of the system are collected in a series of circular buffers, which then can be viewed and filtered by the <code>logcat</code> command.</p>
+<p><!--The Android logging system provides a mechanism for collecting and viewing system debug output. Logs from various applications and portions of the system are collected in a series of circular buffers, which then can be viewed and filtered by the <code>logcat</code> command.-->
+Android日志系统提供了收集和查看系统debug信息的机制。日志是从各个应用程序和一些系统程序中收集,保存到一个连续循环的buffer，可以通过<code>logcat</code>命令来查看和过滤信息。
+</p>
 
-<p>You can use the <code>logcat</code> command to view and follow the contents of the system's log buffers. The general usage is:</p>
+<p><!--You can use the <code>logcat</code> command to view and follow the contents of the system's log buffers. The general usage is:-->
+你可以使用<code>logcat</code>命令查看和跟踪系统log缓冲区的内容。用法如下：
+</p>
 
 <pre>[adb] logcat [&lt;option&gt;] ... [&lt;filter-spec&gt;] ...</pre>
 
-<p>You can use the <code>logcat</code> command from your development computer  or from a remote adb shell in an emulator/device instance. To view log output in your development computer, you use</p>
+<p><!--You can use the <code>logcat</code> command from your development computer  or from a remote adb shell in an emulator/device instance. To view log output in your development computer, you use-->
+你可以在开发机或模拟器/设备的远程adb shell终端上使用<code>logcat</code>命令。将log输出到你的开发机上，如下：
+</p>
 
 <pre>$ adb logcat</pre>
 
-<p>and from a remote adb shell you use</p>
+<p><!--and from a remote adb shell you use-->
+从远程adb shell终端
+</p>
 
 <pre># logcat</pre>
 
-<p>See <a href="../../tools/debugging/debugging-log.html">Reading and Writing Logs</a> for complete information about logcat commend options and filter specifications.</p>
+<p>查看<a href="../../tools/debugging/debugging-log.html">Reading and Writing Logs</a><!-- for complete information about logcat commend options and filter specifications.-->
+获得关于logcat命令的操作与过滤规则的完整的信息。
+</p>
 
 
 <a name="stopping"></a>
 
-<h2>Stopping the adb Server</h2>
+<h2><!--Stopping the adb Server-->关闭adb server</h2>
 
-<p>In some cases, you might need to terminate the adb server process and then restart it. For example, if adb does not respond to a command, you can terminate the server and restart it and that may resolve the problem. </p>
-
-<p>To stop the adb server, use the <code>kill-server</code>. You can then restart the server by issuing any adb command. </p>
+<p><!--In some cases, you might need to terminate the adb server process and then restart it. For example, if adb does not respond to a command, you can terminate the server and restart it and that may resolve the problem. -->
+在某些情况下，你可能需要终止adb server进程，然后再重启它。例如,adb没有响应一个命令，也许通过终止并且重启serrver，能解决这个问题。
+</p>
+<p><!--To stop the adb server, use the <code>kill-server</code>. You can then restart the server by issuing any adb command.-->
+用<code>kill-server</code>可以终止adb server。你可以发出任何adb命令来重新启动server。
+</p>
 
 
 
