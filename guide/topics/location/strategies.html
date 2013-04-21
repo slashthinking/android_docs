@@ -1131,7 +1131,8 @@ SDK</a></li></ul>
 </div>
 </div>
 
-  <p>Knowing where the user is allows your application to be smarter and deliver
+<!--
+<p>Knowing where the user is allows your application to be smarter and deliver
 better information to the user. When developing a location-aware application for Android, you can
 utilize GPS and Android's Network Location Provider to acquire the user location. Although
 GPS is most accurate, it only works outdoors, it quickly consumes battery power, and doesn't return
@@ -1140,7 +1141,12 @@ using cell tower and Wi-Fi signals, providing location information in a way that
 works indoors and outdoors, responds faster, and uses less battery power. To obtain the user
 location in your application, you can use both GPS and the Network Location Provider, or just
 one.</p>
-
+-->
+<p>
+知道用户在哪儿，可以使你的应用更智能，也能为用户带来更精准的信息。在开发位置相关的应用时，可以利用GPS和安卓的 Network Location Provider 获取用户位置。
+虽然GPS更精确，但是它只能在室外工作，很费电，而且并不够快。安卓的 Network Location Provider 使用基站和 Wi-Fi 信号确定用户位置，这是在室内和室外都可以工作的方式。
+它更快，而且省电。在你的应用中，可以同时使用 GPS 和 Network Location Provider，或者选择其一获得用户位置。
+</p>
 <h2 id="Challenges">获取用户位置信息所存在的挑战</h2>
 <!--
 <h2 id="Challenges">Challenges in Determining User Location</h2>
@@ -1155,9 +1161,10 @@ Some sources of error in the user location include:</p>
 
 <ul>
   <li><b>多个位置源</b>
-<!-- <b>Multitude of location sources</b> -->
+<!-- <b>Multitude of location sources</b> 
     <p>GPS, Cell-ID, and Wi-Fi can each provide a clue to users location. Determining which to use
-and trust is a matter of trade-offs in accuracy, speed, and battery-efficiency.</p>
+and trust is a matter of trade-offs in accuracy, speed, and battery-efficiency.</p> -->
+<p>GPS，Cell-ID 以及 Wi-Fi 都可以提供用户位置的线索。确定使用哪种方式是在准确性、速度以及电池效率之间的权衡。</p>
   </li>
   <li><b>用户移动位置</b>
 <!-- <b>User movement</b> -->
@@ -1167,24 +1174,34 @@ and trust is a matter of trade-offs in accuracy, speed, and battery-efficiency.<
 location every so often.</p>
 -->
   </li>
-  <li><b>多种精度的抉择</b>
-<!-- <b>Varying accuracy</b> -->
+  <li><b>擅变的精度</b>
+<!-- <b>Varying accuracy</b> 
     <p>Location estimates coming from each location source are not consistent in their
 accuracy. A location obtained 10 seconds ago from one source might be more accurate than the newest
-location from another or same source.</p>
+location from another or same source.</p> -->
+<p>每个位置源得到的位置估计的精度是会变化的。10秒钟前从某个位置源得到的位置信息可能比更新后的还要准确，无论位置源是否变化。</p>
   </li>
 </ul>
-
+<!--
   <p>These problems can make it difficult to obtain a reliable user location reading. This
 document provides information to help you meet these challenges to obtain a reliable location
 reading. It also provides ideas that you can use in your
 application to provide the user with an accurate and responsive geo-location experience.</p>
-
+-->
+<p>这些问题使得得到可信的用户位置成为困难的事。这份文档提供的信息，可以帮助你面对这样的挑战。同时你也可以将其中的思路用于你的应用，
+从而为用户提供准确性高响应及时的地理位置体验。</p>
 <!--
 <h2 id="Updates">Requesting Location Updates</h2>
 -->
 <h2 id="Updates">请求位置更新信息</h2>
 
+<p>在讨论上述位置漂移问题之前，先来看看在安卓系统中如何得到用户位置。</p>
+<p>在安卓系统中使用回调函数获取用户位置。你可以从以下代码 <code><a href="../../../reference/android/location/LocationManager.html">LocationManager</a></code> ("Location
+Manager") 中获取位置更新。这需要调用 <code><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.app.PendingIntent)">requestLocationUpdates()</a></code>，将
+<code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code>作为参数传入。 你的 <code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code> 必须
+实现几个回调方法，这些方法会在用户位置变化或服务状态更改时由 Location Manager 调用。</p>
+
+<!--
   <p>Before addressing some of the location errors described above, here is an introduction to
 how you can obtain user location on Android.</p>
 
@@ -1194,11 +1211,16 @@ Manager") by calling <code><a href="../../../reference/android/location/Location
 <code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code>. Your <code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code> must
 implement several callback methods that the Location Manager calls when the user location
 changes or when the status of the service changes.</p>
-
+-->
+<!--
 <p>For example, the following code shows how to define a <code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code>
 and request location updates:
   </p>
-
+-->
+<p>比如说，以下代码展示了如何定义 <code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code>
+以及请求位置更新：
+  </p>
+  
 <pre>
 // Acquire a reference to the system Location Manager
 LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
@@ -1220,7 +1242,7 @@ LocationListener locationListener = new LocationListener() {
 // Register the listener with the Location Manager to receive location updates
 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
 </pre>
-
+<!--
   <p>The first parameter in <code><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.app.PendingIntent)">requestLocationUpdates()</a></code> is the type of
 location provider to use (in this case, the Network Location Provider for cell tower and Wi-Fi
 based location). You can control the frequency at which your listener receives updates
@@ -1228,20 +1250,32 @@ with the second and third parameter&mdash;the second is the minimum time interva
 notifications and the third is the minimum change in distance between notifications&mdash;setting
 both to zero requests location notifications as frequently as possible. The last parameter is your
 <code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code>, which receives callbacks for location updates.</p>
+ -->
+ <p><code><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.app.PendingIntent)">requestLocationUpdates()</a></code> 中第一个参数是使用的位置提供者的类型(这里 Network Location Provider 代表基于基站和 Wi-Fi 的位置)。
+你可以使用第二个和第三个参数控制你的监听器收到更新的频率——第二个参数是最短时间间隔
+通知频率而第三个参数是最低距离变化的通知频率。两个参数都设置为零意味着尽可能频繁地获取位置通知。最后一个参数是你的
+<code><a href="../../../reference/android/location/LocationListener.html">LocationListener</a></code>，它获取位置更新的回调。</p>
 
+<!--
 <p>To request location updates from the GPS provider,
 substitute <code>GPS_PROVIDER</code> for <code>NETWORK_PROVIDER</code>. You can also request
 location updates from both the GPS and the Network Location Provider by calling <code><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.app.PendingIntent)">requestLocationUpdates()</a></code> twice&mdash;once
 for <code>NETWORK_PROVIDER</code> and once for <code>GPS_PROVIDER</code>.</p>
+-->
+<p>如果要使用GPS获取位置更新，那么请用<code>GPS_PROVIDER</code>替代<code>NETWORK_PROVIDER</code>。如果想两者都使用，可以调用<code><a href="../../../reference/android/location/LocationManager.html#requestLocationUpdates(java.lang.String, long, float, android.app.PendingIntent)">requestLocationUpdates()</a></code> 两次——
+一次使用<code>NETWORK_PROVIDER</code>另一次使用<code>GPS_PROVIDER</code>.</p>
 
 <!--
 <h3 id="Permission">Requesting User Permission</h3>
 -->
 <h3 id="Permission">请求用户权限</h3>
-
+<!--
 <p>In order to receive location updates from <code>NETWORK_PROVIDER</code> or
 <code>GPS_PROVIDER</code>, you must request user permission by declaring either the <code>ACCESS_COARSE_LOCATION</code> or <code>ACCESS_FINE_LOCATION</code> permission, respectively, in your Android
 manifest file. For example:</p>
+-->
+<p>为使用<code>NETWORK_PROVIDER</code>或<code>GPS_PROVIDER</code>接收位置更新，
+必须声明 <code>ACCESS_COARSE_LOCATION</code> 或 <code>ACCESS_FINE_LOCATION</code> 以请求获取用户权限。例如，在你的安卓 manifest 文件中：</p>
 
 <pre>
 &lt;manifest ... &gt;
@@ -1249,25 +1283,34 @@ manifest file. For example:</p>
     ...
 &lt;/manifest&gt;
 </pre>
-
+<!--
 <p>Without these permissions, your application will fail at runtime when requesting
 location updates.</p>
-
+-->
+<p>如果没有这些权限，你的应用会在请求位置更新时发生运行时错误。</p>
+<!--
 <p class="note"><strong>Note:</strong> If you are using both <code>NETWORK_PROVIDER</code> and
 <code>GPS_PROVIDER</code>, then you need to request only the <code>ACCESS_FINE_LOCATION</code>
 permission, because it includes permission for both providers. (Permission for <code>ACCESS_COARSE_LOCATION</code> includes permission only for <code>NETWORK_PROVIDER</code>.)</p>
+-->
+<p class="note"><strong>注意：</strong> 如果你同时使用 <code>NETWORK_PROVIDER</code> 和
+<code>GPS_PROVIDER</code>，你只需要请求 <code>ACCESS_FINE_LOCATION</code> 权限，它包括了对两个
+位置提供源的许可。（<code>ACCESS_COARSE_LOCATION</code>权限只包括了对<code>NETWORK_PROVIDER</code>的许可。）</p>
 
 
 <!-- <h2 id="BestPerformance">Defining a Model for the Best Performance</h2> -->
 <h2 id="BestPerformance">定义一个最佳性能的模型</h2>
-
+<!--
   <p>Location-based applications are now commonplace, but due to the less than optimal
 accuracy, user movement, the multitude of methods to obtain the location, and the desire to conserve
 battery, getting user location is complicated. To overcome the obstacles of obtaining a good user
 location while preserving battery power, you must define a consistent model that specifies how your
 application obtains the user location. This model includes when you start and stop listening for
 updates and when to use cached location data.</p>
-
+-->
+  <p>现在基于位置的应用很常见，但是获得用户位置很复杂，这是由于精确度低、用户移动、获取位置方法的多样性以及省电的需求造成的。
+为了能在省电的同时获得不错的用户位置信息，必须定义完整的模型，指定应用获取用户位置的方法。它包括开始和停止监听更新的时机，也
+决定什么时候使用缓存的位置数据</p>
 <!--
   <h3 id="Flow">Flow for obtaining user location</h3>
 -->
